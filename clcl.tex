@@ -152,7 +152,7 @@
 \linespread{1.1}
 \author{C. L. C. L. Polymath}
 \begin{document}
-\title{Continuous logic for the classical logician}
+\title{Half-standad model theory}
 \hfill\texttt{Branch:\ \branch\ \DTMnow}\bigskip
 \maketitle
 \raggedbottom
@@ -219,7 +219,7 @@ In particular, there is a constant for each element of $I$.
 According to the context, $C$ and $f$ denote either the symbols of $L_{\sf I}$ or their interpretation in the stucture $I$.
 Such a language $L_{\sf I}$ is much larger than necessary but it is convenient because it uniquely associates a structure to a topological space.
 
-The most straightforward examples of structures $I$ are the unit interval $[0,1]$, with the usual topology, and its homeomophic copies $\mathds{R}^{\rm p}\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
+The most straightforward examples of structures $I$ are the unit interval $[0,1]$, with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
 
 We also fix a first-order language \emph{$L_{\sf H}$\/} which we call the language of the \emph{home sort.}
 
@@ -260,7 +260,7 @@ When we restrict to formulas with a fix tuple of free variables we write ${\EuSc
 
 % \noindent\llap{\textcolor{red}{\Large\dangersign}\kern1ex}\ignorespaces
 
-Note that ${\EuScript L}$ has two sorts of atomic formulas: those (equivalent to) formulas in $L_{\sf H}$ and those of the form $t(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $t(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
+Note that ${\EuScript L}$ has two sorts of atomic formulas: those of sort ${\sf H}$ (that is, those equivalent to formulas in $L_{\sf H}$) and those of the form $t(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $t(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
 
 Henson and Iovino have a more stringent notion of positive formulas (that they define in the language of normed spaces).
 Their positive formulas exclude formulas in $L_{\sf H}$ and quantifiers of sort ${\sf I}$.
@@ -292,7 +292,7 @@ The following example is inspired by~\cite{HPP}.
 
 \begin{example}\label{ex_HPP}
   Let ${\EuScript U}$ be a monster model of signature $L_{\sf H}$.
-  The relevant part of ${\EuScript L}$ contains symbols for the functions $f:{\EuScript U}^n\to{\sf I}$ that are continuous in the following sense: the inverse image of every compact $C\subseteq I$ is type-definable in $L_{\sf H}(M)$ for every $M\preceq{\EuScript U}$.
+  The relevant part of ${\EuScript L}$ contains symbols for the functions $f:{\EuScript U}^n\to I$ that are continuous in the following sense: the inverse image of every compact $C\subseteq I$ is type-definable in $L_{\sf H}(M)$ for every $M\preceq{\EuScript U}$.
   It is easy to verify that the model $\langle{\EuScript U}, I\rangle$ is positively saturated, see definition in Section~\ref{compactness}.
 \end{example}
 
@@ -368,13 +368,17 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
   A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{dense\/} if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ hold in every model.
 
   If these implications holds in every model of $T$ we say that ${\EuScript F}$ is dense modulo $T$.
+
+  We say that ${\EuScript F}$ is \emph{co-dense\/} if for every $\psi(x)\in{\EuScript F}$ and every model $M$ where  $\psi(x)$ is consistent, there is a consistent positive $\varphi(x)$ and $\varphi'>\varphi$ such that $\varphi(x)\rightarrow\varphi'(x)\rightarrow\psi(x)$ holds in $M$.
 \end{definition}
 
-By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is dense.
+\begin{example}
+  By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is dense and co-dense.
+\end{example}
 
 \begin{example}
-  Write $\alpha\sim\beta$ if $\langle\alpha,\beta\rangle\in D$ for every compact neigborhood for the diagonal of ${\sf I}^2$.
-  Then the set of formulas build inductively from the atomic formulas $t(x)\sim s(x)$ is a dense set.
+  Read $\alpha=\beta$ as synonimous of $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of ${\sf I}^2$, a compact set.
+  It is easy to see that the set of formulas build inductively from the atomic formulas of sort ${\sf H}$ and $t(x)=s(x)$ is dense.
 \end{example}
 
 \begin{example}
@@ -459,7 +463,7 @@ Note that this is the same as requiring that (1) holds for all formulas without 
 
   \ceq{\hfill M\models\varphi(a)}{\Leftrightarrow}{N\models\varphi(fa)}
 
-  for every $a\in({\rm dom }f)^{|x|}$ and every ${\EuScript L}^{\rm p}$-formulas $\varphi(x)$ without quantifiers of sort ${\sf H}$.
+  for every $a\in({\rm dom }f)^{|x|}$ and every formula $\varphi(x)\in{\EuScript L}^{\rm p}$ without quantifiers of sort ${\sf H}$.
 \end{fact}
 
 \begin{proof}
@@ -528,7 +532,7 @@ We denote by \emph{${\rm st}(\alpha)$\/} the unique $\beta\in I$ such that ${}^*
 \end{proof}
 
 \begin{fact}\label{fact_terms_st}
-  For every $\alpha\in({}^*\! I)^{|\alpha|}$ and every function symbol $f$ of sort ${\sf I}^{|\alpha|}\to{\sf I}$
+  For every $\alpha\in({}^*\!\!I)^{|\alpha|}$ and every function symbol $f$ of sort ${\sf I}^{|\alpha|}\to{\sf I}$
 
   \ceq{\hfill{}^*\!\!I}{\models}{{\rm st}\big(f(\alpha)\big)=f\big({\rm st}(\alpha)\big).}
 \end{fact}
@@ -544,9 +548,9 @@ We denote by \emph{${\rm st}(\alpha)$\/} the unique $\beta\in I$ such that ${}^*
 
 The \emph{standard part of $\langle N,{}^*\!\!I\rangle$\/} is the model $\langle N,I\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\to {\sf I}$ as the functions
 
-\ceq{\hfill f^N(a)}{=}{{\rm st}\big({}^*\!f(a)\big)}\hfill for all $a\in N^n$,
+\ceq{\hfill f^N(a)}{=}{{\rm st}\big({}^*\!\!f(a)\big)}\hfill for all $a\in N^n$,
 
-where ${}^*\!f$ is the interpretation of $f$ in  $\langle N,{}^*\!\!I\rangle$.
+where ${}^*\!\!f$ is the interpretation of $f$ in  $\langle N,{}^*\!\!I\rangle$.
 Symbols in $L_{\sf H}$ maintain the same interpretation.
 
 \begin{fact}\label{fact_st2} 
@@ -554,10 +558,10 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
   Let $t(x\,;\eta)$ be a term of sort ${\sf H}^{|x|}\times{\sf I}^{|\eta|}\to {\sf I}$.
   Then for every $a\in M^{|x|}$ and $\alpha\in({}^*\!\!I)^{|\eta|}$\vskip-.7\baselineskip
 
-  \ceq{\hfill t^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*t(a\,;\alpha)\big)}
+  \ceq{\hfill t^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*\!t(a\,;\alpha)\big)}
 \end{fact}
 \begin{proof}
-  When a $t$ is function symbol of sort  ${\sf H}^{|x|}\to {\sf I}$, the claim holds by definition.
+  When a $t$ is a function symbol of sort  ${\sf H}^{|x|}\to {\sf I}$, the claim holds by definition.
   When $t$ is a function symbol of sort ${\sf I}^{|\eta|}\to {\sf I}$, the claim follows from Fact~\ref{fact_terms_st}.
   Now, assume inductively that 
 
@@ -587,7 +591,7 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
   Assume that $\langle N,{}^*\!\!I\rangle\models t(a\,;\alpha)\in C$.
   Then ${\rm st}\big({}^*t(a\,;\alpha)\big)\in C$ by Fact~\ref{fact_st1}.
   Therefore $t^N\big(a\,;{\rm st}(\alpha)\big)\in C$ follows from Fact~\ref{fact_st2}.
-  This proves the lemma for ${\EuScript L}^{\rm p}$-atomic formulas.
+  This proves the lemma for atomic formulas.
   Induction is immediate. 
 \end{proof}
 
@@ -601,7 +605,7 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
  This goes through the observation that the formulas in $p(\eta)$ define compact subsets of $I$.
 
  \begin{proof}
-  Let $\langle ^*\!M,^*\!\!I\rangle$ be a ${\EuScript L}$-elementary saturated superstructure of $\langle M,I\rangle$.
+  Let $\langle ^*\!M,^*\!\!I\rangle$ be an ${\EuScript L}$-elementary saturated superstructure of $\langle M,I\rangle$.
   Then $\langle ^*\!M,^*\!\!I\rangle\models p(\alpha)$ for some $\alpha\in ^*\!\!I$.
   By the lemma above, $^*\!M\models p({\rm st}(\alpha))$.
   Now observe that the truth of formulas without  existential quantifiers of sort ${\sf H}$ is preserved by substructures.
@@ -770,10 +774,10 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 
 \def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox{5ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-\begin{remark}\label{remk_approx_EH_free}
+% \begin{remark}\label{remk_approx_EH_free}
   By Corollary~\ref{corol_st}, when $\varphi(x\,;\eta)$ does not contains existential quantifiers of sort ${\sf H}$, the proposition above does not require the assumption of saturation.
   In general, some saturation is necessary: consider the model presented after Corollary~\ref{corol_st} and the formula $\exists x\,\big(x>0\ \wedge\ \iota(x)\in\{0\}\big)$. 
-\end{remark}
+% \end{remark}
 
 A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms defined in Section~\ref{morphisms} coincide with their unapproximate version when the codomain is a positively $\omega$-saturated model.
 % In particular, the following follows from Fact~\ref{fact_HImorphisms}.
@@ -936,14 +940,15 @@ We define also \emph{$\mbox{p-tp}(a/A)$,} the positive type of $a$ over $A$, as 
   (1$\Rightarrow$2) By the saturation of ${\EuScript U}$.
 
   
-  (2$\Rightarrow$1) Suppose $\varphi(x)\notin p$.
-  Then $\neg\varphi(a)$.
+  (2$\Rightarrow$1) 
   From Lemma~\ref{lem_interpolation} and Proposition~\ref{prop_approx} we obtain
 
   \ceq{\hfill\neg\varphi(x)}
   {\rightarrow}
   {\bigvee_{\tilde{\varphi}\perp\varphi}\tilde{\varphi}(x).}
-
+  
+  Suppose $\varphi(x)\notin p$.
+  Then $\neg\varphi(a)$.
   Hence $\tilde{\varphi}(a)$ holds for some $\tilde{\varphi}\perp\varphi$ and $p(x)\rightarrow\neg\varphi(x)$ follows.
  \end{proof}
 
@@ -964,6 +969,16 @@ Therefore, with a similar proof as above we obtain the following.
   \end{itemize}
 \end{fact}
 
+\begin{proof}
+  (2$\Rightarrow$1)
+  From Lemma~\ref{lem_interpolation} and Proposition~\ref{prop_approx} we obtain
+
+  \ceq{\hfill\neg\varphi(x)}
+  {\rightarrow}
+  {\bigvee\psi(x).}
+  
+  where 
+\end{proof}
 
 % \begin{corollary}\label{corol_Hcomplete3}
 %   The inverse of an ${\EuScript H}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript H}$-elementary.
@@ -982,11 +997,10 @@ Therefore, with a similar proof as above we obtain the following.
 \section{Elimination of quantifiers of sort \textsf{I}}\label{Ielimination}
 
 
-We show that the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ and $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ can be eliminated up to some approximation.
+We show that the quantifiers of sort ${\sf I}$ can be eliminated up to some approximation.
 Precisely, we prove that the set formulas ${\EuScript H}$ defined above is dense, see Definion~\ref{def_dense}.
 
-We say that partial map $f:{\EuScript U}\to{\EuScript U}$ is a ${\EuScript H}$-elementary if it preserves the truth of formulas in ${\EuScript H}$.
-
+We say that partial map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript H}$-elementary if it preserves the truth of formulas in ${\EuScript H}$.
 
 \begin{proposition}
   Every ${\EuScript H}$-elementary map of cardinality $<|{\EuScript  U}|$ extends to an automorphism of ${\EuScript H}$.
@@ -1054,7 +1068,6 @@ We also need an approximation restult for the negation of positive formulas.
   Then  $\psi'(x)\rightarrow\neg\varphi(x)$ for some consistent $\psi(x)\in{\EuScript H}(A)$ and some $\psi'>\psi$.
 \end{proposition}
 
-
 % \begin{proposition}\label{prop_LHapprox2}
 %   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$. For every given $\tilde{\varphi}\perp\varphi$ there is some $\psi(x)\in{\EuScript H}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde{\varphi}(x)$.
 % \end{proposition}
@@ -1062,8 +1075,8 @@ We also need an approximation restult for the negation of positive formulas.
 \begin{proof}
   Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
   Let $p(x)={\EuScript H}\mbox{-tp}(a/A)$.
-  By Corollary~\ref{corol_Lcomplete}, $p'(x)\rightarrow\neg\varphi(x)$. 
-  By compactness  $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'>\psi\in p(x)$. 
+  By Corollary~\ref{corol_Lcomplete}, $p'(x)\rightarrow\neg\varphi(x)$.
+  By compactness  $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'>\psi$.
 \end{proof}
 
 
@@ -1076,40 +1089,34 @@ We also need an approximation restult for the negation of positive formulas.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Tarski-Vaught test and the L\"owenheim-Skolem theorem}
 
-The following proposition is not literally the Tarski-Vaught test because it only applies when the larger structure is the moster model.
+The following proposition is our equivalent to the Tarski-Vaught test.
 
 \begin{proposition}\label{prop_Tarski_Vaught}
   Let $M$ be a subset of ${\EuScript U}$.
+  Let ${\EuScript F}$ be a dense set of formulas.
   Then the following are equivalent
   \begin{itemize}
     \item[1.] $M$ is a model;
-    \item[2.] for every formula $\varphi(x)\in{\EuScript H}(M)$
+    \item[2.] for every formula $\psi(x)\in{\EuScript F}(M)$
     
     \noindent\kern-\leftmargin
-    \ceq{\hfill\existsH x\,\varphi(x)}{\Rightarrow}
-    {\textrm{ for every }\varphi'>\varphi\textrm{ there is an }a\in M\textrm{ such that }\varphi'(a);}
-    \item[3.] for every formula $\varphi(x)\in{\EuScript L}^{\rm p}(M)$
-    
-    \noindent\kern-\leftmargin
-    \ceq{\hfill\existsH x\,\neg\varphi(x)}{\Rightarrow}
-    {\textrm{ there is an }a\in M\textrm{ such that }\neg\varphi(a).}
-    
+    \ceq{\hfill \existsH x\,\neg\psi(x)}{\Rightarrow}
+    {\textrm{ there is an }a\in M\textrm{ such that }\neg\psi(a).}
   \end{itemize}
 \end{proposition}
 
 \begin{proof}
-  (1$\Rightarrow$2) Assume $\existsH x\,\varphi(x)$ and let $\varphi'>\varphi$ be given.
-  By Lemma~\ref{lem_interpolation} there is some $\tilde{\varphi}\perp\varphi$ such that  $\varphi(x)\rightarrow\neg\tilde{\varphi}(x)\rightarrow\varphi'(x)$.
-  Then $\neg\forallH x\,\tilde{\varphi}(x)$ hence, by (1), $M\models\neg\forallH x\,\tilde{\varphi}(x)$.
-  Then $M\models\neg\tilde{\varphi}(a)$ for some $a\in M$. Hence $M\models\varphi'(a)$ and $\varphi'(a)$ follows from (1).
+  (1$\Rightarrow$2) Assume $N\models\existsH x\,\neg\psi(x)$. Let $\varphi'>\varphi$ be such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ in every ${\EuScript L}$-structure.
+  Then $N\models\neg\forallH x\,\varphi(x)$ and $M\models\neg\forallH x\,\varphi(x)$ follows from (1).
+  Then $M\models\neg\varphi(a)$ for some $a\in M$. Hence $M\models\varphi'(a)$ and $\varphi'(a)$ follows from (1).
 
   (2$\Rightarrow$3)
   Assume (2) and let $\varphi(x)\in{\EuScript L}^{\rm p}(M)$ be such that $\existsH x\,\neg\varphi(x)$.
   By Corollary~\ref{prop_LHapprox2}, there are a consistent $\psi(x)\in{\EuScript H}(M)$ and some $\psi'>\psi$ such that $\psi'(x)\rightarrow\neg\varphi(x)$.
   Then (3) follows.
 
-  (3$\Rightarrow$1)
-  Assume (3).
+  (2$\Rightarrow$1)
+  Assume (2).
   By the classical Tarski-Vaught test $M\preceq_{\sf H}{\EuScript U}$.
   Then $M$ is the domain of an ${\EuScript L}$-substructure of ${\EuScript U}$.
   Then  $\varphi(a)\ \Leftrightarrow\ M\models\varphi(a)$ holds for every atomic formula $\varphi(x)$ and for every $a\in M^{|x|}$.
@@ -1117,7 +1124,7 @@ The following proposition is not literally the Tarski-Vaught test because it onl
   
   \ceq{\hfill M\models\varphi(a,b)}{\Rightarrow}{\varphi(a,b).}
 
-  Using (3) and the induction hypothesis we prove by contrapposition that
+  Using (2) and the induction hypothesis we prove by contrapposition that
 
   \ceq{\hfill M\models\forallH y\,\varphi(a,y)}{\Rightarrow}{\forallH y\,\varphi(a,y)}.
 
@@ -1127,12 +1134,22 @@ The following proposition is not literally the Tarski-Vaught test because it onl
   {\Rightarrow}{\existsH y\,\neg\varphi(a,y)}
   
   \ceq{}
-  {\Rightarrow}
-  {\neg\varphi(a,b)}\hfill for some $b\in M$ by (3)\kern30ex
-
+  {\Rightarrow}{\existsH y\,\neg\varphi'(a,y)}\hfill for some $\varphi'>\varphi$
+  
+  \ceq{}
+  {\Rightarrow}{\existsH y\,\neg\psi(a,y)}\hfill \rlap{for some $\psi\in{\EuScript F}$ such that $\neg\varphi'(a,y)\rightarrow\neg\psi(a,y)\rightarrow\neg\varphi(a,y)$}\kern55ex% in every ${\EuScript L}$-structure
+  
   \ceq{}
   {\Rightarrow}
-  {M\models\neg\varphi(a,b)}
+  {\neg\psi(a,b)}\hfill \rlap{for some $b\in M$ by (2)}\kern55ex
+  
+  \ceq{}
+  {\Rightarrow}
+  {\neg\varphi(a,b)}
+  
+  \ceq{}
+  {\Rightarrow}
+  {M\models\neg\varphi(a,b)}\hfill by induction hypothesis
 
   \ceq{}
   {\Rightarrow}
@@ -1166,15 +1183,15 @@ We say that ${\EuScript L}$ is \emph{separable\/} if there is a countable dense 
 % \end{fact}
 
 We have defined separability as a property of ${\EuScript L}$.
-Arguably, it could have been introduced as a property of (the theory of) ${\EuScript U}$.
+Arguably, it could have been introduced as a property of the theory of ${\EuScript U}$.
 The following proposition provides the examples that motivate the definition of separability (in these examples the property depends soley on ${\EuScript L}$).
 
 \begin{proposition}
-  Assume that $I$ is second countable, and that ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$. 
-  Then ${\EuScript L}$ is separable.
+  Assume that $L_{\sf H}$ is countable and that ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$.
+  Then, if $I$ is a second countable (the topology has a countable base), ${\EuScript L}$ is separable.
 \end{proposition}
 \begin{proof}
-  ???
+  Fix a countable filter of compact neighborhoods of the diagonal of ${\sf I}^2$.  
 \end{proof}
 
 
@@ -1491,7 +1508,7 @@ The pr ${\EuScript M}$oof of the following proposition uses the same compactness
 \section{Example: metric spaces}
 
 We discuss a simple example.
-Let $I$ be $\mathds{R}^{\rm p}\cup\{0,\infty\}$, with the topology that makes it homeomorphic to the unit interval.
+Let $I$ be $\mathds{R}^+\cup\{0,\infty\}$, with the topology that makes it homeomorphic to the unit interval.
 Let $M,d$ is a metric space.
 Let $L_{\sf H}$ contain symbols for functions $M^n\to M$ that are uniformly continuous.
 Let ${\EuScript L}$ contain a symbol for $d$ and possibly for some funtions of $M^n\to I$ that are uniformly continuous w.r.t.\@ the metric $d$.
@@ -1685,10 +1702,10 @@ As all functions have been required to be uniformly continuous, it is immediate 
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
-\section{Approximate elimination of quantifiers}
+\section{Elimination of quantifiers}
 
 Let $T$ be a positive theory.
-We say that $T$ has (approximate) elimination of quantifiers if, modulo $T$ are dense modulo $T$, see Definion~\ref{def_dense}.
+We say that $T$ has (approximate) elimination of quantifiers if the quantifiers free positive formulas are are dense modulo $T$, see Definion~\ref{def_dense}.
 
 %for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $\varphi'>\varphi$ there is a formula $\psi(x)\in{\EuScript L}^{\rm p}$ without quantifiers of sort ${\sf H}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds modulo $T$.
 
