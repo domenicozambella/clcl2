@@ -152,7 +152,7 @@
 \linespread{1.1}
 \author{C. L. C. L. Polymath}
 \begin{document}
-\title{Half-standad model theory}
+\title{Standard analysis}
 \hfill\texttt{Branch:\ \branch\ \DTMnow}\bigskip
 \maketitle
 \raggedbottom
@@ -368,12 +368,10 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
   A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{dense\/} if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ hold in every model.
 
   If these implications holds in every model of $T$ we say that ${\EuScript F}$ is dense modulo $T$.
-
-  We say that ${\EuScript F}$ is \emph{co-dense\/} if for every $\psi(x)\in{\EuScript F}$ and every model $M$ where  $\psi(x)$ is consistent, there is a consistent positive $\varphi(x)$ and $\varphi'>\varphi$ such that $\varphi(x)\rightarrow\varphi'(x)\rightarrow\psi(x)$ holds in $M$.
 \end{definition}
 
 \begin{example}
-  By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is dense and co-dense.
+  By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is dense.
 \end{example}
 
 \begin{example}
@@ -489,7 +487,7 @@ To bypass lengthy applications of ultrafilters, ultrapowers, and ultralimits, % 
 we assume the Classical Compactness Theorem and built on that.
 
 In this section we recall the notion of standard part of an element of the elementary extension of a compact Hausdorff topological space.
-Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the Compactness Theorem for positive theories (Theorem~\ref{thm_compattezza}).
+Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the Positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
 The reader willing to accept it without proof may skip this section.
 
 Let $\langle N, {}^*\!\!I\rangle$ be an ${\EuScript L}$-structure that extends ${\EuScript L}$-elementarily the model $M$. %$\langle M, I\rangle$.
@@ -614,7 +612,7 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
  The exclusion of existential quantifiers of sort ${\sf H}$ is necessary.
  For a counterexample take $M=I=[0,1]$.
  Assume that ${\EuScript L}$ contains a function symbol for the identity map $\iota:M\to I$.
- Let $p(\eta)$ contain the formulas $\exists x\,\big(x>0\wedge\iota(x)+\eta\in[0,1/n]\big)$ for all positive integers $n$.
+ Let $p(\eta)$ contain the formulas $\exists x\,\big(x>0\,\wedge\;\iota x+\eta\in[0,1/n]\big)$ for all positive integers $n$.
 
 % \begin{corollary}\label{corol_Isaturation}
 %   Let $M$ be a model and let $p(\eta)\subseteq{\EuScript L}^{\rm p}(M)$ be a type that is finitely consistent in $M$, where $\eta$ is a tuple of variables of sort ${\sf I}$.
@@ -925,59 +923,91 @@ There are some subtle differences from the classical setting.
 % \end{corollary}
 
 When $A\subseteq{\EuScript U}$, we write \emph{$S^{\rm p}_x(A)$\/} for the set of maximally consistent subsets of ${\EuScript L}^{\rm p}_x(A)$.
-We define also \emph{$\mbox{p-tp}(a/A)$,} the positive type of $a$ over $A$, as the set of formulas $\big\{\varphi(x)\in{\EuScript L}^{\rm p}(A)\ :\ \varphi(a)\big\}$.
+We define \emph{$\mbox{p-tp}(a/A)$,} the positive type of $a$ over $A$, to be the set of formulas $\big\{\varphi(x)\in{\EuScript L}^{\rm p}(A)\ :\ \varphi(a)\big\}$.
+In general, if ${\EuScript F}$ is any set of formulas, we write \emph{${\EuScript F}\mbox{-tp}(a/A)$,} for the type $\big\{\varphi(x)\in{\EuScript F}(A)\ :\ \varphi(a)\big\}$.
 
-\begin{fact}
+\begin{fact}\label{fact_max_cons_L}
   Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$.
   The following are equivalent 
   \begin{itemize}
-    \item[1.] $p(x)$ is maximally consistent;
+    \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript L}^{\rm p}_x(A)$;
     \item[2.] $p(x)=\mbox{p-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
 \end{fact}
 
- \begin{proof}
-  (1$\Rightarrow$2) By the saturation of ${\EuScript U}$.
+\begin{proof}
+  (1$\Rightarrow$2) By the saturation of ${\EuScript U}$, there is an $a\in{\EuScript U}^{|x|}$ such that $p(x)\subseteq\mbox{p-tp}(a/A)$.
+  By maximality $p(x)=\mbox{p-tp}(a/A)$.
 
-  
+
   (2$\Rightarrow$1) 
   From Lemma~\ref{lem_interpolation} and Proposition~\ref{prop_approx} we obtain
 
   \ceq{\hfill\neg\varphi(x)}
   {\rightarrow}
   {\bigvee_{\tilde{\varphi}\perp\varphi}\tilde{\varphi}(x).}
-  
-  Suppose $\varphi(x)\notin p$.
+
+  Suppose $\varphi(x)\in{\EuScript L}^{\rm p}(A)\smallsetminus  p$.
   Then $\neg\varphi(a)$.
   Hence $\tilde{\varphi}(a)$ holds for some $\tilde{\varphi}\perp\varphi$ and $p(x)\rightarrow\neg\varphi(x)$ follows.
- \end{proof}
-
-One interesting consequence of the proof of the fact above is that we can replace ${\EuScript L}^{\rm p}$ with any dense set of positive formulas closed under strong negation.
-We restate the fact for an important set of positive formulas. 
+\end{proof}
 
 Let ${\EuScript H}$ be the set of positive formulas without quantifiers of sort ${\sf I}$.
-Write ${\EuScript H}\mbox{-tp}(a/A)$ for the ${\EuScript H}$-type of $a$ over $A$.
-Note that ${\EuScript H}$ is a dense set closed under strong negation.
-Therefore, with a similar proof as above we obtain the following.
+Note that in the proof above we could replace ${\EuScript L}^{\rm p}$ with any class of positive formulas closed under strong negation.
+Therefore we can also claim the following.
 
-\begin{fact}\label{fact_Hcomplete}
+\begin{fact}\label{fact_max_cons_H}
   Let $p(x)\subseteq{\EuScript H}(A)$.
   The following are equivalent 
   \begin{itemize}
-    \item[1.] $p(x)$ is maximally consistent;
+    \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript H}_x(A)$;
     \item[2.] $p(x)={\EuScript H}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
 \end{fact}
 
-\begin{proof}
-  (2$\Rightarrow$1)
-  From Lemma~\ref{lem_interpolation} and Proposition~\ref{prop_approx} we obtain
-
-  \ceq{\hfill\neg\varphi(x)}
-  {\rightarrow}
-  {\bigvee\psi(x).}
+% \begin{proposition}\label{prop_LHapprox2}
+%   Let ${\EuScript F}$ be a dense set of positive formulas.
+%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ be such that $\neg\varphi(x)$ is consistent.
+%   Then  $\psi'(x)\rightarrow\neg\varphi(x)$ for some consistent $\psi(x)\in{\EuScript F}(A)$ and some $\psi'>\psi$.
+% \end{proposition}
+ 
+\begin{proposition}\label{prop_LHapprox2}
+  Let ${\EuScript F}$ be a dense set of positive formulas.
+  Then for every $\varphi(x)\in{\EuScript L}^{\rm p}$ 
   
-  where 
+  \ceq{\hfill\neg\varphi(x)}
+  {\leftrightarrow}
+  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi'(x)\rightarrow\neg\varphi(x)\}).}
+\end{proposition}
+ 
+\begin{proof}
+  Only the implication $\rightarrow$ requires a proof.
+  Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
+  Let $p(x)=\mbox{p-tp}(a/A)$.
+  By the fact above, $p(x)\rightarrow\neg\varphi(x)$.
+  As ${\EuScript F}$ is dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a/A)$.
+  Then $q'(x)\rightarrow\neg\varphi(x)$ and, by compactness, $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'(x)\in q'$.
+\end{proof}
+
+One interesting consequence of the proposition above is that in Fact~\ref{fact_max_cons_L} we can replace ${\EuScript L}^{\rm p}$ with any dense set of positive formula.
+
+\begin{fact}
+  Let ${\EuScript F}$ be a dense set of positive formulas.
+  Let $p(x)\subseteq{\EuScript F}(A)$.
+  The following are equivalent 
+  \begin{itemize}
+    \item[1.] $p(x)$ is maximally consistent;
+    \item[2.] $p(x)={\EuScript F}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
+  \end{itemize}
+\end{fact}
+
+\begin{proof}
+  (1$\Rightarrow$2) Again, by the saturation of ${\EuScript U}$.
+
+  (2$\Rightarrow$1)
+  Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)\smallsetminus p$.
+  From Proposition~\ref{prop_LHapprox2} we obtain that $\psi(a)$ holds for some $\psi(x)\in{\EuScript F}(A)$ such that $\psi(x)\rightarrow\neg\varphi(x)$.
+  Therefore $p(x)\rightarrow\neg\varphi(x)$ follows.
 \end{proof}
 
 % \begin{corollary}\label{corol_Hcomplete3}
@@ -996,7 +1026,6 @@ Therefore, with a similar proof as above we obtain the following.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Elimination of quantifiers of sort \textsf{I}}\label{Ielimination}
 
-
 We show that the quantifiers of sort ${\sf I}$ can be eliminated up to some approximation.
 Precisely, we prove that the set formulas ${\EuScript H}$ defined above is dense, see Definion~\ref{def_dense}.
 
@@ -1007,27 +1036,32 @@ We say that partial map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript H}$-ele
 \end{proposition}
 
 \begin{proof}
-  By Fact~\ref{fact_Hcomplete}, the inverse of an ${\EuScript H}$-elementary map is also ${\EuScript H}$-elementary.
+  By Fact~\ref{fact_max_cons_H}, the inverse of an ${\EuScript H}$-elementary map is also ${\EuScript H}$-elementary.
   Then we can extend the map by back-and-forth as usual.
 \end{proof}
 
 Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
-We apply the proposition above to obtain a strengthening of Fact~\ref{fact_Hcomplete}.
+We apply the proposition above to obtain a strengthening of Fact~\ref{fact_max_cons_H}.
+For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ satisfy the same ${\EuScript L}$-formulas over $A$.
 
 \begin{corollary}\label{corol_Lcomplete}
-  Let $p(x)\subseteq{\EuScript H}$ be maximally consistent.
-  Then $p(x)$ is complete for formulas in ${\EuScript L}_x(A)$.
-  That is, for every $\varphi(x)\in{\EuScript L}(A)$, either $p(x)\rightarrow\varphi(x)$ or $p(x)\rightarrow\neg\varphi(x)$.
-  % Clearly, the same holds for $p'(x)$.
+  Let $p(x)\subseteq{\EuScript H}(A)$.
+  The following are equivalent 
+  \begin{itemize}
+    \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript H}_x(A)$;
+    \item[2.] $p(x)\leftrightarrow q(x)=\mbox{p-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
+  \end{itemize}
 \end{corollary}
 
 \begin{proof}
+  (2$\Rightarrow$1) Clear.
+
+
+  (1$\Rightarrow$2)
   If $b\models p(x)={\EuScript H}\mbox{-tp}(a/A)$ then there is an ${\EuScript H}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
   Then $f$ exends to an automorphism.
-  As every automorphism is ${\EuScript L}$-elementary, the corollary follows.
+  As every automorphism is ${\EuScript L}$-elementary, $a\equiv_Ab$, and (2) follows.
 \end{proof}
-
-For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ satisfy the same ${\EuScript L}$-formulas over $A$, bearing in mind that formulas in ${\EuScript H}(A)$ or ${\EuScript L}^{\rm p}(A)$, or their approximations, suffice to test the equivalence.
 
 In the classical setting, from an equivalence between types one derives an  equivalence between formulas.
 Without negation, this is not true.
@@ -1061,23 +1095,10 @@ Still, we can infer an approximate form of equivalence.
   which yields the interpolant required by the proposition.
 \end{proof}
 
-We also need an approximation restult for the negation of positive formulas.
-
-\begin{proposition}\label{prop_LHapprox2}
-  Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ be such that $\neg\varphi(x)$ is consistent.
-  Then  $\psi'(x)\rightarrow\neg\varphi(x)$ for some consistent $\psi(x)\in{\EuScript H}(A)$ and some $\psi'>\psi$.
-\end{proposition}
-
 % \begin{proposition}\label{prop_LHapprox2}
 %   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$. For every given $\tilde{\varphi}\perp\varphi$ there is some $\psi(x)\in{\EuScript H}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde{\varphi}(x)$.
 % \end{proposition}
 
-\begin{proof}
-  Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
-  Let $p(x)={\EuScript H}\mbox{-tp}(a/A)$.
-  By Corollary~\ref{corol_Lcomplete}, $p'(x)\rightarrow\neg\varphi(x)$.
-  By compactness  $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'>\psi$.
-\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1093,11 +1114,17 @@ The following proposition is our equivalent to the Tarski-Vaught test.
 
 \begin{proposition}\label{prop_Tarski_Vaught}
   Let $M$ be a subset of ${\EuScript U}$.
-  Let ${\EuScript F}$ be a dense set of formulas.
+  Let ${\EuScript F}$ be a dense set of positive formulas.
   Then the following are equivalent
   \begin{itemize}
     \item[1.] $M$ is a model;
     \item[2.] for every formula $\psi(x)\in{\EuScript F}(M)$
+    
+    \noindent\kern-\leftmargin
+    \ceq{\hfill\existsH x\,\psi(x)}{\Rightarrow}
+    {\textrm{ for every }\psi'>\psi\textrm{ there is an }a\in M\textrm{ such that }\psi'(a);}
+  
+    \item[3.] for every formula $\psi(x)\in{\EuScript F}(M)$
     
     \noindent\kern-\leftmargin
     \ceq{\hfill \existsH x\,\neg\psi(x)}{\Rightarrow}
@@ -1106,13 +1133,14 @@ The following proposition is our equivalent to the Tarski-Vaught test.
 \end{proposition}
 
 \begin{proof}
-  (1$\Rightarrow$2) Assume $N\models\existsH x\,\neg\psi(x)$. Let $\varphi'>\varphi$ be such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ in every ${\EuScript L}$-structure.
-  Then $N\models\neg\forallH x\,\varphi(x)$ and $M\models\neg\forallH x\,\varphi(x)$ follows from (1).
-  Then $M\models\neg\varphi(a)$ for some $a\in M$. Hence $M\models\varphi'(a)$ and $\varphi'(a)$ follows from (1).
+  (1$\Rightarrow$2) Assume $\existsH x\,\psi(x)$ and let $\psi'>\psi$ be given.
+  By Lemma~\ref{lem_interpolation} there is some $\tilde{\psi}\perp\psi$ such that  $\psi(x)\rightarrow\neg\tilde{\psi}(x)\rightarrow\psi'(x)$.
+  Then $\neg\forallH x\,\tilde{\psi}(x)$ hence, by (1), $M\models\neg\forallH x\,\psi(x)$.
+  Then $M\models\neg\tilde{\psi}(a)$ for some $a\in M$. Hence $M\models\psi'(a)$ and $\psi'(a)$ follows from (1).
 
   (2$\Rightarrow$3)
-  Assume (2) and let $\varphi(x)\in{\EuScript L}^{\rm p}(M)$ be such that $\existsH x\,\neg\varphi(x)$.
-  By Corollary~\ref{prop_LHapprox2}, there are a consistent $\psi(x)\in{\EuScript H}(M)$ and some $\psi'>\psi$ such that $\psi'(x)\rightarrow\neg\varphi(x)$.
+  Assume (2) and let $\psi(x)\in{\EuScript F}(M)$ be such that $\existsH x\,\neg\psi(x)$.
+  By Corollary~\ref{prop_LHapprox2}, there are a consistent $\varphi(x)\in{\EuScript F}(M)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\neg\psi(x)$.
   Then (3) follows.
 
   (2$\Rightarrow$1)
@@ -1134,14 +1162,14 @@ The following proposition is our equivalent to the Tarski-Vaught test.
   {\Rightarrow}{\existsH y\,\neg\varphi(a,y)}
   
   \ceq{}
-  {\Rightarrow}{\existsH y\,\neg\varphi'(a,y)}\hfill for some $\varphi'>\varphi$
+  {\Rightarrow}{\existsH y\,\neg\varphi'(a,y)}\hfill \rlap{for some $\varphi'>\varphi$}\kern52ex
   
   \ceq{}
-  {\Rightarrow}{\existsH y\,\neg\psi(a,y)}\hfill \rlap{for some $\psi\in{\EuScript F}$ such that $\neg\varphi'(a,y)\rightarrow\neg\psi(a,y)\rightarrow\neg\varphi(a,y)$}\kern55ex% in every ${\EuScript L}$-structure
+  {\Rightarrow}{\existsH y\,\neg\psi(a,y)}\hfill\rlap{for some $\psi\in{\EuScript F}$ such that $\varphi(a,y)\rightarrow\psi(a,y)\rightarrow\varphi'(a,y)$}\kern52ex% in every ${\EuScript L}$-structure
   
   \ceq{}
   {\Rightarrow}
-  {\neg\psi(a,b)}\hfill \rlap{for some $b\in M$ by (2)}\kern55ex
+  {\neg\psi(a,b)}\hfill\rlap{for some $b\in M$ by (2)}\kern52ex
   
   \ceq{}
   {\Rightarrow}
@@ -1149,7 +1177,7 @@ The following proposition is our equivalent to the Tarski-Vaught test.
   
   \ceq{}
   {\Rightarrow}
-  {M\models\neg\varphi(a,b)}\hfill by induction hypothesis
+  {M\models\neg\varphi(a,b)}\hfill\rlap{by induction hypothesis}\kern52ex
 
   \ceq{}
   {\Rightarrow}
@@ -1176,7 +1204,7 @@ We say that ${\EuScript L}$ is \emph{separable\/} if there is a countable dense 
 \begin{proof}
   As in the classical proof of the L\"owenheim-Skolem Theorem,
   we construct $M\subseteq{\EuScript U}$ that contain a witness for every consistent formula in ${\EuScript F}(M)$.
-  By separability and (2) in Proposition~\ref{prop_Tarski_Vaught}, $M$ is a model.
+  By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a model.
 \end{proof}
 % \begin{fact}
 %   Then there is a countable set   countable language $L_{\sf Q}\subseteq L_{\sf I}$ such that 
