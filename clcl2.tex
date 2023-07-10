@@ -960,7 +960,7 @@ Therefore we can also claim the following.
   Let $p(x)\subseteq{\EuScript H}(A)$.
   The following are equivalent 
   \begin{itemize}
-    \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript H}_x(A)$;
+    \item[1.] $p(x)$ is a maximally consistent subset of ${\EuScript H}_x(A)$;
     \item[2.] $p(x)={\EuScript H}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
 \end{fact}
@@ -971,44 +971,27 @@ Therefore we can also claim the following.
 %   Then  $\psi'(x)\rightarrow\neg\varphi(x)$ for some consistent $\psi(x)\in{\EuScript F}(A)$ and some $\psi'>\psi$.
 % \end{proposition}
  
-\begin{proposition}\label{prop_LHapprox2}
-  Let ${\EuScript F}$ be a dense set of positive formulas.
-  Then for every $\varphi(x)\in{\EuScript L}^{\rm p}$ 
-  
-  \ceq{\hfill\neg\varphi(x)}
-  {\leftrightarrow}
-  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi'(x)\rightarrow\neg\varphi(x)\}).}
-\end{proposition}
- 
-\begin{proof}
-  Only the implication $\rightarrow$ requires a proof.
-  Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
-  Let $p(x)=\mbox{p-tp}(a/A)$.
-  By the fact above, $p(x)\rightarrow\neg\varphi(x)$.
-  As ${\EuScript F}$ is dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a/A)$.
-  Then $q'(x)\rightarrow\neg\varphi(x)$ and, by compactness, $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'(x)\in q'$.
-\end{proof}
 
-One interesting consequence of the proposition above is that in Fact~\ref{fact_max_cons_L} we can replace ${\EuScript L}^{\rm p}$ with any dense set of positive formula.
+% One interesting consequence of the proposition above is that in Fact~\ref{fact_max_cons_L} we can replace ${\EuScript L}^{\rm p}$ with any dense set of positive formula.
 
-\begin{fact}
-  Let ${\EuScript F}$ be a dense set of positive formulas.
-  Let $p(x)\subseteq{\EuScript F}(A)$.
-  The following are equivalent 
-  \begin{itemize}
-    \item[1.] $p(x)$ is maximally consistent;
-    \item[2.] $p(x)={\EuScript F}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
-  \end{itemize}
-\end{fact}
+% \begin{fact}
+%   Let ${\EuScript F}$ be a dense set of positive formulas.
+%   Let $p(x)\subseteq{\EuScript F}(A)$.
+%   The following are equivalent 
+%   \begin{itemize}
+%     \item[1.] $p(x)$ is maximally consistent;
+%     \item[2.] $p(x)={\EuScript F}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
+%   \end{itemize}
+% \end{fact}
 
-\begin{proof}
-  (1$\Rightarrow$2) Again, by the saturation of ${\EuScript U}$.
+% \begin{proof}
+%   (1$\Rightarrow$2) Again, by the saturation of ${\EuScript U}$.
 
-  (2$\Rightarrow$1)
-  Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)\smallsetminus p$.
-  From Proposition~\ref{prop_LHapprox2} we obtain that $\psi(a)$ holds for some $\psi(x)\in{\EuScript F}(A)$ such that $\psi(x)\rightarrow\neg\varphi(x)$.
-  Therefore $p(x)\rightarrow\neg\varphi(x)$ follows.
-\end{proof}
+%   (2$\Rightarrow$1)
+%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)\smallsetminus p$.
+%   From Proposition~\ref{prop_LHapprox2} we obtain that $\psi(a)$ holds for some $\psi(x)\in{\EuScript F}(A)$ such that $\psi(x)\rightarrow\neg\varphi(x)$.
+%   Therefore $p(x)\rightarrow\neg\varphi(x)$ follows.
+% \end{proof}
 
 % \begin{corollary}\label{corol_Hcomplete3}
 %   The inverse of an ${\EuScript H}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript H}$-elementary.
@@ -1049,13 +1032,12 @@ For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ s
   The following are equivalent 
   \begin{itemize}
     \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript H}_x(A)$;
-    \item[2.] $p(x)\leftrightarrow q(x)=\mbox{p-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
+    \item[2.] $p(x)\leftrightarrow q(x)=\mbox{tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
 \end{corollary}
 
 \begin{proof}
   (2$\Rightarrow$1) Clear.
-
 
   (1$\Rightarrow$2)
   If $b\models p(x)={\EuScript H}\mbox{-tp}(a/A)$ then there is an ${\EuScript H}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
@@ -1100,6 +1082,24 @@ Still, we can infer an approximate form of equivalence.
 % \end{proposition}
 
 
+\begin{proposition}\label{prop_Fapprox}
+  Let ${\EuScript F}$ be a dense set of positive formulas.
+  Then for every $\varphi(x)\in{\EuScript L}$ 
+  
+  \ceq{\hfill\varphi(x)}
+  {\leftrightarrow}
+  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi'(x)\rightarrow\varphi(x)\big\}.}
+\end{proposition}
+ 
+\begin{proof}
+  Only $\rightarrow$ requires a proof.
+  Let $a\in {\EuScript U}^{|x|}$ be such that $\varphi(a)$.
+  Let $p(x)={\EuScript H}\mbox{-tp}(a/A)$.
+  Recall that $p(x)\leftrightarrow p'(x)$ for all $p(x)\subseteq{\EuScript L}^{\rm p}$.
+  By Corollary~\ref{corol_Lcomplete}, $p(x)\rightarrow\varphi(x)$.
+  As ${\EuScript F}$ is dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a/A)$.
+  Then $q'(x)\rightarrow\varphi(x)$ and, by compactness, $\psi'(x)\rightarrow\varphi(x)$ for some $\psi'(x)\in q'$.
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1135,19 +1135,19 @@ The following proposition is our equivalent to the Tarski-Vaught test.
 \begin{proof}
   (1$\Rightarrow$2) Assume $\existsH x\,\psi(x)$ and let $\psi'>\psi$ be given.
   By Lemma~\ref{lem_interpolation} there is some $\tilde{\psi}\perp\psi$ such that  $\psi(x)\rightarrow\neg\tilde{\psi}(x)\rightarrow\psi'(x)$.
-  Then $\neg\forallH x\,\tilde{\psi}(x)$ hence, by (1), $M\models\neg\forallH x\,\psi(x)$.
+  Then $\neg\forallH x\,\tilde{\psi}(x)$ hence, by (1), $M\models\neg\forallH x\,\tilde{\psi}(x)$.
   Then $M\models\neg\tilde{\psi}(a)$ for some $a\in M$. Hence $M\models\psi'(a)$ and $\psi'(a)$ follows from (1).
 
   (2$\Rightarrow$3)
   Assume (2) and let $\psi(x)\in{\EuScript F}(M)$ be such that $\existsH x\,\neg\psi(x)$.
-  By Corollary~\ref{prop_LHapprox2}, there are a consistent $\varphi(x)\in{\EuScript F}(M)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\neg\psi(x)$.
+  By Proposition~\ref{prop_disjunction_dense}, there are a consistent $\varphi(x)\in{\EuScript F}(M)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\neg\psi(x)$.
   Then (3) follows.
 
   (2$\Rightarrow$1)
   Assume (2).
   By the classical Tarski-Vaught test $M\preceq_{\sf H}{\EuScript U}$.
   Then $M$ is the domain of an ${\EuScript L}$-substructure of ${\EuScript U}$.
-  Then  $\varphi(a)\ \Leftrightarrow\ M\models\varphi(a)$ holds for every atomic formula $\varphi(x)$ and for every $a\in M^{|x|}$.
+  Then $\varphi(a)\ \Leftrightarrow\ M\models\varphi(a)$ holds for every atomic formula $\varphi(x)$ and for every $a\in M^{|x|}$.
   Now, assume inductively
   
   \ceq{\hfill M\models\varphi(a,b)}{\Rightarrow}{\varphi(a,b).}
@@ -1195,7 +1195,7 @@ In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the 
 We say that ${\EuScript L}$ is \emph{separable\/} if there is a countable dense set ${\EuScript F}$ of positive formulas.
 % In Section~\ref{separability} we will present examples of separable models.
 
-\begin{proposition}
+\begin{proposition}\label{prop_disjunction_dense}
   Assume that ${\EuScript L}$ is separable.
   Let $A\subseteq{\EuScript U}$ be countable.
   Then there is a countable model $M$ containing $A$. 
@@ -1733,7 +1733,7 @@ As all functions have been required to be uniformly continuous, it is immediate 
 \section{Elimination of quantifiers}
 
 Let $T$ be a positive theory.
-We say that $T$ has (approximate) elimination of quantifiers if the quantifiers free positive formulas are are dense modulo $T$, see Definion~\ref{def_dense}.
+We say that $T$ has (approximate) elimination of quantifiers if the quantifier-free positive formulas are dense modulo $T$, see Definion~\ref{def_dense}.
 
 %for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $\varphi'>\varphi$ there is a formula $\psi(x)\in{\EuScript L}^{\rm p}$ without quantifiers of sort ${\sf H}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds modulo $T$.
 
@@ -1798,45 +1798,48 @@ In this section we prove that $T^{\rm pfr}$ is a compete theory with elimination
 
 \begin{proof}
   Let $\hat a$ be an enumeration of ${\rm dom} k$.
-  Let $p(\hat x,\hat z)$ be the ${\EuScript L}^{\rm p}$-atomic type of $\hat b,\hat a$ in $M$.
-  It suffices to show that $p(\hat x,k\hat a)$ is finitely consistent in $N$.
+  Let $p(\hat x,\hat z)$ be set of formulas of the form $\gamma=\Pr\varphi(\hat x,\hat z)$, for some $\gamma\in I$, that hold in $M,\hat b,\hat a$.
+  Note that $p(\hat x,\hat z)$ implies the atomic type of $\hat b,\hat a$ in $M$.
+  Therefore it suffices to show that $p(\hat x,k\hat a)$ is finitely consistent in $N$.
 
-  We may assume that the formulas in $p(\hat x,\hat z)$ have the form $\gamma=\Pr\varphi(\hat x,\hat z)$ for some $\gamma\in I$.
   Pick a finite set of these formulas, say $\gamma_i=\Pr\varphi_i(\hat x,\hat z)$, for $i<n$.
+  Me may assume that the fomulas $\varphi_i(x,z)$ define a partition of ${\EuScript U}^{|x,z|}$.
   By the saturation of $N$, it suffices to prove that for every $\varepsilon>0$ there is a $\hat c\in N$ such that
   
-  \ceq{\hfill\gamma_i}{=_\varepsilon}{\Pr\varphi_i(\hat c,k\hat a)}
+  \ceq{\hfill\gamma_i}{=_\varepsilon}{\Pr\varphi_i(\hat c,k\hat a)}\hfill ($\alpha=_\varepsilon\beta$ is a shorthand for $|\alpha-\beta|\le\varepsilon$)
   
   is true in $N$ for all $i<n$.
+  
   Some preliminary work is required.
   For each $J\subseteq n$ define the following $L$-formulas
 
-  \ceq{\hfill \psi_J(z)}{=}{\bigwedge_{i\in J}\exists x\;\varphi_i(x,z)}
+  \ceq{\hfill \xi_J(z)}{=}{\bigwedge_{i\in J}\exists x\;\varphi_i(x,z)\wedge\bigwedge_{i\in n\smallsetminus J}\neg\exists x\;\varphi_i(x,z)}
 
-  and
-  
-  \ceq{\hfill \xi_J(z)}{=}{\psi_J(z)\ \wedge\ \bigwedge_{J'\supset J}\neg\psi_{J'}(z).}
-
-  The set of formulas $\xi_J(z)$ that are consistent define a partition of ${\EuScript U}^{|z|}$.
+  These formulas $\xi_J(z)$ partition ${\EuScript U}^{|z|}$.
   For $J\subseteq n$ let $\alpha_J\in I$ be such that $p(\hat x,\hat z)$ contains the formula
   
   \ceq{2.\hfill\alpha_J}{=}{\Pr\big(\xi_J(\hat z)\big)}
   
-  When $\alpha_J$ is positive, for some $\beta_{i,J}\in I$ the type $p(\hat x,\hat z)$ contains the formulas
+  Let ${\EuScript J}=\{J\subseteq n\ :\ \alpha_J\neq0\}$. 
+  When $J\in{\EuScript J}$, there are some $\beta_{i,J}\in I$ such that 
 
   \ceq{3.\hfill \beta_{i,J}}{=}{\Pr\bigg(\varphi_i(\hat x,\hat z)\ \Big|\ \xi_J(\hat z)\bigg).}
 
-  As the formulas $\varphi_i(x,z)$ define a partition, the $\beta_{i,J}$ add up to $1$ for any fixed $J$ for which they are defined (i.e.\@ such that $\alpha_J\neq0$).
+  are conseguence of $p(\hat x,\hat z)$.
+  As the formulas $\varphi_i(x,z)$ define a partition, the $\beta_{i,J}$ add up to $1$ for any fixed $J$.
   Note that $\beta_{i,J}=0$ for $i\notin J$.
+  Clearly, have that 
+
+  \ceq{4.\hfill \gamma_i}{=}{\sum_{J\in{\EuScript J}}\beta_{i,J}\alpha_J.}
 
   It is plain that for $i\in J$ the following is a consequence of $p(\hat x,\hat z)$
 
-  \ceq{4.\hfill 1}{=}{\Pr\bigg(\exists x\,\varphi_i(x,\hat z)\ \Big|\ \xi_J(\hat z)\bigg)}
+  \ceq{5.\hfill 1}{=}{\Pr\bigg(\exists x\,\varphi_i(x,\hat z)\ \Big|\ \xi_J(\hat z)\bigg)}
 
-  Now we prove that (2) \& (4) $\Rightarrow$ (1) holds in ${\EuScript U}^\Omega$ when $\Omega$ large enough (larger than $n/\varepsilon$ suffices).
-  Strictly speaking, this implication is not a positive formula, but the reader can easily verify that a suitable approximation of (2) and (4) suffices. 
+  Now we prove that (2) \& (5) $\Rightarrow$ (1) holds in ${\EuScript U}^\Omega$ when $\Omega$ large enough (larger than $n/\varepsilon$ suffices).
+  Strictly speaking, this implication is not a positive formula, but the reader can easily verify that a suitable approximation of (2) and (5) suffices. 
   
-  Let $\hat a'\in{\EuScript U}^\Omega$ satisfy (2) and (4) for every $i\in J\subseteq n$. 
+  Let $\hat a'\in{\EuScript U}^\Omega$ satisfy (2) and (5) for every $i\in J\subseteq n$. 
   We define $\hat c'\in{\EuScript U}^\Omega$ such that 
   
   \ceq{\hfill{\EuScript U}^\Omega}{\models}{\beta_{i,J}=_\varepsilon\Pr\bigg(\varphi_i(\hat c',\hat a')\ \Big|\ \xi_J(\hat a')\bigg).}
@@ -1844,13 +1847,13 @@ In this section we prove that $T^{\rm pfr}$ is a compete theory with elimination
   We may define $\hat c'$ separately in each event $\llbracket\xi_J(\hat a')\rrbracket$.
   Partition $\llbracket\xi_J(\hat a')\rrbracket$ into events $E_i\subseteq\Omega$, for $i\in J$, such that $\# E_i/\#\Omega=_\varepsilon\beta_{i,J}$.
   Then define $c'_\omega$ for $\omega\in E_i$ to be any witness of $\exists x\,\varphi_i(x,a_\omega)$.
-  By (4), we can always find such a witness.
+  By (5), we can always find such a witness.
   
-  Finally, by elementary probability theory (the theorem of total probability), we deduce
+  Finally, by (4), we deduce
 
   \ceq{\hfill{\EuScript U}^\Omega}{\models}{\gamma_i=_\varepsilon\Pr\big(\varphi_i(\hat c',\hat a')\big).}
 
-  As $k\hat a$ satisfy (2) and (4), we conclude that some $\hat c\in N$ satisfy (1).
+  As $k\hat a$ satisfy (2) and (5), we conclude that some $\hat c\in N$ satisfy (1).
 \end{proof}
 
 Now, from Fact~\ref{fact_backandforth} we obtain that $T^{\rm pfr}$ has elimination of quantifiers.
