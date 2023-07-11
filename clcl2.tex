@@ -924,7 +924,8 @@ There are some subtle differences from the classical setting.
 
 When $A\subseteq{\EuScript U}$, we write \emph{$S^{\rm p}_x(A)$\/} for the set of maximally consistent subsets of ${\EuScript L}^{\rm p}_x(A)$.
 We define \emph{$\mbox{p-tp}(a/A)$,} the positive type of $a$ over $A$, to be the set of formulas $\big\{\varphi(x)\in{\EuScript L}^{\rm p}(A)\ :\ \varphi(a)\big\}$.
-In general, if ${\EuScript F}$ is any set of formulas, we write \emph{${\EuScript F}\mbox{-tp}(a/A)$,} for the type $\big\{\varphi(x)\in{\EuScript F}(A)\ :\ \varphi(a)\big\}$.
+In general, if ${\EuScript F}$ is any set of formulas, we write \emph{${\EuScript F}\mbox{-tp}(a/A)$,} for the type $\big\{\varphi(x)\in{\EuScript F}(A)\ :\ \varphi(a)\big\}$. 
+The undecorated symbol $\mbox{tp}(a/A)$ denotes the ${\EuScript L}$-type.
 
 \begin{fact}\label{fact_max_cons_L}
   Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$.
@@ -1028,22 +1029,17 @@ We apply the proposition above to obtain a strengthening of Fact~\ref{fact_max_c
 For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ satisfy the same ${\EuScript L}$-formulas over $A$.
 
 \begin{corollary}\label{corol_Lcomplete}
-  Let $p(x)\subseteq{\EuScript H}(A)$.
-  The following are equivalent 
-  \begin{itemize}
-    \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript H}_x(A)$;
-    \item[2.] $p(x)\leftrightarrow q(x)=\mbox{tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
-  \end{itemize}
+  Let $p(x)={\EuScript H}(A)\mbox{-tp}(a/A)$ and $q(x)=\mbox{tp}(a/A)$. Then $p(x)\leftrightarrow q(x)$.
 \end{corollary}
 
 \begin{proof}
-  (2$\Rightarrow$1) Clear.
-
-  (1$\Rightarrow$2)
+  Only $\leftrightarrow$ requires a proof.
   If $b\models p(x)={\EuScript H}\mbox{-tp}(a/A)$ then there is an ${\EuScript H}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
   Then $f$ exends to an automorphism.
-  As every automorphism is ${\EuScript L}$-elementary, $a\equiv_Ab$, and (2) follows.
+  As every automorphism is ${\EuScript L}$-elementary, $a\equiv_Ab$, and the corollary follows.
 \end{proof}
+
+This corollary says that at the level of types there is no difference between ${\EuScript L}$, ${\EuScript L}^{\rm p}$, and ${\EuScript H}$.
 
 In the classical setting, from an equivalence between types one derives an  equivalence between formulas.
 Without negation, this is not true.
@@ -1553,7 +1549,7 @@ As all functions have been required to be uniformly continuous, it is immediate 
   Let $ {\EuScript U}$ be as above.
   Then for every model $N$ the following are equivalent for every $a\in{\EuScript U}$
   \begin{itemize}
-    \item[1.] $p(x)={\EuScript L}^{\rm p}\mbox{-tp}(a/N)$ is a Cauchy type;
+    \item[1.] $p(x)=\mbox{p-tp}(a/N)$ is a Cauchy type;
     \item[2.] there is a sequence $\langle a_i: i\in\omega\rangle$ of elements of $N$ that converges to $a$.
   \end{itemize} 
 \end{fact}
@@ -1733,7 +1729,8 @@ As all functions have been required to be uniformly continuous, it is immediate 
 \section{Elimination of quantifiers}
 
 Let $T$ be a positive theory.
-We say that $T$ has (approximate) elimination of quantifiers if the quantifier-free positive formulas are dense modulo $T$, see Definion~\ref{def_dense}.
+We say that $T$ has (approximate, positive) elimination of quantifiers if the quantifier-free positive formulas are dense modulo $T$.
+Equivalently, if every complete type is equivalent to a quantifier-free positive types.
 
 %for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $\varphi'>\varphi$ there is a formula $\psi(x)\in{\EuScript L}^{\rm p}$ without quantifiers of sort ${\sf H}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds modulo $T$.
 
@@ -1790,6 +1787,7 @@ The pseudofinite randomization of $T$ is the positive theory
 {\Big\{\varphi\in{\EuScript L}^{\rm p}\ :\ \langle{\EuScript U}^\Omega, I\rangle\models\varphi\textrm{ for all sufficiently large finite set }\Omega\Big\}}
 
 In this section we prove that $T^{\rm pfr}$ is a compete theory with elimination of quantifiers.
+We prove the lemma that is required for the back-and-forth.
 
 \begin{lemma}
   Let $k:M\to N$ be a finite partial embedding between positively $\omega$-saturated models of $T^{\rm pfr}$.
