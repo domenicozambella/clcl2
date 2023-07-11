@@ -1814,16 +1814,17 @@ We prove the lemma that is required for the back-and-forth.
   \ceq{\hfill \xi_J(z)}{=}{\bigwedge_{i\in J}\exists x\;\varphi_i(x,z)\wedge\bigwedge_{i\in n\smallsetminus J}\neg\exists x\;\varphi_i(x,z)}
 
   These formulas $\xi_J(z)$ partition ${\EuScript U}^{|z|}$.
-  For $J\subseteq n$ let $\alpha_J\in I$ be such that $p(\hat x,\hat z)$ contains the formula
+  For $J\subseteq n$ let $\alpha_J$ be such that 
   
   \ceq{2.\hfill\alpha_J}{=}{\Pr\big(\xi_J(\hat z)\big)}
   
+  is in $p(\hat x,\hat z)$.
   Let ${\EuScript J}=\{J\subseteq n\ :\ \alpha_J\neq0\}$. 
-  When $J\in{\EuScript J}$, there are some $\beta_{i,J}\in I$ such that 
+  When $J\in{\EuScript J}$, there are some $\beta_{i,J}$ such that the formulas
 
   \ceq{3.\hfill \beta_{i,J}}{=}{\Pr\bigg(\varphi_i(\hat x,\hat z)\ \Big|\ \xi_J(\hat z)\bigg).}
 
-  are conseguence of $p(\hat x,\hat z)$.
+  are are among the consequences of $p(\hat x,\hat z)$.
   As the formulas $\varphi_i(x,z)$ define a partition, the $\beta_{i,J}$ add up to $1$ for any fixed $J$.
   Note that $\beta_{i,J}=0$ for $i\notin J$.
   Clearly, have that 
