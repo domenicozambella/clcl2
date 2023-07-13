@@ -159,10 +159,13 @@
 
 \begin{abstract}
   Let ${\EuScript L}$ be a first-order two-sorted language.
-  In general, very little model theory is possible if we restrict to ${\EuScript L}$-structures that have the form $\langle M,I\rangle$ for some fixed structure $I$.
-  But not everything is lost when $I$ is a compact topological space.
-  Continuous logic deals with this case.
-  Rivisiting old ideas we present a back-to-basics approach to continuous logic.
+  Let $I$ be some fixed structure.
+  An ${\EuScript L}$-structure of the form $\langle M,I\rangle$ is called a standard structure.
+  When $I$ is a compact topological space a significative fraction of model theory still applies if we restrict to standard structures.
+  Roughly, we show that at the level of types model theory remains classical (and at the level of formulas \textit{approximately\/} classical).
+  This approach offer a slick formalism that is alternative to nonstandard analysis and to continuous logic.
+
+  \noindent Our approach is based on~\cite{clcl} and, in turn, inspired by the Henson-Iovino model theory of Banach spaces~\cite{HI}.
 \end{abstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -225,14 +228,14 @@ We also fix a first-order language \emph{$L_{\sf H}$\/} which we call the langua
 
 \begin{definition}\label{def_0}
   Let ${\EuScript L}$ be a two sorted language that expands both $L_{\sf H}$ and $L_{\sf I}$.
-  By \emph{model\/} we mean a two-sorted ${\EuScript L}$-structure of the form $\langle  M,I\rangle$, where $M$ ranges over all $L_{\sf H}$-structures, while $I$ is the structure we fixed above.
+  A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle  M,I\rangle$, where $M$ is any $L_{\sf H}$-structure, while $I$ is the structure we fixed above.
   We write \emph{${\sf H}$} and \emph{${\sf I}$\/} to denote the two sorts of ${\EuScript L}$.
   
   The language ${\EuScript L}$ adds a relation symbol for every $L_{\sf H}$-definable subset of $M$, in other words, ${\EuScript L}$ performs the Morleyzation of $L_{\sf H}$.
     
   Finally and most relevantly, ${\EuScript L}$ contains arbitrarily many function symbols of sort ${\sf H}^n\to {\sf I}$. 
 
-  Models are denoted by the domain of their home sort.
+  Standard structures are denoted by the domain of their home sort.
 \end{definition}
 
 % In some examples we need to replace the sort ${\sf H}$ with many sorts ${\sf H}_1\dots,{\sf H}_k$.
@@ -240,10 +243,8 @@ We also fix a first-order language \emph{$L_{\sf H}$\/} which we call the langua
 % Models have the form $\langle M _1\dots,M_k, I\rangle$.
 % The new symbols in the language ${\EuScript L}$ are of sort ${\sf H}_1^{n_1}\dots,{\sf H}_k^{n_k}\to {\sf I}$.
 
-The notion of model will be (inessentially) restricted once the monster model is introduced in Section~\ref{monster}.
-
-Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of trivial cases (when $I$ is finite), they are not models in the sense of Definion~\ref{def_0}.
-As a remedy, below we carve out a set of formulas ${\EuScript L}^{\rm p}$, the set of positive formulas, such that every model has an positive elementary saturated extension that is also a model.
+Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of trivial cases (when $I$ is finite), they are not standard.
+As a remedy, below we carve out a set of formulas ${\EuScript L}^{\rm p}$, the set of positive formulas, such that every model has an positive elementary saturated extension that is also standard.
 
 As usual, $L_{\sf I}$, $L_{\sf H}$, and ${\EuScript L}$ denote both first-order languages and the corresponding set of formulas.
 When we restrict to formulas with a fix tuple of free variables we write ${\EuScript L}_x$.
@@ -260,7 +261,7 @@ When we restrict to formulas with a fix tuple of free variables we write ${\EuSc
 
 % \noindent\llap{\textcolor{red}{\Large\dangersign}\kern1ex}\ignorespaces
 
-Note that ${\EuScript L}$ has two sorts of atomic formulas: those of sort ${\sf H}$ (that is, those equivalent to formulas in $L_{\sf H}$) and those of the form $t(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $t(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
+Note that ${\EuScript L}$ has two types of atomic formulas: those of sort ${\sf H}$ (that is, those equivalent to formulas in $L_{\sf H}$) and those of the form $t(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $t(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
 
 Henson and Iovino have a more stringent notion of positive formulas (that they define in the language of normed spaces).
 Their positive formulas exclude formulas in $L_{\sf H}$ and quantifiers of sort ${\sf I}$.
@@ -293,12 +294,12 @@ The following example is inspired by~\cite{HPP}.
 \begin{example}\label{ex_HPP}
   Let ${\EuScript U}$ be a monster model of signature $L_{\sf H}$.
   The relevant part of ${\EuScript L}$ contains symbols for the functions $f:{\EuScript U}^n\to I$ that are continuous in the following sense: the inverse image of every compact $C\subseteq I$ is type-definable in $L_{\sf H}(M)$ for every $M\preceq{\EuScript U}$.
-  It is easy to verify that the model $\langle{\EuScript U}, I\rangle$ is positively saturated, see definition in Section~\ref{compactness}.
+  It is easy to verify that $\langle{\EuScript U}, I\rangle$ is positively saturated, see Section~\ref{compactness}.
 \end{example}
 
 We mentioned normed spaces as a motivating example.
 Essentially, functional analysis and model theory are only interested in the unit ball of normed spaces.
-To formalize the unit ball of a normed space as a model (where $I$ is the unit interval) is straightforward but pretty ugly.
+To formalize the unit ball of a normed space as a standard structure (where $I$ is the unit interval) is straightforward but pretty ugly.
 Alternatively one can view a normed space as a many-sorted structure: a sort for each ball of radius $n\in\mathds{Z}^{\rm p}$.
 Unfortunately, this also results into a bloated formalism.
 
@@ -310,13 +311,13 @@ In fact, inside any ball of finite radius these nonstandard normed spaces are co
 Let $I=\mathds{R}\cup\{\pm\infty\}$.
 Let $L_{\sf H}$ be the language of real (or complex) vector spaces.
 The language ${\EuScript L}$ contains a function symbol $\|\mbox{-}\|$ of sort ${\sf H}\to {\sf I}$.
-Normed space are models with the natural interpretation of the language.
-It is easy to verify that the unit ball of every model is a the unit ball of a normed space.
+Normed space are standard structures with the natural interpretation of the language.
+It is easy to verify that the unit ball of a standard structure is the unit ball of a normed space.
 Note that the same remains true if we add to the language any continuous (equivalently, bounded) operator or functional.
 \end{example}
 
-We conclude this introduction with a question.
-Is it possible to extend the Compactness Theorem~\ref{thm_compattezza} to a larger class of formulas?
+We conclude this introduction by advertizing a question of~\cite{clcl}.
+Is it possible to extend the Positive Compactness Theorem (Theorem~\ref{thm_compattezza}) to a larger class of formulas?
 E.g.\@ can we allow in ${\EuScript L}$ (and in ${\EuScript L}^{\rm p}$) function symbols of sort ${\sf H}^n\times {\sf I}^m\to {\sf I}$ with both $n$ and $m$ positive?
 These would have natural interpretations, e.g.\@ a group acting on a compact set $I$.
 
@@ -365,24 +366,22 @@ For every type $p(x)$, we write
 in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
 
 \begin{definition}\label{def_dense}
-  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{dense\/} if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ hold in every model.
-
-  If these implications holds in every model of $T$ we say that ${\EuScript F}$ is dense modulo $T$.
+  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{dense\/} modulo $T$, a theory, if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
+  If $T$ is empty, we say: dense modulo ${\EuScript L}$.
 \end{definition}
 
 \begin{example}
-  By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is dense.
+  By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is dense modulo ${\EuScript L}$.
 \end{example}
 
 \begin{example}
   Read $\alpha=\beta$ as synonimous of $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of ${\sf I}^2$, a compact set.
-  It is easy to see that the set of formulas build inductively from the atomic formulas of sort ${\sf H}$ and $t(x)=s(x)$ is dense.
+  It is easy to see that the set of formulas build inductively from the atomic formulas of sort ${\sf H}$ and $t(x)=s(x)$ is dense modulo ${\EuScript L}$.
 \end{example}
 
 \begin{example}
   Let ${\EuScript H}$ be the set of positive formulas without quantifiers of sort ${\sf I}$.
   In Section~\ref{Ielimination} we will prove that this set is dense.
-  Interestestingly this set if closed under weakening and strong negation.
 \end{example}
 
 
@@ -395,20 +394,20 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
 
 \def\ceq#1#2#3{\parbox[t]{35ex}{$\displaystyle #1$}\parbox{5ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-Let $M$ and $N$ be two models.
+Let $M$ and $N$ be two standard structures.
 We say that a partial map $f:M\to N$ is \emph{p-elementary\/} if for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in({\rm dom }f)^{|x|}$
 
 \ceq{1.\hfill M\models\varphi(a)}{\Rightarrow}{N\models\varphi(fa).}
 
-A p-elementary map that is total is called an \emph{p-elementary embedding.} 
+A p-elementary map that is total is called an \emph{p-elementary embedding.}
 When the map ${\rm id}_M:M\rightarrow N$ is an p-elementary embedding, 
 % that is, if for every  $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in M^{|x|}$
 %
 % \ceq{\hfill{\EuScript M}\models\varphi(a)}{\Rightarrow}{N\models\varphi(a)},
 %
-we write \emph{$M\preceq^{\rm p} N$\/} and say that $M$ is an \emph{p-elementary submodel\/} of $N$. 
+we write \emph{$M\preceq^{\rm p} N$\/} and say that $M$ is an \emph{p-elementary substructure\/} of $N$. 
 
-As ${\EuScript L}^{\rm p}$ are in particular $L_{\sf H}$-elementary, they are injective.
+As p-elementary maps are in particular $L_{\sf H}$-elementary, they are injective.
 However, their inverse need not be p-elementary.
 In other words, the converse of the implication in (1) may not hold.
 Hence the following notion of elementarity which is more roboust.
@@ -421,10 +420,10 @@ We say that the map $f:M\to N$ is an \emph{approximate p-elementary\/} if for ev
 
 \ceq{2.\hfill M\models\varphi(a)}{\Rightarrow}{N\models\big\{\varphi(fa)\big\}'.}
 
-One convenient feature of approximate p-elementarity is that for it to hold it suffices verify (2) for any/some dense set of formulas.
+One convenient feature of approximate p-elementarity is that it suffices verify (2) for any/some dense set of formulas.
 It is clear that p-elementarity implies its approximate variant.
 We will see that with a slight amount of saturation also the converse holds (Proposition~\ref{prop_approx}).
-Finally, under full saturation, all differences disappear as all these morphims becomes ${\EuScript L}$-elementarity maps (Corollary~\ref{corol_Lcomplete}).
+Finally, under full saturation, all differences disappear as these morphims becomes ${\EuScript L}$-elementarity maps (Corollary~\ref{corol_Lcomplete}).
 
 The following holds in general.
 
@@ -482,15 +481,15 @@ Note that this is the same as requiring that (1) holds for all formulas without 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The standard part}\label{standard_part}
 
-Our goal is to prove the Compactness Theorem for positive theories.
-To bypass lengthy applications of ultrafilters, ultrapowers, and ultralimits, % -- as it would be like reinventing the wiel.
+Our goal is to prove a compactness theorem for positive theories.
+To bypass lengthy routine applications of ultrafilters, ultrapowers, and ultralimits, % -- as it would be like reinventing the wiel.
 we assume the Classical Compactness Theorem and built on that.
 
 In this section we recall the notion of standard part of an element of the elementary extension of a compact Hausdorff topological space.
 Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the Positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
 The reader willing to accept it without proof may skip this section.
 
-Let $\langle N, {}^*\!\!I\rangle$ be an ${\EuScript L}$-structure that extends ${\EuScript L}$-elementarily the model $M$. %$\langle M, I\rangle$.
+Let $\langle N, {}^*\!\!I\rangle$ be an ${\EuScript L}$-structure that extends ${\EuScript L}$-elementarily the standard structure $M$. %$\langle M, I\rangle$.
 Let $\eta$ be a free variable of sort ${\sf I}$.
 For each $\beta\in I$, we define the type
 
@@ -544,7 +543,7 @@ We denote by \emph{${\rm st}(\alpha)$\/} the unique $\beta\in I$ such that ${}^*
   Therefore ${}^*\!\!I\models \alpha\in f^{-1}[D]$ and, as $I\preceq{}^*\!\!I$ we obtain ${}^*\!\!I\models f(\alpha)\in D$.
 \end{proof}
 
-The \emph{standard part of $\langle N,{}^*\!\!I\rangle$\/} is the model $\langle N,I\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\to {\sf I}$ as the functions
+The \emph{standard part of $\langle N,{}^*\!\!I\rangle$\/} is the standard structure $\langle N,I\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\to {\sf I}$ as the functions
 
 \ceq{\hfill f^N(a)}{=}{{\rm st}\big({}^*\!\!f(a)\big)}\hfill for all $a\in N^n$,
 
@@ -594,7 +593,7 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
 \end{proof}
 
 \begin{corollary}\label{corol_st}
-  Let $M$ be an arbitrary model.
+  Let $M$ be a standard structure.
   Let $p(\eta)\subseteq{\EuScript L}^{\rm p}(M)$ be a type that does not contain existential quantifiers of sort ${\sf H}$.
   Then, if $p(\eta)$ is finitely consistent in $M$, it is realized in $M$.
  \end{corollary}
@@ -632,9 +631,9 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compactness}\label{compactness}
 
-It is convenient to distinguish between consistency with respect to models and consistency with respect to ${\EuScript L}$-structures.
+It is convenient to distinguish between consistency with respect to standard structures and consistency with respect to ${\EuScript L}$-structures.
 We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} when $\langle M,{}^*\!\!I\rangle\models T$ for some ${\EuScript L}$-structure.
-We say that $T$ is \emph{consistent\/} when $M\models T$  is for some model $M$.
+We say that $T$ is \emph{consistent\/} when $M\models T$  is for some standard structure $M$.
 
 \begin{theorem}[Positive Compactness Theorem]\label{thm_compattezza}
   Let $T$ be a positive theory that is finitely ${\EuScript L}$-consistent.
@@ -643,7 +642,7 @@ We say that $T$ is \emph{consistent\/} when $M\models T$  is for some model $M$.
 
 \begin{proof}
   Suppose $T$ is finitely ${\EuScript L}$-consistent.
-  By the classical Compactness Theorem, there is an ${\EuScript L}$-structure $\langle M,{}^*\!\!I\rangle\models T$.
+  By the Classical Compactness Theorem, there is an ${\EuScript L}$-structure $\langle M,{}^*\!\!I\rangle\models T$.
   Let $\langle M,I\rangle$ be its standard part as defined in Section~\ref{standard_part}.
   Then $M\models T$ by Lemma~\ref{lem_st}.
 \end{proof}
@@ -668,7 +667,7 @@ When $\lambda=|N|$ we simply say  \emph{positively saturated.}
 The existence of positively saturated models is obtained from the classical case just as for Theorem~\ref{thm_compattezza}.
 
 \begin{theorem}
-  Every model has an p-elementary extension to a positively saturated model (possibly of inaccessible cardinality).
+  Every standard structure has an p-elementary extension to a positively saturated standard structure (possibly of inaccessible cardinality).
 \end{theorem}
 
 % Homogeneity follows from saturation by the usual back-and-forth contruction.
@@ -681,7 +680,7 @@ The existence of positively saturated models is obtained from the classical case
 The following proposition shows that a slight amount of saturation tames the positive formulas.
 
 \begin{proposition}\label{prop_approx}
-  Let $N$ be a positively $\omega$-saturated model.
+  Let $N$ be a positively $\omega$-saturated standard structure.
   Then 
   
   \ceq{\hfill\big\{\varphi(x\,;\eta)\big\}'}{\leftrightarrow}{\varphi(x\,;\eta)}
@@ -777,7 +776,7 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
   In general, some saturation is necessary: consider the model presented after Corollary~\ref{corol_st} and the formula $\exists x\,\big(x>0\ \wedge\ \iota(x)\in\{0\}\big)$. 
 % \end{remark}
 
-A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms defined in Section~\ref{morphisms} coincide with their unapproximate version when the codomain is a positively $\omega$-saturated model.
+A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms defined in Section~\ref{morphisms} coincide with their unapproximate version when the codomain is positively $\omega$-saturated.
 % In particular, the following follows from Fact~\ref{fact_HImorphisms}.
 
 % \begin{corollary}\label{corol_omega_sat}
@@ -816,17 +815,17 @@ A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The monster model}\label{monster}
 
-We denote by \emph{${\EuScript U}$\/} some large positively saturated model which we call the \emph{monster model.}
+We denote by \emph{${\EuScript U}$\/} some large positively saturated standard structure which we call the \emph{monster model.}
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
 Truth is evaluated in ${\EuScript U}$ unless otherwise is specified.
-Below we say \emph{model\/} for p-elementary submodel of ${\EuScript U}$.
+Below we say \emph{model\/} for p-elementary substructure of ${\EuScript U}$.
 We stress once again that the truth of some $\varphi\in{\EuScript L}^{\rm p}(M)$ in a model $M$ implies the truth of $\varphi$ (in ${\EuScript U}$) but not vice versa.
 If also the converse implication holds we say $M$ a \emph{strong model.}
 However, all models agree on the approximated truth, see Fact~\ref{fact_HImorphisms},
 
 \ceq{\hfill M\models\{\varphi\}'}{\Leftrightarrow}{\{\varphi\}'}
 
-Hence strong models are those that realize the equivalence in Proposition~\ref{prop_approx}, e.g.\@ positively $\omega$-saturated models are strong models.
+Strong models are those that realize the equivalence in Proposition~\ref{prop_approx}, e.g.\@ positively $\omega$-saturated models are strong models.
 
 % Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 % We define a topology on ${\EuScript U}^{|x|}$ which we call the \emph{${\EuScript L}^{\rm p}(A)$-topology.}
@@ -1011,7 +1010,7 @@ Therefore we can also claim the following.
 \section{Elimination of quantifiers of sort \textsf{I}}\label{Ielimination}
 
 We show that the quantifiers of sort ${\sf I}$ can be eliminated up to some approximation.
-Precisely, we prove that the set formulas ${\EuScript H}$ defined above is dense, see Definion~\ref{def_dense}.
+Precisely, we prove that the set formulas ${\EuScript H}$ defined above is dense (modulo the theory of ${\EuScript U}$), see Definion~\ref{def_dense}.
 
 We say that partial map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript H}$-elementary if it preserves the truth of formulas in ${\EuScript H}$.
 
@@ -1033,7 +1032,7 @@ For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ s
 \end{corollary}
 
 \begin{proof}
-  Only $\leftrightarrow$ requires a proof.
+  Only $\rightarrow$ requires a proof.
   If $b\models p(x)={\EuScript H}\mbox{-tp}(a/A)$ then there is an ${\EuScript H}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
   Then $f$ exends to an automorphism.
   As every automorphism is ${\EuScript L}$-elementary, $a\equiv_Ab$, and the corollary follows.
@@ -1046,7 +1045,7 @@ Without negation, this is not true.
 Still, we can infer an approximate form of equivalence.
 
 \begin{proposition}\label{prop_LHapprox1}
-  The set ${\EuScript H}$ is dense.
+  The set ${\EuScript H}$ is dense (modulo the theory of ${\EuScript U}$).
 \end{proposition}
 
 \begin{proof}
@@ -1084,17 +1083,17 @@ Still, we can infer an approximate form of equivalence.
   
   \ceq{\hfill\varphi(x)}
   {\leftrightarrow}
-  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi'(x)\rightarrow\varphi(x)\big\}.}
+  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi'(x)\rightarrow\varphi(x)\textrm{ for some }\psi'>\psi\big\}.}
 \end{proposition}
  
 \begin{proof}
   Only $\rightarrow$ requires a proof.
+  We will make reteated use of the equivalence $p(x)\leftrightarrow p'(x)$ that holds for all $p(x)\subseteq{\EuScript L}^{\rm p}$.
   Let $a\in {\EuScript U}^{|x|}$ be such that $\varphi(a)$.
   Let $p(x)={\EuScript H}\mbox{-tp}(a/A)$.
-  Recall that $p(x)\leftrightarrow p'(x)$ for all $p(x)\subseteq{\EuScript L}^{\rm p}$.
   By Corollary~\ref{corol_Lcomplete}, $p(x)\rightarrow\varphi(x)$.
   As ${\EuScript F}$ is dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a/A)$.
-  Then $q'(x)\rightarrow\varphi(x)$ and, by compactness, $\psi'(x)\rightarrow\varphi(x)$ for some $\psi'(x)\in q'$.
+  Then $q(x)\rightarrow\varphi(x)$ and, by compactness, $\psi'(x)\rightarrow\varphi(x)$ for some $\psi'>\psi\in{\EuScript F}$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1106,7 +1105,7 @@ Still, we can infer an approximate form of equivalence.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Tarski-Vaught test and the L\"owenheim-Skolem theorem}
 
-The following proposition is our equivalent to the Tarski-Vaught test.
+The following proposition is our version of the Tarski-Vaught test.
 
 \begin{proposition}\label{prop_Tarski_Vaught}
   Let $M$ be a subset of ${\EuScript U}$.
@@ -1188,7 +1187,7 @@ In particular every $A\subseteq{\EuScript U}$ is contained in a model of cardina
 In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in $L_{\sf I}$.
 
-We say that ${\EuScript L}$ is \emph{separable\/} if there is a countable dense set ${\EuScript F}$ of positive formulas.
+We say that ${\EuScript L}$ is \emph{separable\/} if there is a countable set  ${\EuScript F}$ of positive formulas that is dense modulo ${\EuScript L}$.
 % In Section~\ref{separability} we will present examples of separable models.
 
 \begin{proposition}\label{prop_disjunction_dense}
@@ -1318,13 +1317,13 @@ If $t(x,z)=t_1(x,z),\dots,t_n(x,z)$ is a tuple of terms, by $x\sim_{t,D}y$ we de
 As $D$ ranges over the compact neighborhoods of $\Delta$ and $t(x,z)$ ranges over the finite tuples parameter-free terms.
 These formulas $x\sim_{t,D}y$ define a system of entougages on ${\EuScript U}^{|x|}$.
 We refer to this uniformity and the topology associated as the \emph{${\sf I}$-topology.}
-Though not nedded in the sequel, it is worth mentioning that the ${\sf I}$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the ${\sf I}$-topology on ${\EuScript U}$.
-This can be verified by an argument similar to what used in the proof of Fact~\ref{fact_productUniformity}.
+Though not needed in the sequel, it is worth mentioning that the ${\sf I}$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the ${\sf I}$-topology on ${\EuScript U}$.
+This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
 
 We say that $p(x)\subseteq{\EuScript L}^{\rm p}({\EuScript U})$ is \emph{${\sf I}$-invariant\/} if $x\sim_{\sf I}\!y\rightarrow[p(x)\leftrightarrow p(y)]$.
-It is easy to see that all formulas constructed without the use of (ii) of Definion~\ref{def_LL} are ${\sf I}$-invariant.
+It is clear that all formulas that do not contain atomic formulas of sort ${\sf H}$ are invariant.
 The following proposition is an immediate consequence of compactness.
-It corresponds to the Perturbation Lemma~\cite[Proposition~5.15]{HI}.
+It corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
 
 \begin{proposition}\label{prop_perturbation}
   The following are equivalent for every $\varphi(x)\in{\EuScript L}^{\rm p}({\EuScript U})$ 
@@ -1340,7 +1339,7 @@ It corresponds to the Perturbation Lemma~\cite[Proposition~5.15]{HI}.
 We say that $p(x)$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim_{\sf I}\!y$.
 
 We say that a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conjunction of formulas in $q(x)$ has a solution in $M$.
-This definition is classical but note that, though classically every type over $M$ is finitely saisfiable in $M$, here we can only infer that $q'(x)$ is finitely satisfiable.
+This definition is classical but note that, though classically every type over $M$ is finitely saisfiable in $M$, here, unless $M$ is sufficiently saturated, we can only infer that $q'(x)$ is finitely satisfiable.
 
 \begin{lemma}\label{lem_Cauchyequiv}
   The following are equivalent for every model $M$
@@ -1571,6 +1570,21 @@ As all functions have been required to be uniformly continuous, it is immediate 
   As $d(a,a_i)<2^{-i}$ for all $i$, the sequence $\langle a_i: i\in\omega\rangle$ converges to $a$.
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Omitting types and countable categoricity}
+
+A type $p(x)\subseteq{\EuScript L}({\EuScript U})$ is isolated by $\varphi(x)$, a consistent formula in ${\EuScript L}({\EuScript U})$, if $\varphi(x)\rightarrow p(x)$.
+We say that $p(x)$ is isolated over $A$ if it is isolated by some formula in ${\EuScript L}(A)$. 
+By Fact~\ref{prop_Fapprox}, if $p(x)$ is isolated by $\varphi(x)$ then it is isolated by a positive formula with the same parameters as $\varphi(x)$.
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1695,16 +1709,23 @@ As all functions have been required to be uniformly continuous, it is immediate 
   %  review={\MR{1967834}},
 }
 
-\bib{K}{arXiv}{
-  label={K},
-  author = {Keisler, H. Jerome},
-  title = {Model Theory for Real-valued Structures},
-  eprint={2005.11851},
-  doi = {10.48550/ARXIV.2005.11851},
-  url = {https://arxiv.org/abs/2005.11851},
-  publisher = {arXiv},
-  date = {2020},
+\bib{clcl}{article}{
+  label={CLCL},
+  author = {Polymath, C.L.C.L.},
+  title = {Continuous Logic for the Classical Logician},
+  note={T.a.},
+  date = {202?},
 }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Continuous group actions}
 \end{biblist}
 \end{bibdiv}
 
@@ -1791,7 +1812,7 @@ We prove the lemma that is required for the back-and-forth.
 
 \begin{lemma}
   Let $k:M\to N$ be a finite partial embedding between positively $\omega$-saturated models of $T^{\rm pfr}$.
-  Then for every $\hat b\in M$ and there is a $\hat c\in N$ such that $k\cup\{\langle\hat b,\hat c\rangle\}:M\to N$ is an ${\EuScript L}^{\rm p}$-partial embedding.
+  Then for every $\hat b\in M$ and there is a $\hat c\in N$ such that $k\cup\{\langle\hat b,\hat c\rangle\}:M\to N$ is a partial embedding.
 \end{lemma}
 
 \begin{proof}
@@ -2534,7 +2555,7 @@ First we prove the following lemma.
   Extend $B$ to an ultrafilter $F$ on $I$.
   Let ${\EuScript N}$ be the ultrapower of ${\EuScript M}$ over $F$.
   That is, the model with unit ball $N=M^I$ obtained as in Definition~\ref{def_ultraproduct}.
-  By \L\v o\'s Theorem, ${\EuScript M}$ embeds elementariy into ${\EuScript N}$.
+  By \L\v o\'s Theorem, ${\EuScript M}$ embeds elementary into ${\EuScript N}$.
   It remains to prove that ${\EuScript N}$ realizes $p(x)$.
 
   For every formula $\xi(x)\in I$ choose some $a_\xi\in  M^{|x|}$ such that $\xi(a_\xi)$.
@@ -2557,7 +2578,7 @@ First we prove the following lemma.
 We denote by \emph{${\EuScript U}$\/} some large ${\EuScript L}^{\rm p}$-saturated structure which we call the \emph{monster model.}
 The unit ball of ${\EuScript U}$ is denoted by \emph{$U$.}
 The cardinality of ${\EuScript U}$ is an inaccessible cardinal that we denote by \emph{$\kappa$.}
-Below we say \emph{model\/} for ${\EuScript L}^{\rm p}$-elementariy substructure of ${\EuScript U}$.
+Below we say \emph{model\/} for ${\EuScript L}^{\rm p}$-elementary substructure of ${\EuScript U}$.
 
 
 \begin{lemma}\label{lem_compactness_implication}
