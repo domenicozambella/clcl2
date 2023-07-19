@@ -163,12 +163,12 @@
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$ where $I$ is fixed.
   We ask if there is a nontrivial model theory of standard structures.
   When $I$ is a compact topological space (and the topology is coded into ${\EuScript L}$) the answer is YES.
-  Indeed, a significant part of classical model theory withstand up to minor caveats.
-  We prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
-  This is a positive monster model, here every formula is equivalent to an infinite, but small, disjunction of positive formulas.
-  And all formulas are \textit{approximated\/} arbitrarility well by the positive ones.
+  Indeed, a significant part of classical model theory can be adapted, with a few minor caveats, to this restricted class of structures.
+  E.g., we prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
+  We show that types realized in this positive monster model are equivalent to positive types.
+  % Here where all formulas are \textit{approximated\/} by the positive ones.
   
-  \noindent This approach offer a slick alternative to nonstandard analysis and real-valued model theory.
+  \noindent This approach offer a slick alternative to both nonstandard analysis and to real-valued model theory.
   It is based on~\cite{clcl} and, in turn, inspired by the Henson-Iovino model theory of Banach spaces~\cite{HI}.
 \end{abstract}
 
@@ -182,7 +182,7 @@
 We refer to the introduction of~\cite{clcl} for motivations.
 Aside from that, this paper is reasonably self-contained.
 In the first part we biefly revisit the main results of~\cite{clcl}.
-We rephrase some theorem and add a few remarks and examples\footnote{In the final version we may drop a few sections that do add new insight to~\cite{clcl}}.
+We rephrase some theorem and add a few remarks and examples\footnote{In the final version we may drop a few sections that do not add new insight to~\cite{clcl}}.
 Our notation and terminology diverges slightly.
 
 In the second part of this paper we discuss: criteria for elimination of quantifers; omitting types; $\omega$-categoricity; stability; and indiscernibles.
@@ -1089,16 +1089,15 @@ Still, we can infer an approximate form of equivalence.
 \end{proof}
 
 We will need a similar result for larger class formulas.
-We write $\Sigma^{\rm p}$ for the set of formulas of the form $\exists y\varphi(x,y)$ where $\varphi(x,y)$ is positive Boolean combination of formulas such as $\neg\psi(x,y)$ and $\psi'(x,y)$ for $\psi(x,y)$ positive and $\psi'>\psi$.
+We write \emph{$\Sigma^{\rm p}$\/} for the set of formulas of the form $\exists y\,\varphi(x,y)$ where $\varphi(x,y)$ is positive Boolean combination of formulas such as $\neg\psi(x,y)$ and $\psi'(x,y)$ for $\psi(x,y)$ positive and $\psi'>\psi$.
 The following follows easily from the proposition above.
 
-\begin{proposition}\label{prop_SigmaFapprox}
-  Let ${\EuScript F}$ be a dense set of positive formulas.
-  Then for every $\varphi(x)\in\Sigma^{\rm p}$
+\begin{proposition}\label{prop_Sigma_approx}
+  For every $\varphi(x)\in\Sigma^{\rm p}$
   
   \ceq{\hfill\varphi(x)}
   {\leftrightarrow}
-  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi'(x)\rightarrow\varphi(x)\textrm{ for some }\psi'>\psi\big\}.}
+  {\bigvee\big\{\psi(x)\in{\EuScript L}^{\rm p}\ :\ \psi'(x)\rightarrow\varphi(x)\textrm{ for some }\psi'>\psi\big\}.}
 \end{proposition}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1596,10 +1595,38 @@ As all functions have been required to be uniformly continuous, it is immediate 
 
 \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-A type $p(x)$ is isolated by $\varphi(x)$ if $\varphi(x)$ consistent and $\varphi(x)\rightarrow p(x)$.
-We say that $p(x)$ is p-isolated over $A$ if it is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$.
-If $p(x)$ is p-isolated over $A$ then, by Fact~\ref{prop_Fapprox}, every dense set ${\EuScript F}$ contains a consistent formula $\psi(x)$ such that $\psi'(x)$ isolates $p(x)$ for some $\psi'>\psi$.
+A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
+If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} over $A$.
 Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $p(x)$ is p-isolated over $A$, then $p(x)$ is realized in every model containing $A$.
+
+\begin{proposition}\label{prop_isolation}
+  Let ${\EuScript F}$ be a dense set of positive formulas.
+  Then the following are equivalent
+\begin{itemize}
+  \item[1.] $p(x)$ is p-isolated over $A$;
+  \item[2.] $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript F}(A)$;
+  \item[3.] $p(x)$ is isolated by some $\psi'(x)$ such that  $\psi'>\psi$ for some consistent $\psi(x)\in{\EuScript F}(A)$;
+  \item[4.] $p(x)$ is isolated by some formula $\varphi(x)\in\Sigma^{\rm p}(A)$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+  1$\Leftrightarrow$2 For the nontrivial direction, note that by density
+
+  \ceq{\hfill\varphi(x)}
+  {\leftrightarrow}
+  {\bigwedge\big\{\psi(x)\in{\EuScript F}\ :\ \varphi(x)\rightarrow\psi(x)\big\}}
+  
+  therefore, negating
+  
+  \ceq{\hfill\neg\varphi(x)}
+  {\leftrightarrow}
+  {\bigvee\big\{\neg\psi(x)\ :\ \psi(x)\in{\EuScript F}\textrm{ and }\neg\psi(x)\rightarrow\neg\varphi(x)\big\}.}
+  
+  1$\Leftrightarrow$3 By Proposition~\ref{prop_Fapprox} and Fact~\ref{lem_interpolation}.
+
+  3$\Leftrightarrow$4 By Proposition~\ref{prop_Sigma_approx}.
+\end{proof}
 
 
 \begin{lemma}\label{lem_kuratowskiUlam}
@@ -1610,36 +1637,35 @@ Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm 
 \begin{proof}
 We construct a sequence of ${\EuScript L}^{\rm p}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
 
-Let $\langle\xi_i(x\,;z):i<\omega\rangle$ be an enumeration of a countable dense subset of ${\EuScript L}^{\rm p}_{x\,;z}(A)$.
+Let $\langle\xi_i(x\,;z):i<\omega\rangle$ enumerate a countable dense subset of ${\EuScript L}^{\rm p}_{x\,;z}(A)$.
 Let $\gamma_0(z)$ be a consistent positive formula such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$, which exists by Proposition~\ref{prop_Fapprox}.
 Define $\gamma_{i+1}(z)$ and  $\gamma'_{i+1}(z)$ inductively as follows.
 
 \begin{itemize}
-   \item[1.] if $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is inconsistent, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$;
+   \item[1.] If $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is inconsistent, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$;
    \item[2.] otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
    
    (\#)\hfil$\gamma'_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x\,;z)\wedge\neg\varphi(x)\big].$\kern19ex
    
-   Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive formulas such that $\gamma'_{i+1}(z)$ implies (\#) --this exists by Proposition~\ref{prop_SigmaFapprox}.
+   Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive formulas such that $\gamma'_{i+1}(z)$ implies (\#) --this exists by Proposition~\ref{prop_Sigma_approx}.
 \end{itemize}
 Let $a\models\{\gamma_i(z):i<\omega\}$.
 We claim that that $A,a$ does not p-isolate $p(x)$.
-In fact, suppose for a contradiction $\neg\vartheta(x\,;a)\rightarrow p(x)$, where $\vartheta(x\,;z)\in{\EuScript L}^{\rm p}(A)$ and $\neg\vartheta(x\,;a)$ is consistent.
-By density, and Proposition~\ref{prop_Fapprox} $\xi_i'(x\,;a)\rightarrow p(x)$ for some $i<\omega$ and some $\xi'_i>\xi_i$.
+Otherwise, by density, $\neg\xi(x\,;a)\rightarrow p(x)$ for some $i<\omega$, where $\neg\xi_i(x\,;a)$ is consistent.
 This contradicts $a\models\gamma_{i+1}(z)$.
 
-%then $\xi_i(x\,;a)$ does not isolate $p(x)$.
-Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required above.
+Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
 
-Suppose for a contradiction that $\neg\xi_i(x\,;z)\wedge\gamma_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$, that is, 
+Suppose for a contradiction that $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$, that is, 
 
-\ceq{\hfill\neg\xi_i(x\,;z)\wedge\gamma_i(z)}{\rightarrow}{\varphi(x).} 
+\ceq{\hfill\neg\xi_i(x\,;z)\wedge\gamma'_i(z)}{\rightarrow}{\varphi(x).} 
 
 This immediately implies that 
 
-\ceq{\hfill\exists z\;\big[\neg\xi_i(x\,;z)\wedge\gamma_i(z)\big]}{\rightarrow}{p(x).}
+\ceq{\hfill\exists z\;\big[\neg\xi_i(x\,;z)\wedge\gamma'_i(z)\big]}{\rightarrow}{p(x).}
 
-By Fact~\ref{prop_Fapprox}, we conclude that $p(x)$ is isolated by a formula in ${\EuScript L}_{x}^{\rm p}(A)$, which contradicts our assumptions.
+Then $p(x)$ is isolated by a formula in $\Sigma^{\rm p}(A)$.
+By Proposition~\ref{prop_isolation} this contradicts our assumptions.
 \end{proof}
 
 \begin{corollary}\label{prop_OTT}
