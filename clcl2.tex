@@ -163,11 +163,10 @@
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$ where $I$ is fixed.
   We ask if there is a nontrivial model theory of standard structures.
   When $I$ is a compact topological space (and the topology is coded into ${\EuScript L}$) the answer is YES.
-  Indeed, a significant part of classical model theory can be adapted, with a few minor caveats, to this restricted class of structures.
+  Indeed, a significant part of classical model theory can be adapted, with a few caveats, to this restricted class of standard structures.
   E.g., we prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
   We show that types realized in this positive monster model are equivalent to positive types.
-  % Here where all formulas are \textit{approximated\/} by the positive ones.
-  
+    
   \noindent This approach offer a slick alternative to both nonstandard analysis and to real-valued model theory.
   It is based on~\cite{clcl} and, in turn, inspired by the Henson-Iovino model theory of Banach spaces~\cite{HI}.
 \end{abstract}
@@ -186,6 +185,13 @@ We rephrase some theorem and add a few remarks and examples\footnote{In the fina
 Our notation and terminology diverges slightly.
 
 In the second part of this paper we discuss: criteria for elimination of quantifers; omitting types; $\omega$-categoricity; stability; and indiscernibles.
+
+The model theory of standard structures is based on the notions of positive formulas and of approximations.
+These evolved from the Henson-Iovino model theory of Banach spaces~\cite{HI}.
+Note that though the model theory of standard structures is an example of positive model theory there are important differences.
+For instance, we show that the negation of a positive formula is equivalent to an infinite disjunction of positive formulas.
+We also prove that these negations can be \textit{approximated\/} arbitrarily well by positive formulas.
+This makes the model theory of standard structures closer to classical model theory than one may expect.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -489,7 +495,7 @@ The following fact is well-known.
   Negate the existence of $\beta$.
   For every $\gamma\in I$ pick some compact neighborhood $D_\gamma$ of $\gamma$, such that ${}^*\!\!I\ \models\ \alpha\notin D_\gamma$.
   By compactness there is some finite $\Gamma\subseteq I$ such that $D_\gamma$, with $\gamma\in\Gamma$, cover $I$.
-  By elementarity these $D_{\gamma}$ also cover ${}^*\!\!I$.
+  By elementarity, the interpretation in ${}^*\!\!I$ of these $D_{\gamma}$ cover ${}^*\!\!I$.
   A contradiction.
   The uniqueness of $\beta$ follows from normality.
 \end{proof}
@@ -645,7 +651,7 @@ Therefore we have the following.
 %     \item[2.] $p(x)$ is finitely satisfied in $M$.
 %   \end{itemize}
 % \end{definition}
-An ${\EuScript L}$-structure $N$ is \emph{$\lambda$-p-saturated\/} if it realizes all types $p(x\,;\eta)\subseteq{\EuScript L}^{\rm p}(N)$ with fewer than $\lambda$ parameters that are finitely consistent in $N$.
+An ${\EuScript L}$-structure $N$ is \emph{positively $\lambda$-saturated\/} if it realizes all types $p(x\,;\eta)\subseteq{\EuScript L}^{\rm p}(N)$ with fewer than $\lambda$ parameters that are finitely consistent in $N$.
 When $\lambda=|N|$ we simply say \emph{p-saturated.}
 The existence of p-saturated standard structures is obtained from the classical case just as for Theorem~\ref{thm_compattezza}.
 
@@ -731,9 +737,9 @@ The following proposition shows that a slight amount of saturation tames the pos
   {\rightarrow}
   {\existsH z\,\{\varphi(x,z\,;\eta)\}'}
 
-Replace the variables $x\,;\eta$ with parameters, say $a\,;\alpha$ and assume that the theory $\{\existsH z\,\varphi'(a,z,;\alpha):\varphi'>\varphi\}$ is true in $N$.
+Replace the variables $x\,;\eta$ with parameters, say $a\,;\alpha$, and assume that $N\models\existsH z\,\varphi'(a,z,;\alpha)$ for every $\varphi'>\varphi$.
 We need to prove the consistency of the type $\{\varphi'(a,z,;\alpha):\varphi'>\varphi\}$.
-By saturation, finite concistency suffices.
+By saturation, finite consistency suffices.
 This is clear if we show that the antecedent is closed under conjunction.
 Indeed it is easy to verify that if $\varphi_1,\varphi_2>\varphi$ then $\varphi_1\wedge\varphi_2>\varphi'$ for some $\varphi'>\varphi$.
 In words, the set of approximations of $\varphi$ is a directed set.
@@ -806,10 +812,11 @@ A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The monster model}\label{monster}
 
-We denote by \emph{${\EuScript U}$\/} some large positively saturated standard structure which we call the \emph{monster model.}
+We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the \emph{monster model.}
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
 Truth is evaluated in ${\EuScript U}$ unless otherwise is specified.
-Also the density of a set of formulas is understood modulo the theory ${\EuScript U}$.
+We denote by $T$ the theory of {${\EuScript U}$.
+The density of a set of formulas is understood modulo $T$.
 Below we say \emph{model\/} for p-elementary substructure of ${\EuScript U}$.
 We stress once again that the truth of some $\varphi\in{\EuScript L}^{\rm p}(M)$ in a model $M$ implies the truth of $\varphi$ (in ${\EuScript U}$) but not vice versa.
 If also the converse implication holds we say $M$ a \emph{strong model.}
@@ -825,6 +832,7 @@ Strong models are those that realize the equivalence in Proposition~\ref{prop_ap
 % This is a compact topology by the Compactness Theorem for ${\EuScript L}^{\rm p}$.
 The following fact demostrates how positive compactness applies.
 There are some subtle differences from the classical setting.
+Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 % \begin{lemma}
 %   For every $\varphi(x\,;y)\in{\EuScript L}^{\rm p}(A)$ the set $\varphi(U\,;I)$ is a compact subset of ${\EuScript U}^{|x|}\times I^{|y|}$.
 % \end{lemma}
@@ -913,7 +921,7 @@ There are some subtle differences from the classical setting.
 %   For every $a\in {\EuScript U}^{|x|}$ and $\varphi(x)\in{\EuScript H}(U)$, if $\neg\varphi(a)$ then $\tilde\varphi(a)$ for some $\tilde\varphi\perp\varphi$.\hfill\qedsymbol
 % \end{corollary}
 
-When $A\subseteq{\EuScript U}$, we write \emph{$S^{\rm p}_x(A)$\/} for the set of maximally consistent subsets of ${\EuScript L}^{\rm p}_x(A)$.
+We write \emph{$S^{\rm p}_x(A)$\/} for the set of maximally consistent subsets of ${\EuScript L}^{\rm p}_x(A)$.
 We define \emph{$\mbox{p-tp}(a/A)$,} the positive type of $a$ over $A$, to be the set of formulas $\big\{\varphi(x)\in{\EuScript L}^{\rm p}(A)\ :\ \varphi(a)\big\}$.
 In general, if ${\EuScript F}$ is any set of formulas, we write \emph{${\EuScript F}\mbox{-tp}(a/A)$,} for the type $\big\{\varphi(x)\in{\EuScript F}(A)\ :\ \varphi(a)\big\}$. 
 The undecorated symbol $\mbox{tp}(a/A)$ denotes the ${\EuScript L}$-type.
@@ -1002,7 +1010,7 @@ Therefore we can also claim the following.
 \section{Elimination of quantifiers of sort \textsf{I}}\label{Ielimination}
 
 We show that the quantifiers of sort ${\sf I}$ can be eliminated up to some approximation.
-Precisely, we prove that the set formulas ${\EuScript H}$ defined above is dense (modulo the theory of ${\EuScript U}$), see Definion~\ref{def_dense}.
+Precisely, we prove that the set formulas ${\EuScript H}$ defined above is dense (modulo $T$, the theory of ${\EuScript U}$), see Definion~\ref{def_dense}.
 
 We say that partial map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript H}$-elementary if it preserves the truth of formulas in ${\EuScript H}$.
 
@@ -1026,13 +1034,12 @@ For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ s
 \begin{proof}
   Only $\rightarrow$ requires a proof.
   If $b\models p(x)$ then there is an ${\EuScript H}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
-  Then $f$ exends to an automorphism.
+  Then $f$ extends to an automorphism.
   As every automorphism is ${\EuScript L}$-elementary, $a\equiv_Ab$, and the corollary follows.
 \end{proof}
 
-The corollary says that at the level of types realized in ${\EuScript U}$ there is no difference between ${\EuScript L}$, ${\EuScript L}^{\rm p}$, and ${\EuScript H}$.
-
-In the classical setting, from an equivalence between types one derives an  equivalence between formulas.
+The corollary says that ${\EuScript U}$ does not distinguish between ${\EuScript L}$, ${\EuScript L}^{\rm p}$, and ${\EuScript H}$ types.
+In the classical setting, from an equivalence between types one derives an equivalence between formulas.
 Without negation, this is not true.
 Still, we can infer an approximate form of equivalence.
 
@@ -1109,7 +1116,7 @@ The following follows easily from the proposition above.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Tarski-Vaught test and the L\"owenheim-Skolem theorem}
 
-The following proposition is our version of the Tarski-Vaught test.
+The following proposition is our version of the Tarski-Vaught test (which applies when the larger model is sufficiently saturated).
 
 \begin{proposition}\label{prop_Tarski_Vaught}
   Let $M$ be a \textit{subset\/} of ${\EuScript U}$.
@@ -1358,18 +1365,42 @@ By Proposition~\ref{prop_isolation}, this is a contradiction.
 \end{proof}
 
 Assume that ${\EuScript L}$ is separable modulo $T$.
-A theory $T$ is \emph{positively $\omega$-categorical\/} if any two standard countable structures $M,N\models T$ are isomorphic.
-The following analogue of Ryll-Nardzewski's Theorem follows from the Omitting Types Theorem as usual.
+A theory $T$ is \emph{positively $\omega$-categorical\/} if any two countable models $M,N\models T$ are isomorphic.
+The following analogue of Ryll-Nardzewski's Theorem follows as usual.
 
 \begin{theorem}
   Assume that ${\EuScript L}$ is separable modulo $T$.
   The following are equivalent
   \begin{itemize}
     \item[1.] $T$ is positively $\omega$-categorical;
-    \item[2.] every positive type $p(x)\subseteq{\EuScript L}^{\rm p}$, for $x$ any finite tuple of variables, is p-isolated over the empty set.
+    \item[2.] every positive type $p(x)\subseteq{\EuScript L}^{\rm p}$, for $x$ any finite tuple of variables, is p-isolated over $\varnothing$.
   \end{itemize}
 \end{theorem}
 
+The classical argument proves also the following.
+
+\begin{proposition}
+  Fix a finite tuple of variables $x$.
+  The following are equivalent
+  \begin{itemize}
+    \item[1.] every positive type $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is p-isolated over $A$;
+    \item[2.] there are finitely many complete types.
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  (1$\Rightarrow$2) 
+  Let $p_i(x)=\mbox{p-tp}(a_i/A)$, for $i<\lambda$, be an enumeration without repetitions of all positive types.
+  Let $\neg\varphi_i(x)$ be the negative formulas that isolate the $p_i(x)$.
+  As these are complete types, $\neg\varphi_i(x)\leftrightarrow p_i(x)$.
+  If $\lambda$ is infinite then the positive type $\{\varphi_i(x):i<\lambda\}$ is consistent.
+  Any realization of this type yield a contradiction.
+
+  (2$\Rightarrow$1)
+  Let $p_i(x)=\mbox{p-tp}(a_i/A)$, for $i<n$, be an enumeration without repetitions of all positive types.
+  Pick a formula $\varphi_i(x)\in p_i\smallsetminus\bigcup\big\{ p_j : j\in n\smallsetminus\{i\}\big\}$.
+  Then the formula $\neg\bigvee\big\{\varphi_i(x):j\in n\smallsetminus\{i\}p\big\}$ isolates $p_i(x)$.
+\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
