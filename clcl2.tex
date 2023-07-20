@@ -196,14 +196,14 @@ In the second part of this paper we discuss: criteria for elimination of quantif
 
 \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-Let \emph{$I$\/} be some fixed first-order structure which is endowed with a Hausdorff compact\footnote{The requirement of compactness seems to exclude the motivational example mentioned above. To include this and others similar examples we have to replace $\mathds{R}$ with $\mathds{R}\cup\{\pm\infty\}$.} topology (in particular, a normal topology).
+Let \emph{$I$\/} be some fixed first-order structure which is endowed with a Hausdorff compact topology (in particular, a normal topology).
 The language \emph{$L_{\sf I}$\/} contains relation symbols for the compact subsets $C\subseteq I^n$ and a function symbol for each continuous functions $f:I^n\to I$.
 In particular, there is a constant for each element of $I$.
 According to the context, $C$ and $f$ denote either the symbols of $L_{\sf I}$ or their interpretation in the stucture $I$.
 Such a language $L_{\sf I}$ is much larger than necessary but it is convenient because it uniquely associates a structure to a topological space.
-% The notion of dense set of formulas (Definition~\ref{def_dense}) may be used to reduce the size of the language to a convenient size .
+The notion of dense set of formulas (Definition~\ref{def_dense}) helps to reduce the size of the language when required.
 
-The most straightforward examples of structures $I$ are the unit interval $[0,1]$, with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
+The most straightforward examples of structures $I$ are the unit interval $[0,1]$ with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
 
 We also fix a first-order language \emph{$L_{\sf H}$\/} which we call the language of the \emph{home sort.}
 
@@ -1112,7 +1112,7 @@ The following follows easily from the proposition above.
 The following proposition is our version of the Tarski-Vaught test.
 
 \begin{proposition}\label{prop_Tarski_Vaught}
-  Let $M$ be a subset of ${\EuScript U}$.
+  Let $M$ be a \textit{subset\/} of ${\EuScript U}$.
   Let ${\EuScript F}$ be a dense set of positive formulas.
   Then the following are equivalent
   \begin{itemize}
@@ -1200,19 +1200,20 @@ The following proposition is our version of the Tarski-Vaught test.
 %   \end{itemize}
 % \end{remark}
 
-Classically, the main application of the Tarski-Vaught test is in the proof of the downward L\"owenheim-Skolem Theorem.
+Classically, the main application of the Tarski-Vaught test is in the proof of the downward L\"owen\-heim-Skolem Theorem.
 Note that here the classical downward L\"owenheim-Skolem Theorem holds in full for all ${\EuScript L}$-structures.
 In particular every $A\subseteq{\EuScript U}$ is contained in a standard structure of cardinality $|{\EuScript L}(A)|$.
 In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in $L_{\sf I}$.
 
-We say that ${\EuScript L}$ is \emph{separable\/} if there is a countable set  ${\EuScript F}$ of positive formulas that is dense (modulo the theory of ${\EuScript U}$).
+We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a countable set of positive formulas that is dense modulo $T$.
 % In Section~\ref{separability} we will present examples of separable models.
 
 \begin{proposition}\label{prop_disjunction_dense}
-  Assume that ${\EuScript L}$ is separable.
+  Assume that ${\EuScript L}$ is separable modulo the theory of ${\EuScript U}$.
   Let $A\subseteq{\EuScript U}$ be countable.
-  Then there is a countable model $M$ containing $A$. 
+  Then there is a countable model $M$ containing $A$.
+  (The size of a model is the size of the domain of its home sort.)
 \end{proposition}
 
 \begin{proof}
@@ -1221,14 +1222,11 @@ We say that ${\EuScript L}$ is \emph{separable\/} if there is a countable set  $
   By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a model.
 \end{proof}
 
-For convinience, we defined separability as a property that depends on ${\EuScript U}$.
-% Arguably, it could have been introduced as a property of the theory of ${\EuScript U}$.
-However in most cases it depends soley on ${\EuScript L}$.
-
 \begin{proposition}
   Assume that $L_{\sf H}$ is countable and that ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$.
-  Then, if $I$ is a second countable (the topology has a countable base), ${\EuScript L}$ is separable.
+  Then, if $I$ is a second countable (the topology has a countable base), ${\EuScript L}$ is separable modulo ${\EuScript L}$.
 \end{proposition}
+
 \begin{proof}
   Fix a countable filter of compact neighborhoods of the diagonal of ${\sf I}^2$.  
 \end{proof}
@@ -1258,6 +1256,119 @@ However in most cases it depends soley on ${\EuScript L}$.
 % \end{proposition}
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Omitting types and countable categoricity}
+
+\def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
+
+A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
+If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} over $A$.
+% When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
+Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $p(x)$ is p-isolated over $A$, then $p(x)$ is realized in every model containing $A$.
+
+\begin{proposition}\label{prop_isolation}
+  Let ${\EuScript F}$ be a dense set of positive formulas.
+  Then the following are equivalent
+\begin{itemize}
+  \item[1.] $p(x)$ is p-isolated over $A$;
+  \item[2.] $p(x)$ is isolated by $\neg\psi(x)$ for some $\psi(x)\in{\EuScript F}(A)$;
+  \item[3.] $p(x)$ is isolated by some $\psi'(x)$ such that  $\psi'>\psi$ for some consistent $\psi(x)\in{\EuScript F}(A)$;
+  \item[4.] $p(x)$ is isolated by some formula $\varphi(x)\in\Sigma^{\rm p}(A)$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+  1$\Leftrightarrow$2 For the nontrivial direction, note that by density
+
+  \ceq{\hfill\varphi(x)}
+  {\leftrightarrow}
+  {\bigwedge\big\{\psi(x)\in{\EuScript F}\ :\ \varphi(x)\rightarrow\psi(x)\big\}}
+  
+  therefore, negating both sides of the equivalence,
+  
+  \ceq{\hfill\neg\varphi(x)}
+  {\leftrightarrow}
+  {\bigvee\big\{\neg\psi(x)\ :\ \psi(x)\in{\EuScript F}\textrm{ and }\neg\psi(x)\rightarrow\neg\varphi(x)\big\}.}
+
+  If $\neg\varphi(x)$ isolates $p(x)$ then any consistent formula in the disjunction on th l.h.s.\@ also isolates $p(x)$.
+  
+  1$\Leftrightarrow$3 By Proposition~\ref{prop_Fapprox} and Fact~\ref{lem_interpolation}.
+
+  3$\Leftrightarrow$4 By Proposition~\ref{prop_Sigma_approx}.
+\end{proof}
+
+
+\begin{lemma}\label{lem_kuratowskiUlam}
+Let ${\EuScript L}$ be separable and let $A$ be countable.
+Assume that $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is not p-isolated over $A$.
+Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm p}(A)$, has a solution $a$ such that $p(x)$ is not isolated over $A,a$.
+\end{lemma}
+\begin{proof}
+We construct a sequence of ${\EuScript L}^{\rm p}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
+
+Let $\langle\xi_i(x\,;z):i<\omega\rangle$ enumerate a countable dense subset of ${\EuScript L}^{\rm p}_{x\,;z}(A)$.
+Let $\gamma_0(z)$ be a consistent positive formula such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$, which exists by Proposition~\ref{prop_Fapprox}.
+Define $\gamma_{i+1}(z)$ and  $\gamma'_{i+1}(z)$ inductively as follows.
+
+\begin{itemize}
+   \item[1.] If $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is inconsistent, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$;
+   \item[2.] otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
+   
+   (\#)\hfil$\gamma'_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x\,;z)\wedge\neg\varphi(x)\big].$\kern19ex
+   
+   Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive formulas such that $\gamma'_{i+1}(z)$ implies (\#) --this exists by Proposition~\ref{prop_Sigma_approx}.
+\end{itemize}
+Let $a\models\{\gamma_i(z):i<\omega\}$.
+We claim that that $A,a$ does not p-isolate $p(x)$.
+Otherwise, by density, $\neg\xi(x\,;a)\rightarrow p(x)$ for some $i<\omega$, where $\neg\xi_i(x\,;a)$ is consistent.
+This contradicts $a\models\gamma_{i+1}(z)$.
+
+Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
+
+Suppose for a contradiction that $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$, that is, 
+
+\ceq{\hfill\neg\xi_i(x\,;z)\wedge\gamma'_i(z)}{\rightarrow}{\varphi(x).} 
+
+This immediately implies that 
+
+\ceq{\hfill\exists z\;\big[\neg\xi_i(x\,;z)\wedge\gamma'_i(z)\big]}{\rightarrow}{p(x).}
+
+Then $p(x)$ is isolated by a formula in $\Sigma^{\rm p}(A)$.
+By Proposition~\ref{prop_isolation}, this is a contradiction.
+\end{proof}
+
+\begin{theorem}[Positive Omitting Types]\label{prop_OTT}
+  Assume that ${\EuScript L}$ is separable and that $A$ is countable.
+  Assume also that $p(x)\subseteq{\EuScript L}(A)$ is not p-isolated.
+  Then there is a model $M$ containing $A$ that omits $p(x)$. 
+\end{theorem}
+
+\begin{proof}
+  As in the classical proof, appy the lemma above and the Tarski-Vaught test (Proposition~\ref{prop_Tarski_Vaught}) to obtain a countable model $M$ that does not isolate $p(x)$.
+  For models, isolating and realizing are equivalent.
+  % As in the classical proof we construct $M\subseteq{\EuScript U}$ that contains a witness for every consistent formula in ${\EuScript F}(M)$.
+  % By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a model.
+\end{proof}
+
+Assume that ${\EuScript L}$ is separable modulo $T$.
+A theory $T$ is \emph{positively $\omega$-categorical\/} if any two standard countable structures $M,N\models T$ are isomorphic.
+The following analogue of Ryll-Nardzewski's Theorem follows from the Omitting Types Theorem as usual.
+
+\begin{theorem}
+  Assume that ${\EuScript L}$ is separable modulo $T$.
+  The following are equivalent
+  \begin{itemize}
+    \item[1.] $T$ is positively $\omega$-categorical;
+    \item[2.] every positive type $p(x)\subseteq{\EuScript L}^{\rm p}$, for $x$ any finite tuple of variables, is p-isolated over the empty set.
+  \end{itemize}
+\end{theorem}
 
 
 
@@ -1585,103 +1696,6 @@ As all functions have been required to be uniformly continuous, it is immediate 
   As $d(a,a_i)<2^{-i}$ for all $i$, the sequence $\langle a_i: i\in\omega\rangle$ converges to $a$.
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Omitting types and countable categoricity}
-
-\def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
-
-A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
-If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} over $A$.
-Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $p(x)$ is p-isolated over $A$, then $p(x)$ is realized in every model containing $A$.
-
-\begin{proposition}\label{prop_isolation}
-  Let ${\EuScript F}$ be a dense set of positive formulas.
-  Then the following are equivalent
-\begin{itemize}
-  \item[1.] $p(x)$ is p-isolated over $A$;
-  \item[2.] $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript F}(A)$;
-  \item[3.] $p(x)$ is isolated by some $\psi'(x)$ such that  $\psi'>\psi$ for some consistent $\psi(x)\in{\EuScript F}(A)$;
-  \item[4.] $p(x)$ is isolated by some formula $\varphi(x)\in\Sigma^{\rm p}(A)$.
-\end{itemize}
-\end{proposition}
-
-\begin{proof}
-  1$\Leftrightarrow$2 For the nontrivial direction, note that by density
-
-  \ceq{\hfill\varphi(x)}
-  {\leftrightarrow}
-  {\bigwedge\big\{\psi(x)\in{\EuScript F}\ :\ \varphi(x)\rightarrow\psi(x)\big\}}
-  
-  therefore, negating
-  
-  \ceq{\hfill\neg\varphi(x)}
-  {\leftrightarrow}
-  {\bigvee\big\{\neg\psi(x)\ :\ \psi(x)\in{\EuScript F}\textrm{ and }\neg\psi(x)\rightarrow\neg\varphi(x)\big\}.}
-  
-  1$\Leftrightarrow$3 By Proposition~\ref{prop_Fapprox} and Fact~\ref{lem_interpolation}.
-
-  3$\Leftrightarrow$4 By Proposition~\ref{prop_Sigma_approx}.
-\end{proof}
-
-
-\begin{lemma}\label{lem_kuratowskiUlam}
-Let ${\EuScript L}$ be separable and let $A$ be countable.
-Assume that $p(x)\subseteq{\EuScript L}(A)$ is not p-isolated over $A$.
-Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm p}(A)$, has a solution $a$ such that $p(x)$ is not isolated over $A,a$.
-\end{lemma}
-\begin{proof}
-We construct a sequence of ${\EuScript L}^{\rm p}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
-
-Let $\langle\xi_i(x\,;z):i<\omega\rangle$ enumerate a countable dense subset of ${\EuScript L}^{\rm p}_{x\,;z}(A)$.
-Let $\gamma_0(z)$ be a consistent positive formula such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$, which exists by Proposition~\ref{prop_Fapprox}.
-Define $\gamma_{i+1}(z)$ and  $\gamma'_{i+1}(z)$ inductively as follows.
-
-\begin{itemize}
-   \item[1.] If $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is inconsistent, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$;
-   \item[2.] otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
-   
-   (\#)\hfil$\gamma'_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x\,;z)\wedge\neg\varphi(x)\big].$\kern19ex
-   
-   Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive formulas such that $\gamma'_{i+1}(z)$ implies (\#) --this exists by Proposition~\ref{prop_Sigma_approx}.
-\end{itemize}
-Let $a\models\{\gamma_i(z):i<\omega\}$.
-We claim that that $A,a$ does not p-isolate $p(x)$.
-Otherwise, by density, $\neg\xi(x\,;a)\rightarrow p(x)$ for some $i<\omega$, where $\neg\xi_i(x\,;a)$ is consistent.
-This contradicts $a\models\gamma_{i+1}(z)$.
-
-Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
-
-Suppose for a contradiction that $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$, that is, 
-
-\ceq{\hfill\neg\xi_i(x\,;z)\wedge\gamma'_i(z)}{\rightarrow}{\varphi(x).} 
-
-This immediately implies that 
-
-\ceq{\hfill\exists z\;\big[\neg\xi_i(x\,;z)\wedge\gamma'_i(z)\big]}{\rightarrow}{p(x).}
-
-Then $p(x)$ is isolated by a formula in $\Sigma^{\rm p}(A)$.
-By Proposition~\ref{prop_isolation} this contradicts our assumptions.
-\end{proof}
-
-\begin{corollary}\label{prop_OTT}
-  Assume that ${\EuScript L}$ is separable and that $A$ is countable.
-  Let $p(x)\subseteq{\EuScript L}(A)$ be nonisolated.
-  Then there is a model $M$ containing $A$ that omits $p(x)$. 
-\end{corollary}
-
-\begin{proof}
-  Appy the lemma above and the Tarski-Vaught test to obtain a countable model $M$ that does not isolate $p(x)$.
-  For models, isolating and realizing are equivalent.
-  % As in the classical proof we construct $M\subseteq{\EuScript U}$ that contains a witness for every consistent formula in ${\EuScript F}(M)$.
-  % By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a model.
-\end{proof}
-
-A theory $T$ is \emph{positively $\omega$-categorical\/} if for any two standard structures $M,N\models T$ are isomorphic.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
