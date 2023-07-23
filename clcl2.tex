@@ -248,13 +248,20 @@ When we restrict to formulas with a fix tuple of free variables we write ${\EuSc
 
 % \noindent\llap{\textcolor{red}{\Large\dangersign}\kern1ex}\ignorespaces
 
-Note that ${\EuScript L}$ has two types of atomic formulas: those of sort ${\sf H}$ (that is, those equivalent to formulas in $L_{\sf H}$) and those of the form $t(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $t(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
+Note that ${\EuScript L}$ has two types of atomic formulas: 
+\begin{itemize}
+  \item[1.] formulas using only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ (up to equivalence these are nothing more than $L_{\sf H}$-formulas);
+  \item[2.] formulas of the form $t(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $t(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
+\end{itemize}
 
 Henson and Iovino have a more stringent notion of positive formulas (that they define in the language of normed spaces).
-Their positive formulas exclude formulas in $L_{\sf H}$ and quantifiers of sort ${\sf I}$.
-In our setting $L_{\sf H}$-formulas are positive (up to equivalence) which comes at a small price: the failure of the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
-However, we will recover part of it in Proposition~\ref{prop_perturbation}.
-Instead, somewhat surprisingly, allowing quantifiers of sort ${\sf I}$ is almost for free.
+Their positive formulas exclude formulas as in (1) above.
+Moreover they do not consider quantifiers of sort ${\sf I}$.
+Including the $L_{\sf H}$-formulas into ${\EuScript L}^{\rm p}$ comes at a price e.g.\@ the failure of the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
+In Section~\ref{Cauchy} we introduce the set \emph{${\EuScript L}^{\rm pc}$\/} of positive \emph{${\sf I}$-closed formulas.}
+These allow in (1) only formulas that are compatible with the topology of $I$.
+
+Instead, allowing quantifiers of sort ${\sf I}$ is almost for free.
 We will see (cf.\@ Propositions~\ref{prop_LHapprox1}) that the formulas in ${\EuScript L}^{\rm p}$ are approximated by formulas without quantifiers of sort ${\sf I}$.
 
 The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
@@ -281,10 +288,10 @@ The following example is inspired by~\cite{HPP}.
 \begin{example}\label{ex_HPP}
   Let $\bar M$ be a saturated structure of signature $L_{\sf H}$.
   The relevant part of ${\EuScript L}$ contains symbols for the functions $f:\bar M^n\to I$ that are continuous in the following sense: the inverse image of every compact $C\subseteq I$ is type-definable in $L_{\sf H}(M)$ for every $M\preceq\bar M$.
-  It is easy to verify that $\langle\bar M, I\rangle$ is positively saturated, see Section~\ref{compactness}.
+  It is easy to verify that $\langle\bar M, I\rangle$ is positively saturated as defined in Section~\ref{compactness}.
 \end{example}
 
-Normed spaces is one of the motivating examples.
+Normed spaces is among the of the motivating examples.
 Essentially, functional analysis and model theory are only interested in the unit ball of normed spaces.
 To formalize the unit ball of a normed space as a standard structure (where $I$ is the unit interval) is straightforward but pretty ugly.
 Alternatively one can view a normed space as a many-sorted structure: a sort for each ball of radius $n\in\mathds{Z}^+$.
@@ -353,8 +360,10 @@ For every type $p(x)$, we write
 in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
 
 \begin{definition}\label{def_dense}
-  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{dense\/} modulo $T$, a theory, if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
+  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{dense\/} (in ${\EuScript L}^{\rm p}$) modulo $T$, a theory, if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
   If $T$ is empty, we say that ${\EuScript F}$ is dense modulo ${\EuScript L}$.
+
+  We say dense \emph{in ${\EuScript L}^{\rm pc}$\/} if the property above is required to hold only for positive ${\sf I}$-closed formulas, defined in Section~\ref{Cauchy} below.
 \end{definition}
 
 \begin{example}
@@ -363,14 +372,13 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
 
 \begin{example}[???]
   Read $\alpha=\beta$ as synonimous of $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of ${\sf I}^2$, a compact set.
-  It is easy to see that the set of formulas build inductively from the atomic formulas of sort ${\sf H}$ and $t(x)=s(x)$ is dense modulo ${\EuScript L}$.
+  It is easy to see that the set of formulas build inductively from $L_{\sf H}$-formulas and $t(x)=s(x)$ is dense modulo ${\EuScript L}$.
 \end{example}
 
 \begin{example}
   Let ${\EuScript H}$ be the set of positive formulas without quantifiers of sort ${\sf I}$.
   In Section~\ref{Ielimination} we will prove that this set is dense.
 \end{example}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
