@@ -218,7 +218,9 @@ We also fix a first-order language \emph{$L_{\sf H}$\/} which we call the langua
   A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,I\rangle$, where $M$ is any $L_{\sf H}$-structure, while $I$ is the structure we fixed above.
   We write \emph{${\sf H}$} and \emph{${\sf I}$\/} to denote the two sorts of ${\EuScript L}$.
   
-  The language ${\EuScript L}$ adds a relation symbol for every $L_{\sf H}$-definable subset of $M$, in other words, ${\EuScript L}$ performs the Morleyzation of $L_{\sf H}$.
+  The language ${\EuScript L}$ adds a relation symbol $R_{\varphi}(x)$ for every $\varphi(x)\in L_{\sf H}$.
+  All ${\EuScript L}$-structures are assumed to model $R_{\varphi}(x)\leftrightarrow\varphi(x)$. 
+  In other words, ${\EuScript L}$ performs the Morleyzation of $L_{\sf H}$.
   
   Finally and most relevantly, ${\EuScript L}$ contains arbitrarily many function symbols of sort ${\sf H}^n\to {\sf I}$.
 
@@ -234,7 +236,8 @@ Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of t
 As a remedy, below we carve out a set of formulas ${\EuScript L}^{\rm p}$, the set of positive formulas, such that every model has an positive elementary saturated extension that is also standard.
 
 As usual, $L_{\sf I}$, $L_{\sf H}$, and ${\EuScript L}$ denote both first-order languages and the corresponding set of formulas.
-When we restrict to formulas with a fix tuple of free variables we write ${\EuScript L}_x$.
+We write ${\EuScript L}_x$ when when we restrict to formulas with free variables among $x$.
+If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in L_{\sf H}$ (which is only correct up to equivalence).
 % The symbols ${\EuScript L}^{\rm p}$ and ${\EuScript H}$ defined below denote only sets of ${\EuScript L}$-formulas.
 
 \begin{definition}\label{def_LL}
@@ -250,18 +253,19 @@ When we restrict to formulas with a fix tuple of free variables we write ${\EuSc
 
 Note that ${\EuScript L}$ has two types of atomic formulas: 
 \begin{itemize}
-  \item[1.] formulas using only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ (up to equivalence these are nothing more than $L_{\sf H}$-formulas);
+  \item[1.] atomic formulas in $L_{\sf H}$ (hence, up to equivalence, all formulas of $L_{\sf H}$);
   \item[2.] formulas of the form $t(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $t(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
 \end{itemize}
 
-Henson and Iovino have a more stringent notion of positive formulas (that they define in the language of normed spaces).
-Their positive formulas exclude formulas as in (1) above.
+Henson and Iovino have a more stringent notion of positive formulas (that they define only in the language of normed spaces).
+They exclude formulas as in (1) above.
 Moreover they do not consider quantifiers of sort ${\sf I}$.
-Including the $L_{\sf H}$-formulas into ${\EuScript L}^{\rm p}$ comes at a price e.g.\@ the failure of the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
-In Section~\ref{Cauchy} we introduce the set \emph{${\EuScript L}^{\rm pc}$\/} of positive \emph{${\sf I}$-closed formulas.}
-These allow in (1) only formulas that are compatible with the topology of $I$.
 
-Instead, allowing quantifiers of sort ${\sf I}$ is almost for free.
+Including $L_{\sf H}$ into ${\EuScript L}^{\rm p}$ simplifies the comparision with classical model theory but comes at a price.
+In Section~\ref{Cauchy} we discuss this problem and introduce the set \emph{${\EuScript L}^{\rm c}$\/} of \emph{$I$-closed formulas.}
+Roughly, these are formulas that define closed subsets w.r.t.\@ the topology that $I$ induces on the home sort.
+
+Instead, allowing quantifiers of sort ${\sf I}$ comes almost for free.
 We will see (cf.\@ Propositions~\ref{prop_LHapprox1}) that the formulas in ${\EuScript L}^{\rm p}$ are approximated by formulas without quantifiers of sort ${\sf I}$.
 
 The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
@@ -363,7 +367,7 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
   A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{dense\/} (in ${\EuScript L}^{\rm p}$) modulo $T$, a theory, if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
   If $T$ is empty, we say that ${\EuScript F}$ is dense modulo ${\EuScript L}$.
 
-  We say dense \emph{in ${\EuScript L}^{\rm pc}$\/} if the property above is required to hold only for positive ${\sf I}$-closed formulas, defined in Section~\ref{Cauchy} below.
+  We say dense \emph{in ${\EuScript L}^{\rm c}$\/} if the property above is required to hold only for positive $I$-closed formulas, defined in Section~\ref{Cauchy} below.
 \end{definition}
 
 \begin{example}
@@ -627,7 +631,7 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
 \section{Compactness}\label{compactness}
 
 It is convenient to distinguish between consistency with respect to standard structures and consistency with respect to ${\EuScript L}$-structures.
-We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!I\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!I\rangle$.
+We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!I\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!I\rangle$ (that is, the classical notion of concistency).
 We say that $T$ is \emph{st-consistent\/} if $M\models T$  is for some standard structure $M$.
 By Lemma~\ref{lem_st} these two notions coincide if $T$ is positive.
 Therefore we have the following.
@@ -2031,7 +2035,13 @@ Completeness follows.
 \begin{corollary}
   The theory  $T^{\rm pfr}$ is compete and has elimination of quantifiers.
 \end{corollary}
-
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
 \section{Stability}
 
 A partitioned formula $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ is stable if there is no sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ and no $\tilde\varphi\perp\varphi$ such that for every $i,j<\omega$
@@ -2043,5 +2053,131 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ is stable if ther
 Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
 
 Note that by compactness if $\varphi(x\,;z)$ and $\tilde\varphi\perp\varphi$ are stably separated then there is a maximal length $m$ of a sequence $\langle a_i\,;b_i\,:\,i<m\rangle$ such that (1) and (2) above.
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+\section{Elementary relations}
+
+Let $M$ and $N$ be models.
+We say that $R\subseteq M\times N$ is an \emph{p-elementary relation\/} between $M$ and $N$ if for every $\varphi(x)\in{\EuScript L}$
+
+\ceq{\hfill M\models\varphi(a)}{\Rightarrow}{N\models\varphi(b)}\hfill for every $a$ and $b$ such that $a\mathbin{R}b$.
+
+Note that, when $a=a_1,\dots,a_n$ and $b=b_1,\dots,b_n$ are tuples, $a\mathbin{R}b$ stands for $a_i\mathbin{R}b_i$ for every $i\in\{1,\dots,n\}$.
+
+\begin{fact}
+  Let $R\subseteq{\EuScript U}^2$ be an p-elementary relation of cardinality $<\kappa$.
+  Then there is a total and surjective p-elemenrary relation $S\subseteq{\EuScript U}^2$ containing $R$.
+\end{fact}
+
+\begin{proof}
+  We apply the usual back-and-forth construction with a pinch of extra caution.
+  Let $a$ be an enumeration of the domain of $R$.
+  Let $\bar a=\langle a_i:i<\lambda\rangle$ be an enumeration of all tuples of length $|a|$ such that $aRa_i$.
+  As $\kappa$ is inaccessible, $\lambda<\kappa$.
+  Let $b\in U$.
+  It suffices to prove that there is a $c$ such that $R\cup\{\langle b,c\rangle\}$ is an $\mathds{L}$-relation.
+  Let $p(x,z)={\rm tp}(b,a)$ and let
+  
+  \ceq{\hfill q(x,\bar z)}{=}{\bigcup_{i<\lambda}p(x,z_i).}
+
+  We claim that $q(x,\bar a)$ is a finitely consistent type.
+  A finite conjunction of formulas in $q(x,\bar a)$ has the form $\psi(x,a_{i_1})\wedge\dots\wedge\psi(x,a_{i_n})$.
+  As $\psi(b,a)$ and $a_{i_1},\dots,a_{i_n}\,R\;a,\dots,a$, we conclude that the condition $\psi(x,a_{i_1})\wedge\dots\wedge\psi(x,a_{i_n})$ is satisfied.
+  The existence of the required element $c$ follows by saturation.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{corollary}
+  Let $A\subseteq{\EuScript U}$ have cardinality $<\kappa$.
+  Let $p(x)={\rm tp}_\mathds{L}(a/A)$, where $a\in{\EuScript U}^{|x|}$ is a tuple of length $|x|<\kappa$.
+  Then
+
+  \ceq{\hfill p({\EuScript U})}{=}{\big\{b : bRa,\ R\in{\rm Aut}({\EuScript U}/A)\big\}}
+\end{corollary}
+
+
+
+Let ${\EuScript M}$ and ${\EuScript N}$ be models.
+We say that $R\subseteq M\times N$ is an \emph{$\mathds{L}$-(elementary) relation\/} between ${\EuScript M}$ and ${\EuScript N}$ (or on ${\EuScript M}$ if the two coicide) if for every $\varphi(x)\in\mathds{L}$
+
+\ceq{\hfill{\EuScript M}\models\varphi(a)}{\Leftrightarrow}{{\EuScript N}\models\varphi(b)} \hfill for every $a$ and $b$ such that $a\mathbin{R}b$.
+
+Recall that, when $a=a_1,\dots,a_n$ and $b=b_1,\dots,b_n$ are tuples, $a\mathbin{R}b$ stands for $a_i\mathbin{R}b_i$ for every $i\in\{1,\dots,n\}$.
+
+We define an equivalence relation \emph{$(\sim_{\EuScript M})$\/} on $ M$ as follows
+
+\ceq{1.\hfill a\,\sim_{\EuScript M\!}b}
+{\Leftrightarrow}
+{\Big({\EuScript M}\models\varphi(a)\leftrightarrow\varphi(b)}
+\ \ for every $\varphi(x)\in\mathds{L}( M)\Big)$,
+
+where $|x|=|a|=|b|=1$.
+Note that this relation would be trivial had we included  in $\mathds{L}(M)$ equality between elements of $M$.
+
+The following proposition is easily proved by induction on the syntax. 
+
+\begin{proposition}
+  The following are equivalent for every $a,b\in M$.
+  \begin{itemize}
+    \item[1.] $a\equiv_{\EuScript M}b$;
+    \item[2.] ${\EuScript M}\models t(a)=t(b)$ for every $t(x)\in\mathds{T}(M)$, with $|x|=1$.
+  \end{itemize}
+\end{proposition}
+
+\begin{lemma}
+  The relation $(\sim_{\EuScript M\!})\subseteq  M^2$ is an $\mathds{L}$-relation.
+  Moreover, it is maximal among the $\mathds{L}$-relations on ${\EuScript M}$, i.e.\@ no $\mathds{L}$-relation properly contains $(\sim_{\EuScript M\!})$.
+\end{lemma}
+
+\begin{proof}
+  Assume $a\sim_{\EuScript M\!}b$, where $a=a_1,\dots,a_n$ and $b=b_1,\dots,b_n$.
+  Recall that this means that $a_i\sim_{\EuScript M\!}b_i$ for all $i\in\{1,\dots,n\}$.
+  Let $\Delta$ denote the diagonal relation on $ M$.
+  Note that $a_i\sim_{\EuScript M\!}b_i$ is equivalent to saying that $\Delta\cup\{(a_i,b_i)\}$ is an $\mathds{L}$-relation.
+  As $\mathds{L}$-relations are closed under composition $\Delta\cup\big\{(a_1,b_1),\dots,(a_n,b_n)\big\}$ is $\mathds{L}$-elementary.
+  It follows that for every $\varphi(x)\in\mathds{L}$
+
+  \ceq{2.\hfill{\EuScript M}\models\varphi(a)}{\Leftrightarrow}{{\EuScript M}\models\varphi(b).}
+  
+  This proves that $(\sim_{\EuScript M\!})$ is an $\mathds{L}$-relation.
+  Finally, maximality is immediate.
+  % Suppose $E$ and equivalence $\mathds{L}$-relation on ${\EuScript M\!}$ properly containing $(\sim_{\EuScript M\!})$.
+  % Pick $a,b\in M$ such that $a\mathbin{E}b$ and $a\not\sim_{\EuScript M\!}b$.
+\end{proof}
+
+
+\begin{lemma}
+  Let $R\subseteq  M\times N$ be total and surjective $\mathds{L}$-relation.
+  Then there is a unique maximal $\mathds{L}$-relation containing $R$.
+  This maximal $\mathds{L}$-relation is equal to both $(\sim_{\EuScript M\!})\,R$ and $R\,(\sim_{\EuScript N\!})$, where justapposition of relations stands for composition.
+\end{lemma}
+\begin{proof}
+  It is immediate to verify that $(\sim_{\EuScript M\!})\,R$ is an $\mathds{L}$-relation containing $R$.
+  Let $S$ be any maximal $\mathds{L}$-relation containing $R$.
+  By maximality, $(\sim_{\EuScript M\!})\,S=S$.
+  As $S$ is a total relation $(\sim_{\EuScript M\!})\subseteq SS^{-1}$.
+  Therefore, by the lemma above, $(\sim_{\EuScript M\!})=SS^{-1}$.
+  As $R$ is a surjective relation, $S\subseteq S\,S^{-1}R$.
+  Finally, by maximality, we conclude that $S=(\sim_{\EuScript M\!})\,R$.
+  A similar argument proves that $S=R\,(\sim_{\EuScript N\!})$.
+\end{proof}
+
+We write ${\rm Aut}({\EuScript M})$ for the set of maximal, total and surjective, $\mathds{L}$-relations $R\subseteq  M^2$.
+The choice of the symbol Aut is motivated by the lemma above.
+In fact any such relation $R$ induces a unique automorphism on the (properly defined) quotient structure ${\EuScript M}/{\sim_{\EuScript M\!}}$.
 
 \end{document}
