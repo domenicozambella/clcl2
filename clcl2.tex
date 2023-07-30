@@ -240,10 +240,19 @@ We write ${\EuScript L}_x$ when when we restrict to formulas with free variables
 If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in L_{\sf H}$ (which is only correct up to equivalence).
 % The symbols ${\EuScript L}^{\rm p}$ and ${\EuScript H}$ defined below denote only sets of ${\EuScript L}$-formulas.
 
+Note that ${\EuScript L}$ has two types of atomic formulas: 
+\begin{itemize}
+  \item[1.] atomic formulas in $L_{\sf H}$ (hence, up to equivalence, all formulas of $L_{\sf H}$);
+  \item[2.] formulas of the form $\tau(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
+\end{itemize}
+
 \begin{definition}\label{def_LL}
   A formula in ${\EuScript L}$ is \emph{positive\/} if it uses only the Boolean connectives $\wedge$, $\vee$; the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$ of sort ${\sf H}$; and the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ of sort ${\sf I}$.
 
   The set of positive formulas is denoted by \emph{${\EuScript L}^{\rm p}$.}
+
+  A \emph{continuous\/} formula is a positive formula where only atomic formulas as in (2) above occur.
+  The set continuous formulas is denoted by \emph{${\EuScript L}^{\rm c}$.}
 
   We will use Latin letters $x,y,z$ for variables of sort ${\sf H}$ and Greek letters $\eta,\varepsilon$ for variables of sort ${\sf I}$.
   Therefore we can safely drop the superscript from quantifiers if they are followed by variables.
@@ -251,40 +260,30 @@ If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}
 
 % \noindent\llap{\textcolor{red}{\Large\dangersign}\kern1ex}\ignorespaces
 
-Note that ${\EuScript L}$ has two types of atomic formulas: 
-\begin{itemize}
-  \item[1.] atomic formulas in $L_{\sf H}$ (hence, up to equivalence, all formulas of $L_{\sf H}$);
-  \item[2.] formulas of the form $t(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $t(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
-\end{itemize}
 
-Henson and Iovino have a more stringent notion of positive formulas (that they define only in the language of normed spaces).
-They exclude formulas as in (1) above.
-Moreover they do not consider quantifiers of sort ${\sf I}$.
+The positive formulas of Henson and Iovino corresponds to those formulas in ${\EuScript L}^{\rm c}$ that do not have quantifiers of sort ${\sf I}$.
 
-Including $L_{\sf H}$ into ${\EuScript L}^{\rm p}$ simplifies the comparision with classical model theory but comes at a price.
-In Section~\ref{Cauchy} we discuss this problem and introduce the set \emph{${\EuScript L}^{\rm c}$\/} of \emph{$I$-closed formulas.}
-Roughly, these are formulas that define closed subsets w.r.t.\@ the topology that $I$ induces on the home sort.
-
+Working within ${\EuScript L}^{\rm p}$ simplifies the comparision with classical model theory but comes at a price.
 Instead, allowing quantifiers of sort ${\sf I}$ comes almost for free.
-We will see (cf.\@ Propositions~\ref{prop_LHapprox1}) that the formulas in ${\EuScript L}^{\rm p}$ are approximated by formulas without quantifiers of sort ${\sf I}$.
+We will see (cf.\@ Propositions~\ref{prop_LHapprox1}) that the formulas in ${\EuScript L}^{\rm p}/{\EuScript L}^{\rm c}$ are approximated by formulas without quantifiers of sort ${\sf I}$.
 
 The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
-For instance, it is easy to see (cf.\@ Example~\ref{ex_Rvlogic}) that ${\EuScript L}^{\rm p}$ has at least the same expressive power as real valued logic%
+For instance, it is easy to see (cf.\@ Example~\ref{ex_Rvlogic}) that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
 %A painstaking technical comparison with real valued logic is not in the scope of this indroductory exploratory paper.}.
 
 \begin{example}\label{ex_Rvlogic}
   Let $I=[0,1]$, the unit interval in $\mathds{R}$.
-  Let $t(x)$ be a term of sort ${\sf H}^{|x|}\to {\sf I}$.
-  Then there is a positive formula that says $\sup_x t(x)=\tau$.
+  Let $\tau(x)$ be a term of sort ${\sf H}^{|x|}\to {\sf I}$.
+  Then there is a positive formula that says $\sup_x \tau(x)=\alpha$.
   Indeed, consider the formula
 
-  \ceq{\hfill\forallH x\ \big[t(x)\dotminus\tau\in\{0\}\big]}
-  {\wedge}{\forallI \varepsilon \Big[\varepsilon\in\{0\}\ \vee\ \existsH x\ \big[\tau\dotminus (t(x)+\varepsilon)\in\{0\}\big]\Big]}
+  \ceq{\hfill\forallH x\ \big[\tau(x)\dotminus\alpha\in\{0\}\big]}
+  {\wedge}{\forallI \varepsilon \Big[\varepsilon\in\{0\}\ \vee\ \existsH x\ \big[\alpha\dotminus (\tau(x)+\varepsilon)\in\{0\}\big]\Big]}
 
   which, in a more legible form, becomes
 
-  \ceq{\hfill\forallH x\ \big[t(x)\le\tau\big]}{\wedge}{\forallI \varepsilon>0\ \existsH x\ \big[\tau\le t(x)+ \varepsilon\big].}
+  \ceq{\hfill\forallH x\ \big[\tau(x)\le\alpha\big]}{\wedge}{\forallI \varepsilon>0\ \existsH x\ \big[\alpha\le \tau(x)+ \varepsilon\big].}
 \end{example}
 
 The following example is inspired by~\cite{HPP}.
@@ -376,7 +375,7 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
 
 \begin{example}[???]
   Read $\alpha=\beta$ as synonimous of $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of ${\sf I}^2$, a compact set.
-  It is easy to see that the set of formulas build inductively from $L_{\sf H}$-formulas and $t(x)=s(x)$ is dense modulo ${\EuScript L}$.
+  It is easy to see that the set of formulas build inductively from $L_{\sf H}$-formulas and $\tau(x)=s(x)$ is dense modulo ${\EuScript L}$.
 \end{example}
 
 \begin{example}
@@ -465,9 +464,9 @@ Note that this is the same as requiring that (1) holds for all formulas without 
 \begin{proof}
   The equivalence is trivial for formulas in $L_{\sf H}$ so we only consider atomic formulas of the form $t\in C$.
   Implication $\Rightarrow$ holds by definition. 
-  Vice versa, if $M\models t(a)\notin C$ then, by normality,  $M\models t(a)\in\tilde{C}$ for some compact $\tilde C$ disjoint of $C$.
-  By the definition of partial embedding, $N\models t(a)\in\tilde{C}$.
-  Hence $N\models t(a)\notin C$.
+  Vice versa, if $M\models \tau(a)\notin C$ then, by normality,  $M\models \tau(a)\in\tilde{C}$ for some compact $\tilde C$ disjoint of $C$.
+  By the definition of partial embedding, $N\models \tau(a)\in\tilde{C}$.
+  Hence $N\models \tau(a)\notin C$.
   Induction is immediate.
 \end{proof}
 
@@ -551,10 +550,10 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
 
 \begin{fact}\label{fact_st2} 
   With the notation as above.
-  Let $t(x\,;\eta)$ be a term of sort ${\sf H}^{|x|}\times{\sf I}^{|\eta|}\to {\sf I}$.
+  Let $\tau(x\,;\eta)$ be a term of sort ${\sf H}^{|x|}\times{\sf I}^{|\eta|}\to {\sf I}$.
   Then for every $a\in M^{|x|}$ and $\alpha\in({}^*\!\!I)^{|\eta|}$\vskip-.7\baselineskip
 
-  \ceq{\hfill t^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*\!t(a\,;\alpha)\big)}
+  \ceq{\hfill t^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*\!\tau(a\,;\alpha)\big)}
 \end{fact}
 \begin{proof}
   When a $t$ is a function symbol of sort  ${\sf H}^{|x|}\to {\sf I}$, the claim holds by definition.
@@ -581,11 +580,11 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
 \begin{proof}
   Suppose $\varphi(x\,;\eta)$ is ${\EuScript L}^{\rm p}$-atomic.
   If $\varphi(x\,;\eta)$ is a formula of $L_{\sf H}$ the claim is trivial. 
-  Otherwise $\varphi(x\,;\eta)$ has the form $t(x\,;\eta)\in C$.
-  Assume that the tuple $t(x\,;\eta)$ consists of a single term.
+  Otherwise $\varphi(x\,;\eta)$ has the form $\tau(x\,;\eta)\in C$.
+  Assume that the tuple $\tau(x\,;\eta)$ consists of a single term.
   The general case follows easily from this special case. 
-  Assume that $\langle N,{}^*\!\!I\rangle\models t(a\,;\alpha)\in C$.
-  Then ${\rm st}\big({}^*t(a\,;\alpha)\big)\in C$ by Fact~\ref{fact_st1}.
+  Assume that $\langle N,{}^*\!\!I\rangle\models \tau(a\,;\alpha)\in C$.
+  Then ${\rm st}\big({}^*\tau(a\,;\alpha)\big)\in C$ by Fact~\ref{fact_st1}.
   Therefore $t^N\big(a\,;{\rm st}(\alpha)\big)\in C$ follows from Fact~\ref{fact_st2}.
   This proves the lemma for atomic formulas.
   Induction is immediate. 
@@ -672,9 +671,9 @@ The existence of p-saturated standard structures is obtained from the classical 
 \end{theorem}
 
 \begin{proof}
-  Let $\langle M,{}^*\!\!I\rangle$ be an ${\EuScript L}$-saturated ${\EuScript L}$-structure.
-  Let $\langle M,I\rangle$ be its standard part as defined in Section~\ref{standard_part}.
-  By Lemma~\ref{lem_st}, $\langle M,I\rangle$ realizes all finitely consistent positive types with fewer than $|M|$ parameters.
+  Let $\langle {}^*\!\!M,{}^*\!\!I\rangle$ be an ${\EuScript L}$-saturated ${\EuScript L}$-elementary extension of the standard structure $\langle M,{}^*\!\!I\rangle$.
+  Let $\langle {}^*\!\!M,I\rangle$ be its standard part as defined in Section~\ref{standard_part}.
+  By Lemma~\ref{lem_st}, $\langle {}^*\!\!M,I\rangle$ realizes all finitely consistent positive types with fewer than $|{}^*\!\!M|$ parameters.
 \end{proof}
 
 
@@ -824,7 +823,7 @@ A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The monster model}\label{monster}
 
-We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the \emph{monster model.}
+We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the (positive) \emph{monster model.}
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
 Truth is evaluated in ${\EuScript U}$ unless otherwise is specified.
 We denote by $T$ the theory of {${\EuScript U}$.
@@ -1423,18 +1422,18 @@ The classical argument proves also the following.
 \section{Cauchy complete models}\label{Cauchy}
 
 
-For $t(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
+For $\tau(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
 
 
-\ceq{\hfill\emph{$x\sim_ty$}}{=}{\forallH z\ \ t(x,z)=t(y,z).}
+\ceq{\hfill\emph{$x\sim_ty$}}{=}{\forallH z\ \ \tau(x,z)=\tau(y,z).}
 
 We also define the type 
 
-\ceq{\hfill\emph{$x\sim_{\sf I}\!y$}}{=}{\Big\{x\sim_ty\ :\ t(x,z)\textrm{ as above}\Big\}.}
+\ceq{\hfill\emph{$x\sim_{\sf I}\!y$}}{=}{\Big\{x\sim_ty\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
 
 % We define the following equivalence relation on $U$
 
-% \ceq{\hfill\emph{$a\sim_{\sf I}\!b$}}{=}{\forallH y\ \big[t(a,y)=t(b,y)\big]}\hfill 
+% \ceq{\hfill\emph{$a\sim_{\sf I}\!b$}}{=}{\forallH y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
 
 % When two tuples of the same length $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ are such that $a_i\sim_{\sf I}\!b_i$ for every $i<\lambda$ we write \emph{$\bar a\sim_{\sf I}\bar b$.}
 
@@ -1452,39 +1451,39 @@ We also define the type
   Assume $a_i\sim_{\sf I} b_i$ for every $i$.
   Let $|a|=|b|=\lambda$ and assume inductively that
   
-  \ceq{\hfill\forallH y,z\ \ \ t(a,y,z)}{=}{t(b,y,z)}
+  \ceq{\hfill\forallH y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
 
-  holds for every term $t(x,y,z)$, with $|x|=\lambda$ (universal quantification over the free variables is understood throughout the proof).  
+  holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ (universal quantification over the free variables is understood throughout the proof).  
   In particular for any $a_\lambda$
 
-  \ceq{1.\hfill\forallH z\ \ \  t(a,a_\lambda,z)}{=}{t(b,a_\lambda,z).}
+  \ceq{1.\hfill\forallH z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
 
   As $a_\lambda\sim_{\sf I}\!b_\lambda$ then
 
-  \ceq{\hfill\forallH x,z\ \ \   t(x,a_\lambda,z)}{=}{t(x,b_\lambda,z)}
+  \ceq{\hfill\forallH x,z\ \ \   \tau(x,a_\lambda,z)}{=}{\tau(x,b_\lambda,z)}
 
   and in particular 
 
-  \ceq{2.\hfill\forallH z\ \ \ t(b,a_\lambda,z)}{=}{t(b,b_\lambda,z).}
+  \ceq{2.\hfill\forallH z\ \ \ \tau(b,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
 
   From (1) and (2) we obtain
 
-  \ceq{\hfill\forallH z\ \ \ t(a,a_\lambda,z)}{=}{t(b,b_\lambda,z).}
+  \ceq{\hfill\forallH z\ \ \ \tau(a,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
 
   For limit ordinals induction is trivial.
 \end{proof}
 
 Note that the approximations of the formula $x\sim_t\!y$ have the form
 
-\ceq{\hfill\emph{$x\sim_{t,D}y$}}{=}{\forallH z\ \ \langle t(x,z),t(y,z)\rangle\in D}
+\ceq{\hfill\emph{$x\sim_{t,D}y$}}{=}{\forallH z\ \ \langle \tau(x,z),\tau(y,z)\rangle\in D}
 
 for some compact neighborhood $D$ of $\Delta$, the diagonal of $I^2$.
 Hence we define
 
-\ceq{\hfill\emph{$x\sim'_{\sf I}\!y$}}{=}{\Big\{x\sim_{t,D}y\ :\ t(x,z)\textrm{ parameter-free term, } D\textrm{ compact neigborhood of }\Delta\Big\}.}
+\ceq{\hfill\emph{$x\sim'_{\sf I}\!y$}}{=}{\Big\{x\sim_{t,D}y\ :\ \tau(x,z)\textrm{ parameter-free term, } D\textrm{ compact neigborhood of }\Delta\Big\}.}
 
-If $t(x,z)=t_1(x,z),\dots,t_n(x,z)$ is a tuple of terms, by $x\sim_{t,D}y$ we denote the conjunction of the formulas $x\sim_{t_i,D}y$.
-As $D$ ranges over the compact neighborhoods of $\Delta$ and $t(x,z)$ ranges over the finite tuples parameter-free terms.
+If $\tau(x,z)=t_1(x,z),\dots,t_n(x,z)$ is a tuple of terms, by $x\sim_{t,D}y$ we denote the conjunction of the formulas $x\sim_{t_i,D}y$.
+As $D$ ranges over the compact neighborhoods of $\Delta$ and $\tau(x,z)$ ranges over the finite tuples parameter-free terms.
 These formulas $x\sim_{t,D}y$ define a system of entougages on ${\EuScript U}^{|x|}$.
 We refer to this uniformity and the topology associated as the \emph{${\sf I}$-topology.}
 Though not needed in the sequel, it is worth mentioning that the ${\sf I}$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the ${\sf I}$-topology on ${\EuScript U}$.
@@ -1530,7 +1529,7 @@ This definition is classical but note that, though classically every type over $
   By compactness, as $p'(x)$ is finitely satisfiable in $M$.
 
   (3$\Rightarrow$1)  
-  Let $a_{t,D}\in M$ be a realization of $a\sim_{t,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $t(x,z)$ over the finite tuples parameter-free terms.
+  Let $a_{t,D}\in M$ be a realization of $a\sim_{t,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ over the finite tuples parameter-free terms.
   Then, by the uniqueness of the limit (up to $\sim_I$-equivalence), the type $p(x)$ cointaining the formulas $x\sim_{t,D}a_{t,D}$ is as required by the lemma.
 \end{proof}
 
@@ -2134,7 +2133,7 @@ The following proposition is easily proved by induction on the syntax.
   The following are equivalent for every $a,b\in M$.
   \begin{itemize}
     \item[1.] $a\equiv_{\EuScript M}b$;
-    \item[2.] ${\EuScript M}\models t(a)=t(b)$ for every $t(x)\in\mathds{T}(M)$, with $|x|=1$.
+    \item[2.] ${\EuScript M}\models \tau(a)=\tau(b)$ for every $\tau(x)\in\mathds{T}(M)$, with $|x|=1$.
   \end{itemize}
 \end{proposition}
 
