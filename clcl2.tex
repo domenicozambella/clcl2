@@ -252,7 +252,7 @@ Note that ${\EuScript L}$ has two types of atomic formulas:
   The set of positive formulas is denoted by \emph{${\EuScript L}^{\rm p}$.}
 
   A \emph{continuous\/} formula is a positive formula where only atomic formulas as in (2) above occur.
-  The set continuous formulas is denoted by \emph{${\EuScript L}^{\rm c}$.}
+  The set of continuous formulas is denoted by \emph{${\EuScript L}^{\rm c}$.}
 
   We will use Latin letters $x,y,z$ for variables of sort ${\sf H}$ and Greek letters $\eta,\varepsilon$ for variables of sort ${\sf I}$.
   Therefore we can safely drop the superscript from quantifiers if they are followed by variables.
@@ -294,14 +294,14 @@ The following example is inspired by~\cite{HPP}.
   It is easy to verify that $\langle\bar M, I\rangle$ is positively saturated as defined in Section~\ref{compactness}.
 \end{example}
 
-Normed spaces is among the of the motivating examples.
+The theory of normed spaces is one of the motivating examples of standard structures.
 Essentially, functional analysis and model theory are only interested in the unit ball of normed spaces.
-To formalize the unit ball of a normed space as a standard structure (where $I$ is the unit interval) is straightforward but pretty ugly.
+To formalize the unit ball of a normed space as a standard structure (where $I$ is the unit interval) is straightforward but cumbersome.
 Alternatively one can view a normed space as a many-sorted structure: a sort for each ball of radius $n\in\mathds{Z}^+$.
 Unfortunately, this also results into a bloated formalism.
 
-A neater formalization is possible if one accepts that some potitive elementary extensions (to be defined below) of a normed space could contain vectors of infinite norm hence not be themselves normed spaces.
-These infinities are harmless if one is only interested in the unit ball.
+A neater formalization is possible if one accepts that some potitive elementary extensions (to be defined below) of a normed space could contain vectors of infinite norm hence not be themselves proper normed spaces.
+However these infinities are harmless if one is only interested in the unit ball.
 In fact, inside any ball of finite radius these nonstandard normed spaces are completely standard.
 
 \begin{example}\label{ex_normed_spaces}
@@ -553,7 +553,7 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
   Let $\tau(x\,;\eta)$ be a term of sort ${\sf H}^{|x|}\times{\sf I}^{|\eta|}\to {\sf I}$.
   Then for every $a\in M^{|x|}$ and $\alpha\in({}^*\!\!I)^{|\eta|}$\vskip-.7\baselineskip
 
-  \ceq{\hfill t^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*\!\tau(a\,;\alpha)\big)}
+  \ceq{\hfill \tau^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*\!\tau(a\,;\alpha)\big)}
 \end{fact}
 \begin{proof}
   When a $t$ is a function symbol of sort  ${\sf H}^{|x|}\to {\sf I}$, the claim holds by definition.
@@ -585,7 +585,7 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
   The general case follows easily from this special case. 
   Assume that $\langle N,{}^*\!\!I\rangle\models \tau(a\,;\alpha)\in C$.
   Then ${\rm st}\big({}^*\tau(a\,;\alpha)\big)\in C$ by Fact~\ref{fact_st1}.
-  Therefore $t^N\big(a\,;{\rm st}(\alpha)\big)\in C$ follows from Fact~\ref{fact_st2}.
+  Therefore $\tau^N\big(a\,;{\rm st}(\alpha)\big)\in C$ follows from Fact~\ref{fact_st2}.
   This proves the lemma for atomic formulas.
   Induction is immediate. 
 \end{proof}
@@ -671,7 +671,7 @@ The existence of p-saturated standard structures is obtained from the classical 
 \end{theorem}
 
 \begin{proof}
-  Let $\langle {}^*\!\!M,{}^*\!\!I\rangle$ be an ${\EuScript L}$-saturated ${\EuScript L}$-elementary extension of the standard structure $\langle M,{}^*\!\!I\rangle$.
+  Let $\langle {}^*\!\!M,{}^*\!\!I\rangle$ be an ${\EuScript L}$-saturated ${\EuScript L}$-elementary extension of the standard structure $\langle M,I\rangle$.
   Let $\langle {}^*\!\!M,I\rangle$ be its standard part as defined in Section~\ref{standard_part}.
   By Lemma~\ref{lem_st}, $\langle {}^*\!\!M,I\rangle$ realizes all finitely consistent positive types with fewer than $|{}^*\!\!M|$ parameters.
 \end{proof}
@@ -823,13 +823,13 @@ A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The monster model}\label{monster}
 
-We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the (positive) \emph{monster model.}
+We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the (positive) \emph{monster\/} model.
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
 Truth is evaluated in ${\EuScript U}$ unless otherwise is specified.
 We denote by $T$ the theory of {${\EuScript U}$.
 The density of a set of formulas is understood modulo $T$.
 Below we say \emph{model\/} for p-elementary substructure of ${\EuScript U}$.
-We stress once again that the truth of some $\varphi\in{\EuScript L}^{\rm p}(M)$ in a model $M$ implies the truth of $\varphi$ (in ${\EuScript U}$) but not vice versa.
+We stress once again that the truth of some $\varphi\in{\EuScript L}^{\rm p}(M)$ in a p-model $M$ implies the truth of $\varphi$ (in ${\EuScript U}$) but not vice versa.
 If also the converse implication holds we say $M$ a \emph{strong model.}
 However, all models agree on the approximated truth, see Fact~\ref{fact_HImorphisms},
 
@@ -1424,31 +1424,30 @@ The classical argument proves also the following.
 
 For $\tau(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
 
+\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\forallH z\ \ \tau(x,z)=\tau(y,z).}
 
-\ceq{\hfill\emph{$x\sim_ty$}}{=}{\forallH z\ \ \tau(x,z)=\tau(y,z).}
-
+The expression $\alpha=\beta$ above is a shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $I^2$.
 We also define the type 
 
-\ceq{\hfill\emph{$x\sim_{\sf I}\!y$}}{=}{\Big\{x\sim_ty\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
+\ceq{\hfill\emph{$x\sim y$}}{=}{\Big\{x\sim_\tau y\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
 
 % We define the following equivalence relation on $U$
 
-% \ceq{\hfill\emph{$a\sim_{\sf I}\!b$}}{=}{\forallH y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
+% \ceq{\hfill\emph{$a\sim b$}}{=}{\forallH y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
 
-% When two tuples of the same length $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ are such that $a_i\sim_{\sf I}\!b_i$ for every $i<\lambda$ we write \emph{$\bar a\sim_{\sf I}\bar b$.}
-
+% When two tuples of the same length $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ are such that $a_i\sim b_i$ for every $i<\lambda$ we write \emph{$\bar a\sim_{\sf I}\bar b$.}
 
 \begin{fact}\label{fact_productUniformity}
   For any $a=\langle a_i:i<\lambda\rangle$ and $b=\langle b_i:i<\lambda\rangle$ 
   
-  \ceq{\hfill a\sim_{\sf I} b}{\Leftrightarrow}{a_i\sim_{\sf I} b_i}\quad for every $i<\lambda$.
+  \ceq{\hfill a\sim b}{\Leftrightarrow}{a_i\sim b_i}\quad for every $i<\lambda$.
 \end{fact}
 
 \begin{proof} 
   \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
   %
   Only implication $\Leftarrow$ requires a proof.
-  Assume $a_i\sim_{\sf I} b_i$ for every $i$.
+  Assume $a_i\sim b_i$ for every $i$.
   Let $|a|=|b|=\lambda$ and assume inductively that
   
   \ceq{\hfill\forallH y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
@@ -1458,7 +1457,7 @@ We also define the type
 
   \ceq{1.\hfill\forallH z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
 
-  As $a_\lambda\sim_{\sf I}\!b_\lambda$ then
+  As $a_\lambda\sim b_\lambda$ then
 
   \ceq{\hfill\forallH x,z\ \ \   \tau(x,a_\lambda,z)}{=}{\tau(x,b_\lambda,z)}
 
@@ -1473,23 +1472,37 @@ We also define the type
   For limit ordinals induction is trivial.
 \end{proof}
 
-Note that the approximations of the formula $x\sim_t\!y$ have the form
+Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 
-\ceq{\hfill\emph{$x\sim_{t,D}y$}}{=}{\forallH z\ \ \langle \tau(x,z),\tau(y,z)\rangle\in D}
+\ceq{\hfill\emph{$x\sim_{\tau,D}y$}}{=}{\forallH z\ \ \langle \tau(x,z),\tau(y,z)\rangle\in D}
 
-for some compact neighborhood $D$ of $\Delta$, the diagonal of $I^2$.
+for some compact neighborhood $D$ of $\Delta$.
 Hence we define
 
-\ceq{\hfill\emph{$x\sim'_{\sf I}\!y$}}{=}{\Big\{x\sim_{t,D}y\ :\ \tau(x,z)\textrm{ parameter-free term, } D\textrm{ compact neigborhood of }\Delta\Big\}.}
+\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ as above } D\textrm{ compact neigborhood of }\Delta\Big\}.}
 
-If $\tau(x,z)=t_1(x,z),\dots,t_n(x,z)$ is a tuple of terms, by $x\sim_{t,D}y$ we denote the conjunction of the formulas $x\sim_{t_i,D}y$.
+If $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ is a tuple of terms, by $x\sim_{\tau,D}y$ we denote the conjunction of the formulas $x\sim_{\tau_i,D}y$.
+
 As $D$ ranges over the compact neighborhoods of $\Delta$ and $\tau(x,z)$ ranges over the finite tuples parameter-free terms.
-These formulas $x\sim_{t,D}y$ define a system of entougages on ${\EuScript U}^{|x|}$.
-We refer to this uniformity and the topology associated as the \emph{${\sf I}$-topology.}
-Though not needed in the sequel, it is worth mentioning that the ${\sf I}$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the ${\sf I}$-topology on ${\EuScript U}$.
+The formulas $x\sim_{\tau,D}y$ define a system of entougages on ${\EuScript U}^{|x|}$.
+We refer to this uniformity and the topology associated as the \emph{$I$-topology.}
+Though not needed in the sequel, it is worth mentioning that the $I$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the $I$-topology on ${\EuScript U}$.
 This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
 
-We say that $p(x)\subseteq{\EuScript L}^{\rm p}({\EuScript U})$ is \emph{${\sf I}$-invariant\/} if $x\sim_{\sf I}\!y\rightarrow[p(x)\leftrightarrow p(y)]$.
+\begin{fact}
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}$
+
+  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x)\leftrightarrow\varphi(y)}
+\end{fact}
+
+\begin{proof}
+  By induction on $\varphi(x)$.
+  Suppose $\varphi(x)$ as the form $\tau(x)\in C$.
+  Suppose $a\models\varphi(y)$. 
+
+\end{proof}
+
+We say that $p(x)\subseteq{\EuScript L}^{\rm p}({\EuScript U})$ is \emph{${\sf I}$-invariant\/} if $x\sim y\rightarrow[p(x)\leftrightarrow p(y)]$.
 It is clear that all formulas that do not contain atomic formulas of sort ${\sf H}$ are invariant.
 The following proposition is an immediate consequence of compactness.
 It corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
@@ -1500,12 +1513,12 @@ It corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
     \item[1.] $\varphi(x)$ is ${\sf I}$-invariant;
     \item[2.] for every $\varphi'>\varphi$ there are a tuple of therm $t$ and a compact neighborhood of $\Delta$ such that
 
-    \ceq{\hfill x\sim_{t,D}\!y\ \wedge\ \varphi(x)}{\rightarrow}{\varphi'(y).}
+    \ceq{\hfill x\sim_{\tau,D}\!y\ \wedge\ \varphi(x)}{\rightarrow}{\varphi'(y).}
   \end{itemize}
 \end{proposition}
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
-We say that $p(x)$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim_{\sf I}\!y$.
+We say that $p(x)$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
 
 We say that a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conjunction of formulas in $q(x)$ has a solution in $M$.
 This definition is classical but note that, though classically every type over $M$ is finitely saisfiable in $M$, here, unless $M$ is sufficiently saturated, we can only infer that $q'(x)$ is finitely satisfiable.
@@ -1514,23 +1527,23 @@ This definition is classical but note that, though classically every type over $
   The following are equivalent for every model $M$
   \begin{itemize}
     \item[1.]  $p(x)\subseteq{\EuScript L}^{\rm p}(M)$ is an ${\sf I}$-invariant Cauchy type;
-    \item[2.] $p(x)\leftrightarrow a\sim_{\sf I}\!x$ for some/any $a\models p(x)$;
-    \item[3.] $a\sim'_{\sf I}\!x$ is finitely satisfiable in $M$ for some/any $a\models p(x)$.
+    \item[2.] $p(x)\leftrightarrow a\sim x$ for some/any $a\models p(x)$;
+    \item[3.] $a\sim'x$ is finitely satisfiable in $M$ for some/any $a\models p(x)$.
   \end{itemize}
 \end{lemma}
 
 \begin{proof}
   (1$\Rightarrow$2)
   Let $a\models p(x)$.
-  Substituting $a$ for $y$ in the definition of Cauchy type we obtain $p(x)\rightarrow a\sim_{\sf I}\!x$
-  Similarly, from the definition of ${\sf I}$-invariance we obtain $a\sim_{\sf I}\!x\rightarrow p(x)$.
+  Substituting $a$ for $y$ in the definition of Cauchy type we obtain $p(x)\rightarrow a\sim x$
+  Similarly, from the definition of ${\sf I}$-invariance we obtain $a\sim x\rightarrow p(x)$.
 
   (2$\Rightarrow$3) 
   By compactness, as $p'(x)$ is finitely satisfiable in $M$.
 
   (3$\Rightarrow$1)  
-  Let $a_{t,D}\in M$ be a realization of $a\sim_{t,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ over the finite tuples parameter-free terms.
-  Then, by the uniqueness of the limit (up to $\sim_I$-equivalence), the type $p(x)$ cointaining the formulas $x\sim_{t,D}a_{t,D}$ is as required by the lemma.
+  Let $a_{\tau,D}\in M$ be a realization of $a\sim_{\tau,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ over the finite tuples parameter-free terms.
+  Then, by the uniqueness of the limit (up to $\sim_I$-equivalence), the type $p(x)$ cointaining the formulas $x\sim_{\tau,D}a_{\tau,D}$ is as required by the lemma.
 \end{proof}
 
 We say that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if every ${\sf I}$-invariant Cauchy type $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is realized by some $c\in A^{|x|}$.
@@ -1552,11 +1565,11 @@ We say that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if every
 \begin{proof}  
   Let $p(x)\subseteq{\EuScript L}^{\rm p}(M)$ be an ${\sf I}$-invariant Cauchy type.
   Pick any $a\models p(x)$.
-  By Lemma~\ref{lem_Cauchyequiv}, $p(x)\leftrightarrow a\sim_{\sf I}\!x$.
-  For every formula $\varphi(x)$ in the type $a\sim_{\sf I}\!x$ and every $\varphi'>\varphi$ pick some $\psi(x)\in p$ such that $\psi(x)\rightarrow\varphi'(x)$.
-  There are $|{\EuScript L}|$ many formulas in $a\sim_{\sf I}\!x$.
+  By Lemma~\ref{lem_Cauchyequiv}, $p(x)\leftrightarrow a\sim x$.
+  For every formula $\varphi(x)$ in the type $a\sim x$ and every $\varphi'>\varphi$ pick some $\psi(x)\in p$ such that $\psi(x)\rightarrow\varphi'(x)$.
+  There are $|{\EuScript L}|$ many formulas in $a\sim x$.
   Then by saturation the formulas $\psi(x)$ we picked above have a common solution $b$ in $M$.
-  Then $b\sim_{\sf I}\!a$ and, by invariance, $b\models p(x)$.
+  Then $b\sim a$ and, by invariance, $b\models p(x)$.
 \end{proof}
 
 It is clear from the proof that when ${\EuScript L}$ is separable it suffices to require $\lambda>\omega$.
@@ -1636,7 +1649,7 @@ We say that the set $B$ is a \emph{Cauchy closure\/} of $A$ if
 \begin{proof}
   Apply the proposition in the case when $\varphi(x)$ does not depend on $x$.
   Let $p(x)\subseteq{\EuScript H}(M)$ be a Cauchy type such that $p(x)\rightarrow\varphi$.
-  Then $\existsH y\sim_{\sf I}\! x\ p(y)$ is an ${\sf I}$-invariant Cauchy type that implies $\varphi$.
+  Then $\existsH y\sim  x\ p(y)$ is an ${\sf I}$-invariant Cauchy type that implies $\varphi$.
   Hence ${\EuScript M}\models\varphi$ by Cauchy completeness.
 \end{proof}
 
@@ -1728,10 +1741,10 @@ As all functions have been required to be uniformly continuous, it is immediate 
   Let $\langle \varepsilon_i: i\in\omega\rangle$ be a sequence of reals that converges to $0$ and such that $d(a_i,a)\le\varepsilon_i$ for every $i\in\omega$.
   Then the formulas $d(a_i,x)\le\varepsilon_i$ are in $p(x)$.
   Then every element realizing $p(x)$ is at distance $0$ from $a$.
-  Therefore  $p(x)\rightarrow a\sim_{\sf I}\!x$.
+  Therefore  $p(x)\rightarrow a\sim x$.
 
   (1$\Rightarrow$2) 
-  As $p(x)$ is Cauchy type, $p(x)\rightarrow a\sim_{\sf I}\!x$.
+  As $p(x)$ is Cauchy type, $p(x)\rightarrow a\sim x$.
   Then $p'(x)\rightarrow d(a,x)<2^{-i}$ for all $i$.
   By compactness (see Fact~\ref{fact_compactness_imp}) there are formulas $\varphi_i(x)\in p$ such that $\varphi'_i(x)\rightarrow d(a,x)<2^{-i}$ for some $\varphi'_i>\varphi_i$.
   By ${\EuScript L}^{\rm p}$-elementarity there is an $a_i\in N$ such that $\varphi'(a_i)$.
@@ -1765,7 +1778,7 @@ As all functions have been required to be uniformly continuous, it is immediate 
 % \ceq{\hfill (a_1,\dots,a_n)}{\mapsto}{{\rm cl}\big(G(a_1,\dots,a_n^\omega)\big)},
 
 % Where $a_n^\omega$ stands for the element $a_n$ repeated $\omega$-times.
-% We claim that the ${\sf I}$-topology on $M$ coincides with its original topology.
+% We claim that the $I$-topology on $M$ coincides with its original topology.
 % There is a natural embedding of $G$ into ${\rm Aut}({\EuScript M})$.
 % Let $\gamma\in{\rm Aut}({\EuScript M})$ we claim that for every $a_1,\dots,a_n$ and every there is a $g\in G$ such that $\tau_{t,C}(\gamma(a),ga)$
 
