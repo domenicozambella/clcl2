@@ -238,7 +238,7 @@ As a remedy, below we carve out a set of formulas ${\EuScript L}^{\rm p}$, the s
 As usual, $L_{\sf I}$, $L_{\sf H}$, and ${\EuScript L}$ denote both first-order languages and the corresponding set of formulas.
 We write ${\EuScript L}_x$ when when we restrict to formulas with free variables among $x$.
 If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in L_{\sf H}$ (which is only correct up to equivalence).
-% The symbols ${\EuScript L}^{\rm p}$ and ${\EuScript H}$ defined below denote only sets of ${\EuScript L}$-formulas.
+% The symbols ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ defined below denote only sets of ${\EuScript L}$-formulas.
 
 Note that ${\EuScript L}$ has two types of atomic formulas: 
 \begin{itemize}
@@ -379,7 +379,7 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
 \end{example}
 
 \begin{example}
-  Let ${\EuScript H}$ be the set of positive formulas without quantifiers of sort ${\sf I}$.
+  Let ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ be the set of positive formulas without quantifiers of sort ${\sf I}$.
   In Section~\ref{Ielimination} we will prove that this set is dense.
 \end{example}
 
@@ -397,24 +397,27 @@ We say that a partial map $f:M\to N$ is \emph{p-elementary\/} if for every $\var
 
 \ceq{1.\hfill M\models\varphi(a)}{\Rightarrow}{N\models\varphi(fa).}
 
-A p-elementary map that is total is called an \emph{p-elementary embedding.}
-When the map ${\rm id}_M:M\rightarrow N$ is an p-elementary embedding, 
+A p-elementary map that is total is called a p-elementary \emph{embedding.}
+When the identity map ${\rm id}_M:M\rightarrow N$ is an p-elementary embedding, 
 % that is, if for every  $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in M^{|x|}$
 %
 % \ceq{\hfill{\EuScript M}\models\varphi(a)}{\Rightarrow}{N\models\varphi(a)},
 %
-we write \emph{$M\preceq^{\rm p} N$\/} and say that $M$ is an \emph{p-elementary substructure\/} of $N$. 
+we write \emph{$M\preceq^{\rm p} N$\/} and say that $M$ is an p-elementary \emph{substructure\/} of $N$. 
 
-As p-elementary maps are in particular $L_{\sf H}$-elementary, they are injective.
+We postpone the discussione of c-elementarity to Section~\ref{Cauchy}. 
+As ${\EuScript L}^{\rm c}$ does not contains equality in the home sort, c-elementarity needs some extra care.
+
+On the other hand, as p-elementary maps are in particular $L_{\sf H}$-elementary, they are injective.
 However, their inverse need not be p-elementary.
 In other words, the converse of the implication in (1) may not hold.
 Hence the following notion of elementarity which is more roboust.
 % We have chosen to work with the classical notion of satisfaction at the cost of this asymmetric notion of elementarity.
 % This differs from the approach of Henson and Iovino.
 % They introduce the notion of \textit{approximate satisfaction.} 
-% The approximate ${\EuScript H}$-morphisms we define below are the maps that preserve Henson-Iovino approximate satisfaction.
+% The approximate ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-morphisms we define below are the maps that preserve Henson-Iovino approximate satisfaction.
 % These morphisms are invertible, cf.\@ Fact~\ref{fact_HImorphisms}.
-We say that the map $f:M\to N$ is an \emph{approximate p-elementary\/} if for every formula $\varphi(x)\in{\EuScript L}^{\rm p}$, and every $a\in({\rm dom }f)^{|x|}$
+We say that the map $f:M\to N$ is an \emph{approximate\/} p-elementary if for every formula $\varphi(x)\in{\EuScript L}^{\rm p}$, and every $a\in({\rm dom }f)^{|x|}$
 
 \ceq{2.\hfill M\models\varphi(a)}{\Rightarrow}{N\models\big\{\varphi(fa)\big\}'.}
 
@@ -630,14 +633,15 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
 \section{Compactness}\label{compactness}
 
 It is convenient to distinguish between consistency with respect to standard structures and consistency with respect to ${\EuScript L}$-structures.
-We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!I\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!I\rangle$ (that is, the classical notion of concistency).
-We say that $T$ is \emph{st-consistent\/} if $M\models T$  is for some standard structure $M$.
+We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!I\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!I\rangle$ (this is the classical notion of concistency).
+We say that $T$ is \emph{standardly consistent\/} if $M\models T$  is for some standard structure $M$.
 By Lemma~\ref{lem_st} these two notions coincide if $T$ is positive.
 Therefore we have the following.
 
 \begin{theorem}[Positive Compactness Theorem]\label{thm_compattezza}
   Let $T$ be a positive theory that is finitely ${\EuScript L}$-consistent.
-  Then $T$ is st-consistent.
+In this section we introduce notions of morphisms based on the c
+  Then $T$ is standardly consistent.
 \end{theorem}
 
 % \begin{proof}
@@ -667,7 +671,7 @@ When $\lambda=|N|$ we simply say \emph{p-saturated.}
 The existence of p-saturated standard structures is obtained from the classical case just as for Theorem~\ref{thm_compattezza}.
 
 \begin{theorem}
-  Every standard structure has an p-elementary extension to a p-saturated standard structure (possibly of inaccessible cardinality).
+  Every standard structure has a p-elementary extension to a p-saturated standard structure (possibly of inaccessible cardinality).
 \end{theorem}
 
 \begin{proof}
@@ -823,19 +827,19 @@ A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The monster model}\label{monster}
 
-We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the (positive) \emph{monster\/} model.
+We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the \emph{positive monster\/} model.
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
 Truth is evaluated in ${\EuScript U}$ unless otherwise is specified.
-We denote by $T$ the theory of {${\EuScript U}$.
+We denote by $T$ the positive theory of {${\EuScript U}$.
 The density of a set of formulas is understood modulo $T$.
-Below we say \emph{model\/} for p-elementary substructure of ${\EuScript U}$.
+Below we say \emph{p-model\/} for p-elementary substructure of ${\EuScript U}$.
 We stress once again that the truth of some $\varphi\in{\EuScript L}^{\rm p}(M)$ in a p-model $M$ implies the truth of $\varphi$ (in ${\EuScript U}$) but not vice versa.
-If also the converse implication holds we say $M$ a \emph{strong model.}
-However, all models agree on the approximated truth, see Fact~\ref{fact_HImorphisms},
+If also the converse implication holds we say $M$ a \emph{strong p-model.}
+However, all p-models agree on the approximated truth, see Fact~\ref{fact_HImorphisms},
 
 \ceq{\hfill M\models\{\varphi\}'}{\Leftrightarrow}{\{\varphi\}'}
 
-Strong models are those that realize the equivalence in Proposition~\ref{prop_approx}, e.g.\@ positively $\omega$-saturated models are strong models.
+Strong p-models are those that realize the equivalence in Proposition~\ref{prop_approx}, e.g.\@ $\omega$-saturated p-models are strong p-models.
 
 % Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 % We define a topology on ${\EuScript U}^{|x|}$ which we call the \emph{${\EuScript L}^{\rm p}(A)$-topology.}
@@ -929,13 +933,15 @@ Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 % The following are immediate consequences of the proposition above and Lemma~\ref{lem_interpolation}.
 
 % \begin{corollary}\label{corol_Hcomplete1}
-%   For every $a\in {\EuScript U}^{|x|}$ and $\varphi(x)\in{\EuScript H}(U)$, if $\neg\varphi(a)$ then $\tilde\varphi(a)$ for some $\tilde\varphi\perp\varphi$.\hfill\qedsymbol
+%   For every $a\in {\EuScript U}^{|x|}$ and $\varphi(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}(U)$, if $\neg\varphi(a)$ then $\tilde\varphi(a)$ for some $\tilde\varphi\perp\varphi$.\hfill\qedsymbol
 % \end{corollary}
 
 We write \emph{$S^{\rm p}_x(A)$\/} for the set of maximally consistent subsets of ${\EuScript L}^{\rm p}_x(A)$.
 We define \emph{$\mbox{p-tp}(a/A)$,} the positive type of $a$ over $A$, to be the set of formulas $\big\{\varphi(x)\in{\EuScript L}^{\rm p}(A)\ :\ \varphi(a)\big\}$.
+Similarly, we define \emph{$S^{\rm c}_x(A)$\/} and \emph{$\mbox{c-tp}(a/A)$.}
+
 In general, if ${\EuScript F}$ is any set of formulas, we write \emph{${\EuScript F}\mbox{-tp}(a/A)$,} for the type $\big\{\varphi(x)\in{\EuScript F}(A)\ :\ \varphi(a)\big\}$. 
-The undecorated symbol $\mbox{tp}(a/A)$ denotes the ${\EuScript L}$-type.
+The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-type.
 
 \begin{fact}\label{fact_max_cons_L}
   Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$.
@@ -962,17 +968,16 @@ The undecorated symbol $\mbox{tp}(a/A)$ denotes the ${\EuScript L}$-type.
   Then $\neg\varphi(a)$.
   Hence $\tilde{\varphi}(a)$ holds for some $\tilde{\varphi}\perp\varphi$ and $p(x)\rightarrow\neg\varphi(x)$ follows.
 \end{proof}
-
-Let ${\EuScript H}$ be the set of positive formulas without quantifiers of sort ${\sf I}$.
-Note that in the proof above we could replace ${\EuScript L}^{\rm p}$ with any class of positive formulas closed under strong negation.
+ 
+Note that in the proof above we could replace ${\EuScript L}^{\rm p}$ with any set of positive formulas closed under strong negation.
 Therefore we can also claim the following.
 
 \begin{fact}\label{fact_max_cons_H}
-  Let $p(x)\subseteq{\EuScript H}(A)$.
-  The following are equivalent 
+  Let $p(x)\subseteq{\EuScript F}(A)$, where ${\EuScript F}$ is a set of positive formulas closed under strong negation.
+  Then the following are equivalent 
   \begin{itemize}
-    \item[1.] $p(x)$ is a maximally consistent subset of ${\EuScript H}_x(A)$;
-    \item[2.] $p(x)={\EuScript H}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
+    \item[1.] $p(x)$ is a maximally consistent subset of ${\EuScript F}_x(A)$;
+    \item[2.] $p(x)={\EuScript F}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
 \end{fact}
 
@@ -1005,9 +1010,244 @@ Therefore we can also claim the following.
 % \end{proof}
 
 % \begin{corollary}\label{corol_Hcomplete3}
-%   The inverse of an ${\EuScript H}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript H}$-elementary.
+%   The inverse of an ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary.
 % \end{corollary}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cauchy completeness and c-models}\label{Cauchy}
+
+
+For $\tau(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
+
+\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\forallH z\ \ \tau(x,z)=\tau(y,z).}
+
+The expression $\alpha=\beta$ above is a shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $I^2$.
+We also define the type 
+
+\ceq{\hfill\emph{$x\sim y$}}{=}{\Big\{x\sim_\tau y\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
+
+% We define the following equivalence relation on $U$
+
+% \ceq{\hfill\emph{$a\sim b$}}{=}{\forallH y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
+
+% When two tuples of the same length $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ are such that $a_i\sim b_i$ for every $i<\lambda$ we write \emph{$\bar a\sim_{\sf I}\bar b$.}
+
+\begin{fact}\label{fact_productUniformity}
+  For any $a=\langle a_i:i<\lambda\rangle$ and $b=\langle b_i:i<\lambda\rangle$ 
+  
+  \ceq{\hfill a\sim b}{\Leftrightarrow}{a_i\sim b_i}\quad for every $i<\lambda$.
+\end{fact}
+
+\begin{proof} 
+  \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
+  %
+  Only implication $\Leftarrow$ requires a proof.
+  Assume $a_i\sim b_i$ for every $i$.
+  Let $|a|=|b|=\lambda$ and assume inductively that
+  
+  \ceq{\hfill\forallH y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
+
+  holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ (universal quantification over the free variables is understood throughout the proof).  
+  In particular for any $a_\lambda$
+
+  \ceq{1.\hfill\forallH z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
+
+  As $a_\lambda\sim b_\lambda$ then
+
+  \ceq{\hfill\forallH x,z\ \ \   \tau(x,a_\lambda,z)}{=}{\tau(x,b_\lambda,z)}
+
+  and in particular 
+
+  \ceq{2.\hfill\forallH z\ \ \ \tau(b,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
+
+  From (1) and (2) we obtain
+
+  \ceq{\hfill\forallH z\ \ \ \tau(a,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
+
+  For limit ordinals induction is trivial.
+\end{proof}
+
+Note that the approximations of the formula $x\sim_\tau\!y$ have the form
+
+\ceq{\hfill\emph{$x\sim_{\tau,D}y$}}{=}{\forallH z\ \ \langle \tau(x,z),\tau(y,z)\rangle\in D}
+
+for some compact neighborhood $D$ of $\Delta$.
+Hence we define
+
+\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ as above } D\textrm{ compact neigborhood of }\Delta\Big\}.}
+
+If $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ is a tuple of terms, by $x\sim_{\tau,D}y$ we denote the conjunction of the formulas $x\sim_{\tau_i,D}y$.
+
+The formulas $x\sim_{\tau,D}y$, as $D$ ranges over the compact neighborhoods of $\Delta$ and $\tau(x,z)$ ranges over the finite tuples parameter-free terms, define a system of entougages on ${\EuScript U}^{|x|}$.
+We refer to this uniformity and the topology associated as the \emph{$I$-topology.}
+Though not needed in the sequel, it is worth mentioning that the $I$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the $I$-topology on ${\EuScript U}$.
+This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
+
+\begin{fact}\label{fact_continuous}
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}$
+
+  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x,\eta)\leftrightarrow\varphi(y,\eta)}
+\end{fact}
+
+\begin{proof}
+  By induction on $\varphi(x,\eta)$.
+  Suppose $\varphi(x,\eta)$ as the form $\tau(x,\eta)\in C$.
+  Then clearly
+  
+  \ceq{\hfill x\sim_\tau y}{\rightarrow}{\varphi(x,\eta)\leftrightarrow\varphi(y,\eta)}
+
+  Induction is easy.
+  As an example, we check only the quantifier $\exists^{\scriptscriptstyle\sf H}$.
+  Assume inductively that
+  
+  \ceq{\hfill x,x'\sim y,y'}{\rightarrow}{\varphi(x,x',\eta)\leftrightarrow\varphi(y,y',\eta)}
+
+  Then in paricular 
+
+  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x,z,\eta)\leftrightarrow\varphi(y,z,\eta).}
+
+  Therefore
+
+  \ceq{\hfill x\sim y}{\rightarrow}{\exists z\,\varphi(x,z,\eta)\leftrightarrow\exists z\,\varphi(y,z,\eta).} 
+\end{proof}
+
+The following proposition is an immediate consequence of compactness.
+It corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
+
+\begin{proposition}\label{prop_perturbation}
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}({\EuScript U})$ 
+  and every $\varphi'>\varphi$ there are a tuple of terms $t$ and a compact neighborhood $D$ of $\Delta$ such that
+
+    \ceq{\hfill x\sim_{\tau,D}\!y\ \wedge\ \varphi(x)}{\rightarrow}{\varphi'(y).}
+\end{proposition}
+
+% It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
+We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
+Equivalenltly, $p(x)$ is a Cauchy type if $p(x)\leftrightarrow a\sim x$ for some/any $a\models p(x)$.
+We say that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if $p({\EuScript U})\subseteq A^{|x|}$ for every Cauchy type $p(x)\subseteq{\EuScript L}^{\rm c}(A)$.
+Note that Cauchy complete sets are in particular closed under $\sim$-equivalence.
+We say that $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if it is Cauchy complete and 
+
+\ceq{{\rm c.}\hfill M\models\varphi(a)}{\Rightarrow}{\varphi(a)}
+
+for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
+As ${\EuScript L}^{\rm c}$ is closed under weakening and strong negation, reasoning as in Section~\ref{morphisms} we infer that for every c-model
+
+\ceq{{\rm ac.}\hfill M\models\{\varphi(a)\}'}{\Leftrightarrow}{\{\varphi(a)\}'}
+
+for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
+
+\begin{fact}
+  Let $M\subseteq{\EuScript L}^{\rm c}(M)$ satisfy (c) above.
+  Then the following are equivalent
+  \begin{itemize}
+    \item[1.] $M$ is Cauchy complete, hence it is a c-model;
+    \item[2.] $a\in M$ whenever $a\sim'x$ is finitely satisfied in $M$. 
+  \end{itemize}
+\end{fact}
+
+\begin{proof}
+  (1$\Rightarrow$2)
+  Assume that $a\sim'x$ is finitely satisfied in $M$. 
+  Let $a_{\tau,D}\in M$ be a realization of $a\sim_{\tau,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ over the finite tuples parameter-free terms.
+  Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
+  By (1), $p(x)$ is realized in $M$.
+  Then all its realizations belong to $M$.
+  
+  (2$\Rightarrow$1)
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a Cauchy type.
+  Then $p(x)\leftrightarrow a\sim x$ for some $a\models p(x)$.
+  By elementarity $p'(x)$ is finitely satisfied in $M$. 
+  Then also $a\sim' x$ is finitely satisfied. 
+  Then $p(x)$ is realized in $M$. 
+\end{proof}
+
+\begin{fact}
+  All c-models are substructures of ${\EuScript U}$.
+\end{fact}
+
+\begin{proof}
+
+  Let $M$ be a c-model, $a\in M^{n}$ and let $b=f(a)$ be a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
+  We need to prove that $b\in M$.
+  It suffices to prove that $b\sim' x$ 
+\end{proof}
+
+
+
+We say that a type $q(x)$ is \emph{finitely satisfiable\/} in $A$ if every conjunction of formulas in $q(x)$ has a solution in $A$.
+
+\begin{lemma}\label{lem_Cauchyequiv}
+  The following are equivalent 
+  \begin{itemize}
+    \item[1.]  $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is a Cauchy type;
+    \item[2.] 
+    \item[3.] $a\sim'x$ is finitely satisfiable in $A$ for some/any $a\models p(x)$.
+  \end{itemize}
+\end{lemma}
+
+\begin{proof}
+  (1$\Rightarrow$2)
+  Let $a$ be a realization of $p(x)$.
+  
+
+  (2$\Rightarrow$3) 
+  By compactness, as $p'(x)$ is finitely satisfiable in $M$.
+
+  (3$\Rightarrow$1)  
+  Let $a_{\tau,D}\in M$ be a realization of $a\sim_{\tau,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ over the finite tuples parameter-free terms.
+  Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ cointaining the formulas $x\sim_{\tau,D}a_{\tau,D}$ is as required by the lemma.
+\end{proof}
+
+% % We say that ${\EuScript M}$ is \emph{existentially closed (e.c.)\/} if every consistent conjunction of ${\EuScript L}^{\rm p}$-atomic formulas is satsfied in ${\EuScript M}$.
+% Note that if $p(x)$ is Cauchy type then any consistent type $q(x)$ containing $p(x)$ is also Cauchy.
+% In particular the type $p(x)\ \cup\ {\EuScript L}^{\rm p}\mbox{-Th}({\EuScript U}/M)$ is Cauchy.
+% The following trivial consequence of this fact that is worth noticing
+
+% \begin{remark}
+%   Cauchy complete p-models are strong p-models.
+%   I.e., $M\models\varphi$ for every true $\varphi\in{\EuScript L}^{\rm p}(M)$.
+% \end{remark}
+
+\begin{fact}
+  Let $M$ be a p-model that is positively $\lambda$-saturated for some $\lambda>|{\EuScript L}|$.
+  Then $M$ is Cauchy complete.
+\end{fact}
+
+\begin{proof}  
+  Let $p(x)\subseteq{\EuScript L}^{\rm p}(M)$ be an ${\sf I}$-invariant Cauchy type.
+  Pick any $a\models p(x)$.
+  By Lemma~\ref{lem_Cauchyequiv}, $p(x)\leftrightarrow a\sim x$.
+  For every formula $\varphi(x)$ in the type $a\sim x$ and every $\varphi'>\varphi$ pick some $\psi(x)\in p$ such that $\psi(x)\rightarrow\varphi'(x)$.
+  There are $|{\EuScript L}|$ many formulas in $a\sim x$.
+  Then by saturation the formulas $\psi(x)$ we picked above have a common solution $b$ in $M$.
+  Then $b\sim a$ and, by invariance, $b\models p(x)$.
+\end{proof}
+
+It is clear from the proof that when ${\EuScript L}$ is separable it suffices to require $\lambda>\omega$.
+
+
+  
+We say that the set $B$ is a \emph{Cauchy closure\/} of $A$ if 
+\begin{itemize}
+  \item[1.] every ${\sf I}$-invariant Cauchy type $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is realized in $B$
+  \item[2.] ${\EuScript L}^{\rm p}\mbox{-tp}(b/A)$ is Cauchy for every $b\in B$.
+\end{itemize}
+
+\begin{proposition}\label{prop_Cauchyclosure}
+  Assume $L_{\sf H}$ is a functional language.
+  Let $M$ be p-model.
+  Then any Cauchy closure of $M$ is a p-model.
+\end{proposition}
+
+\begin{proof} ???
+\end{proof}
+  
 
 
 
@@ -1021,16 +1261,16 @@ Therefore we can also claim the following.
 \section{Elimination of quantifiers of sort \textsf{I}}\label{Ielimination}
 
 We show that the quantifiers of sort ${\sf I}$ can be eliminated up to some approximation.
-Precisely, we prove that the set formulas ${\EuScript H}$ defined above is dense (modulo $T$, the theory of ${\EuScript U}$), see Definion~\ref{def_dense}.
+Precisely, we prove that \emph{${\EuScript L}^{\rm p}_{\sf I\rm qf}$}, the set of positive formulas without quantifiers of sort ${\sf I}$, is dense modulo $T$ (the theory of ${\EuScript U}$), see Definion~\ref{def_dense}.
 
-We say that partial map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript H}$-elementary if it preserves the truth of formulas in ${\EuScript H}$.
+We say that partial map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary if it preserves the truth of formulas in ${\EuScript L}^{\rm p}_{\sf I\rm qf}$.
 
 \begin{proposition}
-  Every ${\EuScript H}$-elementary map of small cardinality extend to an automorphism of ${\EuScript U}$.
+  Every ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map of small cardinality extends to an automorphism of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
-  By Fact~\ref{fact_max_cons_H}, the inverse of an ${\EuScript H}$-elementary map is also ${\EuScript H}$-elementary.
+  By Fact~\ref{fact_max_cons_H}, the inverse of an ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map is also ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary.
   Then we can extend the map by back-and-forth as usual.
 \end{proof}
 
@@ -1039,43 +1279,43 @@ We apply the proposition above to obtain a strengthening of Fact~\ref{fact_max_c
 For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ satisfy the same ${\EuScript L}$-formulas over $A$.
 
 \begin{corollary}\label{corol_Lcomplete}
-  Let $p(x)={\EuScript H}\mbox{-tp}(a/A)$ and $q(x)=\mbox{tp}(a/A)$. Then $p(x)\leftrightarrow q(x)$.
+  Let $p(x)={\EuScript L}^{\rm p}_{\sf I\rm qf}\mbox{-tp}(a/A)$ and $q(x)=\mbox{tp}(a/A)$. Then $p(x)\leftrightarrow q(x)$.
 \end{corollary}
 
 \begin{proof}
   Only $\rightarrow$ requires a proof.
-  If $b\models p(x)$ then there is an ${\EuScript H}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
+  If $b\models p(x)$ then there is an ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
   Then $f$ extends to an automorphism.
   As every automorphism is ${\EuScript L}$-elementary, $a\equiv_Ab$, and the corollary follows.
 \end{proof}
 
-The corollary says that ${\EuScript U}$ does not distinguish between ${\EuScript L}$, ${\EuScript L}^{\rm p}$, and ${\EuScript H}$ types.
+The corollary says that ${\EuScript U}$ does not distinguish between ${\EuScript L}$, ${\EuScript L}^{\rm p}$, and ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ types.
 In the classical setting, from an equivalence between types one derives an equivalence between formulas.
 Without negation, this is not true.
 Still, we can infer an approximate form of equivalence.
 
 \begin{proposition}\label{prop_LHapprox1}
-  The set ${\EuScript H}$ is dense (modulo the theory of ${\EuScript U}$).
+  The set ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ is dense modulo $T$.
 \end{proposition}
 
 \begin{proof}
   Let $\varphi(x)$ be a positive formula.
-  We need to prove that for every $\varphi'>\varphi$ there is some $\psi(x)\in{\EuScript H}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
+  We need to prove that for every $\varphi'>\varphi$ there is some $\psi(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
   By Corollary~\ref{corol_Lcomplete} and Proposition~\ref{prop_approx}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{p'(x)\rightarrow\neg\varphi(x)}p'(x)}
 
-  where $p(x)$ ranges over the maximally consistent ${\EuScript H}$-types.
+  where $p(x)$ ranges over the maximally consistent ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-types.
   By Fact~\ref{fact_compactness_imp} and Lemma~\ref{lem_interpolation}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{\neg\tilde{\psi}(x)\rightarrow\neg\varphi(x)}\neg\tilde{\psi}(x),}
 
-  where $\tilde{\psi}(x)\in{\EuScript H}$.
+  where $\tilde{\psi}(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}$.
   Equivalently,
 
   \ceq{\hfill\varphi(x)}{\leftarrow}{\bigwedge_{\tilde{\psi}(x)\leftarrow\varphi(x)}\tilde{\psi}(x).}
 
-  By compactness, see Fact~\ref{fact_compactness_imp}, for every $\varphi'>\varphi$ there are some finitely many $\tilde{\psi}_i(x)\in{\EuScript H}$ such that
+  By compactness, see Fact~\ref{fact_compactness_imp}, for every $\varphi'>\varphi$ there are some finitely many $\tilde{\psi}_i(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}$ such that
 
   \ceq{\hfill\varphi'(x)}{\leftarrow}{\bigwedge_{i=1,\dots,n}\tilde{\psi}_i(x)\ \ \leftarrow\ \ \varphi(x)}
 
@@ -1083,7 +1323,7 @@ Still, we can infer an approximate form of equivalence.
 \end{proof}
 
 % \begin{proposition}\label{prop_LHapprox2}
-%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$. For every given $\tilde{\varphi}\perp\varphi$ there is some $\psi(x)\in{\EuScript H}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde{\varphi}(x)$.
+%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$. For every given $\tilde{\varphi}\perp\varphi$ there is some $\psi(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde{\varphi}(x)$.
 % \end{proposition}
 
 
@@ -1100,7 +1340,7 @@ Still, we can infer an approximate form of equivalence.
   Only $\rightarrow$ requires a proof.
   We will make repeated use of the equivalence $p(x)\leftrightarrow p'(x)$ that holds for all $p(x)\subseteq{\EuScript L}^{\rm p}$.
   Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
-  Let $p(x)={\EuScript H}\mbox{-tp}(a)$.
+  Let $p(x)={\EuScript L}^{\rm p}_{\sf I\rm qf}\mbox{-tp}(a)$.
   By Corollary~\ref{corol_Lcomplete}, $p(x)\rightarrow\neg\varphi(x)$.
   As ${\EuScript F}$ is dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
   Then $q'(x)\rightarrow\neg\varphi(x)$ and, by compactness, $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'>\psi\in{\EuScript F}$.
@@ -1127,14 +1367,14 @@ The following follows easily from the proposition above.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Tarski-Vaught test and the L\"owenheim-Skolem theorem}
 
-The following proposition is our version of the Tarski-Vaught test (which applies when the larger model is sufficiently saturated).
+The following proposition is our version of the Tarski-Vaught test (which applies when the larger p-model is sufficiently saturated).
 
 \begin{proposition}\label{prop_Tarski_Vaught}
   Let $M$ be a \textit{subset\/} of ${\EuScript U}$.
   Let ${\EuScript F}$ be a dense set of positive formulas.
   Then the following are equivalent
   \begin{itemize}
-    \item[1.] $M$ is a model;
+    \item[1.] $M$ is a p-model;
     \item[2.] for every formula $\psi(x)\in{\EuScript F}(M)$
     
     \noindent\kern-\leftmargin
@@ -1204,11 +1444,11 @@ The following proposition is our version of the Tarski-Vaught test (which applie
 \end{proof}
 
 % \begin{remark}
-%   We will need the Tarski-Vaught test for strong models.
+%   We will need the Tarski-Vaught test for strong p-models.
 %   The classical proof yields the following:
 %   if $M$ and ${\EuScript F}$ are as above, then the following are equivalent
 %   \begin{itemize}
-%     \item[1.] $M$ is a strong model;
+%     \item[1.] $M$ is a strong p-model;
 %     \item[2.] for every formula $\psi(x)\in{\EuScript F}(M)$
     
 %     \noindent\kern-\leftmargin
@@ -1225,19 +1465,19 @@ In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in $L_{\sf I}$.
 
 We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a countable set of positive formulas that is dense modulo $T$.
-% In Section~\ref{separability} we will present examples of separable models.
+% In Section~\ref{separability} we will present examples of separable p-models.
 
 \begin{proposition}\label{prop_disjunction_dense}
   Assume that ${\EuScript L}$ is separable modulo the theory of ${\EuScript U}$.
   Let $A\subseteq{\EuScript U}$ be countable.
-  Then there is a countable model $M$ containing $A$.
-  (The size of a model is the size of the domain of its home sort.)
+  Then there is a countable p-model $M$ containing $A$.
+  (The size of a p-model is the size of the domain of its home sort.)
 \end{proposition}
 
 \begin{proof}
   As in the classical proof of the L\"owenheim-Skolem Theorem,
   we construct $M\subseteq{\EuScript U}$ that contains a witness for every consistent formula in ${\EuScript F}(M)$.
-  By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a model.
+  By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a p-model.
 \end{proof}
 
 \begin{proposition}
@@ -1251,13 +1491,13 @@ We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a count
 
 
 
-% The \emph{weight\/} of ${\EuScript L}$, which we denote by \emph{${\rm wgt}\big({\EuScript L}\big)$\/} is the minimal cardinality of a set of formulas ${\EuScript H}'$ such that for every $\varphi''>\varphi\in{\EuScript H}$ there is a $\varphi'\in{\EuScript H}'$ such that $\varphi''>\varphi'>\varphi$.
+% The \emph{weight\/} of ${\EuScript L}$, which we denote by \emph{${\rm wgt}\big({\EuScript L}\big)$\/} is the minimal cardinality of a set of formulas ${\EuScript L}^{\rm p}_{\sf I\rm qf}'$ such that for every $\varphi''>\varphi\in{\EuScript L}^{\rm p}_{\sf I\rm qf}$ there is a $\varphi'\in{\EuScript L}^{\rm p}_{\sf I\rm qf}'$ such that $\varphi''>\varphi'>\varphi$.
 % If this minimal cardinality is $\omega$, we say that ${\EuScript L}$ is sparable. 
 % It is not difficult to see that when $I$ is the real unit interval and ${\EuScript L}$ contains at most countably many symbols of sort ${\sf H}^n\to{\sf I}$ then ${\EuScript L}$ is separable.
 
 % \begin{proposition}
 %   Let $A\subseteq U$.
-%   Then  $A$ is contained in a model of cardinality at most ${\rm wgt}\big({\EuScript L}\big)+|A|$.  
+%   Then  $A$ is contained in a p-model of cardinality at most ${\rm wgt}\big({\EuScript L}\big)+|A|$.  
 % \end{proposition}
 
 % \begin{proof}
@@ -1289,7 +1529,7 @@ We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a count
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} over $A$.
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
-Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $p(x)$ is p-isolated over $A$, then $p(x)$ is realized in every model containing $A$.
+Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $p(x)$ is p-isolated over $A$, then $p(x)$ is realized in every p-model containing $A$.
 
 \begin{proposition}\label{prop_isolation}
   Let ${\EuScript F}$ be a dense set of positive formulas.
@@ -1365,18 +1605,18 @@ By Proposition~\ref{prop_isolation}, this is a contradiction.
 \begin{theorem}[Positive Omitting Types]\label{prop_OTT}
   Assume that ${\EuScript L}$ is separable and that $A$ is countable.
   Assume also that $p(x)\subseteq{\EuScript L}(A)$ is not p-isolated.
-  Then there is a model $M$ containing $A$ that omits $p(x)$. 
+  Then there is a p-model $M$ containing $A$ that omits $p(x)$. 
 \end{theorem}
 
 \begin{proof}
-  As in the classical proof, appy the lemma above and the Tarski-Vaught test (Proposition~\ref{prop_Tarski_Vaught}) to obtain a countable model $M$ that does not isolate $p(x)$.
-  For models, isolating and realizing are equivalent.
+  As in the classical proof, appy the lemma above and the Tarski-Vaught test (Proposition~\ref{prop_Tarski_Vaught}) to obtain a countable p-model $M$ that does not isolate $p(x)$.
+  For p-models, isolating and realizing are equivalent.
   % As in the classical proof we construct $M\subseteq{\EuScript U}$ that contains a witness for every consistent formula in ${\EuScript F}(M)$.
-  % By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a model.
+  % By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a p-model.
 \end{proof}
 
 Assume that ${\EuScript L}$ is separable modulo $T$.
-A theory $T$ is \emph{positively $\omega$-categorical\/} if any two countable models $M,N\models T$ are isomorphic.
+A theory $T$ is \emph{positively $\omega$-categorical\/} if any two countable p-models $M,N\models T$ are isomorphic.
 The following analogue of Ryll-Nardzewski's Theorem follows as usual.
 
 \begin{theorem}
@@ -1414,295 +1654,6 @@ The classical argument proves also the following.
 \end{proof}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cauchy complete models}\label{Cauchy}
-
-
-For $\tau(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
-
-\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\forallH z\ \ \tau(x,z)=\tau(y,z).}
-
-The expression $\alpha=\beta$ above is a shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $I^2$.
-We also define the type 
-
-\ceq{\hfill\emph{$x\sim y$}}{=}{\Big\{x\sim_\tau y\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
-
-% We define the following equivalence relation on $U$
-
-% \ceq{\hfill\emph{$a\sim b$}}{=}{\forallH y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
-
-% When two tuples of the same length $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ are such that $a_i\sim b_i$ for every $i<\lambda$ we write \emph{$\bar a\sim_{\sf I}\bar b$.}
-
-\begin{fact}\label{fact_productUniformity}
-  For any $a=\langle a_i:i<\lambda\rangle$ and $b=\langle b_i:i<\lambda\rangle$ 
-  
-  \ceq{\hfill a\sim b}{\Leftrightarrow}{a_i\sim b_i}\quad for every $i<\lambda$.
-\end{fact}
-
-\begin{proof} 
-  \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
-  %
-  Only implication $\Leftarrow$ requires a proof.
-  Assume $a_i\sim b_i$ for every $i$.
-  Let $|a|=|b|=\lambda$ and assume inductively that
-  
-  \ceq{\hfill\forallH y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
-
-  holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ (universal quantification over the free variables is understood throughout the proof).  
-  In particular for any $a_\lambda$
-
-  \ceq{1.\hfill\forallH z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
-
-  As $a_\lambda\sim b_\lambda$ then
-
-  \ceq{\hfill\forallH x,z\ \ \   \tau(x,a_\lambda,z)}{=}{\tau(x,b_\lambda,z)}
-
-  and in particular 
-
-  \ceq{2.\hfill\forallH z\ \ \ \tau(b,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
-
-  From (1) and (2) we obtain
-
-  \ceq{\hfill\forallH z\ \ \ \tau(a,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
-
-  For limit ordinals induction is trivial.
-\end{proof}
-
-Note that the approximations of the formula $x\sim_\tau\!y$ have the form
-
-\ceq{\hfill\emph{$x\sim_{\tau,D}y$}}{=}{\forallH z\ \ \langle \tau(x,z),\tau(y,z)\rangle\in D}
-
-for some compact neighborhood $D$ of $\Delta$.
-Hence we define
-
-\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ as above } D\textrm{ compact neigborhood of }\Delta\Big\}.}
-
-If $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ is a tuple of terms, by $x\sim_{\tau,D}y$ we denote the conjunction of the formulas $x\sim_{\tau_i,D}y$.
-
-As $D$ ranges over the compact neighborhoods of $\Delta$ and $\tau(x,z)$ ranges over the finite tuples parameter-free terms.
-The formulas $x\sim_{\tau,D}y$ define a system of entougages on ${\EuScript U}^{|x|}$.
-We refer to this uniformity and the topology associated as the \emph{$I$-topology.}
-Though not needed in the sequel, it is worth mentioning that the $I$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the $I$-topology on ${\EuScript U}$.
-This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
-
-\begin{fact}
-  For every $\varphi(x)\in{\EuScript L}^{\rm c}$
-
-  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x)\leftrightarrow\varphi(y)}
-\end{fact}
-
-\begin{proof}
-  By induction on $\varphi(x)$.
-  Suppose $\varphi(x)$ as the form $\tau(x)\in C$.
-  Suppose $a\models\varphi(y)$. 
-
-\end{proof}
-
-We say that $p(x)\subseteq{\EuScript L}^{\rm p}({\EuScript U})$ is \emph{${\sf I}$-invariant\/} if $x\sim y\rightarrow[p(x)\leftrightarrow p(y)]$.
-It is clear that all formulas that do not contain atomic formulas of sort ${\sf H}$ are invariant.
-The following proposition is an immediate consequence of compactness.
-It corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
-
-\begin{proposition}\label{prop_perturbation}
-  The following are equivalent for every $\varphi(x)\in{\EuScript L}^{\rm p}({\EuScript U})$ 
-  \begin{itemize}
-    \item[1.] $\varphi(x)$ is ${\sf I}$-invariant;
-    \item[2.] for every $\varphi'>\varphi$ there are a tuple of therm $t$ and a compact neighborhood of $\Delta$ such that
-
-    \ceq{\hfill x\sim_{\tau,D}\!y\ \wedge\ \varphi(x)}{\rightarrow}{\varphi'(y).}
-  \end{itemize}
-\end{proposition}
-
-% It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
-We say that $p(x)$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
-
-We say that a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conjunction of formulas in $q(x)$ has a solution in $M$.
-This definition is classical but note that, though classically every type over $M$ is finitely saisfiable in $M$, here, unless $M$ is sufficiently saturated, we can only infer that $q'(x)$ is finitely satisfiable.
-
-\begin{lemma}\label{lem_Cauchyequiv}
-  The following are equivalent for every model $M$
-  \begin{itemize}
-    \item[1.]  $p(x)\subseteq{\EuScript L}^{\rm p}(M)$ is an ${\sf I}$-invariant Cauchy type;
-    \item[2.] $p(x)\leftrightarrow a\sim x$ for some/any $a\models p(x)$;
-    \item[3.] $a\sim'x$ is finitely satisfiable in $M$ for some/any $a\models p(x)$.
-  \end{itemize}
-\end{lemma}
-
-\begin{proof}
-  (1$\Rightarrow$2)
-  Let $a\models p(x)$.
-  Substituting $a$ for $y$ in the definition of Cauchy type we obtain $p(x)\rightarrow a\sim x$
-  Similarly, from the definition of ${\sf I}$-invariance we obtain $a\sim x\rightarrow p(x)$.
-
-  (2$\Rightarrow$3) 
-  By compactness, as $p'(x)$ is finitely satisfiable in $M$.
-
-  (3$\Rightarrow$1)  
-  Let $a_{\tau,D}\in M$ be a realization of $a\sim_{\tau,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ over the finite tuples parameter-free terms.
-  Then, by the uniqueness of the limit (up to $\sim_I$-equivalence), the type $p(x)$ cointaining the formulas $x\sim_{\tau,D}a_{\tau,D}$ is as required by the lemma.
-\end{proof}
-
-We say that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if every ${\sf I}$-invariant Cauchy type $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is realized by some $c\in A^{|x|}$.
-% % We say that ${\EuScript M}$ is \emph{existentially closed (e.c.)\/} if every consistent conjunction of ${\EuScript L}^{\rm p}$-atomic formulas is satsfied in ${\EuScript M}$.
-% Note that if $p(x)$ is Cauchy type then any consistent type $q(x)$ containing $p(x)$ is also Cauchy.
-% In particular the type $p(x)\ \cup\ {\EuScript L}^{\rm p}\mbox{-Th}({\EuScript U}/M)$ is Cauchy.
-% The following trivial consequence of this fact that is worth noticing
-
-% \begin{remark}
-%   Cauchy complete models are strong models.
-%   I.e., $M\models\varphi$ for every true $\varphi\in{\EuScript L}^{\rm p}(M)$.
-% \end{remark}
-
-\begin{fact}
-  Let $M$ be a model that is positively $\lambda$-saturated for some $\lambda>|{\EuScript L}|$.
-  Then $M$ is Cauchy complete.
-\end{fact}
-
-\begin{proof}  
-  Let $p(x)\subseteq{\EuScript L}^{\rm p}(M)$ be an ${\sf I}$-invariant Cauchy type.
-  Pick any $a\models p(x)$.
-  By Lemma~\ref{lem_Cauchyequiv}, $p(x)\leftrightarrow a\sim x$.
-  For every formula $\varphi(x)$ in the type $a\sim x$ and every $\varphi'>\varphi$ pick some $\psi(x)\in p$ such that $\psi(x)\rightarrow\varphi'(x)$.
-  There are $|{\EuScript L}|$ many formulas in $a\sim x$.
-  Then by saturation the formulas $\psi(x)$ we picked above have a common solution $b$ in $M$.
-  Then $b\sim a$ and, by invariance, $b\models p(x)$.
-\end{proof}
-
-It is clear from the proof that when ${\EuScript L}$ is separable it suffices to require $\lambda>\omega$.
-
-\begin{comment}
-  
-We say that the set $B$ is a \emph{Cauchy closure\/} of $A$ if 
-\begin{itemize}
-  \item[1.] every ${\sf I}$-invariant Cauchy type $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is realized in $B$
-  \item[2.] ${\EuScript L}^{\rm p}\mbox{-tp}(b/A)$ is Cauchy for every $b\in B$.
-\end{itemize}
-
-\begin{proposition}\label{prop_Cauchyclosure}
-  Assume $L_{\sf H}$ is a functional language.
-  Let $M$ be model.
-  Then any Cauchy closure of $M$ is a model.
-\end{proposition}
-
-\begin{proof} ???
-\end{proof}
-  {\color{blue}
-  (messy/wrong/incomplete)
-  We need a few easy observations.
-  Let $a\sim_{\sf I}a'$ be finite tuples.
-  Let $\langle a\rangle$ be the $L_{\sf H}$ substructure of $U$ generated by $a$.
-  Then for every $b\in U\smallsetminus\langle a\rangle$ there is a $b'\in U\smallsetminus\langle a'\rangle$ such that $a,b\sim_{\sf I}a',b'$.
-  In fact, $\sim_{\sf I}$-classes are infinite, hence they ave the cardinality of $U$.
-  Therefore, by back-and-forth, $a\equiv a'$.
-  We also have that for every formula $\varphi(x,z)$ and $b\in U\smallsetminus\big(\langle a\rangle\cup\big)$ 
-
-  \ceq{}{~}{\forallH x\notin{\rm rng}(a,a')\big[\varphi(x,a)\leftrightarrow\varphi(x,a')\big].}
-
-  Let $N$ be a Cauchy closure of $M$.
-  We verify that $N$ satisfies (2) of Proposition~\ref{prop_Tarski_Vaught}.
-  Let $\varphi(x,z)\in{\EuScript H}$ and $a\in N^{|z|}$ be be such that $\existsH x\ \varphi(x,a)$.
-  We can assume that $a$ is a tuple of distinct elements.
-  By the observations above
-  
-  \ceq{\hfill a\sim_{\sf I}z}{\rightarrow}{\forallH x\notin{\rm rng}(a,z)\big[\varphi(x,a)\leftrightarrow\varphi(x,z)\big]}
-
-  By compactness,
-
-  \ceq{\hfill a\sim_{t,D}z}{\rightarrow}{\forallH x\notin{\rm rng}(a,z)\big[\varphi'(x,a)\leftrightarrow\varphi'(x,z)\big]}
-
-  Every finite injective map $k:U\to U$ that preserves $\sim_{\sf I}$-classes is ${\EuScript L}$-elementary.
-  By preserving $\sim_{\sf I}$-classes we mean that $a\sim_{\sf I}ka$ for every $a\in{\rm dom}(k)$.
-  To prove the fact, pick any $b\in U\smallsetminus{\rm dom}(k)$ and note that, as $\sim_{\sf I}$-classes are infinite. there is a $c\in U\smallsetminus{\rm rng}(k)$ such that $k\cup\{\langle b,c\rangle$ preserves $\sim_{\sf I}$.
-  The fact follows from the claim by back-and-forth.
-
-  
-  \ceq{\hfill a\sim_{\sf I}z}{\rightarrow}{\forallH x\notin{\rm rng}(a,z)\big[\varphi(x,a)\leftrightarrow\varphi(x,z)\big]}
-
-  By compactness,
-
-  \ceq{\hfill a\sim_{t,D}z}{\rightarrow}{\forallH x\notin{\rm rng}(a,z)\big[\varphi'(x,a)\leftrightarrow\varphi'(x,z)\big]}
-
-
-
-\begin{proposition}
-  \noindent\llap{\textcolor{red}{\Large\questionsign}\kern18ex}\ignorespaces
-  Let ${\EuScript M}$ be an e.c.C.c\@ model.
-  Then for every consistent formula $\varphi(x)\in{\EuScript H}(M)$ there is Cauchy type $p(x)\subseteq{\EuScript H}(M)$ such that $p(x)\rightarrow\varphi(x)$.
-\end{proposition}
-
-\begin{proof}
-  If $\varphi(x)$ is a conjunction of ${\EuScript L}^{\rm p}$-atomic formulas then, as ${\EuScript M}$ is e.c., it is realized by some $a\in M^{|x|}$ hence we can take the type $\{x{=}a,\, \varphi(x)\}$. 
-  Induction is immediate for the connectives $\vee,\forallH,\existsH$.
-  This suffices because, up to equivalence, we can assume that $\wedge$ only occurs in front of ${\EuScript L}^{\rm p}$-atomic formulas.
-\end{proof}
-
-\begin{corollary}
-  \noindent\llap{\textcolor{red}{\Large\questionsign}\kern16.5ex}\ignorespaces
-  Let ${\EuScript M}$ be an e.c.C.c.\@ model.
-  Then ${\EuScript M}\models\varphi$ for every true $\varphi\in{\EuScript H}(M)$.
-\end{corollary}
-
-\begin{proof}
-  Apply the proposition in the case when $\varphi(x)$ does not depend on $x$.
-  Let $p(x)\subseteq{\EuScript H}(M)$ be a Cauchy type such that $p(x)\rightarrow\varphi$.
-  Then $\existsH y\sim  x\ p(y)$ is an ${\sf I}$-invariant Cauchy type that implies $\varphi$.
-  Hence ${\EuScript M}\models\varphi$ by Cauchy completeness.
-\end{proof}
-
-  }
-
-
-% Let $|x|=1$.
-% It is easy to prove by induction on $\varphi(x,z)\in{\EuScript H}$ that if $\varphi(b,a)$ then either $b\in\range a$ or $b\sim_{\sf I}x\to\varphi(x,a)$.
-
-% The proposition is proved by applying Theorem~\ref{prop_Tarski_Vaught}.Assume $\existsH x\ \varphi(x,a)$ and let $b\in U$ be such that $\varphi(b,a)$. 
-% By the claim above either 
-
-
-% and compactness, there is a formula $\psi(x)\in{\EuScript L}^{\rm p}(M)$ such that  $\psi(x)\to\varphi'(x,a)$.
-% As 
-
-% \begin{comment}
-  {\color{blue}
-The pr ${\EuScript M}$oof of the following proposition uses the same compactness argument used for Proposition~\ref{prop_LHapprox1}.
-
-\begin{proposition}\label{prop_sim_approx}
-  Let $\varphi(x)\in{\EuScript L}^{\rm p}(U)$ be ${\sf I}$-invariant.
-  For every given $\varphi'>\varphi$ there are some $a_i\models\varphi(x)$, some terms $t_i(x,z)$, and some compact $C_i\subseteq I^2\smallsetminus\Delta$ such that 
-
-  \ceq{\hfill\varphi(x)}{\rightarrow}{\bigwedge_{i=1,\dots,n}\tilde\tau_{t_i,C_i}(x,a_i)\ \ \rightarrow\ \ \varphi'(x),}
-
-  where
-
-  \ceq{\hfill\tilde\tau_{t,C}(x,z)}{=}{\existsH z\ \langle t(x,z),t(y,z)\rangle\in C.}
-
-\end{proposition}
-
-\begin{proof}
-  As $\neg\varphi(x)$ is ${\sf I}$-invariant 
-
-  \ceq{\hfill\neg\varphi(x)}{\leftrightarrow}{\bigvee_{a\,\models\neg\varphi(x)}\big\{\tau_{t,\Delta}(x,a)\ :\ t(x,z)\textrm{ a term}\big\}.}
-
-  By Fact~\ref{fact_compactness_imp} and Lemma~\ref{lem_interpolation}
-
-    \ceq{\hfill\neg\varphi(x)}{\leftrightarrow}{\bigvee_{\neg\tilde\tau_{t,C}(a,x)\rightarrow\neg\varphi(x)}\neg\tilde\tau_{t,C}(x,a),}
-
-  where $C$ ranges over the compact subsetes of $I^2\smallsetminus\Delta$.
-  Equivalently
-
-  \ceq{\hfill\varphi(x)}{\leftrightarrow}{\bigwedge_{\varphi(x)\rightarrow\tilde\tau_{t,C}(x,a)}\tilde\tau_{t,C}(x,a).}
-
-  By compactness, see Fact~\ref{fact_compactness_imp}, there are some some $a_i,t_i,C_i$ as in the lemma such that 
-
-  \ceq{\hfill\varphi(x)}{\rightarrow}{\bigwedge_{i=1,\dots,n}\tilde\tau_{t_i,C_i}(x,a_i)\ \ \rightarrow\ \ \varphi'(x)}
-\end{proof}
-  }
-\end{comment}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1720,7 +1671,7 @@ Let ${\EuScript L}$ contain a symbol for $d$ and possibly for some funtions of $
 
 Let $\langle M,I\rangle$ be the structure that interprets the symbols of the language as natural.
 
-Let ${\EuScript U}$ be a monster model that is  an ${\EuScript L}^{\rm p}$ elementary extension of $M$.
+Let ${\EuScript U}$ be a positive monster model that is  an ${\EuScript L}^{\rm p}$ elementary extension of $M$.
 Clearly, $d$ does not define a metric on ${\EuScript U}$ as there are pairs of elements at infinite distance.
 However, when restricted to a ball of finite radius, $d$ defines a pseudometric on ${\EuScript U}$.
 Therefore the notion of convergent sequence makes perfectly sense in ${\EuScript U}$.
@@ -1728,7 +1679,7 @@ As all functions have been required to be uniformly continuous, it is immediate 
 
 \begin{fact}
   Let $ {\EuScript U}$ be as above.
-  Then for every model $N$ and $a\in{\EuScript U}$ the following are equivalent
+  Then for every p-model $N$ and $a\in{\EuScript U}$ the following are equivalent
   \begin{itemize}
     \item[1.] $p(x)=\mbox{p-tp}(a/N)$ is a Cauchy type;
     \item[2.] there is a sequence $\langle a_i: i\in\omega\rangle$ of elements of $N$ that converges to $a$.
@@ -1761,7 +1712,7 @@ As all functions have been required to be uniformly continuous, it is immediate 
 % \section{Continuous group actions}
 % Let $M$ be a topological space.
 % Let $G\le{\rm Homeo}(M)$ be a subgroup closed in the topology of the pointwise convergence.
-% Then there is a compact topological space $I$ and a model ${\EuScript M}=\langle M,I\rangle$ such that ${\rm Aut}({\EuScript M})$ is isomorphic to $G$ as a topological group.
+% Then there is a compact topological space $I$ and a p-model ${\EuScript M}=\langle M,I\rangle$ such that ${\rm Aut}({\EuScript M})$ is isomorphic to $G$ as a topological group.
 
 % Assume $M$ is compact, or otherwise substitute it with its Stone-Chech compactification.
 % Consider $M^\omega$ as a topological space with the product topology.
@@ -1926,8 +1877,8 @@ The following fact is routinely proved by back-and-forth.
   The following are equivalent
   \begin{itemize}
     \item[1.] $T$ has elimination of quantifiers;
-    \item[2.] every finite partial embedding $k:M\to N$ beween models of $T$ is an approximate p-elementary map;
-    \item[3.]  for every finite partial embedding $k:M\to N$ between positively $\omega$-saturated models of $T$, and for every $b\in M$ there is a $c\in N$ such that $k\cup\{\langle b,c\rangle\}:M\to N$ is also a partial embedding.
+    \item[2.] every finite partial embedding $k:M\to N$ beween p-models of $T$ is an approximate p-elementary map;
+    \item[3.]  for every finite partial embedding $k:M\to N$ between $\omega$-saturated p-models of $T$, and for every $b\in M$ there is a $c\in N$ such that $k\cup\{\langle b,c\rangle\}:M\to N$ is also a partial embedding.
   \end{itemize}
 \end{fact}
 
