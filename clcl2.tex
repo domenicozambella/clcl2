@@ -161,37 +161,22 @@
   Let ${\EuScript L}$ be a first-order two-sorted language.
   Let $I$ be some fixed structure.
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$ where $I$ is fixed.
-  We ask if there is a nontrivial model theory of standard structures.
-  When $I$ is a compact topological space (and the topology is coded into ${\EuScript L}$) the answer is YES.
-  Indeed, a significant part of classical model theory can be adapted, with a few caveats, to this restricted class of standard structures.
-  E.g., we prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
-  We show that types realized in this positive monster model are equivalent to positive types.
-    
-  \noindent This approach offer a slick alternative to both nonstandard analysis and to real-valued model theory.
-  It is based on~\cite{clcl} and, in turn, inspired by the Henson-Iovino model theory of Banach spaces~\cite{HI}.
+  Though little model theory is possible in general, when $I$ is a compact topological space (and the topology is coded into ${\EuScript L}$) it is possible to adapt a significant part of classical model theory to the class of standard structures.
+  This has been demostrated by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI}) and has been generalized to arbitrary structures in~\cite{clcl}.
+  The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
+  The main tool introduced by Henson and Iovino is the notion of approximation of a positive formulas and of its negation.\\
+  \noindent
+  After reviewing (and expanding) the main results of~\cite{clcl} we discuss: criteria for elimination of quantifers; omitting types; $\omega$-categoricity; stability; and indiscernibles.
 \end{abstract}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}\label{intro}
 
-We refer to the introduction of~\cite{clcl} for motivations.
-Aside from that, this paper is reasonably self-contained.
-In the first part we biefly revisit the main results of~\cite{clcl}.
-We rephrase some theorem and add a few remarks and examples\footnote{In the final version we may drop a few sections that do not add new insight to~\cite{clcl}}.
-Our notation and terminology diverges slightly.
 
-In the second part of this paper we discuss: criteria for elimination of quantifers; omitting types; $\omega$-categoricity; stability; and indiscernibles.
-
-The model theory of standard structures is based on the notions of positive formulas and of approximations.
-These evolved from the Henson-Iovino model theory of Banach spaces~\cite{HI}.
-Note that though the model theory of standard structures is an example of positive model theory there are important differences.
-For instance, we show that the negation of a positive formula is equivalent to an infinite disjunction of positive formulas.
-We also prove that these negations can be \textit{approximated\/} arbitrarily well by positive formulas.
-This makes the model theory of standard structures closer to classical model theory than one may expect.
+% The model theory of standard structures is based on the notions of positive formulas and of approximations.
+% These evolved from the Henson-Iovino model theory of Banach spaces~\cite{HI}.
+% Note that though the model theory of standard structures is an example of positive model theory there are important differences.
+% For instance, we show that the negation of a positive formula is equivalent to an infinite disjunction of positive formulas.
+% We also prove that these negations can be \textit{approximated\/} arbitrarily well by positive formulas.
+% This makes the model theory of standard structures closer to classical model theory than one may expect.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -199,6 +184,14 @@ This makes the model theory of standard structures closer to classical model the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Standard structures}\label{uno}
+
+
+We refer to the introduction of~\cite{clcl} for motivations.
+Aside from that, this paper is reasonably self-contained.
+In the first part we biefly revisit the main results of~\cite{clcl}.
+We rephrase some theorem and add a few remarks and examples\footnote{In the final version of this paper we will omit those introductory sections that do not add new insight to~\cite{clcl}}.
+Our notation and terminology diverges slightly.
+
 
 \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
@@ -634,13 +627,12 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
 
 It is convenient to distinguish between consistency with respect to standard structures and consistency with respect to ${\EuScript L}$-structures.
 We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!I\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!I\rangle$ (this is the classical notion of concistency).
-We say that $T$ is \emph{standardly consistent\/} if $M\models T$  is for some standard structure $M$.
+We say that $T$ is \emph{standardly\/}  consistentif $M\models T$  is for some standard structure $M$.
 By Lemma~\ref{lem_st} these two notions coincide if $T$ is positive.
 Therefore we have the following.
 
 \begin{theorem}[Positive Compactness Theorem]\label{thm_compattezza}
   Let $T$ be a positive theory that is finitely ${\EuScript L}$-consistent.
-In this section we introduce notions of morphisms based on the c
   Then $T$ is standardly consistent.
 \end{theorem}
 
@@ -1102,7 +1094,7 @@ This can be verified by an argument similar to the proof of Fact~\ref{fact_produ
   \ceq{\hfill x\sim_\tau y}{\rightarrow}{\varphi(x,\eta)\leftrightarrow\varphi(y,\eta)}
 
   Induction is easy.
-  As an example, we check only the quantifier $\exists^{\scriptscriptstyle\sf H}$.
+  As an example, we spell out the proof for the quantifier $\exists^{\scriptscriptstyle\sf H}$.
   Assume inductively that
   
   \ceq{\hfill x,x'\sim y,y'}{\rightarrow}{\varphi(x,x',\eta)\leftrightarrow\varphi(y,y',\eta)}
@@ -1134,13 +1126,15 @@ Note that Cauchy complete sets are in particular closed under $\sim$-equivalence
 We say that $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if it is Cauchy complete and 
 
 \ceq{{\rm c.}\hfill M\models\varphi(a)}{\Rightarrow}{\varphi(a)}
-
+\hfill
 for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
+
 As ${\EuScript L}^{\rm c}$ is closed under weakening and strong negation, reasoning as in Section~\ref{morphisms} we infer that for every c-model
 
 \ceq{{\rm ac.}\hfill M\models\{\varphi(a)\}'}{\Leftrightarrow}{\{\varphi(a)\}'}
-
+\hfill
 for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
+We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conjunction of formulas in $q(x)$ has a solution in $M$.
 
 \begin{fact}
   Let $M\subseteq{\EuScript L}^{\rm c}(M)$ satisfy (c) above.
@@ -1168,88 +1162,14 @@ for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
 \end{proof}
 
 \begin{fact}
-  All c-models are substructures of ${\EuScript U}$.
+  Any c-model $M$ is a substructure of ${\EuScript U}$.
 \end{fact}
 
 \begin{proof}
-
-  Let $M$ be a c-model, $a\in M^{n}$ and let $b=f(a)$ be a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
+  Let $a\in M^{n}$ and let $b=fa$, where $f$ is a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
   We need to prove that $b\in M$.
-  It suffices to prove that $b\sim' x$ 
+  It suffices to prove that $b\sim' x$ is finitely satisfied in $M$.
 \end{proof}
-
-
-
-We say that a type $q(x)$ is \emph{finitely satisfiable\/} in $A$ if every conjunction of formulas in $q(x)$ has a solution in $A$.
-
-\begin{lemma}\label{lem_Cauchyequiv}
-  The following are equivalent 
-  \begin{itemize}
-    \item[1.]  $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is a Cauchy type;
-    \item[2.] 
-    \item[3.] $a\sim'x$ is finitely satisfiable in $A$ for some/any $a\models p(x)$.
-  \end{itemize}
-\end{lemma}
-
-\begin{proof}
-  (1$\Rightarrow$2)
-  Let $a$ be a realization of $p(x)$.
-  
-
-  (2$\Rightarrow$3) 
-  By compactness, as $p'(x)$ is finitely satisfiable in $M$.
-
-  (3$\Rightarrow$1)  
-  Let $a_{\tau,D}\in M$ be a realization of $a\sim_{\tau,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ over the finite tuples parameter-free terms.
-  Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ cointaining the formulas $x\sim_{\tau,D}a_{\tau,D}$ is as required by the lemma.
-\end{proof}
-
-% % We say that ${\EuScript M}$ is \emph{existentially closed (e.c.)\/} if every consistent conjunction of ${\EuScript L}^{\rm p}$-atomic formulas is satsfied in ${\EuScript M}$.
-% Note that if $p(x)$ is Cauchy type then any consistent type $q(x)$ containing $p(x)$ is also Cauchy.
-% In particular the type $p(x)\ \cup\ {\EuScript L}^{\rm p}\mbox{-Th}({\EuScript U}/M)$ is Cauchy.
-% The following trivial consequence of this fact that is worth noticing
-
-% \begin{remark}
-%   Cauchy complete p-models are strong p-models.
-%   I.e., $M\models\varphi$ for every true $\varphi\in{\EuScript L}^{\rm p}(M)$.
-% \end{remark}
-
-\begin{fact}
-  Let $M$ be a p-model that is positively $\lambda$-saturated for some $\lambda>|{\EuScript L}|$.
-  Then $M$ is Cauchy complete.
-\end{fact}
-
-\begin{proof}  
-  Let $p(x)\subseteq{\EuScript L}^{\rm p}(M)$ be an ${\sf I}$-invariant Cauchy type.
-  Pick any $a\models p(x)$.
-  By Lemma~\ref{lem_Cauchyequiv}, $p(x)\leftrightarrow a\sim x$.
-  For every formula $\varphi(x)$ in the type $a\sim x$ and every $\varphi'>\varphi$ pick some $\psi(x)\in p$ such that $\psi(x)\rightarrow\varphi'(x)$.
-  There are $|{\EuScript L}|$ many formulas in $a\sim x$.
-  Then by saturation the formulas $\psi(x)$ we picked above have a common solution $b$ in $M$.
-  Then $b\sim a$ and, by invariance, $b\models p(x)$.
-\end{proof}
-
-It is clear from the proof that when ${\EuScript L}$ is separable it suffices to require $\lambda>\omega$.
-
-
-  
-We say that the set $B$ is a \emph{Cauchy closure\/} of $A$ if 
-\begin{itemize}
-  \item[1.] every ${\sf I}$-invariant Cauchy type $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is realized in $B$
-  \item[2.] ${\EuScript L}^{\rm p}\mbox{-tp}(b/A)$ is Cauchy for every $b\in B$.
-\end{itemize}
-
-\begin{proposition}\label{prop_Cauchyclosure}
-  Assume $L_{\sf H}$ is a functional language.
-  Let $M$ be p-model.
-  Then any Cauchy closure of $M$ is a p-model.
-\end{proposition}
-
-\begin{proof} ???
-\end{proof}
-  
-
-
 
 
 
@@ -1370,7 +1290,7 @@ The following follows easily from the proposition above.
 The following proposition is our version of the Tarski-Vaught test (which applies when the larger p-model is sufficiently saturated).
 
 \begin{proposition}\label{prop_Tarski_Vaught}
-  Let $M$ be a \textit{subset\/} of ${\EuScript U}$.
+  Let $M$ be a subset of ${\EuScript U}$.
   Let ${\EuScript F}$ be a dense set of positive formulas.
   Then the following are equivalent
   \begin{itemize}
@@ -1386,6 +1306,10 @@ The following proposition is our version of the Tarski-Vaught test (which applie
     \noindent\kern-\leftmargin
     \ceq{\hfill \existsH x\,\neg\psi(x)}{\Rightarrow}
     {\textrm{ there is an }a\in M\textrm{ such that }\neg\psi(a).}
+  \end{itemize}
+  If $M$ is Cauchy compelte and ${\EuScript F}$ is a dense set of continuous formulas then (2) and (3) above are equivalent to
+  \begin{itemize}
+    \item[1'.] $M$ is a c-model.
   \end{itemize}
 \end{proposition}
 
@@ -1403,7 +1327,7 @@ The following proposition is our version of the Tarski-Vaught test (which applie
   (2$\Rightarrow$1)
   Assume (2).
   By the classical Tarski-Vaught test $M\preceq_{\sf H}{\EuScript U}$.
-  Then $M$ is the domain of an ${\EuScript L}$-substructure of ${\EuScript U}$.
+  Then $M$ is the domain of a substructure of ${\EuScript U}$.
   Then $\varphi(a)\ \Leftrightarrow\ M\models\varphi(a)$ holds for every atomic formula $\varphi(x)$ and for every $a\in M^{|x|}$.
   Now, assume inductively
   
