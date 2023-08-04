@@ -161,12 +161,14 @@
   Let ${\EuScript L}$ be a first-order two-sorted language.
   Let $I$ be some fixed structure.
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$ where $I$ is fixed.
-  Though little model theory is possible in general, when $I$ is a compact topological space (and the topology is coded into ${\EuScript L}$) it is possible to adapt a significant part of classical model theory to the class of standard structures.
+  In general, very little model theory is possible if we restrict to standard strutures.
+  But, when $I$ is a compact topological space (and add some requirements to ${\EuScript L}$) it is possible to adapt a significant part of classical model theory.
   This has been demostrated by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI}) and has been generalized to arbitrary structures in~\cite{clcl}.
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
-  The main tool introduced by Henson and Iovino is the notion of approximation of a positive formulas and of its negation.\\
+  The main tool is the notion of approximation of a positive formulas and of its negation.
+  This has been introduced by Henson and Iovino.\\[1ex]
   \noindent
-  After reviewing (and expanding) the main results of~\cite{clcl} we discuss: criteria for elimination of quantifers; omitting types; $\omega$-categoricity; stability; and indiscernibles.
+  After reviewing (and elaborating on) the results of~\cite{clcl} we discuss criteria for elimination of quantifers, omitting types, $\omega$-categoricity, stability, and indiscernibles within the setting of standrd structures.
 \end{abstract}
 
 
@@ -356,14 +358,14 @@ For every type $p(x)$, we write
 in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
 
 \begin{definition}\label{def_dense}
-  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{dense\/} (in ${\EuScript L}^{\rm p}$) modulo $T$, a theory, if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
-  If $T$ is empty, we say that ${\EuScript F}$ is dense modulo ${\EuScript L}$.
+  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p-dense\/} modulo $T$, a theory, if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
+  If $T$ is empty, we say that ${\EuScript F}$ is p-dense modulo ${\EuScript L}$.
 
-  We say dense \emph{in ${\EuScript L}^{\rm c}$\/} if the property above is required to hold only for positive $I$-closed formulas, defined in Section~\ref{Cauchy} below.
+  We say \emph{c-dense\/} if the property above is required to hold only for continuous formulas.
 \end{definition}
 
 \begin{example}
-  By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is dense modulo ${\EuScript L}$.
+  By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is p-dense modulo ${\EuScript L}$.
 \end{example}
 
 \begin{example}[???]
@@ -373,7 +375,7 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
 
 \begin{example}
   Let ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ be the set of positive formulas without quantifiers of sort ${\sf I}$.
-  In Section~\ref{Ielimination} we will prove that this set is dense.
+  In Section~\ref{Ielimination} we will prove that this set is p-dense.
 \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -396,10 +398,10 @@ When the identity map ${\rm id}_M:M\rightarrow N$ is an p-elementary embedding,
 %
 % \ceq{\hfill{\EuScript M}\models\varphi(a)}{\Rightarrow}{N\models\varphi(a)},
 %
-we write \emph{$M\preceq^{\rm p} N$\/} and say that $M$ is an p-elementary \emph{substructure\/} of $N$. 
+we write \emph{$M\preceq^{\rm p} N$\/} and say that $M$ is an p-elementary \emph{substructure\/} of $N$.
 
-We postpone the discussione of c-elementarity to Section~\ref{Cauchy}. 
-As ${\EuScript L}^{\rm c}$ does not contains equality in the home sort, c-elementarity needs some extra care.
+The discussion of c-elementarity needs some extra care because ${\EuScript L}^{\rm c}$ does not contains equality in the home sort.
+We postpone it to Section~\ref{Cauchy}.
 
 On the other hand, as p-elementary maps are in particular $L_{\sf H}$-elementary, they are injective.
 However, their inverse need not be p-elementary.
@@ -414,7 +416,7 @@ We say that the map $f:M\to N$ is an \emph{approximate\/} p-elementary if for ev
 
 \ceq{2.\hfill M\models\varphi(a)}{\Rightarrow}{N\models\big\{\varphi(fa)\big\}'.}
 
-One convenient feature of approximate p-elementarity is that it suffices verify (2) for any/some dense set of formulas.
+One convenient feature of approximate p-elementarity is that it suffices verify (2) for any/some p-dense set of formulas.
 It is clear that p-elementarity implies its approximate variant.
 We will see that with a slight amount of saturation also the converse holds (Proposition~\ref{prop_approx}).
 Finally, under full saturation, all differences disappear as these morphims becomes ${\EuScript L}$-elementarity maps (Corollary~\ref{corol_Lcomplete}).
@@ -627,13 +629,12 @@ Symbols in $L_{\sf H}$ maintain the same interpretation.
 
 It is convenient to distinguish between consistency with respect to standard structures and consistency with respect to ${\EuScript L}$-structures.
 We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!I\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!I\rangle$ (this is the classical notion of concistency).
-We say that $T$ is \emph{standardly\/}  consistentif $M\models T$  is for some standard structure $M$.
+We say that $T$ is \emph{standardly\/}  consistent if $M\models T$  is for some standard structure $M$.
 By Lemma~\ref{lem_st} these two notions coincide if $T$ is positive.
 Therefore we have the following.
 
 \begin{theorem}[Positive Compactness Theorem]\label{thm_compattezza}
-  Let $T$ be a positive theory that is finitely ${\EuScript L}$-consistent.
-  Then $T$ is standardly consistent.
+  Let $T$ be a positive theory. Then, if $T$ is finitely ${\EuScript L}$-consistent, it is also standardly consistent.
 \end{theorem}
 
 % \begin{proof}
@@ -1129,14 +1130,16 @@ We say that $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if it is Cauchy comp
 \hfill
 for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
 
-As ${\EuScript L}^{\rm c}$ is closed under weakening and strong negation, reasoning as in Section~\ref{morphisms} we infer that for every c-model
+Note that ${\EuScript L}^{\rm c}$ is closed under weakening and strong negation.
+Therefore,  reasoning as in Section~\ref{morphisms}, we infer that for every c-model $M$
 
 \ceq{{\rm ac.}\hfill M\models\{\varphi(a)\}'}{\Leftrightarrow}{\{\varphi(a)\}'}
 \hfill
 for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
+
 We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conjunction of formulas in $q(x)$ has a solution in $M$.
 
-\begin{fact}
+\begin{fact}\label{fact_finsat}
   Let $M\subseteq{\EuScript L}^{\rm c}(M)$ satisfy (c) above.
   Then the following are equivalent
   \begin{itemize}
@@ -1148,7 +1151,7 @@ We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conju
 \begin{proof}
   (1$\Rightarrow$2)
   Assume that $a\sim'x$ is finitely satisfied in $M$. 
-  Let $a_{\tau,D}\in M$ be a realization of $a\sim_{\tau,D}x$ as $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ over the finite tuples parameter-free terms.
+  Let $a_{\tau,D}\in M$ be a solution of $a\sim_{\tau,D}x$ where $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ ranges over the finite tuples parameter-free terms.
   Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
   By (1), $p(x)$ is realized in $M$.
   Then all its realizations belong to $M$.
@@ -1162,31 +1165,30 @@ We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conju
 \end{proof}
 
 \begin{fact}
-  Any c-model $M$ is a substructure of ${\EuScript U}$.
+  Let $M$ be a c-model. Then $M$ is a substructure of ${\EuScript U}$.
 \end{fact}
 
 \begin{proof}
-  Let $a\in M^{n}$ and let $b=fa$, where $f$ is a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
-  We need to prove that $b\in M$.
-  It suffices to prove that $b\sim' x$ is finitely satisfied in $M$.
+  Let $a\in M^{n}$ and let $f$ be a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
+  We need to prove that $fa\in M$.
+  By Fact~\ref{fact_finsat}, it suffices to prove that $fa\sim' x$ is finitely satisfied in $M$.
+  This is the case because $\{\exists x\ fa\sim_\tau x\}'$ holds in ${\EuScript U}$ hence, by (ac), it holds also in $M$.
 \end{proof}
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Elimination of quantifiers of sort \textsf{I}}\label{Ielimination}
+\section{Elimination of quantifiers of sort \textsf{I} for positive formulas}\label{Ielimination}
 
 We show that the quantifiers of sort ${\sf I}$ can be eliminated up to some approximation.
-Precisely, we prove that \emph{${\EuScript L}^{\rm p}_{\sf I\rm qf}$}, the set of positive formulas without quantifiers of sort ${\sf I}$, is dense modulo $T$ (the theory of ${\EuScript U}$), see Definion~\ref{def_dense}.
+Precisely, we prove that \emph{${\EuScript L}^{\rm p}_{\sf I\rm qf}$}, the set of positive formulas without quantifiers of sort ${\sf I}$, is p-dense modulo $T$ (the theory of ${\EuScript U}$), see Definion~\ref{def_dense}.
 
-We say that partial map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary if it preserves the truth of formulas in ${\EuScript L}^{\rm p}_{\sf I\rm qf}$.
+A partial map is \emph{${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary\/} if it preserves the truth of formulas in ${\EuScript L}^{\rm p}_{\sf I\rm qf}$.
 
 \begin{proposition}
-  Every ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map of small cardinality extends to an automorphism of ${\EuScript U}$.
+  Every ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ of small cardinality extends to an automorphism of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
@@ -1215,7 +1217,7 @@ Without negation, this is not true.
 Still, we can infer an approximate form of equivalence.
 
 \begin{proposition}\label{prop_LHapprox1}
-  The set ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ is dense modulo $T$.
+  The set ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ is p-dense modulo $T$.
 \end{proposition}
 
 \begin{proof}
@@ -1248,7 +1250,7 @@ Still, we can infer an approximate form of equivalence.
 
 
 \begin{proposition}\label{prop_Fapprox}
-  Let ${\EuScript F}$ be a dense set of positive formulas.
+  Let ${\EuScript F}$ be a p-dense set of positive formulas.
   Then for every $\varphi(x)\in{\EuScript L}^{\rm p}$
   
   \ceq{\hfill\neg\varphi(x)}
@@ -1262,7 +1264,7 @@ Still, we can infer an approximate form of equivalence.
   Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
   Let $p(x)={\EuScript L}^{\rm p}_{\sf I\rm qf}\mbox{-tp}(a)$.
   By Corollary~\ref{corol_Lcomplete}, $p(x)\rightarrow\neg\varphi(x)$.
-  As ${\EuScript F}$ is dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
+  As ${\EuScript F}$ is p-dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
   Then $q'(x)\rightarrow\neg\varphi(x)$ and, by compactness, $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'>\psi\in{\EuScript F}$.
 \end{proof}
 
@@ -1287,11 +1289,11 @@ The following follows easily from the proposition above.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Tarski-Vaught test and the L\"owenheim-Skolem theorem}
 
-The following proposition is our version of the Tarski-Vaught test (which applies when the larger p-model is sufficiently saturated).
+The following proposition is our version of the Tarski-Vaught test.
 
 \begin{proposition}\label{prop_Tarski_Vaught}
   Let $M$ be a subset of ${\EuScript U}$.
-  Let ${\EuScript F}$ be a dense set of positive formulas.
+  Let ${\EuScript F}$ be a p-dense set of positive formulas.
   Then the following are equivalent
   \begin{itemize}
     \item[1.] $M$ is a p-model;
@@ -1307,7 +1309,7 @@ The following proposition is our version of the Tarski-Vaught test (which applie
     \ceq{\hfill \existsH x\,\neg\psi(x)}{\Rightarrow}
     {\textrm{ there is an }a\in M\textrm{ such that }\neg\psi(a).}
   \end{itemize}
-  If $M$ is Cauchy compelte and ${\EuScript F}$ is a dense set of continuous formulas then (2) and (3) above are equivalent to
+  If $M$ is a Cauchy compelte and ${\EuScript F}$ is a c-dense set of continuous formulas then (2) and (3) above are equivalent to
   \begin{itemize}
     \item[1'.] $M$ is a c-model.
   \end{itemize}
@@ -1388,7 +1390,7 @@ In particular every $A\subseteq{\EuScript U}$ is contained in a standard structu
 In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in $L_{\sf I}$.
 
-We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a countable set of positive formulas that is dense modulo $T$.
+We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a countable set of positive formulas that is p-dense modulo $T$.
 % In Section~\ref{separability} we will present examples of separable p-models.
 
 \begin{proposition}\label{prop_disjunction_dense}
@@ -1456,7 +1458,7 @@ If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{
 Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $p(x)$ is p-isolated over $A$, then $p(x)$ is realized in every p-model containing $A$.
 
 \begin{proposition}\label{prop_isolation}
-  Let ${\EuScript F}$ be a dense set of positive formulas.
+  Let ${\EuScript F}$ be a p-dense set of positive formulas.
   Then the following are equivalent
 \begin{itemize}
   \item[1.] $p(x)$ is p-isolated over $A$;
@@ -1495,7 +1497,7 @@ Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm 
 \begin{proof}
 We construct a sequence of ${\EuScript L}^{\rm p}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
 
-Let $\langle\xi_i(x\,;z):i<\omega\rangle$ enumerate a countable dense subset of ${\EuScript L}^{\rm p}_{x\,;z}(A)$.
+Let $\langle\xi_i(x\,;z):i<\omega\rangle$ enumerate a countable p-dense subset of ${\EuScript L}^{\rm p}_{x\,;z}(A)$.
 Let $\gamma_0(z)$ be a consistent positive formula such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$, which exists by Proposition~\ref{prop_Fapprox}.
 Define $\gamma_{i+1}(z)$ and  $\gamma'_{i+1}(z)$ inductively as follows.
 
@@ -1790,7 +1792,7 @@ As all functions have been required to be uniformly continuous, it is immediate 
 \section{Elimination of quantifiers}
 
 Let $T$ be a positive theory.
-We say that $T$ has (approximate, positive) elimination of quantifiers if the quantifier-free positive formulas are dense modulo $T$.
+We say that $T$ has (approximate, positive) elimination of quantifiers if the quantifier-free positive formulas are p-dense modulo $T$.
 Equivalently, if every complete type is equivalent to a quantifier-free positive types.
 
 %for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $\varphi'>\varphi$ there is a formula $\psi(x)\in{\EuScript L}^{\rm p}$ without quantifiers of sort ${\sf H}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds modulo $T$.
