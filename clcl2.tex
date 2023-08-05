@@ -130,24 +130,23 @@
 %%%%%%% GETCOMMIT
 \newcommand\dotGitHEAD{}
 \newcommand\branch{}
-\newcommand\commit{}
 
 
-% \makeatletter\let\myfilehandle\@inputcheck\makeatother
+\makeatletter\let\myfilehandle\@inputcheck\makeatother
 
-% \openin\myfilehandle=.git/HEAD\relax
+\openin\myfilehandle=.git/HEAD\relax
 
-% \begingroup\endlinechar-1
-%   \global\read\myfilehandle to \dotGitHEAD
-% \endgroup
-% \closein\myfilehandle
+\begingroup\endlinechar-1
+  \global\read\myfilehandle to \dotGitHEAD
+\endgroup
+\closein\myfilehandle
 
-% \newcommand\GetBranch{}
-% \def\GetBranch ref: refs/heads/#1\relax{\renewcommand{\branch}{#1}}
+\newcommand\GetBranch{}
+\def\GetBranch ref: refs/heads/#1\relax{\renewcommand{\branch}{#1}}
 
-% \expandafter\GetBranch\dotGitHEAD\relax
+\expandafter\GetBranch\dotGitHEAD\relax
 
-% \makeatother
+\makeatother
 
 \linespread{1.1}
 \author{C. L. C. L. Polymath}
@@ -161,14 +160,15 @@
   Let ${\EuScript L}$ be a first-order two-sorted language.
   Let $I$ be some fixed structure.
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$ where $I$ is fixed.
-  In general, very little model theory is possible if we restrict to standard strutures.
-  But, when $I$ is a compact topological space (and add some requirements to ${\EuScript L}$) it is possible to adapt a significant part of classical model theory.
+  When $I$ is a compact topological space (and ${\EuScript L}$ meets a few requirements) it is possible to adapt a significant part of model theory to the restricted class standard strutures.
   This has been demostrated by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI}) and has been generalized to arbitrary structures in~\cite{clcl}.
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
-  The main tool is the notion of approximation of a positive formulas and of its negation.
-  This has been introduced by Henson and Iovino.\\[1ex]
+  The main tool is the notion of approximations of positive formulas and of their negation.
+  These have been introduced by Henson and Iovino.\\[1ex]
   \noindent
-  After reviewing (and elaborating on) the results of~\cite{clcl} we discuss criteria for elimination of quantifers, omitting types, $\omega$-categoricity, stability, and indiscernibles within the setting of standrd structures.
+  We review and elaborate on the properties of positive formulas.
+  In parallel, we introduce \textit{continuous\/} formulas which are convenient to discuss examples and provide a better counterpart to Henson and Iovino theory and/or real-valued model theory.
+  Finally, we discuss criteria for elimination of quantifers, omitting types, $\omega$-categoricity, stability, and indiscernibles within the setting of standrd structures.
 \end{abstract}
 
 
@@ -190,10 +190,9 @@
 
 We refer to the introduction of~\cite{clcl} for motivations.
 Aside from that, this paper is reasonably self-contained.
-In the first part we biefly revisit the main results of~\cite{clcl}.
-We rephrase some theorem and add a few remarks and examples\footnote{In the final version of this paper we will omit those introductory sections that do not add new insight to~\cite{clcl}}.
-Our notation and terminology diverges slightly.
-
+In the first part we revisit some results of~\cite{clcl}.
+We rephrase some theorems and add a few remarks and examples\footnote{In the final version of this paper we will omit Section~\ref{standard_part} and refer to~\cite{clcl} instead. We will also omit some proofs.}.
+Our notation and terminology diverges slightly where needed.
 
 \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
@@ -233,7 +232,7 @@ As a remedy, below we carve out a set of formulas ${\EuScript L}^{\rm p}$, the s
 As usual, $L_{\sf I}$, $L_{\sf H}$, and ${\EuScript L}$ denote both first-order languages and the corresponding set of formulas.
 We write ${\EuScript L}_x$ when when we restrict to formulas with free variables among $x$.
 If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in L_{\sf H}$ (which is only correct up to equivalence).
-% The symbols ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ defined below denote only sets of ${\EuScript L}$-formulas.
+% The symbols ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ defined below denote only sets of ${\EuScript L}$-formulas.
 
 Note that ${\EuScript L}$ has two types of atomic formulas: 
 \begin{itemize}
@@ -368,14 +367,15 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
   By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is p-dense modulo ${\EuScript L}$.
 \end{example}
 
-\begin{example}[???]
-  Read $\alpha=\beta$ as synonimous of $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of ${\sf I}^2$, a compact set.
-  It is easy to see that the set of formulas build inductively from $L_{\sf H}$-formulas and $\tau(x)=s(x)$ is dense modulo ${\EuScript L}$.
+\begin{example}
+  Let $I=[0,1]$.
+  The set of formulas build inductively from atomic formulas of the form $\tau\in\{0\}$, is c-dense modulo ${\EuScript L}$.
+  In fact, as every compact subset of $I$ is the intersection of finite unions of closed intervals, the set of formulas containing only atomic formulas of the form $\tau\in[\alpha,\beta]$ is c-dense.
+  Finally note that $\tau\in[\alpha,\beta]$ is equivalent to $\tau\dotminus\beta\in\{0\}\ \wedge\ \alpha\dotminus\tau\in\{0\}$.
 \end{example}
 
 \begin{example}
-  Let ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ be the set of positive formulas without quantifiers of sort ${\sf I}$.
-  In Section~\ref{Ielimination} we will prove that this set is p-dense.
+  In Section~\ref{Ielimination} we will prove that the set of positive/continuous formulas without quantifiers of sort ${\sf I}$ is p-dense/c-dense.
 \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -401,7 +401,7 @@ When the identity map ${\rm id}_M:M\rightarrow N$ is an p-elementary embedding,
 we write \emph{$M\preceq^{\rm p} N$\/} and say that $M$ is an p-elementary \emph{substructure\/} of $N$.
 
 The discussion of c-elementarity needs some extra care because ${\EuScript L}^{\rm c}$ does not contains equality in the home sort.
-We postpone it to Section~\ref{Cauchy}.
+Therefore we postpone it till Section~\ref{IeliminationC}.
 
 On the other hand, as p-elementary maps are in particular $L_{\sf H}$-elementary, they are injective.
 However, their inverse need not be p-elementary.
@@ -410,7 +410,7 @@ Hence the following notion of elementarity which is more roboust.
 % We have chosen to work with the classical notion of satisfaction at the cost of this asymmetric notion of elementarity.
 % This differs from the approach of Henson and Iovino.
 % They introduce the notion of \textit{approximate satisfaction.} 
-% The approximate ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-morphisms we define below are the maps that preserve Henson-Iovino approximate satisfaction.
+% The approximate ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-morphisms we define below are the maps that preserve Henson-Iovino approximate satisfaction.
 % These morphisms are invertible, cf.\@ Fact~\ref{fact_HImorphisms}.
 We say that the map $f:M\to N$ is an \emph{approximate\/} p-elementary if for every formula $\varphi(x)\in{\EuScript L}^{\rm p}$, and every $a\in({\rm dom }f)^{|x|}$
 
@@ -926,7 +926,7 @@ Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 % The following are immediate consequences of the proposition above and Lemma~\ref{lem_interpolation}.
 
 % \begin{corollary}\label{corol_Hcomplete1}
-%   For every $a\in {\EuScript U}^{|x|}$ and $\varphi(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}(U)$, if $\neg\varphi(a)$ then $\tilde\varphi(a)$ for some $\tilde\varphi\perp\varphi$.\hfill\qedsymbol
+%   For every $a\in {\EuScript U}^{|x|}$ and $\varphi(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}(U)$, if $\neg\varphi(a)$ then $\tilde\varphi(a)$ for some $\tilde\varphi\perp\varphi$.\hfill\qedsymbol
 % \end{corollary}
 
 We write \emph{$S^{\rm p}_x(A)$\/} for the set of maximally consistent subsets of ${\EuScript L}^{\rm p}_x(A)$.
@@ -1003,7 +1003,7 @@ Therefore we can also claim the following.
 % \end{proof}
 
 % \begin{corollary}\label{corol_Hcomplete3}
-%   The inverse of an ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary.
+%   The inverse of an ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary.
 % \end{corollary}
 
 
@@ -1017,9 +1017,9 @@ Therefore we can also claim the following.
 
 For $\tau(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
 
-\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\forallH z\ \ \tau(x,z)=\tau(y,z).}
+\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\forallH z\ \ \tau(x,z)=\tau(y,z),}
 
-The expression $\alpha=\beta$ above is a shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $I^2$.
+where the expression $\alpha=\beta$ is shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $I^2$.
 We also define the type 
 
 \ceq{\hfill\emph{$x\sim y$}}{=}{\Big\{x\sim_\tau y\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
@@ -1109,14 +1109,16 @@ This can be verified by an argument similar to the proof of Fact~\ref{fact_produ
   \ceq{\hfill x\sim y}{\rightarrow}{\exists z\,\varphi(x,z,\eta)\leftrightarrow\exists z\,\varphi(y,z,\eta).} 
 \end{proof}
 
-The following proposition is an immediate consequence of compactness.
-It corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
+The following proposition corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
 
 \begin{proposition}\label{prop_perturbation}
-  For every $\varphi(x)\in{\EuScript L}^{\rm c}({\EuScript U})$ 
-  and every $\varphi'>\varphi$ there are a tuple of terms $t$ and a compact neighborhood $D$ of $\Delta$ such that
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}({\EuScript U})$
 
-    \ceq{\hfill x\sim_{\tau,D}\!y\ \wedge\ \varphi(x)}{\rightarrow}{\varphi'(y).}
+  \ceq{\hfill x\sim y}{\rightarrow}{\big[\varphi(x)\leftrightarrow\varphi(y)\big]}
+  
+  hence, by compactness, for every $\varphi'>\varphi$ there are a tuple of terms $\tau$ and a compact neighborhood $D$ of $\Delta$ such that
+
+  \ceq{\hfill x\sim_{\tau,D}\!y}{\rightarrow}{\big[\varphi(x)\rightarrow\varphi'(y)\big].}
 \end{proposition}
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
@@ -1131,7 +1133,7 @@ We say that $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if it is Cauchy comp
 for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
 
 Note that ${\EuScript L}^{\rm c}$ is closed under weakening and strong negation.
-Therefore,  reasoning as in Section~\ref{morphisms}, we infer that for every c-model $M$
+Therefore the argument in the proof of Fact~\ref{fact_HImorphisms} proves that for every c-model $M$
 
 \ceq{{\rm ac.}\hfill M\models\{\varphi(a)\}'}{\Leftrightarrow}{\{\varphi(a)\}'}
 \hfill
@@ -1164,7 +1166,7 @@ We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conju
   Then $p(x)$ is realized in $M$. 
 \end{proof}
 
-\begin{fact}
+\begin{fact}\label{fact_cmodel_substr}
   Let $M$ be a c-model. Then $M$ is a substructure of ${\EuScript U}$.
 \end{fact}
 
@@ -1183,16 +1185,16 @@ We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conju
 \section{Elimination of quantifiers of sort \textsf{I} for positive formulas}\label{Ielimination}
 
 We show that the quantifiers of sort ${\sf I}$ can be eliminated up to some approximation.
-Precisely, we prove that \emph{${\EuScript L}^{\rm p}_{\sf I\rm qf}$}, the set of positive formulas without quantifiers of sort ${\sf I}$, is p-dense modulo $T$ (the theory of ${\EuScript U}$), see Definion~\ref{def_dense}.
+Precisely, we prove that \emph{${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$}, the set of positive formulas without quantifiers of sort ${\sf I}$, is p-dense modulo $T$ (the theory of ${\EuScript U}$).
 
-A partial map is \emph{${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary\/} if it preserves the truth of formulas in ${\EuScript L}^{\rm p}_{\sf I\rm qf}$.
+A partial map is \emph{${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary\/} if it preserves the truth of formulas in ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$.
 
 \begin{proposition}
-  Every ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ of small cardinality extends to an automorphism of ${\EuScript U}$.
+  Every ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ of small cardinality extends to an automorphism of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
-  By Fact~\ref{fact_max_cons_H}, the inverse of an ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map is also ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary.
+  By Fact~\ref{fact_max_cons_H}, the inverse of an ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary map is also ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary.
   Then we can extend the map by back-and-forth as usual.
 \end{proof}
 
@@ -1201,43 +1203,43 @@ We apply the proposition above to obtain a strengthening of Fact~\ref{fact_max_c
 For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ satisfy the same ${\EuScript L}$-formulas over $A$.
 
 \begin{corollary}\label{corol_Lcomplete}
-  Let $p(x)={\EuScript L}^{\rm p}_{\sf I\rm qf}\mbox{-tp}(a/A)$ and $q(x)=\mbox{tp}(a/A)$. Then $p(x)\leftrightarrow q(x)$.
+  Let $p(x)={\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}\mbox{-tp}(a/A)$ and $q(x)=\mbox{tp}(a/A)$. Then $p(x)\leftrightarrow q(x)$.
 \end{corollary}
 
 \begin{proof}
   Only $\rightarrow$ requires a proof.
-  If $b\models p(x)$ then there is an ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
+  If $b\models p(x)$ then there is an ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
   Then $f$ extends to an automorphism.
   As every automorphism is ${\EuScript L}$-elementary, $a\equiv_Ab$, and the corollary follows.
 \end{proof}
 
-The corollary says that ${\EuScript U}$ does not distinguish between ${\EuScript L}$, ${\EuScript L}^{\rm p}$, and ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ types.
+The corollary says that ${\EuScript U}$ does not distinguish between ${\EuScript L}$, ${\EuScript L}^{\rm p}$, and ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ types.
 In the classical setting, from an equivalence between types one derives an equivalence between formulas.
 Without negation, this is not true.
 Still, we can infer an approximate form of equivalence.
 
 \begin{proposition}\label{prop_LHapprox1}
-  The set ${\EuScript L}^{\rm p}_{\sf I\rm qf}$ is p-dense modulo $T$.
+  The set ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ is p-dense modulo $T$.
 \end{proposition}
 
 \begin{proof}
   Let $\varphi(x)$ be a positive formula.
-  We need to prove that for every $\varphi'>\varphi$ there is some $\psi(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
+  We need to prove that for every $\varphi'>\varphi$ there is some formula $\psi(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
   By Corollary~\ref{corol_Lcomplete} and Proposition~\ref{prop_approx}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{p'(x)\rightarrow\neg\varphi(x)}p'(x)}
 
-  where $p(x)$ ranges over the maximally consistent ${\EuScript L}^{\rm p}_{\sf I\rm qf}$-types.
+  where $p(x)$ ranges over the maximally consistent ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-types.
   By Fact~\ref{fact_compactness_imp} and Lemma~\ref{lem_interpolation}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{\neg\tilde{\psi}(x)\rightarrow\neg\varphi(x)}\neg\tilde{\psi}(x),}
 
-  where $\tilde{\psi}(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}$.
+  where $\tilde{\psi}(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$.
   Equivalently,
 
   \ceq{\hfill\varphi(x)}{\leftarrow}{\bigwedge_{\tilde{\psi}(x)\leftarrow\varphi(x)}\tilde{\psi}(x).}
 
-  By compactness, see Fact~\ref{fact_compactness_imp}, for every $\varphi'>\varphi$ there are some finitely many $\tilde{\psi}_i(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}$ such that
+  By compactness, see Fact~\ref{fact_compactness_imp}, for every $\varphi'>\varphi$ there are some finitely many $\tilde{\psi}_i(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ such that
 
   \ceq{\hfill\varphi'(x)}{\leftarrow}{\bigwedge_{i=1,\dots,n}\tilde{\psi}_i(x)\ \ \leftarrow\ \ \varphi(x)}
 
@@ -1245,7 +1247,7 @@ Still, we can infer an approximate form of equivalence.
 \end{proof}
 
 % \begin{proposition}\label{prop_LHapprox2}
-%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$. For every given $\tilde{\varphi}\perp\varphi$ there is some $\psi(x)\in{\EuScript L}^{\rm p}_{\sf I\rm qf}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde{\varphi}(x)$.
+%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$. For every given $\tilde{\varphi}\perp\varphi$ there is some $\psi(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde{\varphi}(x)$.
 % \end{proposition}
 
 
@@ -1262,15 +1264,15 @@ Still, we can infer an approximate form of equivalence.
   Only $\rightarrow$ requires a proof.
   We will make repeated use of the equivalence $p(x)\leftrightarrow p'(x)$ that holds for all $p(x)\subseteq{\EuScript L}^{\rm p}$.
   Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
-  Let $p(x)={\EuScript L}^{\rm p}_{\sf I\rm qf}\mbox{-tp}(a)$.
+  Let $p(x)={\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}\mbox{-tp}(a)$.
   By Corollary~\ref{corol_Lcomplete}, $p(x)\rightarrow\neg\varphi(x)$.
   As ${\EuScript F}$ is p-dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
   Then $q'(x)\rightarrow\neg\varphi(x)$ and, by compactness, $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'>\psi\in{\EuScript F}$.
 \end{proof}
 
 We will need a similar result for larger class formulas.
-We write \emph{$\Sigma^{\rm p}$\/} for the set of formulas of the form $\exists y\,\varphi(x,y)$ where $\varphi(x,y)$ is positive Boolean combination of formulas such as $\neg\psi(x,y)$ and $\psi'(x,y)$ for $\psi(x,y)$ positive and $\psi'>\psi$.
-The following follows easily from the proposition above.
+We write \emph{$\Sigma^{\rm p}$\/} for the set of formulas of the form $\exists y\,\varphi(x,y)$ where $\varphi(x,y)$ is a positive Boolean combination of formulas such as $\neg\psi(x,y)$ and $\psi'(x,y)$ for $\psi(x,y)$ positive and $\psi'>\psi$.
+The following follows easily from the proposition above by induction on the syntax of $\varphi(x)$.
 
 \begin{proposition}\label{prop_Sigma_approx}
   For every $\varphi(x)\in\Sigma^{\rm p}$
@@ -1279,6 +1281,38 @@ The following follows easily from the proposition above.
   {\leftrightarrow}
   {\bigvee\big\{\psi(x)\in{\EuScript L}^{\rm p}\ :\ \psi'(x)\rightarrow\varphi(x)\textrm{ for some }\psi'>\psi\big\}.}
 \end{proposition}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Elimination of quantifiers of sort \textsf{I} for continuous formulas}\label{IeliminationC}
+
+We adapt the argument in the previous section to continuous formulas.
+But first we need some definitions.
+
+Let ${\EuScript U}/{\sim}$ be the quotient of ${\EuScript U}$ by the equivalence relation defined in Section~\ref{Cauchy}.
+The equivalence class of $a\in{\EuScript U}$ is denoted by $[a]$.
+A \emph{c-elementary\/} map is a (partial) map $f:{\EuScript U}/{\sim}\ \to\ {\EuScript U}/{\sim}$ such that $\varphi(a)\rightarrow\varphi(b)$ for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a,b$ such that $f\big([a]\big)=[b]$.
+
+The class ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$ and the \emph{${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary\/} maps are defined in analogy to the respective positive variant.
+An automorphism of ${\EuScript U}/{\sim}$ is a total and surjective  ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary map (which is also c-elementary).
+
+For brevity we will often confuse $[a]$ with $a$.
+
+\begin{proposition}
+  All ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary maps of small cardinality extend to automorphisms of ${\EuScript U}/{\sim}$.
+\end{proposition}
+
+\begin{proof}
+  By Fact~\ref{fact_max_cons_H}, the inverse of an ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary map is also ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary.
+  Then we can extend the map by back-and-forth as usual........
+\end{proof}
+
+
+
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1309,9 +1343,9 @@ The following proposition is our version of the Tarski-Vaught test.
     \ceq{\hfill \existsH x\,\neg\psi(x)}{\Rightarrow}
     {\textrm{ there is an }a\in M\textrm{ such that }\neg\psi(a).}
   \end{itemize}
-  If $M$ is a Cauchy compelte and ${\EuScript F}$ is a c-dense set of continuous formulas then (2) and (3) above are equivalent to
+  If $M$ is Cauchy compelte and ${\EuScript F}$ is a c-dense set of continuous formulas then (2) and (3) above are equivalent to
   \begin{itemize}
-    \item[1'.] $M$ is a c-model.
+    \item[1$'$.] $M$ is a c-model.
   \end{itemize}
 \end{proposition}
 
@@ -1367,6 +1401,9 @@ The following proposition is our version of the Tarski-Vaught test.
   {M\not\models\forallH y\,\varphi(a,y).}
 
   Induction for the connectives $\vee$, $\wedge$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, and $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ is straightforward.
+
+  Finally, note that the proof of (1$\Rightarrow$2) also proves (1$'\Rightarrow$2) while the proof of (3$\Rightarrow$1) proves (3$\Rightarrow$1$'$) if we can show that $M$ is a substructure of ${\EuScript U}$.
+  But this the case by Fact~\ref{fact_cmodel_substr}.
 \end{proof}
 
 % \begin{remark}
@@ -1417,7 +1454,7 @@ We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a count
 
 
 
-% The \emph{weight\/} of ${\EuScript L}$, which we denote by \emph{${\rm wgt}\big({\EuScript L}\big)$\/} is the minimal cardinality of a set of formulas ${\EuScript L}^{\rm p}_{\sf I\rm qf}'$ such that for every $\varphi''>\varphi\in{\EuScript L}^{\rm p}_{\sf I\rm qf}$ there is a $\varphi'\in{\EuScript L}^{\rm p}_{\sf I\rm qf}'$ such that $\varphi''>\varphi'>\varphi$.
+% The \emph{weight\/} of ${\EuScript L}$, which we denote by \emph{${\rm wgt}\big({\EuScript L}\big)$\/} is the minimal cardinality of a set of formulas ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}'$ such that for every $\varphi''>\varphi\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ there is a $\varphi'\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}'$ such that $\varphi''>\varphi'>\varphi$.
 % If this minimal cardinality is $\omega$, we say that ${\EuScript L}$ is sparable. 
 % It is not difficult to see that when $I$ is the real unit interval and ${\EuScript L}$ contains at most countably many symbols of sort ${\sf H}^n\to{\sf I}$ then ${\EuScript L}$ is separable.
 
@@ -1771,6 +1808,8 @@ As all functions have been required to be uniformly continuous, it is immediate 
 \end{biblist}
 \end{bibdiv}
 
+
+\end{document}
 
 \vskip5ex
 
