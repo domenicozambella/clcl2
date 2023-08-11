@@ -994,26 +994,40 @@ Therefore we can also claim the following.
   Let ${\EuScript F}$ be a p-dense set of positive formulas.
   Then for every $\varphi(x)\in{\EuScript L}^{\rm p}$
   
-  \ceq{\hfill\neg\varphi(x)}
+  \ceq{{\rm i.}\hfill\neg\varphi(x)}
   {\leftrightarrow}
-  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi(x)\rightarrow\neg\varphi(x)\big\}.}
+  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi(x)\rightarrow\neg\varphi(x)\big\}}
+
+  \ceq{{\rm ii.}\hfill\neg\varphi(x)}
+  {\leftrightarrow}
+  {\bigvee\big\{\neg\psi(x)\ :\ \psi(x)\in{\EuScript F}\textrm{ and }\neg\psi(x)\rightarrow\neg\varphi(x)\big\}.}
+
 \end{proposition}
  
 \begin{proof}
-  Only $\rightarrow$ requires a proof.
+  (i) \ Only $\rightarrow$ requires a proof.
   Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
   Let $p(x)=\mbox{p-tp}(a)$.
   By Fact~\ref{fact_max_cons_L}, $p(x)\rightarrow\neg\varphi(x)$.
   As ${\EuScript F}$ is p-dense, $p(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
   Then, by compactness, $\psi(x)\rightarrow\neg\varphi(x)$ for some $\psi\in q\subseteq{\EuScript F}$.
+
+  (ii) \ By p-density
+
+  \ceq{\hfill\varphi(x)}
+  {\leftrightarrow}
+  {\bigwedge\big\{\psi(x)\in{\EuScript F}\ :\ \varphi(x)\rightarrow\psi(x)\big\}.}
+  
+  Negating both sides of the equivalence we obtain (ii).
 \end{proof}
 
 We will need a similar result for larger class formulas.
-We write \emph{$\Sigma^{\rm p}$\/} for the set of formulas of the form $\exists y\,\vartheta(x,y)$ where $\vartheta(x,y)$ is a Boolean combination of formulas in ${\EuScript F}$.
+We write \emph{$\Sigma^{\rm p}$\/} for the set of formulas of the form $\exists y\,\vartheta(x,y)$ where $\vartheta(x,y)$ is a positive Boolean combination of formulas of the form $\neg\psi(x,y)$ or $\psi'(x,y)$ for some $\psi(x,y)\in{\EuScript L}^{\rm p}$ and $\psi'>\psi$.
 The following follows easily from the proposition above by induction on the syntax of $\varphi(x)$.
 
 \begin{proposition}\label{prop_Sigma_approx}
-  For every $\varphi(x)\in\Sigma^{\rm p}$
+  Let ${\EuScript F}$ be a p-dense set of positive formulas.
+  Then for every $\varphi(x)\in\Sigma^{\rm p}$
   
   \ceq{\hfill\varphi(x)}
   {\leftrightarrow}
@@ -1228,17 +1242,14 @@ This can be verified by an argument similar to the proof of Fact~\ref{fact_produ
   \ceq{\hfill x\sim y}{\rightarrow}{\exists z\,\varphi(x,z,\eta)\leftrightarrow\exists z\,\varphi(y,z,\eta).} 
 \end{proof}
 
-The following proposition corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
+Following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
+Its proof is a simple application of compactness.
 
-\begin{proposition}\label{prop_perturbation}
-  For every $\varphi(x)\in{\EuScript L}^{\rm c}({\EuScript U})$
-
-  \ceq{\hfill x\sim y}{\rightarrow}{\big[\varphi(x)\leftrightarrow\varphi(y)\big]}
-  
-  hence, by compactness, for every $\varphi'>\varphi$ there are a tuple of terms $\tau$ and a compact neighborhood $D$ of $\Delta$ such that
+\begin{corollary}\label{corol_pertubation}
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}({\EuScript U})$ and every $\varphi'>\varphi$ there are a tuple of terms $\tau$ and a compact neighborhood $D$ of $\Delta$ such that
 
   \ceq{\hfill x\sim_{\tau,D}\!y}{\rightarrow}{\big[\varphi(x)\rightarrow\varphi'(y)\big].}
-\end{proposition}
+\end{corollary}
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
 We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
@@ -1502,16 +1513,16 @@ We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a count
 
 \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-A type $p(x)$ is \emph{weakly isolated\/} by $\varphi(x)$, a consistent positive formula, if for every $\psi(x)\in p$ there is some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\psi(x)$.
-If $p(x)$ is weakly isolated by some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is weakly isolated by $A$.
+A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
+If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} by $A$.
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
-% Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $p(x)$ is p-isolated over $A$, then $p(x)$ is realized in every p-model containing $A$.
+Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, then $p(x)$ is realized in every p-model containing $A$.
 
 \begin{proposition}\label{prop_isolation}
   Let ${\EuScript F}$ be a p-dense set of positive formulas.
   Then the following are equivalent
 \begin{itemize}
-  \item[1.] $p(x)$ is p-isolated over $A$;
+  \item[1.] $p(x)$ is p-isolated by $A$;
   \item[2.] $p(x)$ is isolated by $\neg\psi(x)$ for some $\psi(x)\in{\EuScript F}(A)$;
   \item[3.] $p(x)$ is isolated by some $\psi'(x)$ such that  $\psi'>\psi$ for some consistent $\psi(x)\in{\EuScript F}(A)$;
   \item[4.] $p(x)$ is isolated by some formula $\varphi(x)\in\Sigma^{\rm p}(A)$.
@@ -1543,44 +1554,46 @@ If $p(x)$ is weakly isolated by some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we 
 
 
 \begin{lemma}\label{lem_kuratowskiUlam}
-Let ${\EuScript L}$ be separable and let $A$ be countable.
-Assume that $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is not p-isolated over $A$.
-Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm p}(A)$, has a solution $a$ such that $p(x)$ is not isolated over $A,a$.
-\end{lemma}
-\begin{proof}
-We construct a sequence of ${\EuScript L}^{\rm p}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
-
-Let $\langle\xi_i(x\,;z):i<\omega\rangle$ enumerate a countable p-dense subset of ${\EuScript L}^{\rm p}_{x\,;z}(A)$.
-Let $\gamma_0(z)$ be a consistent positive formula such that $\gamma_0(z)\rightarrow\neg\psi(z)$, which exists by Proposition~\ref{prop_Fapprox}.
-Define $\gamma_{i+1}(z)$ inductively as follows.
-
-\begin{itemize}
-   \item[1.] If $\xi_i(x\,;z)\wedge\gamma_i(z)$ is inconsistent, let $\gamma_{i+1}(z)=\gamma_i(z)$;
-   \item[2.] otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
-   
-   (\#)\hfil$\gamma_i(z)\ \wedge\ \exists x\,\big[\xi_i(x\,;z)\wedge\neg\varphi(x)\big].$\kern19ex
-   
-   Finally, let $\gamma_{i+1}(z)$ be a consistent positive formula that implies (\#).
-   Such a formula exists by Proposition~\ref{prop_Sigma_approx}.
-\end{itemize}
-Let $a\models\{\gamma_i(z):i<\omega\}$.
-We claim that that $A,a$ does not weakly isolate $p(x)$.
-Otherwise, by density and Fact~\ref{fact_Fdense}, some $\xi_i(x\,;a)$ would weakly isolate $p(x)$.
-This contradicts $a\models\gamma_{i+1}(z)$.
-
-Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
-
-Suppose for a contradiction that $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$, that is, 
-
-\ceq{\hfill\neg\xi_i(x\,;z)\wedge\gamma'_i(z)}{\rightarrow}{\varphi(x).} 
-
-This immediately implies that 
-
-\ceq{\hfill\exists z\;\big[\neg\xi_i(x\,;z)\wedge\gamma'_i(z)\big]}{\rightarrow}{p(x).}
-
-Then $p(x)$ is isolated by a formula in $\Sigma^{\rm p}(A)$.
-By Proposition~\ref{prop_isolation}, this is a contradiction.
-\end{proof}
+  Let ${\EuScript L}^{\rm p}(A)$ be separable.
+  Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$, be non p-isolated by $A$.
+  Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm p}(A)$, has a solution $a$ such that $A,a$ does not p-isolate $p(x)$.
+  \end{lemma}
+  \begin{proof}
+  We construct a sequence of ${\EuScript L}^{\rm p}(A)$-formulas $\langle\gamma'_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma'_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
+  
+  Let $\langle\xi_i(x\,;z):i<\omega\rangle$ enumerate a countable p-dense subset of ${\EuScript L}^{\rm p}_{x\,;z}(A)$.
+  Let $\gamma_0(z)$ and $\gamma'_0>\gamma_0$ be a consistent positive formulas such that $\gamma'_0(z)\rightarrow\neg\psi(z)$.
+  These exist by Proposition~\ref{prop_Fapprox} and Fact~\ref{fact_Fdense}.
+  Define $\gamma'_{i+1}(z)$ inductively as follows.
+  
+  \begin{itemize}
+     \item[1.] If $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is inconsistent, let  $\gamma'_{i+1}(z)=\gamma'_i(z)$.
+     \item[2.] Otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
+     
+     (\#)\hfil$\gamma'_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x\,;z)\wedge\neg\varphi(x)\big].$\kern19ex
+     
+     Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive formulas such that $\gamma'_{i+1}(z)$ implies (\#).
+     Such a formula exists by Propositions~\ref{prop_Sigma_approx} and~\ref{prop_Fapprox}.
+  \end{itemize}
+  Let $a\models\{\gamma'_i(z):i<\omega\}$.
+  We claim that that $A,a$ does not p-isolate $p(x)$.
+  Otherwise, by Fact~\ref{fact_Fdense}.ii, $\neg\xi_i(x\,;a)\rightarrow p(x)$ for some consistent $\neg\xi_i(x\,;a)$.
+  This contradicts $a\models\gamma'_{i+1}(z)$.
+  
+  Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
+  
+  Suppose for a contradiction that $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$, that is, 
+  
+  \ceq{\hfill\neg\xi_i(x\,;z)\wedge\gamma'_i(z)}{\rightarrow}{\varphi(x).} 
+  
+  This immediately implies that 
+  
+  \ceq{\hfill\exists z\;\big[\neg\xi_i(x\,;z)\wedge\gamma'_i(z)\big]}{\rightarrow}{p(x).}
+  
+  Then $p(x)$ is isolated by a formula in $\Sigma^{\rm p}(A)$.
+  By Proposition~\ref{prop_isolation}, this is a contradiction.
+  \end{proof}
+  
 
 \begin{theorem}[Positive Omitting Types]\label{prop_OTT}
   Assume that ${\EuScript L}$ is separable and that $A$ is countable.
