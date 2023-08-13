@@ -254,7 +254,6 @@ Note that ${\EuScript L}$ has two types of atomic formulas:
 
 % \noindent\llap{\textcolor{red}{\Large\dangersign}\kern1ex}\ignorespaces
 
-
 The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript L}^{\rm c}$ that do not have quantifiers of sort ${\sf I}$.
 
 Working within ${\EuScript L}^{\rm p}$ simplifies the comparision with classical model theory but comes at a price.
@@ -858,13 +857,13 @@ Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
   Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ be a type.
   Then for every  $\varphi(x)\in{\EuScript L}^{\rm p}({\EuScript U})$
   \begin{itemize}
-    \item[1.] if $p(x)\rightarrow\neg\varphi(x)$ then $\psi(x)\rightarrow\neg\varphi(x)$ for some $\psi(x)$ conjunction of formulas in $p(x)$;
-    \item[2.] if $p(x)\rightarrow\varphi(x)$ and $\varphi'>\varphi$ then $\psi(x)\rightarrow\varphi'(x)$ for some conjunction of formulas in $p(x)$.
+    \item[i.] if $p(x)\rightarrow\neg\varphi(x)$ then $\psi(x)\rightarrow\neg\varphi(x)$ for some $\psi(x)$ conjunction of formulas in $p(x)$;
+    \item[ii.] if $p(x)\rightarrow\varphi(x)$ and $\varphi'>\varphi$ then $\psi(x)\rightarrow\varphi'(x)$ for some conjunction of formulas in $p(x)$.
   \end{itemize} 
 \end{fact}
 
 \begin{proof}
-  (1) is immediate by saturation;  (2) follows from (1) by Lemma~\ref{lem_interpolation}.
+  (i) is immediate by saturation; (ii) follows fromrom (i) by Lemma~\ref{lem_interpolation}.
 \end{proof}
 
 \begin{fact}\label{fact_Fdense}
@@ -960,8 +959,8 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
 \end{fact}
 
 \begin{proof}
-  (1$\Rightarrow$2) By the saturation of ${\EuScript U}$, there is an $a\in{\EuScript U}^{|x|}$ such that $p(x)\subseteq\mbox{p-tp}(a/A)$.
-  By maximality $p(x)=\mbox{p-tp}(a/A)$.
+  (1$\Rightarrow$2) 
+  Then $p(x)\subseteq\mbox{p-tp}(a/A)$ and, by maximality $p(x)=\mbox{c-tp}(a/A)$.
 
 
   (2$\Rightarrow$1) 
@@ -1012,7 +1011,7 @@ Therefore we can also claim the following.
   As ${\EuScript F}$ is p-dense, $p(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
   Then, by compactness, $\psi(x)\rightarrow\neg\varphi(x)$ for some $\psi\in q\subseteq{\EuScript F}$.
 
-  (ii) \ By p-density
+  (ii) \ By density
 
   \ceq{\hfill\varphi(x)}
   {\leftrightarrow}
@@ -1084,7 +1083,7 @@ A partial map is \emph{${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary\/} i
 \end{proposition}
 
 \begin{proof}
-  By Fact~\ref{fact_max_cons_H}, the inverse of an ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary map is also ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary.
+  By Fact~\ref{fact_max_cons_L}, the inverse of an ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary map is also ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary.
   Then we can extend the map by back-and-forth as usual.
 \end{proof}
 
@@ -1205,17 +1204,17 @@ Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 for some compact neighborhood $D$ of $\Delta$.
 Hence we define
 
-\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ as above } D\textrm{ compact neigborhood of }\Delta\Big\}.}
+\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ as above, } D\textrm{ compact neigborhood of }\Delta\Big\}.}
 
-If $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ is a tuple of terms, by $x\sim_{\tau,D}y$ we denote the conjunction of the formulas $x\sim_{\tau_i,D}y$.
+If $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ is a tuple of terms, by \emph{$x\sim_{\tau,D}y$\/} we denote the conjunction of the formulas $x\sim_{\tau_i,D}y$.
 
-The formulas $x\sim_{\tau,D}y$, as $D$ ranges over the compact neighborhoods of $\Delta$ and $\tau(x,z)$ ranges over the finite tuples parameter-free terms, define a system of entougages on ${\EuScript U}^{|x|}$.
+The formulas $x\sim_{\tau,D}y$, as $\tau$ ranges over the finite tuples parameter-free terms and $D$ over the compact neighborhoods of the diagonal, form a base for a system of entougages on ${\EuScript U}^{|x|}$.
 We refer to this uniformity and the topology associated as the \emph{$I$-topology.}
 Though not needed in the sequel, it is worth mentioning that the $I$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the $I$-topology on ${\EuScript U}$.
 This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
 
 \begin{fact}\label{fact_continuous}
-  For every $\varphi(x)\in{\EuScript L}^{\rm c}$
+  For every $\varphi(x)\in{\EuScript L}^{\rm p}$ that does not contain subformulas of sort ${\EuScript L}_{\sf H}$
 
   \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x,\eta)\leftrightarrow\varphi(y,\eta)}
 \end{fact}
@@ -1243,19 +1242,27 @@ This can be verified by an argument similar to the proof of Fact~\ref{fact_produ
 \end{proof}
 
 Following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
-Its proof is a simple application of compactness.
-
 \begin{corollary}\label{corol_pertubation}
-  For every $\varphi(x)\in{\EuScript L}^{\rm c}({\EuScript U})$ and every $\varphi'>\varphi$ there are a tuple of terms $\tau$ and a compact neighborhood $D$ of $\Delta$ such that
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}$, every $\varphi'>\varphi$, and every $\tilde{\varphi}\bot\varphi$ there is a tuple of terms $\tau$ and a compact neighborhood of the diagonal $D$ such that
 
-  \ceq{\hfill x\sim_{\tau,D}\!y}{\rightarrow}{\big[\varphi(x)\rightarrow\varphi'(y)\big].}
+  \ceq{{\rm i.}\hfill x\sim_{\tau,D}\!y\ \wedge\ \varphi(y)}{\rightarrow}{\varphi'(x)}
+
+  \ceq{{\rm ii.}\hfill x\sim_{\tau,D}\!y\ \wedge\ \tilde{\varphi}(y)}{\rightarrow}{\neg\varphi(x).}
 \end{corollary}
+
+\begin{proof}
+  As $x\sim y\ \cup\ \big\{\varphi(x)\big\}\ \rightarrow\ \varphi(y)$ by the fact above, (i)) follows from Fact~\ref{fact_compactness_imp}.
+  Similarly, we obtain (ii) from $x\sim y\ \cup\ \big\{\tilde{\varphi}(x)\big\}\ \rightarrow\ \neg\varphi(y)$.
+\end{proof}
+
+
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
 We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
 Equivalenltly, $p(x)$ is a Cauchy type if $p(x)\leftrightarrow a\sim x$ for some/any $a\models p(x)$.
 We say that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if $p({\EuScript U})\subseteq A^{|x|}$ for every Cauchy type $p(x)\subseteq{\EuScript L}^{\rm c}(A)$.
 Note that Cauchy complete sets are in particular closed under $\sim$-equivalence.
+
 We say that $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if it is Cauchy complete and 
 
 \ceq{{\rm c.}\hfill M\models\varphi(a)}{\Rightarrow}{\varphi(a)}
@@ -1263,7 +1270,7 @@ We say that $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if it is Cauchy comp
 for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
 
 Note that ${\EuScript L}^{\rm c}$ is closed under weakening and strong negation.
-Therefore the argument in the proof of Fact~\ref{fact_HImorphisms} proves that for every c-model $M$
+Therefore the argument in the proof of Fact~\ref{fact_HImorphisms} proves that (c) is equivalent to
 
 \ceq{{\rm ac.}\hfill M\models\{\varphi(a)\}'}{\Leftrightarrow}{\{\varphi(a)\}'}
 \hfill
@@ -1272,10 +1279,10 @@ for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
 We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conjunction of formulas in $q(x)$ has a solution in $M$.
 
 \begin{fact}\label{fact_finsat}
-  Let $M\subseteq{\EuScript L}^{\rm c}(M)$ satisfy (c) above.
+  Let $M$ satisfy (c) above.
   Then the following are equivalent
   \begin{itemize}
-    \item[1.] $M$ is Cauchy complete, hence it is a c-model;
+    \item[1.] $M$ is Cauchy complete (therefore it is a c-model);
     \item[2.] $a\in M$ whenever $a\sim'x$ is finitely satisfied in $M$. 
   \end{itemize}
 \end{fact}
@@ -1283,7 +1290,7 @@ We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conju
 \begin{proof}
   (1$\Rightarrow$2)
   Assume that $a\sim'x$ is finitely satisfied in $M$. 
-  Let $a_{\tau,D}\in M$ be a solution of $a\sim_{\tau,D}x$ where $D$ ranges over the compact neighborhoods of the diagonal and $\tau(x,z)$ ranges over the finite tuples parameter-free terms.
+  Let $a_{\tau,D}\in M$ be a solution of $a\sim_{\tau,D}x$ where $\tau$ ranges over the finite tuples parameter-free terms and $D$ ranges over the compact neighborhoods of the diagonal.
   Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
   By (1), $p(x)$ is realized in $M$.
   Then all its realizations belong to $M$.
@@ -1291,7 +1298,7 @@ We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conju
   (2$\Rightarrow$1)
   Let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a Cauchy type.
   Then $p(x)\leftrightarrow a\sim x$ for some $a\models p(x)$.
-  By elementarity $p'(x)$ is finitely satisfied in $M$. 
+  By (ac) above, $p'(x)$ is finitely satisfied in $M$. 
   Then also $a\sim' x$ is finitely satisfied. 
   Then $p(x)$ is realized in $M$. 
 \end{proof}
@@ -1426,7 +1433,7 @@ The following proposition is our version of the Tarski-Vaught test.
 
   Induction for the connectives $\vee$, $\wedge$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, and $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ is straightforward.
 
-  Finally, note that the proof of (1$\Rightarrow$2) also proves (1$'\Rightarrow$2) while the proof of (3$\Rightarrow$1) proves (3$\Rightarrow$1$'$) if we can show that $M$ is a substructure of ${\EuScript U}$.
+  For the second part, note that the proof of (1$\Rightarrow$2) also proves (1$'\Rightarrow$2) while the proof of (3$\Rightarrow$1) proves (3$\Rightarrow$1$'$) if we can show that $M$ is a substructure of ${\EuScript U}$.
   But this the case by Fact~\ref{fact_cmodel_substr}.
 \end{proof}
 
@@ -1451,12 +1458,11 @@ In particular every $A\subseteq{\EuScript U}$ is contained in a standard structu
 In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in ${\EuScript L}_{\sf I}$.
 
-We say that ${\EuScript L}$ is \emph{separable\/} modulo $T$ if there is a countable set of positive formulas that is p-dense modulo $T$.
+We say that ${\EuScript L}^{\rm p}(A)/{\EuScript L}^{\rm c}(A)$ is \emph{separable\/} if there is a countable subset ${\EuScript L}^{\rm p}(A)/{\EuScript L}^{\rm c}(A)$ that is p-dense/c-dense.
 % In Section~\ref{separability} we will present examples of separable p-models.
 
 \begin{proposition}\label{prop_disjunction_dense}
-  Assume that ${\EuScript L}$ is separable modulo the theory of ${\EuScript U}$.
-  Let $A\subseteq{\EuScript U}$ be countable.
+  Assume that ${\EuScript L}^{\rm p}(A)$ is separable modulo the theory of ${\EuScript U}$.
   Then there is a countable p-model $M$ containing $A$.
   (The size of a p-model is the size of the domain of its home sort.)
 \end{proposition}
@@ -1518,7 +1524,7 @@ If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
 Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, then $p(x)$ is realized in every p-model containing $A$.
 
-\begin{proposition}\label{prop_isolation}
+\begin{fact}\label{fact_isolation}
   Let ${\EuScript F}$ be a p-dense set of positive formulas.
   Then the following are equivalent
 \begin{itemize}
@@ -1527,22 +1533,10 @@ Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, the
   \item[3.] $p(x)$ is isolated by some $\psi'(x)$ such that  $\psi'>\psi$ for some consistent $\psi(x)\in{\EuScript F}(A)$;
   \item[4.] $p(x)$ is isolated by some formula $\varphi(x)\in\Sigma^{\rm p}(A)$.
 \end{itemize}
-\end{proposition}
+\end{fact}
 
 \begin{proof}
-  (1$\Rightarrow$2) By density
-
-  \ceq{\hfill\varphi(x)}
-  {\leftrightarrow}
-  {\bigwedge\big\{\psi(x)\in{\EuScript F}\ :\ \varphi(x)\rightarrow\psi(x)\big\}}
-  
-  therefore, negating both sides of the equivalence,
-  
-  \ceq{\hfill\neg\varphi(x)}
-  {\leftrightarrow}
-  {\bigvee\big\{\neg\psi(x)\ :\ \psi(x)\in{\EuScript F}\textrm{ and }\neg\psi(x)\rightarrow\neg\varphi(x)\big\}.}
-
-  If $\neg\varphi(x)$ isolates $p(x)$ then any consistent formula in the disjunction on the l.h.s.\@ also isolates $p(x)$.
+  (1$\Rightarrow$2) By Proposition~\ref{prop_Fapprox}
   
   (1$\Rightarrow$3) Recall that ${\EuScript F}'$ is p-dense by Fact~\ref{fact_Fdense}.
   Apply Proposition~\ref{prop_Fapprox} with ${\EuScript F}'$ for ${\EuScript F}$.
@@ -1577,7 +1571,7 @@ Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, the
   \end{itemize}
   Let $a\models\{\gamma'_i(z):i<\omega\}$.
   We claim that that $A,a$ does not p-isolate $p(x)$.
-  Otherwise, by Fact~\ref{fact_Fdense}.ii, $\neg\xi_i(x\,;a)\rightarrow p(x)$ for some consistent $\neg\xi_i(x\,;a)$.
+  Otherwise, by Fact~\ref{fact_isolation}, $\neg\xi_i(x\,;a)\rightarrow p(x)$ for some consistent $\neg\xi_i(x\,;a)$.
   This contradicts $a\models\gamma'_{i+1}(z)$.
   
   Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
@@ -1591,12 +1585,12 @@ Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, the
   \ceq{\hfill\exists z\;\big[\neg\xi_i(x\,;z)\wedge\gamma'_i(z)\big]}{\rightarrow}{p(x).}
   
   Then $p(x)$ is isolated by a formula in $\Sigma^{\rm p}(A)$.
-  By Proposition~\ref{prop_isolation}, this is a contradiction.
+  By Fact~\ref{fact_isolation}, this is a contradiction.
   \end{proof}
   
 
 \begin{theorem}[Positive Omitting Types]\label{prop_OTT}
-  Assume that ${\EuScript L}$ is separable and that $A$ is countable.
+  Let ${\EuScript L}^{\rm p}(A)$ be separable.
   Assume also that $p(x)\subseteq{\EuScript L}(A)$ is not p-isolated.
   Then there is a p-model $M$ containing $A$ that omits $p(x)$. 
 \end{theorem}
@@ -1617,7 +1611,7 @@ The following analogue of Ryll-Nardzewski's Theorem follows as usual.
   The following are equivalent
   \begin{itemize}
     \item[1.] $T$ is positively $\omega$-categorical;
-    \item[2.] every positive type $p(x)\subseteq{\EuScript L}^{\rm p}$, for $x$ any finite tuple of variables, is p-isolated over $\varnothing$.
+    \item[2.] every maximal positive type $p(x)\subseteq{\EuScript L}^{\rm p}$, for $x$ any finite tuple of variables, is p-isolated over $\varnothing$.
   \end{itemize}
 \end{theorem}
 
