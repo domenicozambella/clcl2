@@ -214,7 +214,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   
   The language ${\EuScript L}$ adds a relation symbol $R_{\varphi}(x)$ for every $\varphi(x)\in {\EuScript L}_{\sf H}$.
   All ${\EuScript L}$-structures are assumed to model $R_{\varphi}(x)\leftrightarrow\varphi(x)$. 
-  In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is built in the definition of ${\EuScript L}$-structure.
+  In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
   Finally and most relevantly, ${\EuScript L}$ contains arbitrarily many function symbols of sort ${\sf H}^n\to {\sf I}$.
 
@@ -988,10 +988,9 @@ Therefore we can also claim the following.
 \end{fact}
 
 
-
 \begin{proposition}\label{prop_Fapprox}
-  Let ${\EuScript F}$ be a p-dense set of positive formulas.
-  Then for every $\varphi(x)\in{\EuScript L}^{\rm p}$
+  Let ${\EuScript F}$ be a p-dense/c-dense set of positive/continuous formulas.
+  Then for every $\varphi(x)\in{\EuScript L}^{\rm p}/{\EuScript L}^{\rm c}$
   
   \ceq{{\rm i.}\hfill\neg\varphi(x)}
   {\leftrightarrow}
@@ -1004,11 +1003,14 @@ Therefore we can also claim the following.
 \end{proposition}
  
 \begin{proof}
+  The proofs in the positive and continuous case are identical.
+  
   (i) \ Only $\rightarrow$ requires a proof.
   Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
   Let $p(x)=\mbox{p-tp}(a)$.
   By Fact~\ref{fact_max_cons_L}, $p(x)\rightarrow\neg\varphi(x)$.
-  As ${\EuScript F}$ is p-dense, $p(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
+  As ${\EuScript F}$ is p-dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
+  Therefore $p(x)\leftrightarrow q(x)$.
   Then, by compactness, $\psi(x)\rightarrow\neg\varphi(x)$ for some $\psi\in q\subseteq{\EuScript F}$.
 
   (ii) \ By density
@@ -1259,11 +1261,27 @@ Following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
 We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
-Equivalenltly, $p(x)$ is a Cauchy type if $p(x)\leftrightarrow a\sim x$ for some/any $a\models p(x)$.
+%Equivalenltly, $p(x)$ is a Cauchy type if $p(x)\leftrightarrow a\sim x$ for some/any $a\models p(x)$.
 We say that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if $p({\EuScript U})\subseteq A^{|x|}$ for every Cauchy type $p(x)\subseteq{\EuScript L}^{\rm c}(A)$.
-Note that Cauchy complete sets are in particular closed under $\sim$-equivalence.
+Note that $a\sim x$ is a Cauchy type, therefore Cauchy  complete sets are in particular closed under $\sim$-equivalence.
 
-We say that $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if it is Cauchy complete and 
+
+We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $A$ if every conjunction of formulas in $q(x)$ has a solution in $A^{|x|}$.
+
+\begin{fact}\label{fact_finsat}
+  Let $A$ be Cauchy complete. 
+  Then $a\in A$ whenever $a\sim'x$ is finitely satisfied in $A$.
+\end{fact}
+
+\begin{proof}
+  Assume that $a\sim'x$ is finitely satisfied in $M$. 
+  Let $a_{\tau,D}\in A$ be a solution of $a\sim_{\tau,D}x$ where $\tau$ ranges over the finite tuples parameter-free terms and $D$ ranges over the compact neighborhoods of the diagonal.
+  Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
+  By (1), $p(x)$ is realized in $A$.
+  Then all its realizations belong to $A$.
+\end{proof}
+
+A substructure $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if 
 
 \ceq{{\rm c.}\hfill M\models\varphi(a)}{\Rightarrow}{\varphi(a)}
 \hfill
@@ -1276,43 +1294,15 @@ Therefore the argument in the proof of Fact~\ref{fact_HImorphisms} proves that (
 \hfill
 for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
 
-We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $M$ if every conjunction of formulas in $q(x)$ has a solution in $M$.
 
-\begin{fact}\label{fact_finsat}
-  Let $M$ satisfy (c) above.
-  Then the following are equivalent
-  \begin{itemize}
-    \item[1.] $M$ is Cauchy complete (therefore it is a c-model);
-    \item[2.] $a\in M$ whenever $a\sim'x$ is finitely satisfied in $M$. 
-  \end{itemize}
-\end{fact}
 
-\begin{proof}
-  (1$\Rightarrow$2)
-  Assume that $a\sim'x$ is finitely satisfied in $M$. 
-  Let $a_{\tau,D}\in M$ be a solution of $a\sim_{\tau,D}x$ where $\tau$ ranges over the finite tuples parameter-free terms and $D$ ranges over the compact neighborhoods of the diagonal.
-  Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
-  By (1), $p(x)$ is realized in $M$.
-  Then all its realizations belong to $M$.
-  
-  (2$\Rightarrow$1)
-  Let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a Cauchy type.
-  Then $p(x)\leftrightarrow a\sim x$ for some $a\models p(x)$.
-  By (ac) above, $p'(x)$ is finitely satisfied in $M$. 
-  Then also $a\sim' x$ is finitely satisfied. 
-  Then $p(x)$ is realized in $M$. 
-\end{proof}
+%  (2$\Rightarrow$1)
+%  Let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a Cauchy type.
+% Then $p(x)\rightarrow a\sim x$ for some $a\models p(x)$.
+% By (ac) above, $p'(x)$ is finitely satisfied in $M$. 
+% Then also $a\sim' x$ is finitely satisfied. 
+% Therefore, by (2), $p(x)$ is realized in $M$. 
 
-\begin{fact}\label{fact_cmodel_substr}
-  Let $M$ be a c-model. Then $M$ is a substructure of ${\EuScript U}$.
-\end{fact}
-
-\begin{proof}
-  Let $a\in M^{n}$ and let $f$ be a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
-  We prove that $fa\in M$.
-  By Fact~\ref{fact_finsat}, it suffices to show that $fa\sim' x$ is finitely satisfied in $M$.
-  This is the case, in fact, $\{\exists x\ fa\sim_\tau x\}'$ holds in ${\EuScript U}$ hence, by (ac), it holds also in $M$.
-\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1395,7 +1385,7 @@ The following proposition is our version of the Tarski-Vaught test.
   Assume (2).
   By the classical Tarski-Vaught test $M\preceq_{\sf H}{\EuScript U}$.
   Then $M$ is the domain of a substructure of ${\EuScript U}$.
-  Then $\varphi(a)\ \Leftrightarrow\ M\models\varphi(a)$ holds for every atomic formula $\varphi(x)$ and for every $a\in M^{|x|}$.
+  Then $M\models\varphi(a)\ \Rightarrow\ \varphi(a)$ holds for every atomic formula $\varphi(x)$ and for every $a\in M^{|x|}$.
   Now, assume inductively
   
   \ceq{\hfill M\models\varphi(a,b)}{\Rightarrow}{\varphi(a,b).}
@@ -1434,7 +1424,17 @@ The following proposition is our version of the Tarski-Vaught test.
   Induction for the connectives $\vee$, $\wedge$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, and $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ is straightforward.
 
   For the second part, note that the proof of (1$\Rightarrow$2) also proves (1$'\Rightarrow$2) while the proof of (3$\Rightarrow$1) proves (3$\Rightarrow$1$'$) if we can show that $M$ is a substructure of ${\EuScript U}$.
-  But this the case by Fact~\ref{fact_cmodel_substr}.
+  
+  Let $a\in M^{n}$ and let $f$ be a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
+  We prove that $fa\in M$.
+  By Fact~\ref{fact_finsat}, it suffices to show that $fa\sim' x$ is finitely satisfied in $M$.
+  Consider the formula $fa\sim_{\tau,D} x$.
+  By Lemma~\ref{lem_interpolation}, there is a formula in $\tilde{\varphi}(x)\in{\EuScript L}^{\rm p}(M)$ such that
+  
+  \ceq{\hfill fa\sim_{\tau,\Delta}x}{\rightarrow}{\neg\tilde{\varphi}(x)}\parbox{6ex}{\hfil$\rightarrow$}$fa\sim_{\tau,D} x$
+
+  By Fact~\ref{fact_Fdense}.ii there is a consistent formula  $\neg\psi(x)$, for some $\psi(x)\in{\EuScript F}(M)$, that implies $fa\sim_{\tau,D} x$.
+  Then, by (3), $fa\sim_{\tau,D} x$ is satisfied in $M$.
 \end{proof}
 
 % \begin{remark}
@@ -1458,19 +1458,37 @@ In particular every $A\subseteq{\EuScript U}$ is contained in a standard structu
 In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in ${\EuScript L}_{\sf I}$.
 
-We say that ${\EuScript L}^{\rm p}(A)/{\EuScript L}^{\rm c}(A)$ is \emph{separable\/} if there is a countable subset ${\EuScript L}^{\rm p}(A)/{\EuScript L}^{\rm c}(A)$ that is p-dense/c-dense.
+If there is a countable set ${\EuScript F}$ of positive formulas, we say that ${\EuScript L}^{\rm p}(A)$ is \emph{separable.} 
+Similarly, if there is a countable set ${\EuScript F}$ of continuous formulas, we say that ${\EuScript L}^{\rm c}(A)$ is separable. 
 % In Section~\ref{separability} we will present examples of separable p-models.
 
-\begin{proposition}\label{prop_disjunction_dense}
-  Assume that ${\EuScript L}^{\rm p}(A)$ is separable modulo the theory of ${\EuScript U}$.
-  Then there is a countable p-model $M$ containing $A$.
-  (The size of a p-model is the size of the domain of its home sort.)
+\begin{proposition}
+  Let ${\EuScript L}^{\rm c}(A)$ be separable.
+  Let $\bar A$ be the Cauchy completion of $A$.
+  Then ${\EuScript L}^{\rm c}(\bar A)$ is separable. 
 \end{proposition}
 
 \begin{proof}
-  As in the classical proof of the L\"owenheim-Skolem Theorem,
-  we construct $M\subseteq{\EuScript U}$ that contains a witness for every consistent formula in ${\EuScript F}(M)$.
-  By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a p-model.
+  Let $\varphi(z)\in{\EuScript L}^{\rm c}(A)$ and $a\in\bar A^{|a|}$.
+  Let $\psi(z)\in{\EuScript F}$ be such that $\varphi(z)\rightarrow\psi(z)\rightarrow\varphi'(z)$.
+  By Corollary~\ref{corol_pertubation}, there are $\tau,D$ such that $z\sim_{\tau,D}z'\ \wedge\ \varphi(z)\rightarrow\varphi(x,z')$.
+\end{proof}
+
+
+\begin{proposition}\label{prop_disjunction_dense}\ 
+  \begin{itemize}
+    \item[i.] Let ${\EuScript L}^{\rm p}(A)$ be separable.
+    Then there is a countable p-model $M$ containing $A$.
+  \item[ii.] Let ${\EuScript L}^{\rm c}(A)$ be separable.
+  Then there is a separable c-model $M$ containing $A$.
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  (i) \ As in the classical proof of the L\"owenheim-Skolem Theorem, we construct $M\subseteq{\EuScript U}$ that contains a witness for every consistent formula in ${\EuScript F}(M)$.
+  By Proposition~\ref{prop_Tarski_Vaught}, $M$ is a p-model.
+
+  (ii) \ 
 \end{proof}
 
 \begin{proposition}
