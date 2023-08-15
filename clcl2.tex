@@ -112,8 +112,6 @@
 % \def\existsI{\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}}
 
 
-\def\forallH{\forall}
-\def\forallI{\forall}
 
 \newcommand\questionsign[1][2ex]{%
   \renewcommand\stacktype{L}%
@@ -269,12 +267,12 @@ For instance, it is easy to see (cf.\@ Example~\ref{ex_Rvlogic}) that ${\EuScrip
   Then there is a positive formula that says $\sup_x \tau(x)=\alpha$.
   Indeed, consider the formula
 
-  \ceq{\hfill\forallH x\ \big[\tau(x)\dotminus\alpha\in\{0\}\big]}
-  {\wedge}{\forallI \varepsilon \Big[\varepsilon\in\{0\}\ \vee\ \exists x\ \big[\alpha\dotminus (\tau(x)+\varepsilon)\in\{0\}\big]\Big]}
+  \ceq{\hfill\ x\ \big[\tau(x)\dotminus\alpha\in\{0\}\big]}
+  {\wedge}{\forall \varepsilon \Big[\varepsilon\in\{0\}\ \vee\ \exists x\ \big[\alpha\dotminus (\tau(x)+\varepsilon)\in\{0\}\big]\Big]}
 
   which, in a more legible form, becomes
 
-  \ceq{\hfill\forallH x\ \big[\tau(x)\le\alpha\big]}{\wedge}{\forallI \varepsilon>0\ \exists x\ \big[\alpha\le \tau(x)+ \varepsilon\big].}
+  \ceq{\hfill\ x\ \big[\tau(x)\le\alpha\big]}{\wedge}{\forall \varepsilon>0\ \exists x\ \big[\alpha\le \tau(x)+ \varepsilon\big].}
 \end{example}
 
 The following example is inspired by~\cite{HPP}.
@@ -992,7 +990,7 @@ Therefore we can also claim the following.
   
   \ceq{{\rm i.}\hfill\neg\varphi(x)}
   {\leftrightarrow}
-  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi(x)\rightarrow\neg\varphi(x)\big\}}
+  {\bigvee\big\{\psi'(x)\ :\ \psi'(x)\rightarrow\neg\varphi(x)\textrm{ where }  \psi'>\psi \textrm{ for some consistent } \psi(x)\in{\EuScript F}\big\}}
 
   \ceq{{\rm ii.}\hfill\neg\varphi(x)}
   {\leftrightarrow}
@@ -1008,8 +1006,8 @@ Therefore we can also claim the following.
   Let $p(x)=\mbox{p-tp}(a)$.
   By Fact~\ref{fact_max_cons_L}, $p(x)\rightarrow\neg\varphi(x)$.
   As ${\EuScript F}$ is p-dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
-  Therefore $p(x)\leftrightarrow q(x)$.
-  Then, by compactness, $\psi(x)\rightarrow\neg\varphi(x)$ for some $\psi\in q\subseteq{\EuScript F}$.
+  Therefore $p(x)\leftrightarrow q'(x)$.
+  Then, by compactness, $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'>\psi\in q\subseteq{\EuScript F}$.
 
   (ii) \ By density
 
@@ -1149,7 +1147,7 @@ Still, we can infer an approximate form of equivalence.
 
 For $\tau(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
 
-\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\forallH z\ \ \tau(x,z)=\tau(y,z),}
+\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\forall z\ \ \tau(x,z)=\tau(y,z),}
 
 where the expression $\alpha=\beta$ is shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $I^2$.
 We also define the type 
@@ -1158,7 +1156,7 @@ We also define the type
 
 % We define the following equivalence relation on $U$
 
-% \ceq{\hfill\emph{$a\sim b$}}{=}{\forallH y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
+% \ceq{\hfill\emph{$a\sim b$}}{=}{\forall y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
 
 % When two tuples of the same length $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ are such that $a_i\sim b_i$ for every $i<\lambda$ we write \emph{$\bar a\sim_{\sf I}\bar b$.}
 
@@ -1175,31 +1173,31 @@ We also define the type
   Assume $a_i\sim b_i$ for every $i$.
   Let $|a|=|b|=\lambda$ and assume inductively that
   
-  \ceq{\hfill\forallH y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
+  \ceq{\hfill\forall y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
 
   holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ (universal quantification over the free variables is understood throughout the proof).  
   In particular for any $a_\lambda$
 
-  \ceq{1.\hfill\forallH z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
+  \ceq{1.\hfill\forall z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
 
   As $a_\lambda\sim b_\lambda$ then
 
-  \ceq{\hfill\forallH x,z\ \ \   \tau(x,a_\lambda,z)}{=}{\tau(x,b_\lambda,z)}
+  \ceq{\hfill\forall x,z\ \ \   \tau(x,a_\lambda,z)}{=}{\tau(x,b_\lambda,z)}
 
   and in particular 
 
-  \ceq{2.\hfill\forallH z\ \ \ \tau(b,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
+  \ceq{2.\hfill\forall z\ \ \ \tau(b,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
 
   From (1) and (2) we obtain
 
-  \ceq{\hfill\forallH z\ \ \ \tau(a,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
+  \ceq{\hfill\forall z\ \ \ \tau(a,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
 
   For limit ordinals induction is trivial.
 \end{proof}
 
 Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 
-\ceq{\hfill\emph{$x\sim_{\tau,D}y$}}{=}{\forallH z\ \ \langle \tau(x,z),\tau(y,z)\rangle\in D}
+\ceq{\hfill\emph{$x\sim_{\tau,D}y$}}{=}{\forall z\ \ \langle \tau(x,z),\tau(y,z)\rangle\in D}
 
 for some compact neighborhood $D$ of $\Delta$.
 Hence we define
@@ -1264,10 +1262,13 @@ We say that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if $p({\
 Note that $a\sim x$ is a Cauchy type, therefore Cauchy  complete sets are in particular closed under $\sim$-equivalence.
 
 We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $A$ if every conjunction of formulas in $q(x)$ has a solution in $A^{|x|}$.
+Thoughthe notion is completely classical, in our context it is less roboust.
+We may have that $p(x)$ is finitely satisfiable while $q(x)\leftrightarrow p(x)$ is not.
+In particular if $M$ is a p-model and $q(x)=\mbox{p-tp}(a/M)$ then $q'(x)$ is always finitely satisfiable while $q(x)$ need not.
 
 \begin{fact}\label{fact_finsat}
   Let $\bar A$ be the set of the elements that realize a Cauchy type over $A$.
-  Then $a\in\bar A$ whenever $a\sim'x$ is finitely satisfied in $A$.
+  Assume that $a\sim'x$ is finitely satisfied in $A$, then $a\in\bar A$.
 \end{fact}
 
 \begin{proof}
@@ -1276,6 +1277,9 @@ We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $A$ if every conju
   Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
   Then $\Bar A$ contains all realizations of $p(x)$.
 \end{proof}
+
+We do not know in general wether $\bar A$ is Cauchy complete, nor we know if  the implication in the fact above can be reversed.
+By Proposition~\ref{prop_TV_Cauchycompletion} and Remark~\ref{rem_cmodelfinsat} this is the case under extra assumptions. 
 
 A substructure $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if 
 
@@ -1369,12 +1373,12 @@ The following proposition is our version of the Tarski-Vaught test.
 \begin{proof}
   (1$\Rightarrow$2) Assume $\exists x\,\psi(x)$ and let $\psi'>\psi$ be given.
   By Lemma~\ref{lem_interpolation} there is some $\tilde{\psi}\perp\psi$ such that  $\psi(x)\rightarrow\neg\tilde{\psi}(x)\rightarrow\psi'(x)$.
-  Then $\neg\forallH x\,\tilde{\psi}(x)$ hence, by (1), $M\models\neg\forallH x\,\tilde{\psi}(x)$.
+  Then $\neg\forall x\,\tilde{\psi}(x)$ hence, by (1), $M\models\neg\forall x\,\tilde{\psi}(x)$.
   Then $M\models\neg\tilde{\psi}(a)$ for some $a\in M$. Hence $M\models\psi'(a)$ and $\psi'(a)$ follows from (1).
 
   (2$\Rightarrow$3)
   Assume (2) and let $\psi(x)\in{\EuScript F}(M)$ be such that $\exists x\,\neg\psi(x)$.
-  By Proposition~\ref{prop_disjunction_dense}, there are a consistent $\varphi(x)\in{\EuScript F}(M)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\neg\psi(x)$.
+  By Proposition~\ref{prop_Fapprox}, there are a consistent $\varphi(x)\in{\EuScript F}(M)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\neg\psi(x)$.
   Then (3) follows.
 
   (2$\Rightarrow$1)
@@ -1388,15 +1392,15 @@ The following proposition is our version of the Tarski-Vaught test.
 
   Using (2) and the induction hypothesis we prove by contrapposition that
 
-  \ceq{\hfill M\models\forallH y\,\varphi(a,y)}{\Rightarrow}{\forallH y\,\varphi(a,y)}.
+  \ceq{\hfill M\models\forall y\,\varphi(a,y)}{\Rightarrow}{\forall y\,\varphi(a,y)}.
 
   Indeed,
 
-  \ceq{\hfill\neg\forallH y\,\varphi(a,y)}
-  {\Rightarrow}{\exists y\,\neg\varphi(a,y)}
+  \ceq{\hfill\neg\forall y\,\varphi(a,y)}
+  {\Rightarrow}{\neg\forall y\,\varphi'(a,y)}\hfill \rlap{for some $\varphi'>\varphi$, by Proposition~\ref{prop_approx}}\kern52ex
   
   \ceq{}
-  {\Rightarrow}{\exists y\,\neg\varphi'(a,y)}\hfill \rlap{for some $\varphi'>\varphi$}\kern52ex
+  {\Rightarrow}{\exists y\,\neg\varphi'(a,y)}
   
   \ceq{}
   {\Rightarrow}{\exists y\,\neg\psi(a,y)}\hfill\rlap{for some $\psi\in{\EuScript F}$ such that $\varphi(a,y)\rightarrow\psi(a,y)\rightarrow\varphi'(a,y)$}\kern52ex% in every ${\EuScript L}$-structure
@@ -1415,11 +1419,12 @@ The following proposition is our version of the Tarski-Vaught test.
 
   \ceq{}
   {\Rightarrow}
-  {M\not\models\forallH y\,\varphi(a,y).}
+  {M\not\models\forall y\,\varphi(a,y).}
 
   Induction for the connectives $\vee$, $\wedge$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, and $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ is straightforward.
 
-  For the second part, note that the proof of (1$\Rightarrow$2) also proves (1$'\Rightarrow$2) while the proof of (3$\Rightarrow$1) proves (3$\Rightarrow$1$'$) if we can show that $M$ is a substructure of ${\EuScript U}$.
+  For the second part, note that the proof of (1$\Rightarrow$2) also proves (1$'\!\Rightarrow$2).
+  The proof of (3$\Rightarrow$1) proves (3$\Rightarrow$1$'$) if we can show that $M$ is a substructure of ${\EuScript U}$.
   
   Let $a\in M^{n}$ and let $f$ be a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
   We prove that $fa\in M$.
@@ -1433,35 +1438,33 @@ The following proposition is our version of the Tarski-Vaught test.
   Then, by (3), $fa\sim_{\tau,D} x$ is satisfied in $M$.
 \end{proof}
 
+The second part of the proposition above assumes that $M$ is Cauchy complete.
+This is often a strong limitation.
+Instead, we would like a property of arbitrary sets that allows to infer properies on their completions.
 
-\begin{proposition}\label{prop_Cauchycompletion}
-  Let $M$ be a subtructure of ${\EuScript U}$.
-  Let $\bar M$ be the Cauchy closure of $M$. 
+\begin{proposition}\label{prop_TV_Cauchycompletion}
+  Let $M$ be a subset of ${\EuScript U}$.
+  Let $\bar M$ be the Cauchy completion of $M$. 
   Let ${\EuScript F}$ be a c-dense set of continuous formulas.
-  Assume that for every formula $\psi(x)\in{\EuScript F}(M)$
-    
-    \noindent\kern-\leftmargin
-    \ceq{1.\hfill\exists x\,\psi(x)}{\Rightarrow}
-    {\textrm{ for every }\psi'>\psi\textrm{ there is an }a\in M\textrm{ such that }\psi'(a).}
-  
+  Assume (2) of the proposition above.
   Then $\bar M$ is Cauchy compelte c-model.
 \end{proposition}
 
 \begin{proof}
-  We claim that (1) holds for $\psi(x)\in{\EuScript F}(\bar M)$.
+  We claim that (2) holds also for $\psi(x)\in{\EuScript F}(\bar M)$.
   Let $\psi(x,z)\in{\EuScript F}(M)$ and $\psi'>\psi$ be given.
   Let $b\in\bar M^{|z|}$.
   Assume $\exists x\,\psi(x,b)$ and let $\tau,D$ be such that $z\sim_{\tau,D}b\rightarrow\exists x\,\psi''(x,z)$ where $\psi'>\psi''>\psi$.
-  Without loss of generality we can also assume that $z\sim_{\tau,D}b\wedge\psi''(x,z)\rightarrow\psi'(x,b)$.
+  By Corollary~\ref{corol_pertubation}, we can also assume that $z\sim_{\tau,D}b\wedge\psi''(x,z)\rightarrow\psi'(x,b)$. 
   Let $b'\in M^{|z|}$ be such that $b'\sim_{\tau,D}b$.
-  By (1) there is an $a\in M^{|x|}$ such that $\psi''(a,b')$.
+  By (2) there is an $a\in M^{|x|}$ such that $\psi''(a,b')$.
   Then $\psi'(a,b)$ follows.
   This proves the claim.
 
-  Now we prove that $\bar M$ is Cauchy complete, so that the proposition follows from Proposition~\ref{prop_Tarski_Vaught}.
+  By the proposition above, the proof is complete if we can show that $\bar M$ is Cauchy complete.
   Let $p(x,b)$ be a Cauchy type where $p(x,z)\subseteq{\EuScript L}^{\rm c}(M)$ and $b\in\bar M^{|z|}$.
-  As $p(x,b)\leftrightarrow a\sim'x$ for some/any $a\models p(x,b)$ it suffices to prove that $p(x,b)$ is finitely satisfied in $M$ and apply Proposition~\ref{prop_Cauchycompletion}.
-  But the finite satisfiability of  $p(x,b)$ follows immediately from the claim above.
+  As $p'(x,b)\leftrightarrow a\sim'x$ for some/any $a\models p(x,b)$ it suffices to prove that $p'(x,b)$ is finitely satisfied in $M$ and apply Fact~\ref{fact_finsat}.
+  But the finite satisfiability of $p'(x,b)$ follows immediately from the claim above.
 \end{proof}
 
 
@@ -1482,6 +1485,14 @@ The following proposition is our version of the Tarski-Vaught test.
 %   \end{itemize}
 % \end{remark}
 
+\begin{remark}
+  The proof of the proposition above show that, when $M$ satisfies (2), the following are equivalent (recall that Fact~\ref{fact_finsat} proves (ii)$\Rightarrow$(i) for an arbitrary set $A$).
+  \begin{itemize}
+    \item[i.] $a\in\bar M$;
+    \item[ii.] $a\sim'x$ is finitely satisfied in $M$.
+  \end{itemize}
+\end{remark}
+
 Classically, the main application of the Tarski-Vaught test is in the proof of the downward L\"owen\-heim-Skolem Theorem.
 Note that here the classical downward L\"owenheim-Skolem Theorem holds in full for all ${\EuScript L}$-structures.
 In particular every $A\subseteq{\EuScript U}$ is contained in a standard structure of cardinality $|{\EuScript L}(A)|$.
@@ -1491,20 +1502,18 @@ In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the 
 If there is a countable p-dense set ${\EuScript F}$ of positive formulas, we say that ${\EuScript L}^{\rm p}$ is \emph{separable.} 
 Similarly, if there is a countable c-dense set ${\EuScript F}$ of continuous formulas, we say that ${\EuScript L}^{\rm c}$ is separable.
 
-\begin{proposition}\label{prop_disjunction_dense}\ 
+\begin{proposition}\  Let $A$ be a countable set.
   \begin{itemize}
-    \item[i.] Let ${\EuScript L}^{\rm p}$ be separable.
-    Then there is a countable p-model $M$ containing $A$.
+  \item[i.] Let ${\EuScript L}^{\rm p}$ be separable.
+  Then there is a countable p-model $M$ containing $A$.
   \item[ii.] Let ${\EuScript L}^{\rm c}$ be separable.
-  Then there is a separable c-model $M$ containing $A$.
+  Then the Cauchy completion of some $M$ containing $M$ is a Cauchy complete c-model.
   \end{itemize}
 \end{proposition}
 
 \begin{proof}
-  (i) \ As in the classical proof of the L\"owenheim-Skolem Theorem, we construct $M\subseteq{\EuScript U}$ that contains a witness for every consistent formula in ${\EuScript F}(M)$.
-  By Proposition~\ref{prop_Tarski_Vaught}, $M$ is a p-model.
-
-  (ii) \ 
+  As in the classical proof of the L\"owenheim-Skolem Theorem, we construct $M\subseteq{\EuScript U}$ that contains a witness of $\psi'(x)$ for every consistent $\psi(x)\in{\EuScript F}(M)$.
+  Then (i) and (ii) follow from  Proposition~\ref{prop_Tarski_Vaught} and Proposition~\ref{prop_TV_Cauchycompletion} respectively.
 \end{proof}
 
 \begin{proposition}
@@ -1570,14 +1579,15 @@ Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, the
 \end{fact}
 
 \begin{proof}
-  (1$\Rightarrow$2) By Proposition~\ref{prop_Fapprox}
+  (1$\Rightarrow$2) By Proposition~\ref{prop_Fapprox}.ii.
+
+  (1$\Rightarrow$3) By Proposition~\ref{prop_Fapprox}.i.
+
+  (3$\Rightarrow$1) Let $\psi'>\psi$ be as in (3). Let $\tilde{\psi}\bot\psi$. Then $\neg\tilde{\psi}(x)$ isolates $p(x)$..
   
-  (1$\Rightarrow$3) Recall that ${\EuScript F}'$ is p-dense by Fact~\ref{fact_Fdense}.
-  Apply Proposition~\ref{prop_Fapprox} with ${\EuScript F}'$ for ${\EuScript F}$.
-
   (3$\Rightarrow$4) Trivial.
-
-  (4$\Rightarrow$1) By Proposition~\ref{prop_Sigma_approx}.
+  
+  (4$\Rightarrow$3) By Proposition~\ref{prop_Sigma_approx} and Fact~\ref{fact_Fdense}. 
 \end{proof}
 
 
@@ -1624,7 +1634,8 @@ Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, the
   
 
 \begin{theorem}[Positive Omitting Types]\label{prop_OTT}
-  Let ${\EuScript L}^{\rm p}(A)$ be separable.
+  Let ${\EuScript L}^{\rm p}$ be separable.
+  Let $A$ be countable.
   Assume also that $p(x)\subseteq{\EuScript L}(A)$ is not p-isolated.
   Then there is a p-model $M$ containing $A$ that omits $p(x)$. 
 \end{theorem}
@@ -1632,11 +1643,29 @@ Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, the
 \begin{proof}
   As in the classical proof, appy the lemma above and the Tarski-Vaught test (Proposition~\ref{prop_Tarski_Vaught}) to obtain a countable p-model $M$ that does not isolate $p(x)$.
   For p-models, isolating and realizing are equivalent.
-  % As in the classical proof we construct $M\subseteq{\EuScript U}$ that contains a witness for every consistent formula in ${\EuScript F}(M)$.
-  % By separability and Proposition~\ref{prop_Tarski_Vaught}, $M$ is a p-model.
 \end{proof}
 
-Assume that ${\EuScript L}$ is separable modulo $T$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Continuous omitting types.}
+
+
+A type $p(x)\subseteq{\EuScript L}^{\rm c}$ is \emph{c-isolated\/} by $A$ if for every $\tau,D$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm c}(A)$.
+% When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
+Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ c-isolates $p(x)$, then $p(x)$ is realized in every Cauchy complete c-model containing $A$.
+
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+Assume that ${\EuScript L}^{\rm c}$ is separable modulo $T$.
 A theory $T$ is \emph{positively $\omega$-categorical\/} if any two countable p-models $M,N\models T$ are isomorphic.
 The following analogue of Ryll-Nardzewski's Theorem follows as usual.
 
