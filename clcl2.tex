@@ -278,9 +278,9 @@ For instance, it is easy to see (cf.\@ Example~\ref{ex_Rvlogic}) that ${\EuScrip
 The following example is inspired by~\cite{HPP}.
 
 \begin{example}\label{ex_HPP}
-  Let $\bar M$ be a saturated structure of signature ${\EuScript L}_{\sf H}$.
-  The relevant part of ${\EuScript L}$ contains symbols for the functions $f:\bar M^n\to I$ that are continuous in the following sense: the inverse image of every compact $C\subseteq I$ is type-definable in ${\EuScript L}_{\sf H}(M)$ for every $M\preceq\bar M$.
-  It is easy to verify that $\langle\bar M, I\rangle$ is positively saturated as defined in Section~\ref{compactness}.
+  Let ${\rm Ccl}(M)$ be a saturated structure of signature ${\EuScript L}_{\sf H}$.
+  The relevant part of ${\EuScript L}$ contains symbols for the functions $f:{\rm Ccl}(M)^n\to I$ that are continuous in the following sense: the inverse image of every compact $C\subseteq I$ is type-definable in ${\EuScript L}_{\sf H}(M)$ for every $M\preceq{\rm Ccl}(M)$.
+  It is easy to verify that $\langle{\rm Ccl}(M), I\rangle$ is positively saturated as defined in Section~\ref{compactness}.
 \end{example}
 
 The theory of normed spaces is one of the motivating examples of standard structures.
@@ -825,12 +825,26 @@ We denote by $T$ the positive theory of {${\EuScript U}$.
 The density of a set of formulas is understood modulo $T$.
 Below we say \emph{p-model\/} for p-elementary substructure of ${\EuScript U}$.
 We stress once again that the truth of some $\varphi\in{\EuScript L}^{\rm p}(M)$ in a p-model $M$ implies the truth of $\varphi$ (in ${\EuScript U}$) but not vice versa.
-If also the converse implication holds we say $M$ a \emph{strong p-model.}
+% If also the converse implication holds we say $M$ a \emph{strong p-model.}
 However, all p-models agree on the approximated truth, see Fact~\ref{fact_HImorphisms} and Remark~\ref{rem_model_approx},
 
 \ceq{\hfill M\models\{\varphi\}'}{\Leftrightarrow}{\{\varphi\}'.}
 
-Strong p-models are those that realize the equivalence in Proposition~\ref{prop_approx}, e.g.\@ $\omega$-saturated p-models are strong p-models.
+% Strong p-models are those that realize the equivalence in Proposition~\ref{prop_approx}, e.g.\@ $\omega$-saturated p-models are strong p-models.
+
+A substructure $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if 
+
+\ceq{{\rm c.}\hfill M\models\varphi(a)}{\Rightarrow}{\varphi(a)}
+\hfill
+for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
+
+Note that ${\EuScript L}^{\rm c}$ is closed under weakening and strong negation.
+Therefore the argument in the proof of Fact~\ref{fact_HImorphisms} proves that (c) is equivalent to
+
+\ceq{\hfill M\models\{\varphi(a)\}'}{\Leftrightarrow}{\{\varphi(a)\}'}
+\hfill
+for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
+
 
 % Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 % We define a topology on ${\EuScript U}^{|x|}$ which we call the \emph{${\EuScript L}^{\rm p}(A)$-topology.}
@@ -1142,7 +1156,7 @@ Still, we can infer an approximate form of equivalence.
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cauchy completeness and c-models}\label{Cauchy}
+\section{Cauchy completeness}\label{Cauchy}
 
 
 For $\tau(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
@@ -1255,44 +1269,49 @@ Following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition
 
 
 
-% It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
-We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
-%Equivalenltly, $p(x)$ is a Cauchy type if $p(x)\leftrightarrow a\sim x$ for some/any $a\models p(x)$.
-We say that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if $p({\EuScript U})\subseteq A^{|x|}$ for every Cauchy type $p(x)\subseteq{\EuScript L}^{\rm c}(A)$.
-Note that $a\sim x$ is a Cauchy type, therefore Cauchy  complete sets are in particular closed under $\sim$-equivalence.
-
 We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $A$ if every conjunction of formulas in $q(x)$ has a solution in $A^{|x|}$.
 Literally, this definition coincide with the classical one, but in our context it is less roboust.
 We may have that $p(x)$ is finitely satisfiable while $q(x)\leftrightarrow p(x)$ is not.
 In particular if $M$ is a p-model and $q(x)=\mbox{p-tp}(a/M)$ then $q'(x)$ is always finitely satisfiable while $q(x)$ need not.
 
+% It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
+We say that that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if it contains all those $a\in{\EuScript U}$ such that $a\sim'x$ is finitely satisfied in $A$.
+Note that Cauchy complete sets are in particular closed under $\sim$-equivalence.
+The \emph{Cauchy completion\/} of $A$ is the set 
+
+\ceq{\hfill\emph{${\rm Ccl}(A)$}}{=}{\{a:a\sim'x\textrm{ is finitely satisfied in }A\}}.
+
 \begin{fact}\label{fact_finsat}
-  Let $\bar A$ be the set of the elements that realize a Cauchy type over $A$.
-  Assume that $a\sim'x$ is finitely satisfied in $A$, then $a\in\bar A$.
+  The Cauchy completion of $A$ is Cauchy complete
 \end{fact}
 
 \begin{proof}
-  Assume that $a\sim'x$ is finitely satisfied in $A$. 
-  Let $a_{\tau,D}\in A$ be a solution of $a\sim_{\tau,D}x$ where $\tau$ ranges over the finite tuples parameter-free terms and $D$ ranges over the compact neighborhoods of the diagonal.
-  Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
-  Then $\Bar A$ contains all realizations of $p(x)$.
+  Suppose that $a\sim'x$ is finitely satisfied in ${\rm Ccl}(A)$.
+  Let $\tau,D$ be given.
+  We prove that  $a\sim_{\tau,E}x$ is satisfied in $A$.
+  Let $E$ be a compact neighborhood of the diagonal such that $E\circ E\subseteq D$.
+  There is some $b\in{\rm Ccl}(A)$ such that $b\sim_{\tau,E}a$.
+  There is some $c\in A$ such that $b\sim_{\tau,E}a$.
+  Then $c\sim_{_{\tau,E}}a$ is as required.
 \end{proof}
 
-We do not know in general wether $\bar A$ is Cauchy complete, nor we know if  the implication in the fact above can be reversed.
-By Proposition~\ref{prop_TV_Cauchycompletion} and Remark~\ref{rem_cmodelfinsat} this is the case under extra assumptions. 
+We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
 
-A substructure $M\subseteq{\EuScript U}$ is a \emph{c-model\/} if 
+\begin{fact}
+  Let $M$ be a c-model and let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$.
+  Then all realizations of $p(x)$ belong to ${\rm Ccl}(M)$.
+\end{fact}
 
-\ceq{{\rm c.}\hfill M\models\varphi(a)}{\Rightarrow}{\varphi(a)}
-\hfill
-for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
-
-Note that ${\EuScript L}^{\rm c}$ is closed under weakening and strong negation.
-Therefore the argument in the proof of Fact~\ref{fact_HImorphisms} proves that (c) is equivalent to
-
-\ceq{{\rm ac.}\hfill M\models\{\varphi(a)\}'}{\Leftrightarrow}{\{\varphi(a)\}'}
-\hfill
-for all formulas $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in M^{|x|}$.
+\begin{proof}
+  If $p(x)$ is a Cauchy type, then $p(x)\rightarrow a\sim x$ for some $a\models p(x)$.
+  Thas $M$ is a c-model, $p'(x)$ is finitely satisfied in $M$. 
+  Then also $a\sim' x$ is also finitely satisfied. 
+  Hence $a\in{\rm Ccl}(M)$. 
+  % Assume that $a\sim'x$ is finitely satisfied in $A$. 
+  % Let $a_{\tau,D}\in A$ be a solution of $a\sim_{\tau,D}x$ where $\tau$ ranges over the finite tuples parameter-free terms and $D$ ranges over the compact neighborhoods of the diagonal.
+  % Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
+  % Then $\Bar A$ contains all realizations of $p(x)$.
+\end{proof}
 
 
 
@@ -1346,7 +1365,7 @@ For brevity we will often confuse $[a]$ with $a$.
 
 The following proposition is our version of the Tarski-Vaught test.
 
-\begin{proposition}\label{prop_Tarski_Vaught}
+\begin{theorem}\label{thm_Tarski_Vaught}
   Let $M$ be a subset of ${\EuScript U}$.
   Let ${\EuScript F}$ be a p-dense set of positive formulas.
   Then the following are equivalent
@@ -1364,11 +1383,11 @@ The following proposition is our version of the Tarski-Vaught test.
     \ceq{\hfill \exists x\,\neg\psi(x)}{\Rightarrow}
     {\textrm{ there is an }a\in M\textrm{ such that }\neg\psi(a).}
   \end{itemize}
-  If $M$ is Cauchy compelte and ${\EuScript F}$ is a c-dense set of continuous formulas then (2) and (3) above are equivalent to
+  If ${\EuScript F}$ is a c-dense set of continuous formulas then (2) and (3) above are equivalent to
   \begin{itemize}
-    \item[1$'$.] $M$ is a c-model.
+    \item[1$'$.] ${\rm Ccl}(M)$ is a c-model.
   \end{itemize}
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
   (1$\Rightarrow$2) Assume $\exists x\,\psi(x)$ and let $\psi'>\psi$ be given.
@@ -1381,6 +1400,12 @@ The following proposition is our version of the Tarski-Vaught test.
   By Proposition~\ref{prop_Fapprox}, there are a consistent $\varphi(x)\in{\EuScript F}(M)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\neg\psi(x)$.
   Then (3) follows.
 
+  (3$\Rightarrow$2)
+  Let $\psi'>\psi$ for some $\psi(x)\in{\EuScript F}(M)$.
+  Let $\tilde{\psi}\bot\psi$ such that $\psi(x)\rightarrow\neg\tilde{\psi}(x)\rightarrow\psi'(x)$.
+  By Fact~\ref{prop_Fapprox}.ii, $\neg\varphi(x)\rightarrow\neg\tilde{\psi}(x)$ for some $\varphi(x)\in{\EuScript F}(M)$ such that $\neg\varphi(x)$ is consistent.
+  Then (2) follows from (3).
+  
   (2$\Rightarrow$1)
   Assume (2).
   By the classical Tarski-Vaught test $M\preceq_{\sf H}{\EuScript U}$.
@@ -1390,45 +1415,52 @@ The following proposition is our version of the Tarski-Vaught test.
   
   \ceq{\hfill M\models\varphi(a,b)}{\Rightarrow}{\varphi(a,b).}
 
-  Using (2) and the induction hypothesis we prove by contrapposition that
+  Using (2) and the induction hypothesis we prove that
 
-  \ceq{\hfill M\models\forall y\,\varphi(a,y)}{\Rightarrow}{\forall y\,\varphi(a,y)}.
+  \ceq{\hfill M\models\exists y\,\varphi(a,y)}{\Rightarrow}{\forall y\,\varphi(a,y)}.
 
-  Indeed,
+  Indeed, for any $\varphi'>\varphi$,
 
-  \ceq{\hfill\neg\forall y\,\varphi(a,y)}
-  {\Rightarrow}{\neg\forall y\,\varphi'(a,y)}\hfill \rlap{for some $\varphi'>\varphi$, by Proposition~\ref{prop_approx}}\kern52ex
-  
-  \ceq{}
-  {\Rightarrow}{\exists y\,\neg\varphi'(a,y)}
-  
-  \ceq{}
-  {\Rightarrow}{\exists y\,\neg\psi(a,y)}\hfill\rlap{for some $\psi\in{\EuScript F}$ such that $\varphi(a,y)\rightarrow\psi(a,y)\rightarrow\varphi'(a,y)$}\kern52ex% in every ${\EuScript L}$-structure
+  \ceq{\hfill M\models\exists y\,\varphi(a,y)}
+  {\Rightarrow}{M\models\exists y\,\psi(a,y)}\hfill\rlap{for some $\psi\in{\EuScript F}$ such that $\varphi(a,y)\rightarrow\psi(a,y)\rightarrow\varphi'(a,y)$}\kern52ex% in every ${\EuScript L}$-structure
   
   \ceq{}
   {\Rightarrow}
-  {\neg\psi(a,b)}\hfill\rlap{for some $b\in M$ by (2)}\kern52ex
+  {M\models\psi(a,b)}\hfill\rlap{for some $b\in M$ by (2)}\kern52ex
   
   \ceq{}
   {\Rightarrow}
-  {\neg\varphi(a,b)}
+  {M\models\varphi'(a,b)}
   
   \ceq{}
   {\Rightarrow}
-  {M\models\neg\varphi(a,b)}\hfill\rlap{by induction hypothesis}\kern52ex
+  {\varphi'(a,b)}\hfill\rlap{by induction hypothesis}\kern52ex
 
   \ceq{}
   {\Rightarrow}
-  {M\not\models\forall y\,\varphi(a,y).}
+  {\exists y\,\varphi'(a,y).}
 
-  Induction for the connectives $\vee$, $\wedge$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, and $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ is straightforward.
+  As $\varphi'>\varphi$ is arbitrary, $\exists y\,\varphi(a,y)$ follows from Proposition~\ref{prop_approx}.
 
-  For the second part, note that the proof of (1$\Rightarrow$2) also proves (1$'\!\Rightarrow$2).
-  The proof of (3$\Rightarrow$1) proves (3$\Rightarrow$1$'$) if we can show that $M$ is a substructure of ${\EuScript U}$.
+  Induction for the connectives $\vee$, $\wedge$, $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, and $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ is straightforward.
+
+\hfil***
+
+  (1$'\!\Rightarrow$2)
+  Let $\psi'>\psi''>\psi$.
+  Reasoning as in the proof of (1$\Rightarrow$2) we obtain that ${\rm Ccl}(M)\models\psi''(a)$ for some $a\in{\rm Ccl}(M)$.
+  By Corollary~\ref{corol_pertubation}, $a\sim_{\tau,D}x\rightarrow\psi'(x)$ for some $\tau,D$.
+  As $a\sim'x$ is finitely satisflied in $M$, it follows that $\psi'(c)$ for some $c\in M$.
+
+  (2$\Leftrightarrow$3)
+  The proof above applies verbatim when ${\EuScript F}$ is a c-dense set of continuous formulas.
   
+  (3$\Rightarrow$1$'$)
+  Assume (3).
+  We claim that ${\rm Ccl}(M)$ is a substructure of ${\EuScript U}$.  
   Let $a\in M^{n}$ and let $f$ be a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
   We prove that $fa\in M$.
-  By Fact~\ref{fact_finsat}, it suffices to show that $fa\sim' x$ is finitely satisfied in $M$.
+  We show that $fa\sim' x$ is finitely satisfied in $M$.
   Consider the formula $fa\sim_{\tau,D} x$.
   By Lemma~\ref{lem_interpolation}, there is a formula in $\tilde{\varphi}(x)\in{\EuScript L}^{\rm p}(M)$ such that
   
@@ -1436,38 +1468,20 @@ The following proposition is our version of the Tarski-Vaught test.
 
   By Fact~\ref{fact_Fdense}.ii there is a consistent formula  $\neg\psi(x)$, for some $\psi(x)\in{\EuScript F}(M)$, that implies $fa\sim_{\tau,D} x$.
   Then, by (3), $fa\sim_{\tau,D} x$ is satisfied in $M$.
-\end{proof}
+  This proves our claim.
 
-The second part of the proposition above assumes that $M$ is Cauchy complete.
-This is often a strong limitation.
-Instead, we would like a property of arbitrary sets that allows to infer properies on their completions.
-
-\begin{proposition}\label{prop_TV_Cauchycompletion}
-  Let $M$ be a subset of ${\EuScript U}$.
-  Let $\bar M$ be the Cauchy completion of $M$. 
-  Let ${\EuScript F}$ be a c-dense set of continuous formulas.
-  Assume (2) of the proposition above.
-  Then $\bar M$ is Cauchy compelte c-model.
-\end{proposition}
-
-\begin{proof}
-  We claim that (2) holds also for $\psi(x)\in{\EuScript F}(\bar M)$.
+  Now, we claim that (2) holds also for every $\psi(x)\in{\EuScript F}\big({\rm Ccl}(M)\big)$.
   Let $\psi(x,z)\in{\EuScript F}(M)$ and $\psi'>\psi$ be given.
-  Let $b\in\bar M^{|z|}$.
-  Assume $\exists x\,\psi(x,b)$ and let $\tau,D$ be such that $z\sim_{\tau,D}b\rightarrow\exists x\,\psi''(x,z)$ where $\psi'>\psi''>\psi$.
+  Let $b\in{\rm Ccl}(M)^{|z|}$.
+  Suppose that $\exists x\,\psi(x,b)$ and let $\tau,D$ be such that $z\sim_{\tau,D}b\rightarrow\exists x\,\psi''(x,z)$ where $\psi'>\psi''>\psi$.
   By Corollary~\ref{corol_pertubation}, we can also assume that $z\sim_{\tau,D}b\wedge\psi''(x,z)\rightarrow\psi'(x,b)$. 
   Let $b'\in M^{|z|}$ be such that $b'\sim_{\tau,D}b$.
   By (2) there is an $a\in M^{|x|}$ such that $\psi''(a,b')$.
   Then $\psi'(a,b)$ follows.
-  This proves the claim.
+  This proves the second claim.
 
-  By the proposition above, the proof is complete if we can show that $\bar M$ is Cauchy complete.
-  Let $p(x,b)$ be a Cauchy type where $p(x,z)\subseteq{\EuScript L}^{\rm c}(M)$ and $b\in\bar M^{|z|}$.
-  As $p'(x,b)\leftrightarrow a\sim'x$ for some/any $a\models p(x,b)$ it suffices to prove that $p'(x,b)$ is finitely satisfied in $M$ and apply Fact~\ref{fact_finsat}.
-  But the finite satisfiability of $p'(x,b)$ follows immediately from the claim above.
+  By the two claims above, the inductive argument in the proof in (2$\Rightarrow$1) applies to prove that ${\rm Ccl}(M)$ is a c-model.
 \end{proof}
-
-
 
 
 % \begin{remark}
@@ -1485,15 +1499,8 @@ Instead, we would like a property of arbitrary sets that allows to infer properi
 %   \end{itemize}
 % \end{remark}
 
-\begin{remark}
-  The proof of the proposition above show that, when $M$ satisfies (2), the following are equivalent (recall that Fact~\ref{fact_finsat} proves (ii)$\Rightarrow$(i) for an arbitrary set $A$).
-  \begin{itemize}
-    \item[i.] $a\in\bar M$;
-    \item[ii.] $a\sim'x$ is finitely satisfied in $M$.
-  \end{itemize}
-\end{remark}
 
-Classically, the main application of the Tarski-Vaught test is in the proof of the downward L\"owen\-heim-Skolem Theorem.
+Classically, the first application of the Tarski-Vaught test is in the proof of the downward L\"owen\-heim-Skolem Theorem.
 Note that here the classical downward L\"owenheim-Skolem Theorem holds in full for all ${\EuScript L}$-structures.
 In particular every $A\subseteq{\EuScript U}$ is contained in a standard structure of cardinality $|{\EuScript L}(A)|$.
 In this form the L\"owenheim-Skolem Theorem is not very informative.
@@ -1507,13 +1514,13 @@ Similarly, if there is a countable c-dense set ${\EuScript F}$ of continuous for
   \item[i.] Let ${\EuScript L}^{\rm p}$ be separable.
   Then there is a countable p-model $M$ containing $A$.
   \item[ii.] Let ${\EuScript L}^{\rm c}$ be separable.
-  Then the Cauchy completion of some $M$ containing $M$ is a Cauchy complete c-model.
+  Then there is a contable set $M$ containing $A$ such that ${\rm Ccl}(M)$ c-model.
   \end{itemize}
 \end{proposition}
 
 \begin{proof}
   As in the classical proof of the L\"owenheim-Skolem Theorem, we construct $M\subseteq{\EuScript U}$ that contains a witness of $\psi'(x)$ for every consistent $\psi(x)\in{\EuScript F}(M)$.
-  Then (i) and (ii) follow from  Proposition~\ref{prop_Tarski_Vaught} and Proposition~\ref{prop_TV_Cauchycompletion} respectively.
+  Then (i) and (ii) follow from Theorem~\ref{thm_Tarski_Vaught}.
 \end{proof}
 
 \begin{proposition}
@@ -1537,7 +1544,7 @@ Similarly, if there is a countable c-dense set ${\EuScript F}$ of continuous for
 % \end{proposition}
 
 % \begin{proof}
-%   As in the classical L\"owenheim-Skolem Theorem, using (2) of Proposition~\ref{prop_Tarski_Vaught}.
+%   As in the classical L\"owenheim-Skolem Theorem, using (2) of Theorem~\ref{thm_Tarski_Vaught}.
 % \end{proof}
 
 
@@ -1565,7 +1572,7 @@ Similarly, if there is a countable c-dense set ${\EuScript F}$ of continuous for
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} by $A$.
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
-Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, then $p(x)$ is realized in every p-model containing $A$.
+Note that, by Theorem~\ref{thm_Tarski_Vaught}, if $A$ p-isolates $p(x)$, then $p(x)$ is realized in every p-model containing $A$.
 
 \begin{fact}\label{fact_isolation}
   Let ${\EuScript F}$ be a p-dense set of positive formulas.
@@ -1641,7 +1648,7 @@ Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, the
 \end{theorem}
 
 \begin{proof}
-  As in the classical proof, appy the lemma above and the Tarski-Vaught test (Proposition~\ref{prop_Tarski_Vaught}) to obtain a countable p-model $M$ that does not isolate $p(x)$.
+  As in the classical proof, appy the lemma above and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable p-model $M$ that does not isolate $p(x)$.
   For p-models, isolating and realizing are equivalent.
 \end{proof}
 
@@ -1656,7 +1663,7 @@ Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ p-isolates $p(x)$, the
 
 A type $p(x)\subseteq{\EuScript L}^{\rm c}$ is \emph{c-isolated\/} by $A$ if for every $\tau,D$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm c}(A)$.
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
-Note that, by Propsition~\ref{prop_Tarski_Vaught}, if $A$ c-isolates $p(x)$, then $p(x)$ is realized in every Cauchy complete c-model containing $A$.
+Note that, by Theorem~\ref{thm_Tarski_Vaught}, if $A$ c-isolates $p(x)$, then $p(x)$ is realized in every Cauchy complete c-model containing $A$.
 
 
 \hrulefill
