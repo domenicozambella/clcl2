@@ -193,7 +193,7 @@ Our notation and terminology diverges slightly where needed.
 \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
 Let \emph{$I$\/} be some fixed first-order structure which is endowed with a Hausdorff compact topology (in particular, a normal topology).
-The language \emph{${\EuScript L}_{\sf I}$\/} contains relation symbols for the compact subsets $C\subseteq I^n$ and a function symbol for each continuous functions $f:I^n\to I$.
+The language \emph{${\EuScript L}_{\sf I}$\/} contains a relation symbol for each compact subsets $C\subseteq I^n$ and a function symbol for each continuous functions $f:I^n\to I$.
 In particular, there is a constant for each element of $I$.
 According to the context, $C$ and $f$ denote either the symbols of ${\EuScript L}_{\sf I}$ or their interpretation in the stucture $I$.
 Such a language ${\EuScript L}_{\sf I}$ is much larger than necessary but it is convenient because it uniquely associates a structure to a topological space.
@@ -244,7 +244,7 @@ Note that ${\EuScript L}$ has two types of atomic formulas:
   A \emph{continuous\/} formula is a positive formula where only atomic formulas as in (2) above occur.
   The set of continuous formulas is denoted by \emph{${\EuScript L}^{\rm c}$.}
 
-  We write \emph{${\EuScript L}^{\rm p/c}$\/} when we refer simultaneously to both ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$. 
+  Sentences containing \emph{${\EuScript L}^{\rm p/c}$\/} should be read twice: substituting ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ consistently. 
 
   We will use Latin letters $x,y,z$ for variables of sort ${\sf H}$ and Greek letters $\eta,\varepsilon$ for variables of sort ${\sf I}$.
   Therefore we can safely drop the superscript from quantifiers if they are followed by variables.
@@ -256,10 +256,17 @@ The positive formulas of Henson and Iovino correspond to those formulas in ${\Eu
 
 Working within ${\EuScript L}^{\rm p}$ simplifies the comparision with classical model theory but comes at a price.
 Instead, allowing quantifiers of sort ${\sf I}$ comes almost for free.
-We will see (cf.\@ Propositions~\ref{prop_LHapprox1}) that the formulas in ${\EuScript L}^{\rm p/c}$ are approximated by formulas without quantifiers of sort ${\sf I}$.
+We will see (cf.\@ Propositions~\ref{prop_LHapprox1}) that the formulas in ${\EuScript L}^{\rm p/c}$ are approximated by formulas in ${\EuScript L}^{\rm p/c}$ without quantifiers of sort ${\sf I}$.
+
+The main fact to note about ${\EuScript L}^{\rm c}$ is that it is a language without equality of sort ${\sf H}$.
+The difference beween working with ${\EuScript L}^{\rm p}$ or ${\EuScript L}^{\rm c}$ is similar to the difference between working with integrable functions or with elements of the Lebesgue space $L^1$.
+For the latter only equality almost everywhere makes sense.
+However, even when $L^1$ is our focus of interest, it is often easier to argue about real valued functions.
+For a similar reason ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ are better studied in parallel.
+
 
 The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
-For instance, it is easy to see (cf.\@ Example~\ref{ex_Rvlogic}) that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic%
+For instance, it is easy to see (cf.\@ Example~\ref{ex_Rvlogic}) that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic.%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
 %A painstaking technical comparison with real valued logic is not in the scope of this indroductory exploratory paper.}.
 
@@ -354,20 +361,18 @@ For every type $p(x)$, we write
 in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
 
 \begin{definition}\label{def_dense}
-  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p-dense\/} modulo $T$, a theory, if for every positive $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
-  If $T$ is empty, we say that ${\EuScript F}$ is p-dense modulo ${\EuScript L}$.
-
-  We say \emph{c-dense\/} if the property above is only required to hold for continuous formulas.
+  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p/c-dense\/} modulo $T$, a theory, if for every positive/continuous $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
+  If $T$ is empty, we say p/c-dense modulo ${\EuScript L}$.
 \end{definition}
 
 \begin{example}
-  By Lemma~\ref{lem_interpolation}, the set of negations of positive formulas is p-dense modulo ${\EuScript L}$.
+  By Lemma~\ref{lem_interpolation}, the set of negations of positive/continuous formulas is p/c-dense modulo ${\EuScript L}$.
 \end{example}
 
 \begin{example}
   Let $I=[0,1]$.
   The set of formulas built inductively from atomic formulas of the form $\tau\in\{0\}$, is c-dense modulo ${\EuScript L}$.
-  In fact, as every compact subset of $I$ is the intersection of finite unions of closed intervals, the set of formulas containing only atomic formulas of the form $\tau\in[\alpha,\beta]$ is c-dense.
+  In fact, as every compact subset of $I$ is the intersection of finite unions of closed intervals, the formulas built using only atomic formulas of the form $\tau\in[\alpha,\beta]$ are c-dense.
   Finally note that $\tau\in[\alpha,\beta]$ is equivalent to $\tau\dotminus\beta\in\{0\}\ \wedge\ \alpha\dotminus\tau\in\{0\}$.
 \end{example}
 
@@ -1515,7 +1520,7 @@ The following proposition is our version of the Tarski-Vaught test.
 
 
 \begin{remark}\label{rem_Tarski_Vaught}
-  The theorem above shows in particular that or every substructure $M$ the following are equivalent
+  The theorem above shows in particular that For every substructure $M$ the following are equivalent
   \begin{itemize}
     \item[1.] $M$ is a c-model;
     \item[2.] ${\rm Ccl}(M)$ is a c-model.
@@ -1684,12 +1689,12 @@ In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Continuous omitting types.}
 
-We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{c-isolated\/} by $A$ if for every $\tau,D$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm c}(A)$.
+We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{weakly c-isolated\/} by $A$ if for every $\tau,D$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm c}(A)$.
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
 
 \begin{fact}  
   Let ${\EuScript L}^{\rm c}$ be separable.
-  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated by $A$, then $p(x)$ is realized in every Cauchy complete c-model containing $A$.
+  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is weakly c-isolated by $A$, then $p(x)$ is realized in ${\rm Ccl}(M)$ for every c-model $M$ containing $A$.
 \end{fact}
 
 \begin{proof}
@@ -1697,22 +1702,51 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{c-isola
   
   \ceq{\hfill x\sim y}{\leftrightarrow}{\bigwedge\big\{x\sim_{\tau_n,D_n}y\ :\ n<\omega\big\}.}
   
-  Let $M$ be a Cauchy complete c-model containing $A$.
+  Let $M$ be a c-model containing $A$.
   Let $a_n\in M$ be such that $\exists x\sim_{\tau_i,D_i}a_n\ p(x)$ for every $i<n$.
   By compactness, $b\models p(x)$ for some $b\in{\EuScript U}$ such that $b\sim_{\tau_i,D_i}a_i$ for every $i<\omega$.
-  Then $b\sim'x$ is finitely satisfied in $M$ and therefore $b\in M$.
+  Then $b\sim'x$ is finitely satisfied in $M$ and therefore $b\in{\rm Ccl}(M)$.
 \end{proof}
 
+ \begin{fact}\label{fact_wcisolatio_realization} 
+   Let ${\EuScript L}^{\rm c}$ be separable.
+   If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is weakly c-isolated by $M$.
+ \end{fact}
+ 
+\begin{proof}
+  Let $b\in{\rm Ccl}(M)$ realize $p(x)$.
+  Let $\tau,D$ be given.
+  By Fact~\ref{fact_isolation} it suffices to find a continuous formula $\varphi(x)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\exists y\sim_{\tau,D}x\ p(y)$.
+  Let $C$ be a neighborhood of the diagonal such that $C'\circ C'\subseteq D$ for some $C'>C$ is contained in $D$.
+  Let $a\in M$ be such that $a\sim_{\tau,C} b$.
+  Then we can take $x\sim_{\tau,C}a$ as $\varphi(x)$.
+\end{proof}
 
+\begin{theorem}[Continuous Omitting Types]\label{prop_cOTT}
+  Let ${\EuScript L}^{\rm c}$ be separable.
+  Let $A$ be countable.
+  Assume also that $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is not weakly c-isolated.
+  Then there is a c-model $M$ containing $A$ that ${\rm Ccl}(M)$ omits $p(x)$. 
+\end{theorem}
 
-\hrulefill
+\begin{proof}
+  By assumption, $\exists y\sim_{\tau,D}x\ p(y)$ is not c-isolated for some $\tau,D$. 
+  Appy Lemma~\ref{lem_kuratowskiUlam} and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable c-model $M$ that does not isolate the type $\exists y\sim_{\tau,D}x\ p(y)$.
+  Then $M$ does not weakly isolates $p(x)$.
+  By Fact~\ref{fact_wcisolatio_realization}, ${\rm Ccl}(M)$ omits $p(x)$. 
+\end{proof}
 
-\hrulefill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Continuous $\omega$-categoricity.}
 
-\hrulefill
 
 Assume that ${\EuScript L}^{\rm c}$ is separable modulo $T$.
-A theory $T$ is \emph{positively $\omega$-categorical\/} if any two countable p-models $M,N\models T$ are isomorphic.
+A theory $T$ is \emph{continuously $\omega$-categorical\/} if any two countable c-models $M,N\models T$ the models ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are isomorphic.
 The following analogue of Ryll-Nardzewski's Theorem follows as usual.
 
 \begin{theorem}
