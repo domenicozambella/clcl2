@@ -264,7 +264,6 @@ For the latter only equality almost everywhere makes sense.
 However, even when $L^1$ is our focus of interest, it is often easier to argue about real valued functions.
 For a similar reason ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ are better studied in parallel.
 
-
 The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
 For instance, it is easy to see (cf.\@ Example~\ref{ex_Rvlogic}) that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic.%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
@@ -404,7 +403,7 @@ When the identity map ${\rm id}_M:M\rightarrow N$ is an p-elementary embedding,
 we write \emph{$M\preceq^{\rm p} N$\/} and say that $M$ is an p-elementary \emph{substructure\/} of $N$.
 
 The discussion of c-elementarity needs some extra care because ${\EuScript L}^{\rm c}$ does not contains equality in the home sort.
-Therefore we postpone it till Section~\ref{IeliminationC}.
+Therefore we postpone it till Section~\ref{cIelimination}.
 
 On the other hand, as p-elementary maps are in particular ${\EuScript L}_{\sf H}$-elementary, they are injective.
 However, their inverse need not be p-elementary.
@@ -967,17 +966,17 @@ In general, if ${\EuScript F}$ is any set of formulas, we write \emph{${\EuScrip
 The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-type.
 
 \begin{fact}\label{fact_max_cons_L}
-  Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$.
+  Let $p(x)\subseteq{\EuScript L}^{\rm p/c}(A)$.
   The following are equivalent 
   \begin{itemize}
-    \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript L}^{\rm p}_x(A)$;
-    \item[2.] $p(x)=\mbox{p-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
+    \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript L}^{\rm p/c}_x(A)$;
+    \item[2.] $p(x)=\mbox{p/c-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
 \end{fact}
 
 \begin{proof}
   (1$\Rightarrow$2) 
-  Then $p(x)\subseteq\mbox{p-tp}(a/A)$ and, by maximality $p(x)=\mbox{p-tp}(a/A)$.
+  Then $p(x)\subseteq\mbox{p/c-tp}(a/A)$ and, by maximality $p(x)=\mbox{p/c-tp}(a/A)$.
 
   (2$\Rightarrow$1) 
   From Lemma~\ref{lem_interpolation} and Proposition~\ref{prop_approx} we obtain
@@ -986,7 +985,7 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
   {\rightarrow}
   {\bigvee_{\tilde{\varphi}\perp\varphi}\tilde{\varphi}(x).}
 
-  Suppose $\varphi(x)\in{\EuScript L}^{\rm p}(A)\smallsetminus  p$.
+  Suppose $\varphi(x)\in{\EuScript L}^{\rm p/c}(A)\smallsetminus  p$.
   Then $\neg\varphi(a)$.
   Hence $\tilde{\varphi}(a)$ holds for some $\tilde{\varphi}\perp\varphi$ and $p(x)\rightarrow\neg\varphi(x)$ follows.
 \end{proof}
@@ -994,7 +993,7 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
 Note that in the proof above we could replace ${\EuScript L}^{\rm p}$ with any set of positive formulas closed under strong negation.
 Therefore we can also claim the following.
 
-\begin{fact}\label{fact_max_cons_H}
+\begin{fact}\label{fact_max_cons_F}
   Let $p(x)\subseteq{\EuScript F}(A)$, where ${\EuScript F}$ is a set of positive formulas closed under strong negation.
   Then the following are equivalent 
   \begin{itemize}
@@ -1093,8 +1092,11 @@ The following follows easily from the proposition above by induction on the synt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Elimination of quantifiers of sort \textsf{I} for positive formulas}\label{Ielimination}
 
-We show that the quantifiers of sort ${\sf I}$ can be eliminated up to some approximation.
-Precisely, we prove that \emph{${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$}, the set of positive formulas without quantifiers of sort ${\sf I}$, is p-dense modulo $T$ (the theory of ${\EuScript U}$).
+We write \emph{${\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$} for the set of positive/continuous formulas without quantifiers of sort ${\sf I}$.
+
+In this section we show that ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ is p-dense modulo $T$ (the theory of ${\EuScript U}$).
+In plain words, this amounts to the elimination of the quantifiers of sort ${\sf I}$ up to some approximation.
+In Section~\ref{cIelimination} we prove the analogous result for ${\EuScript L}^{\rm c}$.
 
 A partial map is \emph{${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary\/} if it preserves the truth of formulas in ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$.
 
@@ -1108,7 +1110,7 @@ A partial map is \emph{${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary\/} i
 \end{proof}
 
 Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
-We apply the proposition above to obtain a strengthening of Fact~\ref{fact_max_cons_H}.
+We apply the proposition above to obtain a strengthening of Fact~\ref{fact_max_cons_F}.
 For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ satisfy the same ${\EuScript L}$-formulas over $A$.
 
 \begin{corollary}\label{corol_Lcomplete}
@@ -1167,9 +1169,9 @@ Still, we can infer an approximate form of equivalence.
 \section{Cauchy completeness}\label{Cauchy}
 
 
-For $\tau(x,z)$ a term of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
+For $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ a tuple of terms of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
 
-\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\forall z\ \ \tau(x,z)=\tau(y,z),}
+\ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\bigwedge_{i=1}^n\forall z\ \ \tau_i(x,z)=\tau_i(y,z),}
 
 where the expression $\alpha=\beta$ is shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $I^2$.
 We also define the type 
@@ -1192,8 +1194,9 @@ We also define the type
   \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
   %
   Only implication $\Leftarrow$ requires a proof.
+
   Assume $a_i\sim b_i$ for every $i$.
-  Let $|a|=|b|=\lambda$ and assume inductively that
+  Let $|a|=|b|=\lambda$ and assume inductively that (it suffices to consider tuples $\tau$ of arity $1$) 
   
   \ceq{\hfill\forall y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
 
@@ -1219,22 +1222,20 @@ We also define the type
 
 Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 
-\ceq{\hfill\emph{$x\sim_{\tau,D}y$}}{=}{\forall z\ \ \langle \tau(x,z),\tau(y,z)\rangle\in D}
+\ceq{\hfill\emph{$x\sim_{\tau,D}y$}}{=}{\bigwedge_{i=1}^n\forall z\ \ \langle \tau_i(x,z),\tau_i(y,z)\rangle\in D}
 
 for some compact neighborhood $D$ of $\Delta$.
 Hence we define
 
 \ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ as above, } D\textrm{ compact neigborhood of }\Delta\Big\}.}
 
-If $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ is a tuple of terms, by \emph{$x\sim_{\tau,D}y$\/} we denote the conjunction of the formulas $x\sim_{\tau_i,D}y$.
-
-The formulas $x\sim_{\tau,D}y$, as $\tau$ ranges over the finite tuples parameter-free terms and $D$ over the compact neighborhoods of the diagonal, form a base for a system of entougages on ${\EuScript U}^{|x|}$.
+The formulas $x\sim_{\tau,D}y$, as $\tau, D$ range as above, form a prebase for a system of entougages on ${\EuScript U}^{|x|}$.
 We refer to this uniformity and the topology associated as the \emph{$I$-topology.}
 Though not needed in the sequel, it is worth mentioning that the $I$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the $I$-topology on ${\EuScript U}$.
 This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
 
 \begin{fact}\label{fact_continuous}
-  For every $\varphi(x)\in{\EuScript L}^{\rm p}$ that does not contain subformulas of sort ${\EuScript L}_{\sf H}$
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}$ 
 
   \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x,\eta)\leftrightarrow\varphi(y,\eta)}
 \end{fact}
@@ -1271,7 +1272,7 @@ Following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition
 \end{corollary}
 
 \begin{proof}
-  As $x\sim y\ \cup\ \big\{\varphi(x)\big\}\ \rightarrow\ \varphi(y)$ by the fact above, (i)) follows from Fact~\ref{fact_compactness_imp}.
+  As $x\sim y\ \cup\ \big\{\varphi(x)\big\}\ \rightarrow\ \varphi(y)$ by the fact above, (i) follows from Fact~\ref{fact_compactness_imp}.
   Similarly, we obtain (ii) from $x\sim y\ \cup\ \big\{\tilde{\varphi}(x)\big\}\ \rightarrow\ \neg\varphi(y)$.
 \end{proof}
 
@@ -1287,7 +1288,7 @@ We say that that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if 
 Note that Cauchy complete sets are in particular closed under $\sim$-equivalence.
 The \emph{Cauchy completion\/} of $A$ is the set 
 
-\ceq{\hfill\emph{${\rm Ccl}(A)$}}{=}{\{a:a\sim'x\textrm{ is finitely satisfied in }A\}}.
+\ceq{\hfill\emph{${\rm Ccl}(A)$}}{=}{\big\{a:a\sim'x\textrm{ is finitely satisfied in }A\big\}}.
 
 \begin{fact}\label{fact_finsat}
   The Cauchy completion of $A$ is Cauchy complete
@@ -1336,32 +1337,75 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauch
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Elimination of quantifiers of sort \textsf{I} for continuous formulas}\label{IeliminationC}
+\section{Elimination of quantifiers of sort \textsf{I} for continuous formulas}\label{cIelimination}
 
 We adapt the argument in the previous section to continuous formulas.
-But first we need some definitions.
+But first we need to define c-elementary maps which is slightly delicate due to the lack of equality.
 
 Let ${\EuScript U}/{\sim}$ be the quotient of ${\EuScript U}$ by the equivalence relation defined in Section~\ref{Cauchy}.
 The equivalence class of $a\in{\EuScript U}$ is denoted by $[a]$.
-A \emph{c-elementary\/} map is a (partial) map $f:{\EuScript U}/{\sim}\ \to\ {\EuScript U}/{\sim}$ such that $\varphi(a)\rightarrow\varphi(b)$ for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a,b$ such that $f\big([a]\big)=[b]$.
 
-The class ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$ and the \emph{${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary\/} maps are defined in analogy to their positive variants.
-An automorphism of ${\EuScript U}/{\sim}$ is a total and surjective  ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary map (which is also c-elementary).
+It would be appropriate to introduce morphisms as maps ${\EuScript U}/{\sim}\rightarrow{\EuScript U}/{\sim}$ or, alternatively, as relations on ${\EuScript U}$.
+Unfortunately, both these options are lead to a somewhat unpleasant notation.
+The following definition is less natural but more convenient.
 
-For brevity we will often confuse $[a]$ with $a$.
+A map $f:{\EuScript U}\ \to\ {\EuScript U}$ is \emph{c-elementary\/} if 
+\begin{itemize}
+  \item[1.] $[a]\cap{\rm dom}f=\{a\}$ for every $a\in{\rm dom}f$;
+  \item[2.] $\varphi(a)\rightarrow\varphi(fa)$ for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in{\rm dom}f$.
+\end{itemize}
+
+A c-automorphism is a c-elementary map whose domain intersect all $\sim$-classes.
+We define ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary maps in a similar manner, where (2) is required to hold only for formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
+
+\begin{fact}
+  If $f$ is a c-elementary map then $fa\not\sim fb$ for every $a,b\in{\rm dom}f$.
+  Then c-elementary map are injective and their inverse is c-elementary.
+\end{fact}
+\begin{proof}
+  As $a\not\sim b$, then $a\not\sim_{\tau,D}b$ for some $\tau,D$.
+  Then there is a compact $E\subseteq I^2$, disjoint from the diagonal such that $\exists z\ \langle\tau(a,z),\tau(b,z)\rangle\in E$.
+  Then $\exists z\ \langle\tau(fa,z),\tau(fb,z)\rangle\in E$ and $fa\not\sim fb$ follows.
+  
+  It follows that c-elementary maps are injective and therefore have an inverse.
+  By Fact~\ref{fact_max_cons_L} their inverse is c-elementary.
+\end{proof}
 
 \begin{proposition}
-  All ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary maps of small cardinality extend to automorphisms of ${\EuScript U}/{\sim}$.
+  All ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary maps of small cardinality extend to c-automorphisms of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
-  By Fact~\ref{fact_max_cons_H}, the inverse of an ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary map is also ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary.
-  Then we can extend the map by back-and-forth as usual........
+  By Fact~\ref{fact_max_cons_F}, the inverse of an ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary map is also ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary.
+  Then we can extend the map by back-and-forth as usual to obtain a c-automorphism.
 \end{proof}
 
 
+\begin{corollary}\label{corol_cLcomplete}
+  Let $a\in{\EuScript U}^{|x|}$.
+  Let $p(x)={\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{c-tp}(a)$. Then $p(x)\leftrightarrow q(x)$.
+\end{corollary}
 
+\begin{proof}
+  Only $\rightarrow$ requires a proof.
+  If $a$ contains entries $a_i\sim a_j$, replace $a_j$ with $a_i$.
+  Note that the tuple $a'$ obtained in this manner has the same c-type of $a$.
  
+  Let $b\models p(x)$ and let $b'$ obtained with the same procedure as $a'$.
+  
+  Then the function that maps $a'\mapsto b'$ preserves the truth of ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-formulas.
+  Then $f$ extends to an c-automorphism.
+  As every c-automorphism is c-elementary and the corollary follows.
+\end{proof}
+
+
+\begin{proposition}\label{prop_cLHapprox1}
+  The set ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$ is c-dense modulo $T$.
+\end{proposition}
+
+\begin{proof}
+  The proof of Proposition~\ref{prop_LHapprox1}, where Corollary~\ref{corol_cLcomplete} replaces the reference to Corollary~\ref{corol_Lcomplete}.
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1395,7 +1439,7 @@ The following proposition is our version of the Tarski-Vaught test.
   \begin{itemize}
     \item[1$'$.] ${\rm Ccl}(M)$ is a c-model.
   \end{itemize}
-  If, moreover, $M$ is a substructure, then (2) and (3) above are equivalent to
+  If, moreover, $M$ is a substructure, then (2) and (3) are also equivalent to
   \begin{itemize}
     \item[1$''$.] $M$ is a c-model.
   \end{itemize}
@@ -1596,11 +1640,14 @@ Similarly, if there is a countable c-dense set ${\EuScript F}$ of continuous for
 
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} by $A$.
-Similarly, we define \emph{c-isolated.}.
+Similarly, we define \emph{c-isolated.}
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
 Note that, by Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p/c-isolated by $A$, then $p(x)$ is realized in every p/c-model containing $A$.
 In the prositive case we also have the following: if $p(x)$ is is realized in $M$, a p-model, then $p(x)$ is p-isolated by $M$.
-In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$ is positive by Morleyzation. 
+In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$ is positive by Morleyzation.
+
+The continuous case will be considered in the next section.
+In this case a weaker notion of isolation is more appropriate, see Fact~\ref{fact_wcisolatio_realization}.
 
 \begin{fact}\label{fact_isolation}
   Let ${\EuScript F}$ be a p/c-dense set of positive formulas.
@@ -1618,7 +1665,7 @@ In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$
 
   (1$\Rightarrow$3) By Proposition~\ref{prop_Fapprox}.i.
 
-  (3$\Rightarrow$1) Let $\psi'>\psi$ be as in (3). Let $\tilde{\psi}\bot\psi$. Then $\neg\tilde{\psi}(x)$ isolates $p(x)$..
+  (3$\Rightarrow$1) Let $\psi'>\psi$ be as in (3). Let $\tilde{\psi}\bot\psi$. Then $\neg\tilde{\psi}(x)$ isolates $p(x)$.
   
   (3$\Rightarrow$4) Trivial.
   
@@ -1678,7 +1725,7 @@ In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$
 
 \begin{proof}
   As in the classical proof, appy the lemma above and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable p-model $M$ that does not isolate $p(x)$.
-  For p-models, isolating and realizing are equivalent.
+  For p-models, p-isolating a type is equivalent to  realizing it.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1709,7 +1756,6 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{weakly 
 \end{proof}
 
  \begin{fact}\label{fact_wcisolatio_realization} 
-   Let ${\EuScript L}^{\rm c}$ be separable.
    If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is weakly c-isolated by $M$.
  \end{fact}
  
@@ -1746,7 +1792,7 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{weakly 
 
 
 Assume that ${\EuScript L}^{\rm c}$ is separable modulo $T$.
-A theory $T$ is \emph{continuously $\omega$-categorical\/} if any two countable c-models $M,N\models T$ the models ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are isomorphic.
+A theory $T$ is \emph{c-$\omega$-categorical\/} if any two countable c-models $M,N\models T$ the models ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are c-isomorphic.
 The following analogue of Ryll-Nardzewski's Theorem follows as usual.
 
 \begin{theorem}
