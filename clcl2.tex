@@ -162,7 +162,7 @@
   The main tool is the notion of approximation of a positive formula and of its negation.
   These have been introduced by Henson and Iovino.\\[1ex]
   \noindent
-  We review and elaborate on the properties of positive formulas.
+  We review and elaborate on the properties of positive formulas and their approximations.
   In parallel, we introduce \textit{continuous\/} formulas which are convenient to discuss examples and provide a better counterpart to Henson and Iovino theory and/or real-valued model theory.
   Finally, we discuss criteria for elimination of quantifers, omitting types, $\omega$-categoricity, stability, and indiscernibles within the setting of standard structures.
 \end{abstract}
@@ -1228,7 +1228,7 @@ Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 for some compact neighborhood $D$ of $\Delta$.
 Hence we define
 
-\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ as above, } D\textrm{ compact neigborhood of }\Delta\Big\}.}
+\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ tuple of terms, } D\textrm{ compact neigborhood of }\Delta\Big\}.}
 
 The formulas $x\sim_{\tau,D}y$, as $\tau, D$ range as above, form a prebase for a system of entougages on ${\EuScript U}^{|x|}$.
 We refer to this uniformity and the topology associated as the \emph{$I$-topology.}
@@ -1292,17 +1292,17 @@ The \emph{Cauchy completion\/} of $A$ is the set
 \ceq{\hfill\emph{${\rm Ccl}(A)$}}{=}{\big\{a:a\sim'x\textrm{ is finitely satisfied in }A\big\}}.
 
 \begin{fact}\label{fact_finsat}
-  The Cauchy completion of $A$ is Cauchy complete
+  ${\rm Ccl}(A)$ is Cauchy complete
 \end{fact}
 
 \begin{proof}
   Suppose that $a\sim'x$ is finitely satisfied in ${\rm Ccl}(A)$.
   Let $\tau,D$ be given.
-  We prove that  $a\sim_{\tau,E}x$ is satisfied in $A$.
+  We prove that  $a\sim_{\tau,D}x$ is satisfied in $A$.
   Let $E$ be a compact neighborhood of the diagonal such that $E\circ E\subseteq D$.
   There is some $b\in{\rm Ccl}(A)$ such that $b\sim_{\tau,E}a$.
-  There is some $c\in A$ such that $b\sim_{\tau,E}a$.
-  Then $c\sim_{_{\tau,E}}a$ is as required.
+  There is some $c\in A$ such that $c\sim_{\tau,E}b$.
+  Then $c\sim_{_{\tau,D}}a$, as required.
 \end{proof}
 
 We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
@@ -1729,7 +1729,7 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 \begin{theorem}[Positive Omitting Types]\label{prop_OTT}
   Let ${\EuScript L}^{\rm p}$ be separable.
   Let $A$ be countable.
-  Assume also that $p(x)\subseteq{\EuScript L}(A)$ is not p-isolated.
+  Assume also that $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is not p-isolated.
   Then there is a p-model $M$ containing $A$ that omits $p(x)$. 
 \end{theorem}
 
@@ -1787,7 +1787,7 @@ In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$
 \end{theorem}
 
 \begin{proof}
-  By assumption, $\exists y\sim_{\tau,D}x\ p(y)$ is not c-isolated for some $\tau,D$. 
+  By assumption $\exists y\sim_{\tau,D}x\ p(y)$ is not c-isolated for some $\tau,D$. 
   Appy Lemma~\ref{lem_kuratowskiUlam} and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable c-model $M$ that does not isolate the type $\exists y\sim_{\tau,D}x\ p(y)$.
   Then $M$ does not isolate $p(x)$ in the limit.
   By Fact~\ref{fact_wcisolatio_realization}, ${\rm Ccl}(M)$ omits $p(x)$. 
@@ -1803,7 +1803,6 @@ In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$
 
 In the discussion of categoricity we assume that the theory is complete.
 This allows us to work inside our monster model and simplify the notation.
-The reader can verify by herself that this is not necessary assumtion but rather a consequence of categoricity.
 
 Let $M$ be a c-model and $A\subseteq{\rm Ccl}(M)^n$.
 We say that $M$ is \emph{c-atomic\/} over $A$ if the types $\mbox{c-tp}(a/A)$, for $a$ a tuple in ${\rm Ccl}(M)$ of finite length, are c-isolated by $A$ in the limit.
