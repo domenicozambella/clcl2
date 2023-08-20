@@ -227,7 +227,7 @@ As a remedy, below we carve out a set of formulas ${\EuScript L}^{\rm p}$, the s
 
 As usual, ${\EuScript L}_{\sf I}$, ${\EuScript L}_{\sf H}$, and ${\EuScript L}$ denote both first-order languages and the corresponding set of formulas.
 We write ${\EuScript L}_x$ when when we restrict variables to $x$.
-If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in {\EuScript L}_{\sf H}$ (which is only correct up to equivalence).
+If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in {\EuScript L}_{\sf H}$ (this is only correct up to equivalence).
 % The symbols ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ defined below denote only sets of ${\EuScript L}$-formulas.
 
 Note that ${\EuScript L}$ has two types of atomic formulas: 
@@ -259,11 +259,11 @@ Instead, allowing quantifiers of sort ${\sf I}$ comes almost for free.
 We will see (cf.\@ Propositions~\ref{prop_LHapprox1}) that the formulas in ${\EuScript L}^{\rm p/c}$ are approximated by formulas in ${\EuScript L}^{\rm p/c}$ without quantifiers of sort ${\sf I}$.
 
 \begin{notation}
-  In properties that holds both for ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ we write \emph{${\EuScript L}^{\rm p/c}$\/} for short.
+  When we state facts that holds both for ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ we write \emph{${\EuScript L}^{\rm p/c}$\/} for short.
 \end{notation}
 
 The main fact to note about ${\EuScript L}^{\rm c}$ is that it is a language without equality of sort ${\sf H}$.
-The difference beween ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ is similar to the difference between the set of absolutely integrable functions and the Lebesgue space $L^1$.
+The difference beween ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ is similar to the difference between the space of absolutely integrable functions and the Lebesgue space $L^1$.
 For the latter only equality almost everywhere makes sense.
 However, even when $L^1$ is our focus of interest, it is often easier to argue about real valued functions.
 For a similar reason ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ are better studied in parallel.
@@ -327,7 +327,7 @@ These would have natural interpretations, e.g.\@ a group acting on a compact set
 \section{Henson-Iovino approximations}\label{ultrapws}
 
 For $C,C'$ compact substes of $I^n$, we write $C'>C$ if $C'$ is a neighborhood of $C$.
-For $\varphi,\varphi'$ (free variables are hidden) positive formulas possibly with parameters we write \emph{$\varphi'>\varphi$\/} if $\varphi'$ is obtained by replacing in $\varphi$ each atomic formula of the form $t\in C$ with $t\in C'$, forsome $C'>C$.
+For $\varphi,\varphi'$ (free variables are hidden) positive formulas possibly with parameters we write \emph{$\varphi'>\varphi$\/} if $\varphi'$ is obtained by replacing in $\varphi$ each atomic formula of the form $t\in C$ with $t\in C'$, for some $C'>C$.
 If no such atomic formulas occurs in $\varphi$, then $\varphi>\varphi$.
 We call $\varphi'$ a \emph{weakening\/} of $\varphi$.
 Note that $>$ is a dense transitive relation and that  $\varphi\to\varphi'$ in every ${\EuScript L}$-structure.
@@ -1357,7 +1357,7 @@ A map $f:{\EuScript U}\ \to\ {\EuScript U}$ is \emph{c-elementary\/} if
   \item[2.] $\varphi(a)\rightarrow\varphi(fa)$ for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in{\rm dom}f$.
 \end{itemize}
 
-We define \emph{${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary\/} maps in a similar manner, where (2) is required to hold only for formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
+We say that $f$ is \emph{${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary\/} if (2) holds for formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
 
 A \emph{c-isomorphism\/} between two c-models $M$ and $N$ is a c-elementary map such that $|[a]\cap M|=|[fa]\cap N|=1$ for every $a\in{\rm dom}f$.
 
@@ -1442,7 +1442,7 @@ The following proposition is our version of the Tarski-Vaught test.
   \begin{itemize}
     \item[1$'$.] ${\rm Ccl}(M)$ is a c-model.
   \end{itemize}
-  If, moreover, $M$ is a substructure, then (1'), (2) and (3) are also equivalent to
+  Moreover, if $M$ is a substructure, then (1$'$), (2) and (3) are also equivalent to
   \begin{itemize}
     \item[1$''$.] $M$ is a c-model.
   \end{itemize}
@@ -1567,7 +1567,7 @@ The following proposition is our version of the Tarski-Vaught test.
 
 
 \begin{remark}\label{rem_Tarski_Vaught}
-  The theorem above shows in particular that For every substructure $M$ the following are equivalent
+  The theorem above shows in particular that for every substructure $M$ the following are equivalent
   \begin{itemize}
     \item[1.] $M$ is a c-model;
     \item[2.] ${\rm Ccl}(M)$ is a c-model.
@@ -1580,24 +1580,25 @@ In particular every $A\subseteq{\EuScript U}$ is contained in a standard structu
 In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in ${\EuScript L}_{\sf I}$.
 
-If there is a countable p-dense set ${\EuScript F}$ of positive formulas, we say that ${\EuScript L}^{\rm p}$ is \emph{separable.} 
-Similarly, if there is a countable c-dense set ${\EuScript F}$ of continuous formulas, we say that ${\EuScript L}^{\rm c}$ is separable.
+If there is a countable p/c-dense set ${\EuScript F}$ of positive formulas, we say that ${\EuScript L}^{\rm p/c}$ is \emph{separable.}
 
 \begin{proposition}
-  Let $A$ be a countable set.
   Let ${\EuScript L}^{\rm p/c}$ be separable.
+  Let $A$ be a countable set.
   Then there is a countable p/c-model $M$ containing $A$.
 \end{proposition}
 
 \begin{proof}
+  Let ${\EuScript F}$ be a countable p/c-dense set of positive/continuous formulas.
   As in the classical proof of the L\"owenheim-Skolem Theorem, we construct a countable $M\subseteq{\EuScript U}$ that contains a witness of every consistent formula $\neg\psi(x)$ for $\psi(x)\in{\EuScript F}(M)$.
-  In continuous case we also ensure that $M$ is a substructure.
+  In continuous case we need also to ensure that $M$ is a substructure.
   Then the proposition follows from Theorem~\ref{thm_Tarski_Vaught}.
 \end{proof}
 
 \begin{proposition}
-  Assume that ${\EuScript L}_{\sf H}$ is countable and that ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$.
-  Then, if $I$ is a second countable (the topology has a countable base), ${\EuScript L}$ is separable modulo ${\EuScript L}$.
+  Assume that ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$.
+  Then, if $I$ is a second countable (the topology has a countable base), then ${\EuScript L}^{\rm c}$ is separable modulo ${\EuScript L}$.
+  Moreover if ${\EuScript L}_{\sf H}$ is countable also then ${\EuScript L}^{\rm p}$ is separable.
 \end{proposition}
 
 \begin{proof}
@@ -1641,10 +1642,9 @@ Similarly, if there is a countable c-dense set ${\EuScript F}$ of continuous for
 
 \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-In this section we prove a useful lemma about isolated positive and continuous types.
-The lemma yields immediately an omitting types theorem for positive types that is very close to the classical one.
-However, its main applications are in the continuous version of the omitting types theorem and $\omega$-categoricity which we discuss in the sections below.
-These are the notions that have interesting examples in functional analysis (here we will only discuss Hilber spaces).  
+In this section we prove a useful lemma about isolated positive/continuous types.
+Our goal is to prove in the sections a the continuous version of the omitting types theorem and the caracterization of \textit{c-$\omega$-categoricity.} 
+These results have interesting examples in functional analysis (here we will only breafly discuss Hilbert spaces).
 
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} by $A$.
@@ -1724,6 +1724,8 @@ In this case a weaker notion of isolation is more appropriate, see Fact~\ref{fac
   By Fact~\ref{fact_isolation}, this is a contradiction.
 \end{proof}
 
+From the lemma we easily obtain an omitting types theorem for positive types that is very close to the classical one.
+
 \begin{theorem}[Positive Omitting Types]\label{prop_OTT}
   Let ${\EuScript L}^{\rm p}$ be separable.
   Let $A$ be countable.
@@ -1744,38 +1746,37 @@ In this case a weaker notion of isolation is more appropriate, see Fact~\ref{fac
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Continuous omitting types.}
 
-We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is c-isolated \emph{in the limit\/} by $A$ if for every $\tau,D$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm c}(A)$.
+We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is c-isolated \emph{in the limit\/} by $A$ if for every $\tau,D$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is c-isolated by $A$.
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
 
 \begin{fact}\label{fact_sim_n}
   Let ${\EuScript L}^{\rm c}$ be separable.
-  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated in the limit by $A$, then $p(x)$ is realized in ${\rm Ccl}(M)$ for every c-model $M$ containing $A$.
+  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated in the limit by $A$, then $p(x)$ is realized in every Cauchy complete c-model containing $A$.
 \end{fact}
 
 \begin{proof}
   As ${\EuScript L}^{\rm c}$ is separable, there is a sequence $\langle\tau_n,D_n:n<\omega\rangle$ such that for every $\tau,D$ there is an $n<\omega$ such that $x\sim_{\tau_n,D_n}y\ \rightarrow\ x\sim_{\tau,D}y$. 
+  We write \emph{$x\sim_ny$\/} for $\sim_{\tau_n,D_n}$.
   
-  We write $x\sim_ny$ for $\sim_{\tau_n,D_n}$.
-  
-  Let $M$ be a c-model containing $A$.
+  Let $M$ be a Cauchy complete c-model containing $A$.
   Let $a_n\in M$ be such that $\exists x\sim_na_n\ p(x)$.
   By compactness, $b\models p(x)$ for some $b\in{\EuScript U}$ such that $b\sim_na_n$ for every $n<\omega$.
-  Then $b\sim'x$ is finitely satisfied in $M$ and therefore $b\in{\rm Ccl}(M)$.
+  Then $b\sim'x$ is finitely satisfied in $M$ and therefore $b\in{\rm Ccl}(M)=M$.
 \end{proof}
 
-In words the proof above shows that if $p(x)$ is c-isolated in the limit by $M$, then there is a sequence of elements of $M$ that converges to a realization of $p(x)$. 
+In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$, then there is a sequence of elements of $M$ that converges inthe $I$-topology to a realization of $p(x)$. 
 
  \begin{fact}\label{fact_wcisolatio_realization} 
    If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is c-isolated in the limit by $M$.
  \end{fact}
  
 \begin{proof}
-  Let $b\in{\rm Ccl}(M)$ realize $p(x)$.
+  Let $b\in{\rm Ccl}(M)^{|x|}$ realize $p(x)$.
   Let $\tau,D$ be given.
   By Fact~\ref{fact_isolation} it suffices to find a continuous formula $\varphi(x)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\exists y\sim_{\tau,D}x\ p(y)$.
-  Let $C$ be a neighborhood of the diagonal such that $C'\circ C'\subseteq D$ for some $C'>C$ is contained in $D$.
+  Let $C$ be a neighborhood of the diagonal such that $C'\circ C'\subseteq D$ for some $C'>C$.
   Let $a\in M$ be such that $a\sim_{\tau,C} b$.
-  Then we can take $x\sim_{\tau,C}a$ as $\varphi(x)$.
+  Then we can take $x\sim_{\tau,C}a$ as $\varphi(x)$ and $x\sim_{\tau,C'}a$ as $\varphi'(x)$.
 \end{proof}
 
 \begin{theorem}[Continuous Omitting Types]\label{thm_cOTT}
@@ -1804,19 +1805,31 @@ In the discussion of categoricity we assume that the theory is complete.
 This allows us to work inside our monster model and simplify the notation.
 The reader can verify by herself that this is not necessary assumtion but rather a consequence of categoricity.
 
-A c-model $M$ is c-atomic over $A$ if the types $\mbox{c-tp}(a/A)$, for all $a\in M^n$, are isolated in the limit.
+Let $M$ be a c-model and $A\subseteq{\rm Ccl}(M)^n$.
+We say that $M$ is \emph{c-atomic\/} over $A$ if the types $\mbox{c-tp}(a/A)$, for $a$ a tuple in ${\rm Ccl}(M)$ of finite length, are c-isolated by $A$ in the limit.
 
 \begin{fact}
-  Assume that ${\EuScript L}^{\rm c}$ is separable.
-  If $M$ is c-atomic over $A$ then it is c-atomic over $A,a$ for every finite tuple $a$.
+  Let ${\EuScript L}^{\rm c}$ be separable.
+  If $M$ is c-atomic over $A$ then it is c-atomic over $A,a$ for every finite tuple $a$ in ${\rm Ccl}(M)$.
+  Therefore every c-atomic c-model is also c-atomic over any finite $A\subseteq{\rm Ccl}(M)$.
 \end{fact}
 
 \begin{proof}
-  Let $b\in M^n$.
-  Let $p(x,y)=\mbox{c-tp}(a,b/A)$.
-  Then  $p(x,a)=\mbox{c-tp}(b/A,a)$.
-  Let $\neg\phi_n(x,y)$ isolate $\exists x',y'\sim_nx,y\ p(x',y')$.
-  Then $\neg\phi_n(x,a)$ isolates $\exists x'\sim_nx\ p(x',a)$.
+  Let $b\in{\rm Ccl}(M)^{|y|}$.
+  Assume that $p(x,y)=\mbox{c-tp}(a,b/A)$ is c-isolated in the limit.
+  We prove that $p(a,y)=\mbox{c-tp}(b/A,a)$ is c-isolated in the limit.
+  Let $\neg\varphi_n(x,y)$ isolate $\exists x',y'\sim_nx,y\ p(x',y')$, where $\sim_n$ is as in the proof of Fact~\ref{fact_sim_n}.
+  Note that $\neg\varphi_n(a,b)$ holds for all $n$.
+  Then $\neg\varphi_n(a,y)$ is consistent and $\exists y\sim_ny'\ \rightarrow\  p(a,y')$.
+\end{proof}
+
+\begin{fact}
+  Assume that ${\EuScript L}^{\rm c}$ is separable.  
+  The Cauchy completions of any two countable c-atomic c-models are c-isomorphic.
+\end{fact}
+
+\begin{proof}
+  Construct by back-and-forth a sequence $f_n$ of finite c-elementary maps $f_n:{\rm Ccl}(M)\to{\rm Ccl}(M)$ such that $\bigcup_n {\rm dom}f_n$ and $\bigcup_n {\rm range}f_n$ satisfy (3) of Theorem~\ref{thm_Tarski_Vaught}.
 \end{proof}
 
 Assume that ${\EuScript L}^{\rm c}$ is separable modulo $T$.
