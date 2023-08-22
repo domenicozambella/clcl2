@@ -783,13 +783,14 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 
 \def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox{5ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-% \begin{remark}\label{remk_approx_EH_free}
+\begin{remark}\label{remk_approx_EH_free}
   By Corollary~\ref{corol_st}, when $\varphi(x\,;\eta)$ does not contains existential quantifiers of sort ${\sf H}$, the proposition above does not require the assumption of saturation.
   In general, some saturation is necessary: consider the model presented after Corollary~\ref{corol_st} and the formula $\exists x\,\big(x>0\ \wedge\ \iota(x)\in\{0\}\big)$. 
-% \end{remark}
+\end{remark}
 
 \begin{remark}\label{rem_model_approx}
   A consequence of Proposition~\ref{prop_approx} is that the approximate morphisms defined in Section~\ref{morphisms} coincide with their unapproximate version when the codomain is positively $\omega$-saturated.
+  In particular they are invertible by  Fact~\ref{fact_HImorphisms}.
 \end{remark}
 % In particular, the following follows from Fact~\ref{fact_HImorphisms}.
 
@@ -1168,7 +1169,7 @@ Still, we can infer an approximate form of equivalence.
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cauchy completeness}\label{Cauchy}
+\section{Cauchy completions}\label{Cauchy}
 
 
 For $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ a tuple of terms of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
@@ -1195,13 +1196,15 @@ We also define the type
 \begin{proof} 
   \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
   %
-  Only implication $\Leftarrow$ requires a proof.
-  Assume $a_i\sim b_i$ for every $i$.
+  By induction.
+  Only implication $\Leftarrow$ requires a proof and 
+  for limit ordinals induction is trivial.
+  Assume $a_i\sim b_i$ for every $i\le\lambda$.
   Let $|a|=|b|=\lambda$ and assume inductively that (it suffices to consider tuples $\tau$ of arity $1$) 
   
   \ceq{\hfill\forall y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
 
-  holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ (universal quantification over the free variables is understood throughout the proof).  
+  holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ and $|y|=1$ (universal quantification over the free variables is understood throughout the proof).  
   In particular for any $a_\lambda$
 
   \ceq{1.\hfill\forall z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
@@ -1217,8 +1220,6 @@ We also define the type
   From (1) and (2) we obtain
 
   \ceq{\hfill\forall z\ \ \ \tau(a,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
-
-  For limit ordinals induction is trivial.
 \end{proof}
 
 Note that the approximations of the formula $x\sim_\tau\!y$ have the form
@@ -1263,7 +1264,7 @@ This can be verified by an argument similar to the proof of Fact~\ref{fact_produ
   \ceq{\hfill x\sim y}{\rightarrow}{\exists z\,\varphi(x,z,\eta)\leftrightarrow\exists z\,\varphi(y,z,\eta).} 
 \end{proof}
 
-Following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
+The following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
 \begin{corollary}\label{corol_pertubation}
   For every $\varphi(x)\in{\EuScript L}^{\rm c}$, every $\varphi'>\varphi$, and every $\tilde{\varphi}\bot\varphi$ there is a tuple of terms $\tau$ and a compact neighborhood of the diagonal $D$ such that
 
@@ -1332,6 +1333,98 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauch
 % Then also $a\sim' x$ is finitely satisfied. 
 % Therefore, by (2), $p(x)$ is realized in $M$. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Continuous morphims}\label{cmorphisms}
+
+The definition of c-elementary maps is delicate due to the lack of equality.
+We begin by defining c-elementary relations.
+
+Let $R\subseteq{\EuScript U}\times{\EuScript U}$ be a binary relation.
+If $a=\langle a_i:i<\lambda\rangle$ and $b=\langle b_i:i<\lambda\rangle$ we write $\langle a,b\rangle\in R$ to abbreviate: $\langle a_i,b_i\rangle\in R$ for all $i<\lambda$.
+We say that $R$ is an \emph{c-elementary relation\/} if
+
+\ceq{\#\hfill\varphi(a)}{\rightarrow}{\varphi(b)}\hfill  for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and every $\langle a,b\rangle\in R$.
+
+Note that the converse implication in (\#) follows from (\#) by Fact~\ref{fact_HImorphisms} and Proposition~\ref{prop_approx}.
+Therefore if $R$ is c-elementary, also $R^{-1}$ is c-elementary.
+
+The relation $(\sim)$ is c-elementary.
+Then, $R$ is c-elementary if and only if $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ is c-elementary.
+We identify any c-elementary relation $R$ such that $R\ =\ \mathrel{(\sim)}\circ\mathrel{R}\circ\mathrel{(\sim)}$ with the (partial) map 
+
+\ceq{\hfill R_{\sim}\ \ :\ \ {\EuScript U}/{\sim}}{\to}{{\EuScript U}/{\sim}}.
+
+\ceq{\hfill [a]\ }{\mapsto}{\ [b]} \hfill for some/any $b$ such that $\langle a,b\rangle\in R$.
+
+It is easy to verify that the definition is well-given and that $R_{\sim}$ is injective.
+
+
+
+We say that $R$ is \emph{reduced\/} if there is no $R'\subset R$ such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+Note that if, the relations $R_i$ are sych that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$, for $i<\lambda$, then 
+
+\ceq{\hfill R}{\subseteq}{\mathrel{(\sim)}\circ\;\Big(\bigcap_{i<\lambda}R_i\Big)\;\circ\mathrel{(\sim)}.}
+
+Then for every $R$ there is a reduced $R'\subseteq R$ such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+When $R$ is such that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$, in particular when $R$ is Cauchy complete, then the converse inclusion is obvious and we obtain that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+
+\begin{fact}
+  Assume that $R$ is a reduced c-elementary relation. Then $R$ is the graph of an injective map $f:{\rm dom}(R)\to{\rm range}(R)$.
+\end{fact}
+\begin{proof}
+  Let $a\in{\rm dom}R$ and assume that $\langle a,b\rangle,\langle a,b'\rangle\in R$.
+  To prove functionality suppose for a contradiction that $b\neq b'$.
+  As $R$ is reduced, $b\not\sim b'$.
+  Then $a\not\sim a$, a contradiction.
+  This prove functionality, for injectivity apply the same argument to $R^{-1}$.
+\end{proof}
+
+Let $R$ be such that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$.
+We often confound $R$ with any reduced relation $f$, a function by the fact above, such that $R\ =\ \mathrel{(\sim)}\circ \mathrel{f}\circ\mathrel{(\sim)}$.
+Note that $f$ is defined in exacly one representative $a$ of each $\sim$-equivalence class $[a]\subseteq{\rm dom}R$ and maps it to a representative of $R_{\sim}\big([a]\big)$.
+
+We call $R$ (and also $R_{\sim}$ and $f$) a \emph{c-isomorphism\/} between ${\rm dom}(R)$ and ${\rm range}(R)$.
+
+\begin{fact}
+  If $R$ is a c-elementary relation then ${\rm Ccl}(R)$ is also c-elementary.
+  We also have that ${\rm Ccl}(R)\ =\ \mathrel{(\sim)}\circ \mathrel{{\rm Ccl}(R)}\circ\mathrel{(\sim)}$.
+\end{fact}
+
+\begin{proof}
+  Let $\varphi(x)$ and $\varphi''>\varphi'>\varphi$ be given.
+  Let $\langle a,b\rangle\in{\rm Ccl}(R)$ and assume $\varphi(a)$.
+  Let $\tau,D$ be such that 
+
+  \ceq{1.\hfill x\sim_{\tau,D}y\wedge\varphi(x)}{\rightarrow}{\varphi'(y)}
+
+  \ceq{2.\hfill x\sim_{\tau,D}y\wedge\varphi'(x)}{\rightarrow}{\varphi''(y)}
+
+  By the definition of Cauchy completion, there are $a',b'\sim_{\tau,D}a,b$ such that $\langle a',b'\rangle\in R$.
+  Then from (1) we infer that $\varphi'(a')$.
+  As $R$ is c-elementary, $\varphi'(b')$. 
+  Then $\varphi''(b)$ follows from (2).
+  As $\varphi''>\varphi$ is arbitrary, the fact follows from Proposition~\ref{prop_LHapprox1}.
+
+  The secon claim is immediate.
+\end{proof}
+
+
+
+
+ We summarize the discussion above in the following remark.
+\begin{remark}
+  Let $R$ be a c-elementary relation.
+  Let $M\subseteq{\rm dom}(R)$ and $N\subseteq{\rm range}(R)$ be c-models.
+  Then there is a c-isomorphism between ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$.
+\end{remark}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1341,38 +1434,6 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauch
 \section{Elimination of quantifiers of sort \textsf{I} for continuous formulas}\label{cIelimination}
 
 We adapt the argument in the previous section to continuous formulas.
-But first we need to define c-elementary maps which is slightly delicate due to the lack of equality.
-For ease of notation we only discuss maps from ${\EuScript U}$ to itself.
-
-Let ${\EuScript U}/{\sim}$ be the quotient of ${\EuScript U}$ by the equivalence relation defined in Section~\ref{Cauchy}.
-The equivalence class of $a\in{\EuScript U}$ is denoted by $[a]$.
-
-It would be appropriate to introduce morphisms as maps ${\EuScript U}/{\sim}\rightarrow{\EuScript U}/{\sim}$ or, alternatively, as relations on ${\EuScript U}$.
-Unfortunately, both these options are lead to a somewhat unpleasant notation.
-The following definition is less natural but more convenient.
-
-A map $f:{\EuScript U}\ \to\ {\EuScript U}$ is \emph{c-elementary\/} if 
-\begin{itemize}
-  \item[1.] $[a]\cap{\rm dom}f=\{a\}$ for every $a\in{\rm dom}f$;
-  \item[2.] $\varphi(a)\rightarrow\varphi(fa)$ for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in{\rm dom}f$.
-\end{itemize}
-
-We say that $f$ is \emph{${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary\/} if (2) holds for formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
-
-A \emph{c-isomorphism\/} between two c-models $M$ and $N$ is a c-elementary map such that $|[a]\cap M|=|[fa]\cap N|=1$ for every $a\in{\rm dom}f$.
-
-\begin{fact}
-  If $f$ is a c-elementary map then $fa\not\sim fb$ for every $a,b\in{\rm dom}f$.
-  Then c-elementary map are injective and their inverse is c-elementary.
-\end{fact}
-\begin{proof}
-  As $a\not\sim b$, then $a\not\sim_{\tau,D}b$ for some $\tau,D$.
-  Then there is a compact $E\subseteq I^2$, disjoint from the diagonal such that $\exists z\ \langle\tau(a,z),\tau(b,z)\rangle\in E$.
-  Then $\exists z\ \langle\tau(fa,z),\tau(fb,z)\rangle\in E$ and $fa\not\sim fb$ follows.
-  
-  It follows that c-elementary maps are injective and therefore have an inverse.
-  By Fact~\ref{fact_max_cons_L} their inverse is c-elementary.
-\end{proof}
 
 \begin{proposition}
   All ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary maps of small cardinality extend to c-automorphisms of ${\EuScript U}$.
