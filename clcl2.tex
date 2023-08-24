@@ -188,7 +188,7 @@ We refer to the introduction of~\cite{clcl} for motivations.
 Aside from that, this paper is reasonably self-contained.
 In the first part we revisit some results of~\cite{clcl}.
 We rephrase some theorems and add a few remarks and examples\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead. We will also omit a few proofs from Sections~\ref{morphisms}, \ref{compactness}, and~\ref{Ielimination}.}.
-Our notation and terminology diverges slightly where needed.
+Our notation and terminology diverges slightly, only where necessary.
 
 \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
@@ -1171,7 +1171,6 @@ Still, we can infer an approximate form of equivalence.
 %%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cauchy completions}\label{Cauchy}
 
-
 For $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ a tuple of terms of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
 
 \ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\bigwedge_{i=1}^n\forall z\ \ \tau_i(x,z)=\tau_i(y,z),}
@@ -1181,6 +1180,7 @@ We also define the type
 
 \ceq{\hfill\emph{$x\sim y$}}{=}{\Big\{x\sim_\tau y\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
 
+The following fact will be used below without mention.
 % We define the following equivalence relation on $U$
 
 % \ceq{\hfill\emph{$a\sim b$}}{=}{\forall y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
@@ -1197,8 +1197,8 @@ We also define the type
   \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
   %
   By induction.
-  Only implication $\Leftarrow$ requires a proof and 
-  for limit ordinals induction is trivial.
+  Only implication $\Leftarrow$ requires a proof
+  For limit ordinals induction is trivial.
   Assume $a_i\sim b_i$ for every $i\le\lambda$.
   Let $|a|=|b|=\lambda$ and assume inductively that (it suffices to consider tuples $\tau$ of arity $1$) 
   
@@ -1239,29 +1239,29 @@ This can be verified by an argument similar to the proof of Fact~\ref{fact_produ
 \begin{fact}\label{fact_continuous}
   For every $\varphi(x)\in{\EuScript L}^{\rm c}$ 
 
-  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x,\eta)\leftrightarrow\varphi(y,\eta)}
+  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x)\leftrightarrow\varphi(y)}
 \end{fact}
 
 \begin{proof}
-  By induction on $\varphi(x,\eta)$.
-  Suppose $\varphi(x,\eta)$ as the form $\tau(x,\eta)\in C$.
-  Then clearly
-  
-  \ceq{\hfill x\sim_\tau y}{\rightarrow}{\varphi(x,\eta)\leftrightarrow\varphi(y,\eta)}
-
-  Induction is easy.
-  As an example, we spell out the proof for the quantifier $\exists^{\scriptscriptstyle\sf H}$.
-  Assume inductively that
-  
-  \ceq{\hfill x,x'\sim y,y'}{\rightarrow}{\varphi(x,x',\eta)\leftrightarrow\varphi(y,y',\eta)}
-
-  Then in paricular 
-
-  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x,z,\eta)\leftrightarrow\varphi(y,z,\eta).}
-
-  Therefore
-
-  \ceq{\hfill x\sim y}{\rightarrow}{\exists z\,\varphi(x,z,\eta)\leftrightarrow\exists z\,\varphi(y,z,\eta).} 
+  By induction.% on $\varphi(x,\eta)$.
+  % Suppose $\varphi(x,\eta)$ as the form $\tau(x,\eta)\in C$.
+  % Then clearly
+  %
+  % \ceq{\hfill x\sim_\tau y}{\rightarrow}{\varphi(x,\eta)\leftrightarrow\varphi(y,\eta)}
+  %
+  % Induction is easy.
+  % As an example, we spell out the proof for the quantifier $\exists^{\scriptscriptstyle\sf H}$.
+  % Assume inductively that
+  %
+  % \ceq{\hfill x,x'\sim y,y'}{\rightarrow}{\varphi(x,x',\eta)\leftrightarrow\varphi(y,y',\eta)}
+  %
+  % Then in paricular 
+  %
+  % \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x,z,\eta)\leftrightarrow\varphi(y,z,\eta).}
+  %
+  % Therefore
+  %
+  % \ceq{\hfill x\sim y}{\rightarrow}{\exists z\,\varphi(x,z,\eta)\leftrightarrow\exists z\,\varphi(y,z,\eta).} 
 \end{proof}
 
 The following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
@@ -1341,39 +1341,54 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauch
 \section{Continuous morphims}\label{cmorphisms}
 
 The definition of c-elementary maps is delicate due to the lack of equality.
-We begin by defining c-elementary relations.
+A possible approach is to work in the quotient ${\EuScript U}/{\sim}$.
+A second possibility is to replace functions with relations.
+The two options differs only in the notation.
+Here we go for the second.
 
-Let $R\subseteq{\EuScript U}\times{\EuScript U}$ be a binary relation.
+
+Let $M$ and $N$ be c-models.
+Let $R\subseteq M\times N$ be a binary relation.
 If $a=\langle a_i:i<\lambda\rangle$ and $b=\langle b_i:i<\lambda\rangle$ we write $\langle a,b\rangle\in R$ to abbreviate: $\langle a_i,b_i\rangle\in R$ for all $i<\lambda$.
-We say that $R$ is an \emph{c-elementary relation\/} if
+We say that $R$ is an \emph{c-elementary relation\/} between $M$ and $N$ if
 
-\ceq{\#\hfill\varphi(a)}{\rightarrow}{\varphi(b)}\hfill  for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and every $\langle a,b\rangle\in R$.
+\ceq{\hfill M\models\varphi(a)}{\Rightarrow}{N\models\varphi(b)}\hfill  for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and every $\langle a,b\rangle\in R$.
 
-Note that the converse implication in (\#) follows from (\#) by Fact~\ref{fact_HImorphisms} and Proposition~\ref{prop_approx}.
+Below, for simplicity we only consider c-elementary relations between ${\EuScript U}$ and itself.
+Then, by Fact~\ref{fact_HImorphisms} and Proposition~\ref{prop_approx}, the condition above is aquivalent to
+
+\ceq{\#\hfill\varphi(a)}{\leftrightarrow}{\varphi(b)}\hfill  for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and every $\langle a,b\rangle\in R$.
+
 Therefore if $R$ is c-elementary, also $R^{-1}$ is c-elementary.
 
-The relation $(\sim)$ is c-elementary.
-Then, $R$ is c-elementary if and only if $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ is c-elementary.
-We identify any c-elementary relation $R$ such that $R\ =\ \mathrel{(\sim)}\circ\mathrel{R}\circ\mathrel{(\sim)}$ with the (partial) map 
+In the next section we will also need the notion of ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary relation between ${\EuScript U}$ and itself.
+This is defined similarly but (\#) above is required to hold for formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
+We ask the reader to verify that the content of this section applies verbatim to ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary relation.
 
-\ceq{\hfill R_{\sim}\ \ :\ \ {\EuScript U}/{\sim}}{\to}{{\EuScript U}/{\sim}}.
+The relation $(\sim)$ is c-elementary by Fact~\ref{fact_continuous}.
+Then, if the relation $R$ is c-elementary, also $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ is c-elementary.
+We identify a c-elementary relation $R\ =\ \mathrel{(\sim)}\circ\mathrel{R}\circ\mathrel{(\sim)}$ with the map 
+
+\ceq{\hfill R_{/\sim}\ \ :\ \ {\EuScript U}/{\sim}}{\to}{{\EuScript U}/{\sim}}
 
 \ceq{\hfill [a]\ }{\mapsto}{\ [b]} \hfill for some/any $b$ such that $\langle a,b\rangle\in R$.
 
-It is easy to verify that the definition is well-given and that $R_{\sim}$ is injective.
+It is easy to verify that the definition is well-given and that $R_{/\sim}$ is injective.
 
+We say that $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+It is easy to verify that every relation $R$ contains a reduced relation $R'$ such that 
+$R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 
+% Note that if the relations $R_i$ are such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$, for every $i<\lambda$, then 
 
-We say that $R$ is \emph{reduced\/} if there is no $R'\subset R$ such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
-Note that if, the relations $R_i$ are sych that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$, for $i<\lambda$, then 
+% \ceq{\hfill R}{\subseteq}{\mathrel{(\sim)}\circ\;\Big(\bigcap_{i<\lambda}R_i\Big)\;\circ\mathrel{(\sim)}.}
 
-\ceq{\hfill R}{\subseteq}{\mathrel{(\sim)}\circ\;\Big(\bigcap_{i<\lambda}R_i\Big)\;\circ\mathrel{(\sim)}.}
+% It follows that for every $R$ there is a reduced $R'\ \subseteq\ R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+% When $R\ =\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ then the converse inclusion is obvious and we obtain that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 
-Then for every $R$ there is a reduced $R'\subseteq R$ such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
-When $R$ is such that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$, in particular when $R$ is Cauchy complete, then the converse inclusion is obvious and we obtain that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
-
-\begin{fact}
-  Assume that $R$ is a reduced c-elementary relation. Then $R$ is the graph of an injective map $f:{\rm dom}(R)\to{\rm range}(R)$.
+\begin{fact} 
+  Let $R$ be reduced.
+  Then $R$ is the graph of an injective map $f:{\rm dom}(R)\to{\rm range}(R)$.
 \end{fact}
 \begin{proof}
   Let $a\in{\rm dom}R$ and assume that $\langle a,b\rangle,\langle a,b'\rangle\in R$.
@@ -1383,13 +1398,12 @@ When $R$ is such that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\si
   This prove functionality, for injectivity apply the same argument to $R^{-1}$.
 \end{proof}
 
-Let $R$ be such that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$.
-We often confound $R$ with any reduced relation $f$, a function by the fact above, such that $R\ =\ \mathrel{(\sim)}\circ \mathrel{f}\circ\mathrel{(\sim)}$.
-Note that $f$ is defined in exacly one representative $a$ of each $\sim$-equivalence class $[a]\subseteq{\rm dom}R$ and maps it to a representative of $R_{\sim}\big([a]\big)$.
+Assume $R\ =\ \mathrel{(\sim)}\circ\mathrel{R}\circ\mathrel{(\sim)}$ for simplicity.
+Let $f$ be a reduced relation such that $f\ \subseteq\ R\ =\ \mathrel{(\sim)}\circ \mathrel{f}\circ\mathrel{(\sim)}$.
+Then $f$ is a function defined in exacly one representative $a$ of each $(\sim)$-equivalence class $[a]\subseteq{\rm dom}(R)$.
+Moreover, $f(a)$ the unique representative of $R_{/\sim}\big([a]\big)$ in the range of $f$.
 
-We call $R$ (and also $R_{\sim}$ and $f$) a \emph{c-isomorphism\/} between ${\rm dom}(R)$ and ${\rm range}(R)$.
-
-\begin{fact}
+\begin{fact}\label{fact_Rcompletion}
   If $R$ is a c-elementary relation then ${\rm Ccl}(R)$ is also c-elementary.
   We also have that ${\rm Ccl}(R)\ =\ \mathrel{(\sim)}\circ \mathrel{{\rm Ccl}(R)}\circ\mathrel{(\sim)}$.
 \end{fact}
@@ -1409,19 +1423,31 @@ We call $R$ (and also $R_{\sim}$ and $f$) a \emph{c-isomorphism\/} between ${\rm
   Then $\varphi''(b)$ follows from (2).
   As $\varphi''>\varphi$ is arbitrary, the fact follows from Proposition~\ref{prop_LHapprox1}.
 
-  The secon claim is immediate.
+  The second claim is immediate.
 \end{proof}
 
+Let $M$ and $N$ be c-models.
+A c-elementary relation such that ${\rm dom}(R)=M$ and ${\rm range}(R)=N$ is called an approximate \emph{c-isomorphism\/} between $M$ and $N$.
+The modifier \textit{approximate\/} is due because $R$ is c-elementary between ${\EuScript U}$ and itself.
+We will only consider these c-isomorphisms, therefore we omit the modifier.
+A c-automosphism a c-isomorphism of a c-model in itself.
+The following is noted for future reference.
+
+\begin{remark}\label{rem_c_auto}
+  To be a c-automorphism of ${\EuScript U}$ the relation $R$ only needs to satisfy (\#) for atomic formulas of the form $\tau(x)\in C$.
+\end{remark}
 
 
 
- We summarize the discussion above in the following remark.
-\begin{remark}
+\begin{fact}\label{fact_c_iso}
   Let $R$ be a c-elementary relation.
   Let $M\subseteq{\rm dom}(R)$ and $N\subseteq{\rm range}(R)$ be c-models.
   Then there is a c-isomorphism between ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$.
-\end{remark}
+\end{fact}
 
+\begin{proof}
+  By Fact~\ref{fact_Rcompletion} we can assume that ${\rm Ccl}(M)\subseteq{\rm dom}(R)$ and ${\rm Ccl}(N)\subseteq{\rm range}(R)$, hence a restriction of $R$ is the required c-isomorphism.
+\end{proof}
 
 
 
@@ -1433,15 +1459,30 @@ We call $R$ (and also $R_{\sim}$ and $f$) a \emph{c-isomorphism\/} between ${\rm
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Elimination of quantifiers of sort \textsf{I} for continuous formulas}\label{cIelimination}
 
-We adapt the argument in the previous section to continuous formulas.
+We verify that the argument in Section~\ref{Ielimination} can be adapted to continuous formulas. 
 
 \begin{proposition}
   All ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary maps of small cardinality extend to c-automorphisms of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
-  By Fact~\ref{fact_max_cons_F}, the inverse of an ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary map is also ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary.
-  Then we can extend the map by back-and-forth as usual to obtain a c-automorphism.
+  We construct by back-and-forth a sequence $f_i:{\EuScript U}\rightarrow{\EuScript U}$ of finite c-elementary reduced relations (i.e.\@ injective maps) and let 
+  
+  \ceq{\hfill R}{=}{\bigcup_{i\in|{\EuScript U}|}(\sim)\circ f_i\circ(\sim).}
+
+  We will ensure that ${\EuScript U}={\rm dom}(R)={\rm range}(R)$.
+  Then $R$ is a c-automorphism of ${\EuScript U}$ by Remark~\ref{rem_c_auto}.
+
+  Let $i$ be even.
+  Let $a$ be an enumeration of ${\rm dom}(f_n)$.
+  Let $b\in{\EuScript U}$. 
+  Let $p(x,y)=\mbox{c-tp}(a,b)$.
+  By c-elementarity the type $p(f_ia,y)$ is finitely satisfied.
+  Let $c\in{\EuScript U}$ realize $p(f_ia,y)$.
+  Let $f_{i+1}$ be a reduced relation such that $f_{i+1}\ \subseteq\ f_i\cup\{\langle b,c\rangle\}\ \subseteq\ (\sim)\circ f_{i+1}\circ(\sim)$.
+
+  When $i$ is odd we proceed similarly with $f_i^{-1}$.
+  Limit stages are obvious.
 \end{proof}
 
 
@@ -1862,37 +1903,53 @@ In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Continuous $\omega$-categoricity.}
 
-In the discussion of categoricity we assume that the theory is complete.
-This allows us to work inside our monster model and simplify the notation.
+In the discussion of countable categoricity we assume that the underlying theory is complete.
+This assumption is not necessary (it is rather a consequence of categoricity), but it allows to work inside a monster model and simplify the notation.
 
-Let $M$ be a c-model and $A\subseteq{\rm Ccl}(M)^n$.
-We say that $M$ is \emph{c-atomic\/} over $A$ if the types $\mbox{c-tp}(a/A)$, for $a$ a tuple in ${\rm Ccl}(M)$ of finite length, are c-isolated by $A$ in the limit.
+Let $M$ be a c-model.
+Let $A\subseteq{\rm Ccl}(M)$.
+We say that $M$ is \emph{c-atomic\/} over $A$ if the types $\mbox{c-tp}(a/A)$, for any finite tuple $a$ of elements of $M$, are c-isolated by $A$ in the limit.
 
-\begin{fact}
+\begin{fact}\label{fact_atomic_over_Aa}
   Let ${\EuScript L}^{\rm c}$ be separable.
-  If $M$ is c-atomic over $A$ then it is c-atomic over $A,a$ for every finite tuple $a$ in ${\rm Ccl}(M)$.
-  Therefore every c-atomic c-model is also c-atomic over any finite $A\subseteq{\rm Ccl}(M)$.
+  If $M$ is c-atomic over $A$ then it is c-atomic over $A,a$ for every finite tuple $a$ of elements of ${\rm Ccl}(M)$.
 \end{fact}
 
 \begin{proof}
-  Let $b\in{\rm Ccl}(M)^{|y|}$.
+  Let $b\in M^{|y|}$.
   Assume that $p(x,y)=\mbox{c-tp}(a,b/A)$ is c-isolated in the limit.
   We prove that $p(a,y)=\mbox{c-tp}(b/A,a)$ is c-isolated in the limit.
   Let $\neg\varphi_n(x,y)$ isolate $\exists x',y'\sim_nx,y\ p(x',y')$, where $\sim_n$ is as in the proof of Fact~\ref{fact_sim_n}.
   Note that $\neg\varphi_n(a,b)$ holds for all $n$.
-  Then $\neg\varphi_n(a,y)$ is consistent and $\exists y\sim_ny'\ \rightarrow\  p(a,y')$.
+  Then $\neg\varphi_n(a,y)$ is consistent and $\neg\varphi_n(a,y)\ \rightarrow\ \exists y\sim_ny'\ p(a,y')$.
 \end{proof}
 
-\begin{fact}
-  Assume that ${\EuScript L}^{\rm c}$ is separable.  
-  The Cauchy completions of any two countable c-atomic c-models are c-isomorphic.
+\begin{fact}\label{fact_atomic_iso}
+  Let $M$ and $N$ be countable c-atomic c-models.
+  Then ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$  are c-isomorphic.
 \end{fact}
 
 \begin{proof}
-  Construct by back-and-forth a sequence $f_n$ of finite c-elementary maps $f_n:{\rm Ccl}(M)\to{\rm Ccl}(M)$ such that $\bigcup_n {\rm dom}f_n$ and $\bigcup_n {\rm range}f_n$ satisfy (3) of Theorem~\ref{thm_Tarski_Vaught}.
+  We construct by back-and-forth a sequence $f_n:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ of finite c-elementary reduced relations (i.e.\@ injective maps) and let 
+  
+  \ceq{\hfill R}{=}{\bigcup_{n\in\omega}(\sim)\circ f_n\circ(\sim).}
+
+  We will ensure that $M\subseteq{\rm dom}(R)$ and $N\subseteq{\rm range}(R)$.
+  By Fact~\ref{fact_c_iso} this suffices to prove the fact.
+
+  Let $n$ be even.
+  Let $a$ be an enumeration of ${\rm dom}(f_n)$.
+  Let $b\in M$. 
+  Let $p(x,y)=\mbox{c-tp}(a,b)$.
+  As $M$ is atomic over $a$ by Fact~\ref{fact_atomic_over_Aa}, the type $p(a,y)$ is c-isolated in the limit.
+  Then also the type $p(f_na,y)$ is c-isolated in the limit.
+  Let $c\in{\rm Ccl}(N)$ realize $p(f_na,y)$.
+  Let $f_{n+1}$ be a reduced relation such that $f_{n+1}\ \subseteq\ f_n\cup\{\langle a,c\rangle\}\ \subseteq\ (\sim)\circ f_{n+1}\circ(\sim)$.
+
+  When $n$ is odd we proceed similarly with $f_n^{-1}$.
 \end{proof}
 
-Assume that ${\EuScript L}^{\rm c}$ is separable modulo $T$.
+Let ${\EuScript L}^{\rm c}$ be separable.
 We say that $T$ is \emph{c-$\omega$-categorical\/} if ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are c-isomorphic for any two countable c-models $M,N$.
 The following analogue of Ryll-Nardzewski's Theorem follows as usual.
 
@@ -1911,32 +1968,50 @@ The following analogue of Ryll-Nardzewski's Theorem follows as usual.
   If $p(x)$ is not c-isolated in the limit, by the compactness theorem and the continuous omitting type theorem we can find two countable c-models $M$ and $N$ such that $M$ realize $p(x)$ and ${\rm Ccl}(N)$ omits $p(x)$.
   Then ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are not c-isomorphic, hence $T$ is not c-$\omega$-categorical.
 
-  (2$\Rightarrow$1) 
+  (2$\Rightarrow$1) As, every model is c-atomic,  c-$\omega$-categoricity follows from Fact~\ref{fact_atomic_iso} as in the classical case.
 \end{proof}
 
 The classical argument proves also the following.
 
 \begin{proposition}
-  Fix a finite tuple of variables $x$.
+  Fix $\tau, D$ and a finite tuple of variables $x$.
   The following are equivalent
   \begin{itemize}
-    \item[1.] every positive type $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is p-isolated over $A$;
-    \item[2.] there are finitely many complete types.
+    \item[1.] for every $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is c-isolated;
+    \item[2.] there are finitely many types $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$ such that $\exists y\sim_{\tau,D}x\ p_i(y)$ are pairwise inconsistent.
+    \item[3.] there is a finite set $A\subseteq{\EuScript U}^{|x|}$ such that for every $b\in{\EuScript U}^{|x|}$ there is $a\in A$ such that $b\sim_{\tau,D}a$.
   \end{itemize}
 \end{proposition}
 
 \begin{proof}
   (1$\Rightarrow$2) 
-  Let $p_i(x)=\mbox{p-tp}(a_i/A)$, for $i<\lambda$, be an enumeration without repetitions of all positive types.
-  Let $\neg\varphi_i(x)$ be the negative formulas that isolate the $p_i(x)$.
-  As these are complete types, $\neg\varphi_i(x)\leftrightarrow p_i(x)$.
-  If $\lambda$ is infinite then the positive type $\{\varphi_i(x):i<\lambda\}$ is consistent.
-  Any realization of this type yield a contradiction.
+  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}$, for $i<\lambda$, be such that $\exists y\sim_{\tau,D}x\ p_i(y)$ are pairwise inconsistent.
+  Suppose that $\lambda$ is maximal and, for a contradiction, that it is infinite.
+  Let $\neg\varphi_i(x)$, where $\varphi_i(x)\in{\EuScript L}^{\rm c}$, be the formulas that isolate $\exists y\sim_{\tau,D}x\ p_i(x)$.
+  As these types are pairwise inconsistent, then the continuous type $q(x)=\{\varphi_i(x):i<\lambda\}$ is consistent.
+  The type $\exists y\sim_{\tau,D}x\ q(x)$ is inconsistent with all $\exists y\sim_{\tau,D}x\ p_i(x)$.
+  This contradicts the maximality of $\lambda$.
+
+  (2$\Rightarrow$3) 
+  Let $A\subseteq{\EuScript U}^{|x|}$ be a set of maximal cardinality such that $a\not\sim_{\tau,D}a'$ for every distinct $a,a'\in A$.
+  It suffices to prove that $|A|$ is finite.
+
+
+
+
+  
 
   (2$\Rightarrow$1)
-  Let $p_i(x)=\mbox{p-tp}(a_i/A)$, for $i<n$, be an enumeration without repetitions of all positive types.
-  Pick a formula $\varphi_i(x)\in p_i\smallsetminus\bigcup\big\{ p_j : j\in n\smallsetminus\{i\}\big\}$.
-  Then the formula $\neg\bigvee\big\{\varphi_i(x):j\in n\smallsetminus\{i\}p\big\}$ isolates $p_i(x)$.
+  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$, for $i<n$, be such that $\exists y\sim_{\tau,D}x\ p_i(x)$ are pairwise inconsistent.
+  Assume $n$ is maximal.
+  Let $a_i\models p_i(x)$ and $A=\{a_0,\dots,a_{n-1}\}$..
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$. 
+  By maximality $\exists y\sim_{\tau,D}x\ p(y)$ is consistent with some 
+  By compactness there are $\varphi_i(x)\in p_i$ such that $\exists y\sim_{\tau,D}x\ \varphi_i(x)$ are pairwise inconsistent.
+  By maximality $\varphi_i(x)\rightarrow\exists y\sim_{\tau,D}x\ p(y)$
+
+  
+
 \end{proof}
 
 
