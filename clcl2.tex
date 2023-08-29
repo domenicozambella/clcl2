@@ -145,7 +145,7 @@
 \makeatother
 
 \linespread{1.1}
-\author{C. L. C. L. Polymath}
+\author{S. A. Polymath}
 \begin{document}
 \title{Standard analysis}
 \hfill\texttt{Branch:\ \branch\ \DTMnow}\bigskip
@@ -252,19 +252,20 @@ Note that ${\EuScript L}$ has two types of atomic formulas:
 
 % \noindent\llap{\textcolor{red}{\Large\dangersign}\kern1ex}\ignorespaces
 
-The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript L}^{\rm c}$ that do not have quantifiers of sort ${\sf I}$.
-
-Working within ${\EuScript L}^{\rm p}$ simplifies the comparision with classical model theory but comes at a price.
-Instead, allowing quantifiers of sort ${\sf I}$ comes almost for free.
-We will see (cf.\@ Propositions~\ref{prop_LHapprox1}) that the formulas in ${\EuScript L}^{\rm p/c}$ are approximated by formulas in ${\EuScript L}^{\rm p/c}$ without quantifiers of sort ${\sf I}$.
-
 \begin{notation}
   When we state facts that holds both for ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ we write \emph{${\EuScript L}^{\rm p/c}$\/} for short.
 \end{notation}
 
+The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript L}^{\rm c}$ that do not have quantifiers of sort ${\sf I}$.
+
+Working within ${\EuScript L}^{\rm p}$ simplifies the comparision with classical model theory but comes at a price.
+Instead, allowing quantifiers of sort ${\sf I}$ is almost for free.
+We will see (cf.\@ Propositions~\ref{prop_LHapprox1} and~\ref{prop_cLHapprox1}) that the formulas in ${\EuScript L}^{\rm p/c}$ are approximated by formulas in ${\EuScript L}^{\rm p/c}$ without quantifiers of sort ${\sf I}$.
+
+
 The main fact to note about ${\EuScript L}^{\rm c}$ is that it is a language without equality of sort ${\sf H}$.
 The difference beween ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ is similar to the difference between the space of absolutely integrable functions and the Lebesgue space $L^1$.
-For the latter only equality almost everywhere makes sense.
+For the latter only equality almost everywhere is relevant.
 However, even when $L^1$ is our focus of interest, it is often easier to argue about real valued functions.
 For a similar reason ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ are better studied in parallel.
 
@@ -295,14 +296,15 @@ The following example is inspired by~\cite{HPP}.
   It is easy to verify that $\langle{\EuScript U}, I\rangle$ is positively saturated as defined in Section~\ref{compactness}.
 \end{example}
 
-The theory of normed spaces is one of the motivating examples of standard structures.
-Essentially, functional analysis and model theory are only interested in the unit ball of normed spaces.
+The theory of normed spaces is one of the motivating examples for standard structures.
+The requirement for $I$ to be compact seems to be a limitation, but is is not a real one.
+Essentially, functional analysis and model theory are only concerned with the unit ball of normed spaces.
 To formalize the unit ball of a normed space as a standard structure (where $I$ is the unit interval) is straightforward but cumbersome.
 Alternatively one can view a normed space as a many-sorted structure: a sort for each ball of radius $n\in\mathds{Z}^+$.
 Unfortunately, this also results in a bloated formalism.
 
 A neater formalization is possible if one accepts that some positive elementary extensions (to be defined below) of a normed space could contain vectors of infinite norm hence not be themselves proper normed spaces.
-However these infinities are harmless if one is only interested in the unit ball.
+However these infinities are harmless if one restrics to balls of fine radius.
 In fact, inside any ball of finite radius these improper normed spaces are completely standard.
 
 \begin{example}\label{ex_normed_spaces}
@@ -1901,7 +1903,11 @@ In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Continuous $\omega$-categoricity.}
+\section{Continuous \boldmath$\omega$-categoricity.}
+
+
+\def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
+
 
 In the discussion of countable categoricity we assume that the underlying theory is complete.
 This assumption is not necessary (it is rather a consequence of categoricity), but it allows to work inside a monster model and simplify the notation.
@@ -1974,17 +1980,17 @@ The following analogue of Ryll-Nardzewski's Theorem follows as usual.
 The classical argument proves also the following.
 
 \begin{proposition}
-  Fix $\tau, D$ and a finite tuple of variables $x$.
+  Fix a finite tuple of variables $x$.
   The following are equivalent
   \begin{itemize}
-    \item[1.] for every $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is c-isolated;
-    \item[2.] there are finitely many types $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$ such that $\exists y\sim_{\tau,D}x\ p_i(y)$ are pairwise inconsistent.
-    \item[3.] there is a finite set $A\subseteq{\EuScript U}^{|x|}$ such that for every $b\in{\EuScript U}^{|x|}$ there is $a\in A$ such that $b\sim_{\tau,D}a$.
+    \item[1.] every consistent $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated in the limit;
+    \item[2.] for every given $\tau, D$ there there are at most $n_{\tau, D}<\omega$ many types $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$ such that $\exists y\sim_{\tau,D}x\ p_i(y)$ are pairwise inconsistent.
   \end{itemize}
 \end{proposition}
 
 \begin{proof}
   (1$\Rightarrow$2) 
+  Let $\tau, D$ be given.
   Let $p_i(x)\subseteq{\EuScript L}^{\rm c}$, for $i<\lambda$, be such that $\exists y\sim_{\tau,D}x\ p_i(y)$ are pairwise inconsistent.
   Suppose that $\lambda$ is maximal and, for a contradiction, that it is infinite.
   Let $\neg\varphi_i(x)$, where $\varphi_i(x)\in{\EuScript L}^{\rm c}$, be the formulas that isolate $\exists y\sim_{\tau,D}x\ p_i(x)$.
@@ -1992,25 +1998,51 @@ The classical argument proves also the following.
   The type $\exists y\sim_{\tau,D}x\ q(x)$ is inconsistent with all $\exists y\sim_{\tau,D}x\ p_i(x)$.
   This contradicts the maximality of $\lambda$.
 
-  (2$\Rightarrow$3) 
-  Let $A\subseteq{\EuScript U}^{|x|}$ be a set of maximal cardinality such that $a\not\sim_{\tau,D}a'$ for every distinct $a,a'\in A$.
-  It suffices to prove that $|A|$ is finite.
+  (2$\Rightarrow$1?) 
+  Let $\tau, D$ be given and pick a compact neighborhood of the diagonal $E$ such that $E\circ E\circ E\subseteq D$.
+  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$, for $i<n$, be such that $\exists y\sim_{\tau,E}x\ p_i(x)$ are pairwise inconsistent.
+  By compactness there are some $\varphi_i(x)\in p_i$ such that $\exists y\sim_{\tau,E}x\ \varphi_i(x)$ are pairwise inconsistent.
+  Assume $n=n_{\tau,E}$ is maximal.
+  Let $F=E\circ E$.
+  We claim that for every $a$
+
+  \ceq{}{~}{\bigvee_{i=1}^n\exists y\sim_{\tau,F}a\ \ \varphi_i(y)}
+  
+  In fact, if $q(x)=\mbox{c-tp}(a/A)$, where $a$ does not satisfy the formula above, then $\exists y\sim_{\tau,E}x\ q(y)$ would be inconsistent with every $\exists y\sim_{\tau,E}x\ p_i(x)$.
+  This contradicts the maximality of $n$.
+
+  Let $q(x)\subseteq{\EuScript L}^{\rm c}(A)$.
+  We prove that $\exists y\sim_{\tau,D}x\ q(y)$ is c-isolated.
+  By maximality $\exists y\sim_{\tau,E}x\ q(y)$ is consistent with, say, $\exists y\sim_{\tau,E}x\ \varphi_1(x)$.
+  Without loss of generality, assume $q(x)\rightarrow\exists y\sim_{\tau,E}x\ \varphi_1(x)$.
+  Note that
+
+  \ceq{\hfill\exists y\sim_{\tau,E}x\ \varphi_1(x)}{\rightarrow}{\neg\bigvee_{i=2}^n\exists y\sim_{\tau,F}x\ \ \varphi_i(y)}
 
 
 
 
+  We claim that
+
+
+  \ceq{\hfill\neg\bigvee_{i=2}^n\exists y\sim_{\tau,F}x\ \ \varphi_i(y)}{\rightarrow}{}
+
+
+  Let 
+  
+  \ceq{\hfill{\EuScript C}}{=}{\Big\{\langle C_1,\dots,C_n\rangle\ :\ E\subseteq C_i\subseteq D\ \textrm{compact, }\forall x\bigvee_{i=1}^n\exists y\sim_{\tau,C_i}x\ \ \varphi_i(y)\Big\}}
+  
+  
+  , for $i<n$ be  such that 
+
+  \ceq{\hfill}{~}{}
   
 
-  (2$\Rightarrow$1)
-  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$, for $i<n$, be such that $\exists y\sim_{\tau,D}x\ p_i(x)$ are pairwise inconsistent.
-  Assume $n$ is maximal.
-  Let $a_i\models p_i(x)$ and $A=\{a_0,\dots,a_{n-1}\}$..
-  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$. 
-  By maximality $\exists y\sim_{\tau,D}x\ p(y)$ is consistent with some 
-  By compactness there are $\varphi_i(x)\in p_i$ such that $\exists y\sim_{\tau,D}x\ \varphi_i(x)$ are pairwise inconsistent.
-  By maximality $\varphi_i(x)\rightarrow\exists y\sim_{\tau,D}x\ p(y)$
 
+  \ceq{1.\hfill\neg\bigvee_{i=1}^n\varphi_i(x)}{\rightarrow}{\exists y\sim_{\tau,D}x\ q(y)}
   
+  Suppose not for a contradiction.
+  Let $a$ satisfy the antecedent but not the consequence of (1).
 
 \end{proof}
 
