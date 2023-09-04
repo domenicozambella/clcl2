@@ -1850,22 +1850,41 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Continuous omitting types.}
 
-We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is c-isolated \emph{in the limit\/} by $A$ if for every $\tau,D$ the type $\exists y\sim_{\tau,D}x\ p(y)$ is c-isolated by $A$.
+Let $p(x)\subseteq{\EuScript L}^{\rm c}$ be a parameter-free type.
+We define
+
+\ceq{\hfill p_{\tau,D}(x)}{=}{\Big\{\exists y\sim_{\tau,D}x\ \varphi(y)\ \ :\ \ \varphi(x)\in p\Big\}}
+
+By saturation 
+
+\ceq{\hfill p_{\tau,D}(x)}{\leftrightarrow}{\exists x'\sim_{\tau,D}x\ p(x')}
+
+But note that the equivalence may fail when evaluatec in a model that is not sufficiently saturated.
+
+When $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$, say $p(x)=q(x,a)$ for some $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in{\EuScript U}^{|z|}$, we write $p_{\tau,D}(x)$ for $q_{\tau,D}(x,a)$.
+We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$, is c-isolated \emph{in the limit\/} by $A$ if for every $\tau,D$ the type $p_{\tau,D}(x)$ is c-isolated by $A$.
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
 
+When ${\EuScript L}^{\rm c}$ is separable, there is a sequence $\langle\tau_n,D_n:n<\omega\rangle$ such that for every $\tau,D$ there is an $n<\omega$ such that $x\sim_{\tau_n,D_n}y\ \rightarrow\ x\sim_{\tau,D}y$. 
+  We write \emph{$x\sim_ny$\/} for $\sim_{\tau_n,D_n}$.
+  
 \begin{fact}\label{fact_sim_n}
-  Let ${\EuScript L}^{\rm c}$ be separable.
+  % Let ${\EuScript L}^{\rm c}$ be separable.
   If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated in the limit by $A$, then $p(x)$ is realized in every Cauchy complete c-model containing $A$.
 \end{fact}
 
 \begin{proof}
-  As ${\EuScript L}^{\rm c}$ is separable, there is a sequence $\langle\tau_n,D_n:n<\omega\rangle$ such that for every $\tau,D$ there is an $n<\omega$ such that $x\sim_{\tau_n,D_n}y\ \rightarrow\ x\sim_{\tau,D}y$. 
-  We write \emph{$x\sim_ny$\/} for $\sim_{\tau_n,D_n}$.
+  Let $p(x)=q(x,a)$ for some $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in A^{|z|}$.
+  Let $\varphi_{\tau,D}(x)\in{\EuScript L}^{\rm c}(A)$ be such that $\neg\varphi_{\tau,D}(x)\rightarrow\exists x',y'\sim_{\tau,D} x,a\ q(x',y')$.
+  Let $M$ be a c-model containing $A$.
+  Let $a_{\tau,D}\in M$ be a solution of $\neg\varphi_{\tau,D}(x)$.
+
+  Note that the following type is finitely consistent
+
+  \ceq{\hfill q(x',y')}{\cup}{\Big\{a_{\tau,D}\sim_{\tau,D}x'\ \wedge\ b\sim_{\tau,D}y'\ \ :\ \ \tau,D\Big\}.}
   
-  Let $M$ be a Cauchy complete c-model containing $A$.
-  Let $a_n\in M$ be such that $\exists x\sim_na_n\ p(x)$.
-  By compactness, $b\models p(x)$ for some $b\in{\EuScript U}$ such that $b\sim_na_n$ for every $n<\omega$.
-  Then $b\sim'x$ is finitely satisfied in $M$ and therefore $b\in{\rm Ccl}(M)=M$.
+  Let $b',a$ be a realization.
+  Then $b',a\in{\rm Ccl}(M)$.
 \end{proof}
 
 In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$, then there is a sequence of elements of $M$ that converges inthe $I$-topology to a realization of $p(x)$. 
@@ -1907,7 +1926,6 @@ In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$
 
 
 \def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
-
 
 In the discussion of countable categoricity we assume that the underlying theory is complete.
 This assumption is not necessary (it is rather a consequence of categoricity), but it allows to work inside a monster model and simplify the notation.
