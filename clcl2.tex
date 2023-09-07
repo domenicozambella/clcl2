@@ -184,13 +184,13 @@
 \section{Standard structures}\label{uno}
 
 
+\def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
+
 We refer to the introduction of~\cite{clcl} for motivations.
 Aside from that, this paper is reasonably self-contained.
 In the first part we revisit some results of~\cite{clcl}.
 We rephrase some theorems and add a few remarks and examples\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead. We will also omit a few proofs from Sections~\ref{morphisms}, \ref{compactness}, and~\ref{Ielimination}.}.
 Our notation and terminology diverges slightly, only where necessary.
-
-\def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
 Let \emph{$I$\/} be some fixed first-order structure which is endowed with a Hausdorff compact topology (in particular, a normal topology).
 The language \emph{${\EuScript L}_{\sf I}$\/} contains a relation symbol for each compact subsets $C\subseteq I^n$ and a function symbol for each continuous functions $f:I^n\to I$.
@@ -393,7 +393,7 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Morphisms}\label{morphisms}
 
-\def\ceq#1#2#3{\parbox[t]{35ex}{$\displaystyle #1$}\parbox{5ex}{\hfil $#2$}{$\displaystyle #3$}}
+\def\ceq#1#2#3{\parbox[t]{34ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
 Let $M$ and $N$ be two standard structures.
 We say that a partial map $f:M\to N$ is \emph{p-elementary\/} if for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in({\rm dom }f)^{|x|}$
@@ -783,7 +783,7 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 %   If we restrict to formulas without quantifiers of sort ${\sf H}$, the proposition above holds in every model (this is clear from the proof).
 % \end{remark}
 
-\def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox{5ex}{\hfil $#2$}{$\displaystyle #3$}}
+\def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
 \begin{remark}\label{remk_approx_EH_free}
   By Corollary~\ref{corol_st}, when $\varphi(x\,;\eta)$ does not contains existential quantifiers of sort ${\sf H}$, the proposition above does not require the assumption of saturation.
@@ -831,6 +831,8 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The monster model}\label{monster}
+
+\def\ceq#1#2#3{\parbox[t]{18ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
 We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the \emph{positive monster\/} model.
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
@@ -1196,17 +1198,17 @@ The following fact will be used below without mention.
 \end{fact}
 
 \begin{proof} 
-  \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
+  \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
   %
   By induction.
   Only implication $\Leftarrow$ requires a proof
   For limit ordinals induction is trivial.
   Assume $a_i\sim b_i$ for every $i\le\lambda$.
-  Let $|a|=|b|=\lambda$ and assume inductively that (it suffices to consider tuples $\tau$ of arity $1$) 
+  Let $|a|=|b|=\lambda$ and assume inductively that (note that it suffices to consider tuples $\tau$ of arity $1$) 
   
   \ceq{\hfill\forall y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
 
-  holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ and $|y|=1$ (universal quantification over the free variables is understood throughout the proof).  
+  holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ and $|y|=1$ (universal quantification over the free variables is understood throughout the proof).
   In particular for any $a_\lambda$
 
   \ceq{1.\hfill\forall z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
@@ -1276,8 +1278,8 @@ The following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposi
 \end{corollary}
 
 \begin{proof}
-  As $x\sim y\ \cup\ \big\{\varphi(x)\big\}\ \rightarrow\ \varphi(y)$ by the fact above, (i) follows from Fact~\ref{fact_compactness_imp}.
-  Similarly, we obtain (ii) from $x\sim y\ \cup\ \big\{\tilde{\varphi}(x)\big\}\ \rightarrow\ \neg\varphi(y)$.
+  As $x\sim' y\ \cup\ \big\{\varphi(x)\big\}\ \rightarrow\ \varphi(y)$ by the fact above, (i) follows from Fact~\ref{fact_compactness_imp}.
+  Similarly, we obtain (ii) from $x\sim' y\ \cup\ \big\{\tilde{\varphi}(x)\big\}\ \rightarrow\ \neg\varphi(y)$.
 \end{proof}
 
 
@@ -1295,7 +1297,7 @@ The \emph{Cauchy completion\/} of $A$ is the set
 \ceq{\hfill\emph{${\rm Ccl}(A)$}}{=}{\big\{a:a\sim'x\textrm{ is finitely satisfied in }A\big\}}.
 
 \begin{fact}\label{fact_finsat}
-  ${\rm Ccl}(A)$ is Cauchy complete
+  ${\rm Ccl}(A)$ is Cauchy complete.
 \end{fact}
 
 \begin{proof}
@@ -1744,7 +1746,7 @@ If there is a countable p/c-dense set ${\EuScript F}$ of positive formulas, we s
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Positive omitting types}
 
-\def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox{4ex}{\hfil $#2$}{$\displaystyle #3$}}
+\def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
 In this section we prove a useful lemma about isolated positive/continuous types.
 Our goal is to prove in the sections a the continuous version of the omitting types theorem and the caracterization of \textit{c-$\omega$-categoricity.} 
@@ -1853,60 +1855,64 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 Let $p(x)\subseteq{\EuScript L}^{\rm c}$ be a parameter-free type.
 We define
 
-\ceq{\hfill p_{\tau,D}(x)}{=}{\Big\{\exists y\sim_{\tau,D}x\ \varphi(y)\ \ :\ \ \varphi(x)\in p\Big\}}
+\ceq{\hfill p_{\tau,D}(x)}{=}{\Big\{\exists x'\sim_{\tau,D}x\ \ \varphi(x')\ \ :\ \ \varphi(x)\in p\Big\}}
 
 By saturation 
 
-\ceq{\hfill p_{\tau,D}(x)}{\leftrightarrow}{\exists x'\sim_{\tau,D}x\ p(x')}
+\ceq{\hfill p_{\tau,D}(x)}{\leftrightarrow}{\exists x'\sim_{\tau,D}x\ \ p(x')}
 
-But note that the equivalence may fail when evaluatec in a model that is not sufficiently saturated.
+But note that the equivalence may fail when evaluated in a model that is not sufficiently saturated.
 
 When $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$, say $p(x)=q(x,a)$ for some $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in{\EuScript U}^{|z|}$, we write $p_{\tau,D}(x)$ for $q_{\tau,D}(x,a)$.
 We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$, is c-isolated \emph{in the limit\/} by $A$ if for every $\tau,D$ the type $p_{\tau,D}(x)$ is c-isolated by $A$.
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
-
-When ${\EuScript L}^{\rm c}$ is separable, there is a sequence $\langle\tau_n,D_n:n<\omega\rangle$ such that for every $\tau,D$ there is an $n<\omega$ such that $x\sim_{\tau_n,D_n}y\ \rightarrow\ x\sim_{\tau,D}y$. 
-  We write \emph{$x\sim_ny$\/} for $\sim_{\tau_n,D_n}$.
   
 \begin{fact}\label{fact_sim_n}
   % Let ${\EuScript L}^{\rm c}$ be separable.
-  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated in the limit by $A$, then $p(x)$ is realized in every Cauchy complete c-model containing $A$.
+  Let $M$ be a c-model.
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a maximally consistent type that is c-isolated in the limit by $M$.
+  Then $p(x)$ is realized in ${\rm Ccl}(M)$.
 \end{fact}
 
 \begin{proof}
-  Let $p(x)=q(x,a)$ for some $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in A^{|z|}$.
-  Let $\varphi_{\tau,D}(x)\in{\EuScript L}^{\rm c}(A)$ be such that $\neg\varphi_{\tau,D}(x)\rightarrow\exists x',y'\sim_{\tau,D} x,a\ q(x',y')$.
-  Let $M$ be a c-model containing $A$.
-  Let $a_{\tau,D}\in M$ be a solution of $\neg\varphi_{\tau,D}(x)$.
-
-  Note that the following type is finitely consistent
-
-  \ceq{\hfill q(x',y')}{\cup}{\Big\{a_{\tau,D}\sim_{\tau,D}x'\ \wedge\ b\sim_{\tau,D}y'\ \ :\ \ \tau,D\Big\}.}
+  Let $p(x)=q(x,a)$ for some maximally consistent type $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in M^{|z|}$.
+  Pick some formulas $\varphi_{\tau,D}(x)\in{\EuScript L}^{\rm c}(M)$ such that 
   
-  Let $b',a$ be a realization.
-  Then $b',a\in{\rm Ccl}(M)$.
+  \ceq{\hfill\neg\varphi_{\tau,D}(x)}{\rightarrow}{\exists x',y'\sim_{\tau,D} x,a\ \ q(x',y').}
+
+  Let $b_{\tau,D}\in M$ be a solution of $\neg\varphi_{\tau,D}(x)$.
+  By maximality 
+  
+  \ceq{\hfill q(x',y')}{\rightarrow}{b_{\tau,D}\sim_{\tau,D}x'\ \wedge\ a\sim_{\tau,D}y'.}
+
+  Let $b',a'\models q(x',y')$.
+  Then $b'\in{\rm Ccl}(M)$ and, by Proposition~\ref{fact_continuous}, $b'\models q(x',a)$.
 \end{proof}
 
-In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$, then there is a sequence of elements of $M$ that converges inthe $I$-topology to a realization of $p(x)$. 
+In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$, then there is a sequence of elements of $M$ that converges in the $I$-topology to a realization of $p(x)$.
 
  \begin{fact}\label{fact_wcisolatio_realization} 
-   If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is c-isolated in the limit by $M$.
+   If $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$, then $p(x)$ is c-isolated in the limit by $M$.
  \end{fact}
  
 \begin{proof}
+  Let $p(x)=q(x,a)$ for some $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in M^{|z|}$.
   Let $b\in{\rm Ccl}(M)^{|x|}$ realize $p(x)$.
   Let $\tau,D$ be given.
-  By Fact~\ref{fact_isolation} it suffices to find a continuous formula $\varphi(x)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\exists y\sim_{\tau,D}x\ p(y)$.
+  By Fact~\ref{fact_isolation} it suffices to find a consistent formula $\varphi(x)\in{\EuScript L}^{\rm c}(M)$ and some $\varphi'>\varphi$ such that 
+  
+  \ceq{\hfill\varphi'(x)}{\rightarrow}{\exists x',z'\sim_{\tau,D}x,a\ \ p(x',z').}
+
   Let $C$ be a neighborhood of the diagonal such that $C'\circ C'\subseteq D$ for some $C'>C$.
-  Let $a\in M$ be such that $a\sim_{\tau,C} b$.
-  Then we can take $x\sim_{\tau,C}a$ as $\varphi(x)$ and $x\sim_{\tau,C'}a$ as $\varphi'(x)$.
+  Let $c\in M^{|x|}$ be such that $c\sim_{\tau,C} b$.
+  Then we can take $x\sim_{\tau,C}c$ as $\varphi(x)$ and $x\sim_{\tau,C'}c$ as $\varphi'(x)$.
 \end{proof}
 
 \begin{theorem}[Continuous Omitting Types]\label{thm_cOTT}
   Let ${\EuScript L}^{\rm c}$ be separable.
   Let $A$ be countable.
   Assume also that $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is not c-isolated in the limit.
-  Then there is a c-model $M$ containing $A$ such that ${\rm Ccl}(M)$ omits $p(x)$. 
+  Then there is a c-model $M$ containing $A$ such that ${\rm Ccl}(M)$ omits $p(x)$.
 \end{theorem}
 
 \begin{proof}
@@ -1934,18 +1940,33 @@ Let $M$ be a c-model.
 Let $A\subseteq{\rm Ccl}(M)$.
 We say that $M$ is \emph{c-atomic\/} over $A$ if the types $\mbox{c-tp}(a/A)$, for any finite tuple $a$ of elements of $M$, are c-isolated by $A$ in the limit.
 
+% When ${\EuScript L}^{\rm c}$ is separable, there is a sequence $\langle\tau_n,D_n:n<\omega\rangle$ such that for every $\tau,D$ there is an $n<\omega$ such that $x\sim_{\tau_n,D_n}y\ \rightarrow\ x\sim_{\tau,D}y$. 
+% We write \emph{$x\sim_ny$\/} for $\sim_{\tau_n,D_n}$.
+
 \begin{fact}\label{fact_atomic_over_Aa}
-  Let ${\EuScript L}^{\rm c}$ be separable.
-  If $M$ is c-atomic over $A$ then it is c-atomic over $A,a$ for every finite tuple $a$ of elements of ${\rm Ccl}(M)$.
+  % Let ${\EuScript L}^{\rm c}$ be separable.
+  Let $M$ be a c-model that is c-atomic over $A$.
+  Then $M$ is c-atomic over $A,b$ for every finite tuple $b$ of elements of ${\rm Ccl}(M)$.
 \end{fact}
 
 \begin{proof}
-  Let $b\in M^{|y|}$.
-  Assume that $p(x,y)=\mbox{c-tp}(a,b/A)$ is c-isolated in the limit.
-  We prove that $p(a,y)=\mbox{c-tp}(b/A,a)$ is c-isolated in the limit.
-  Let $\neg\varphi_n(x,y)$ isolate $\exists x',y'\sim_nx,y\ p(x',y')$, where $\sim_n$ is as in the proof of Fact~\ref{fact_sim_n}.
-  Note that $\neg\varphi_n(a,b)$ holds for all $n$.
-  Then $\neg\varphi_n(a,y)$ is consistent and $\neg\varphi_n(a,y)\ \rightarrow\ \exists y\sim_ny'\ p(a,y')$.
+  Let $c\in M^{|z|}$.
+  Let $p(x,y,z)=\mbox{c-tp}(a,b,c)$, where $a\in A^{|z|}$.
+  Assume that $p(a,y,z)$ is c-isolated in the limit by $A$.
+  We verify that $p(a,b,z)$ is c-isolated in the limit.
+  Let $\varphi_{\tau,D}(y,z)\in{\EuScript L}^{\rm c}(A)$ be such that $\neg\varphi_{\tau,D}(y,z)$ is consistent and
+
+  \ceq{\hfill\neg\varphi_{\tau,D}(y,z)}{\rightarrow}{\exists x',y',z'\sim_{\tau,D} a,y,z\ \ p(x',y',z').}
+
+  % Note that $\neg\varphi_{\tau,D}(b,c)$ holds for all $\tau,D$.
+  %  $\neg\varphi_{tau,D}(x,c)$ is consistent
+  % Then $\neg\varphi_n(b,z)\ \rightarrow\ \exists z',x',y'\sim_{\tau,D} a,x,c\ p(z',x',y')$.
+  Then, clearly
+
+  \ceq{\hfill\neg\varphi_{\tau,D}(b,z)}{\rightarrow}{\exists x',y',z'\sim_{\tau,D} a,b,z\ \ p(x',y',z').}
+
+  Then we are only left to prove that $\neg\varphi_{\tau,D}(b,z)$ is consistent.
+  
 \end{proof}
 
 \begin{fact}\label{fact_atomic_iso}
