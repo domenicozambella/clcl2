@@ -71,6 +71,7 @@
   bodyfont=\normalfont,
   postheadspace=1em,
   mdframed={
+  nobreak=true,
   outerlinewidth=1pt,
   linecolor=gray!20,
   roundcorner = 1ex,    
@@ -262,11 +263,10 @@ Working within ${\EuScript L}^{\rm p}$ simplifies the comparision with classical
 Instead, allowing quantifiers of sort ${\sf I}$ is almost for free.
 We will see (cf.\@ Propositions~\ref{prop_LHapprox1} and~\ref{prop_cLHapprox1}) that the formulas in ${\EuScript L}^{\rm p/c}$ are approximated by formulas in ${\EuScript L}^{\rm p/c}$ without quantifiers of sort ${\sf I}$.
 
-
 The main fact to note about ${\EuScript L}^{\rm c}$ is that it is a language without equality of sort ${\sf H}$.
-The difference beween ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ is similar to the difference between the space of absolutely integrable functions and the Lebesgue space $L^1$.
+The difference beween ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ is similar to the difference between the space of absolutely integrable functions (w.r.t.\@ some measure $\mu$) and the Lebesgue space $L^1(\mu)$.
 For the latter only equality almost everywhere is relevant.
-However, even when $L^1$ is our focus of interest, it is often easier to argue about real valued functions.
+However, even when $L^1(\mu)$ is our focus of interest, it is often easier to argue about real valued functions.
 For a similar reason ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ are better studied in parallel.
 
 The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
@@ -368,16 +368,16 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
 
 \begin{definition}\label{def_dense}
   A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p/c-dense\/} modulo $T$, a theory, if for every positive/continuous $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
-  If $T$ is empty, we say p/c-dense modulo ${\EuScript L}$.
+  % If $T$ is empty, we say p/c-dense modulo ${\EuScript L}$.
 \end{definition}
 
 \begin{example}
-  By Lemma~\ref{lem_interpolation}, the set of negations of positive/continuous formulas is p/c-dense modulo ${\EuScript L}$.
+  By Lemma~\ref{lem_interpolation}, the set of negations of positive/continuous formulas is p/c-dense.
 \end{example}
 
 \begin{example}
   Let $I=[0,1]$.
-  The set of formulas built inductively from atomic formulas of the form $\tau\in\{0\}$, is c-dense modulo ${\EuScript L}$.
+  The set of formulas built inductively from atomic formulas of the form $\tau\in\{0\}$ is c-dense.
   In fact, as every compact subset of $I$ is the intersection of finite unions of closed intervals, the formulas built using only atomic formulas of the form $\tau\in[\alpha,\beta]$ are c-dense.
   Finally note that $\tau\in[\alpha,\beta]$ is equivalent to $\tau\dotminus\beta\in\{0\}\ \wedge\ \alpha\dotminus\tau\in\{0\}$.
 \end{example}
@@ -978,39 +978,51 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
   Let $p(x)\subseteq{\EuScript L}^{\rm p/c}(A)$.
   The following are equivalent 
   \begin{itemize}
-    \item[1.] $p(x)$ is a maximally consistent subsets of ${\EuScript L}^{\rm p/c}_x(A)$;
+    \item[1.] $p(x)$ is a maximally standardly consistent subsets of ${\EuScript L}^{\rm p/c}_x(A)$;
     \item[2.] $p(x)=\mbox{p/c-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
 \end{fact}
 
 \begin{proof}
-  (1$\Rightarrow$2) 
-  Then $p(x)\subseteq\mbox{p/c-tp}(a/A)$ and, by maximality $p(x)=\mbox{p/c-tp}(a/A)$.
+  (1$\Rightarrow$2) \ 
+  If $p(x)$ is consistent then $p(x)\subseteq\mbox{p/c-tp}(a/A)$  for some $a\in{\EuScript U}^{|x|}$.
+  By maximality $p(x)=\mbox{p/c-tp}(a/A)$.
 
-  (2$\Rightarrow$1) 
-  From Lemma~\ref{lem_interpolation} and Proposition~\ref{prop_approx} we obtain
+  (2$\Rightarrow$1) \ 
+  By Proposition~\ref{prop_approx} and Lemma~\ref{lem_interpolation}
 
-  \ceq{\hfill\neg\varphi(x)}
-  {\rightarrow}
-  {\bigvee_{\tilde{\varphi}\perp\varphi}\tilde{\varphi}(x).}
+  \ceq{\hfill\varphi(x)}
+  {\leftrightarrow}
+  {\bigwedge_{\tilde{\varphi}\perp\varphi}\neg\tilde{\varphi}(x).}
 
   Suppose $\varphi(x)\in{\EuScript L}^{\rm p/c}(A)\smallsetminus  p$.
   Then $\neg\varphi(a)$.
   Hence $\tilde{\varphi}(a)$ holds for some $\tilde{\varphi}\perp\varphi$ and $p(x)\rightarrow\neg\varphi(x)$ follows.
 \end{proof}
- 
-Note that in the proof above we could replace ${\EuScript L}^{\rm p}$ with any set of positive formulas closed under strong negation.
-Therefore we can also claim the following.
+
+The fact above extends as follows.
 
 \begin{fact}\label{fact_max_cons_F}
-  Let $p(x)\subseteq{\EuScript F}(A)$, where ${\EuScript F}$ is a set of positive formulas closed under strong negation.
+  Let $p(x)\subseteq{\EuScript F}(A)$, where ${\EuScript F}$ is a p/c-dense set of positive/continuous formulas.
   Then the following are equivalent 
   \begin{itemize}
-    \item[1.] $p(x)$ is a maximally consistent subset of ${\EuScript F}_x(A)$;
-    \item[2.] $p(x)={\EuScript F}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
+    \item[1.] $p(x)$ is a maximally standardly consistent subset of ${\EuScript F}_x(A)$;
+    \item[2.] $p(x)={\EuScript F}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$;
+    \item[3.] $p(x)\leftrightarrow\mbox{p/c-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
-\end{fact}
 
+\end{fact}
+  
+\begin{proof}
+  (1$\Rightarrow$2) \ 
+  As above.
+  
+  (2$\Rightarrow$3) \ 
+  As $q(x)\leftrightarrow q'(x)$, then $q(x)\leftrightarrow p(x)={\EuScript F}\mbox{-tp}(a/A)$.
+
+  (3$\Rightarrow$1) \ 
+  Immediate.
+\end{proof}
 
 \begin{proposition}\label{prop_Fapprox}
   Let ${\EuScript F}$ be a p/c-dense set of positive/continuous formulas.
@@ -1018,22 +1030,21 @@ Therefore we can also claim the following.
   
   \ceq{{\rm i.}\hfill\neg\varphi(x)}
   {\leftrightarrow}
-  {\bigvee\big\{\psi'(x)\ :\ \psi'(x)\rightarrow\neg\varphi(x)\textrm{ where }  \psi'>\psi \textrm{ for some consistent } \psi(x)\in{\EuScript F}\big\};}
+  {\bigvee\big\{\phantom\neg\psi(x)\ :\ \ \psi'(x)\rightarrow\neg\varphi(x)\textrm{ and }\psi'>\psi\textrm{ for some }\psi(x)\in{\EuScript F}\big\};}
 
   \ceq{{\rm ii.}\hfill\neg\varphi(x)}
   {\leftrightarrow}
-  {\bigvee\big\{\neg\psi(x)\ :\ \psi(x)\in{\EuScript F}\textrm{ and }\neg\psi(x)\rightarrow\neg\varphi(x)\big\}.}
+  {\bigvee\big\{\neg\psi(x)\ :\ \neg\psi(x)\rightarrow\neg\varphi(x)\textrm{ and }\psi(x)\in{\EuScript F}\big\}.}
 
 \end{proposition}
  
-\begin{proof}  
+\begin{proof} 
   (i) \ Only $\rightarrow$ requires a proof.
   Let $a\in {\EuScript U}^{|x|}$ be such that $\neg\varphi(a)$.
   Let $p(x)=\mbox{p/c-tp}(a)$.
   By Fact~\ref{fact_max_cons_L}, $p(x)\rightarrow\neg\varphi(x)$.
-  As ${\EuScript F}$ is p/c-dense, $p'(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
-  Therefore $p(x)\leftrightarrow q'(x)$.
-  Then, by compactness, $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi'>\psi\in q\subseteq{\EuScript F}$.
+  As ${\EuScript F}$ is p/c-dense, $p(x)\leftrightarrow q(x)={\EuScript F}\mbox{-tp}(a)$.
+  Then $q'(x)\rightarrow\neg\varphi(x)$ hence, by compactness, $\psi'(x)\rightarrow\neg\varphi(x)$ for some $\psi(x)\in{\EuScript F}$.
 
   (ii) \ By density
 
@@ -1044,53 +1055,6 @@ Therefore we can also claim the following.
   Negating both sides of the equivalence we obtain (ii).
 \end{proof}
 
-We will need a similar result for larger class formulas.
-We write \emph{$\Sigma^{\rm p/c}$\/} for the set of formulas of the form $\exists y\,\vartheta(x,y)$ where $\vartheta(x,y)$ is obtained by taking disjuctions and conjuctions of formulas of the form $\neg\psi(x,y)$ or $\psi'(x,y)$ for some $\psi(x,y)\in{\EuScript L}^{\rm p/c}$ and $\psi'>\psi$.
-The following follows easily from the proposition above by induction on the syntax of $\varphi(x)$.
-
-\begin{proposition}\label{prop_Sigma_approx}
-  Let ${\EuScript F}$ be a p/c-dense set of positive/continuous formulas.
-  Then, for every formula $\varphi(x)\in\Sigma^{\rm p/c}$
-  
-  \ceq{\hfill\varphi(x)}
-  {\leftrightarrow}
-  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\ \psi(x)\rightarrow\varphi(x)\big\}.}
-\end{proposition}
-
-
-
-
-% \begin{proposition}\label{prop_LHapprox2}
-%   Let ${\EuScript F}$ be a dense set of positive formulas.
-%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ be such that $\neg\varphi(x)$ is consistent.
-%   Then  $\psi'(x)\rightarrow\neg\varphi(x)$ for some consistent $\psi(x)\in{\EuScript F}(A)$ and some $\psi'>\psi$.
-% \end{proposition}
- 
-
-% One interesting consequence of the proposition above is that in Fact~\ref{fact_max_cons_L} we can replace ${\EuScript L}^{\rm p}$ with any dense set of positive formula.
-
-% \begin{fact}
-%   Let ${\EuScript F}$ be a dense set of positive formulas.
-%   Let $p(x)\subseteq{\EuScript F}(A)$.
-%   The following are equivalent 
-%   \begin{itemize}
-%     \item[1.] $p(x)$ is maximally consistent;
-%     \item[2.] $p(x)={\EuScript F}\mbox{-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
-%   \end{itemize}
-% \end{fact}
-
-% \begin{proof}
-%   (1$\Rightarrow$2) Again, by the saturation of ${\EuScript U}$.
-
-%   (2$\Rightarrow$1)
-%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)\smallsetminus p$.
-%   From Proposition~\ref{prop_LHapprox2} we obtain that $\psi(a)$ holds for some $\psi(x)\in{\EuScript F}(A)$ such that $\psi(x)\rightarrow\neg\varphi(x)$.
-%   Therefore $p(x)\rightarrow\neg\varphi(x)$ follows.
-% \end{proof}
-
-% \begin{corollary}\label{corol_Hcomplete3}
-%   The inverse of an ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ is ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-elementary.
-% \end{corollary}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1562,13 +1526,13 @@ The following proposition is our version of the Tarski-Vaught test.
 
   (2$\Rightarrow$3)
   Assume (2) and let $\psi(x)\in{\EuScript F}(M)$ be such that $\exists x\,\neg\psi(x)$.
-  By Proposition~\ref{prop_Fapprox}, there are a consistent $\varphi(x)\in{\EuScript F}(M)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\neg\psi(x)$.
+  By Proposition~\ref{prop_Fapprox}.i, there are a consistent $\varphi(x)\in{\EuScript F}(M)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\neg\psi(x)$.
   Then (3) follows.
 
   (3$\Rightarrow$2)
   Let $\psi'>\psi$ for some $\psi(x)\in{\EuScript F}(M)$.
   Let $\tilde{\psi}\bot\psi$ such that $\psi(x)\rightarrow\neg\tilde{\psi}(x)\rightarrow\psi'(x)$.
-  By Fact~\ref{prop_Fapprox}.ii, $\neg\varphi(x)\rightarrow\neg\tilde{\psi}(x)$ for some $\varphi(x)\in{\EuScript F}(M)$ such that $\neg\varphi(x)$ is consistent.
+  By Proposition~\ref{prop_Fapprox}.ii, $\neg\varphi(x)\rightarrow\neg\tilde{\psi}(x)$ for some $\varphi(x)\in{\EuScript F}(M)$ such that $\neg\varphi(x)$ is consistent.
   Then (2) follows from (3).
   
   (2$\Rightarrow$1)
@@ -1686,7 +1650,7 @@ In particular every $A\subseteq{\EuScript U}$ is contained in a standard structu
 In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in ${\EuScript L}_{\sf I}$.
 
-If there is a countable p/c-dense set ${\EuScript F}$ of positive formulas, we say that ${\EuScript L}^{\rm p/c}$ is \emph{separable.}
+If there is a countable p/c-dense set ${\EuScript F}$ of positive/continuous formulas, we say that ${\EuScript L}^{\rm p/c}$ is \emph{separable.}
 
 \begin{proposition}
   Let ${\EuScript L}^{\rm p/c}$ be separable.
@@ -1697,7 +1661,7 @@ If there is a countable p/c-dense set ${\EuScript F}$ of positive formulas, we s
 \begin{proof}
   Let ${\EuScript F}$ be a countable p/c-dense set of positive/continuous formulas.
   As in the classical proof of the L\"owenheim-Skolem Theorem, we construct a countable $M\subseteq{\EuScript U}$ that contains a witness of every consistent formula $\neg\psi(x)$ for $\psi(x)\in{\EuScript F}(M)$.
-  In continuous case we need also to ensure that $M$ is a substructure.
+  In continuous case we also ensure that $M$ is a substructure.
   Then the proposition follows from Theorem~\ref{thm_Tarski_Vaught}.
 \end{proof}
 
@@ -1748,29 +1712,26 @@ If there is a countable p/c-dense set ${\EuScript F}$ of positive formulas, we s
 
 \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-In this section we prove a useful lemma about isolated positive/continuous types.
-Our goal is to prove in the sections a the continuous version of the omitting types theorem and the caracterization of \textit{c-$\omega$-categoricity.} 
-These results have interesting examples in functional analysis (here we will only breafly discuss Hilbert spaces).
+In this section we prove a version of the omitting types theorem.
 
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} by $A$.
-Similarly, we define \emph{c-isolated.}
+
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
-Note that, by Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p/c-isolated by $A$, then $p(x)$ is realized in every p/c-model containing $A$.
-In the prositive case we also have the following: if $p(x)$ is is realized in $M$, a p-model, then $p(x)$ is p-isolated by $M$.
+Note that, by Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p-isolated by $A$, then $p(x)$ is realized in every p-model containing $A$.
+We also have that if $p(x)$ is is realized in $M$, a p-model, then $p(x)$ is p-isolated by $M$.
 In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$ is positive by Morleyzation.
 
 The continuous case will be considered in the next section.
-In this case a weaker notion of isolation is more appropriate, see Fact~\ref{fact_wcisolatio_realization}.
+In this case a weaker notion of isolation is appropriate.
 
 \begin{fact}\label{fact_isolation}
-  Let ${\EuScript F}$ be a p/c-dense set of positive formulas.
+  Let ${\EuScript F}$ be a p-dense set of positive formulas.
   Then the following are equivalent
   \begin{itemize}
-  \item[1.] $p(x)$ is p/c-isolated by $A$;
-  \item[2.] $p(x)$ is isolated by $\neg\psi(x)$ for some $\psi(x)\in{\EuScript F}(A)$;
-  \item[3.] $p(x)$ is isolated by some $\psi'(x)$ such that  $\psi'>\psi$ for some consistent $\psi(x)\in{\EuScript F}(A)$;
-  \item[4.] $p(x)$ is isolated by some formula $\varphi(x)\in\Sigma^{\rm p/c}(A)$.
+  \item[1.] $p(x)$ is p-isolated by $A$;
+  \item[2.] $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript F}(A)$;
+  \item[3.] $p(x)$ is isolated by some $\varphi'(x)$ such that  $\varphi'>\varphi$ for some consistent $\varphi(x)\in{\EuScript F}(A)$.
   \end{itemize}
 \end{fact}
 
@@ -1779,55 +1740,51 @@ In this case a weaker notion of isolation is more appropriate, see Fact~\ref{fac
 
   (1$\Rightarrow$3) By Proposition~\ref{prop_Fapprox}.i.
 
-  (3$\Rightarrow$1) Let $\psi'>\psi$ be as in (3). Let $\tilde{\psi}\bot\psi$. Then $\neg\tilde{\psi}(x)$ isolates $p(x)$.
-  
-  (3$\Rightarrow$4) Trivial.
-  
-  (4$\Rightarrow$3) By Proposition~\ref{prop_Sigma_approx} and Fact~\ref{fact_Fdense}. 
+  (3$\Rightarrow$1) Let $\varphi'>\varphi$ be as in (3). 
+  Let $\tilde{\varphi}\bot\varphi$ be such that $\varphi(x)\rightarrow\neg\tilde{\varphi}(x)\rightarrow\varphi'(x)$. 
+  Then $\neg\tilde{\varphi}(x)$ isolates $p(x)$.
 \end{proof}
 
 
 \begin{lemma}\label{lem_kuratowskiUlam}
-  Let ${\EuScript L}^{\rm p/c}(A)$ be separable.
-  Let $p(x)\subseteq{\EuScript L}^{\rm p/c}(A)$, be non p/c-isolated by $A$.
-  Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm p/c}(A)$, has a solution $a$ such that $A,a$ does not p/c-isolate $p(x)$.
+  Let ${\EuScript L}^{\rm p}(A)$ be separable.
+  Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$, be non p-isolated by $A$.
+  Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm p}(A)$, has a solution $a$ such that $A,a$ does not p-isolate $p(x)$.
 \end{lemma}
 
 \begin{proof}
-  We construct a sequence of ${\EuScript L}^{\rm p/c}(A)$-formulas $\langle\gamma'_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma'_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
+  We construct a sequence of ${\EuScript L}^{\rm p}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
   
-  Let $\langle\xi_i(x\,;z):i<\omega\rangle$ enumerate a countable p/c-dense subset of ${\EuScript L}^{\rm p/c}_{x\,;z}(A)$.
-  Let $\gamma_0(z)$ and $\gamma'_0>\gamma_0$ be a consistent positive/continuous formulas such that $\gamma'_0(z)\rightarrow\neg\psi(z)$.
-  These exist by Proposition~\ref{prop_Fapprox} and Fact~\ref{fact_Fdense}.
-  Define $\gamma'_{i+1}(z)$ inductively as follows.
+  Let $\langle\xi_i(x,z):i<\omega\rangle$ enumerate a countable p-dense subset of ${\EuScript L}^{\rm p}_{x,z}(A)$.
+  Let $\gamma_0(z)$ be a consistent positive formulas such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$.
+  This exists by Proposition~\ref{prop_Fapprox}.
+  Now we define $\gamma_{i+1}(z)$ and  $\gamma'_{i+1}>\gamma_{i+1}$.
+  Let  $\gamma_i(z)$ and $\gamma'_i>\gamma_i$ be given.
+  Pick $\tilde{\gamma}_i\perp\gamma_i$ such that $\gamma_i(z)\rightarrow\neg\tilde{\gamma}_i(z)\rightarrow\gamma'_i(z)$.
   
   \begin{itemize}
-  \item[1.] If $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is inconsistent, let  $\gamma'_{i+1}(z)=\gamma'_i(z)$.
+  \item[1.] If $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is inconsistent, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$.
   \item[2.] Otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
   
-  (\#)\hfil$\gamma'_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x\,;z)\wedge\neg\varphi(x)\big].$\kern19ex
+  (\#)\hfil $\neg\tilde{\gamma}_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x,z)\wedge\neg\varphi(x)\big].$\kern19ex
   
-  Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive/continuous formulas such that $\gamma'_{i+1}(z)$ implies (\#).
-  Such formulas exist by Propositions~\ref{prop_Sigma_approx} and~\ref{prop_Fapprox}.
+  Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive formulas such that $\gamma'_{i+1}(z)$ implies (\#).
+  Such formulas exist by Proposition~\ref{prop_Fapprox}.
   \end{itemize}
   
-  Let $a\models\{\gamma'_i(z):i<\omega\}$.
-  We claim that that $A,a$ does not p/c-isolate $p(x)$.
-  Otherwise, by Fact~\ref{fact_isolation}, $\neg\xi_i(x\,;a)\rightarrow p(x)$ for some consistent $\neg\xi_i(x\,;a)$.
-  This contradicts $a\models\gamma'_{i+1}(z)$.
+  Let $a\models\{\gamma_i(z):i<\omega\}$.
+  We claim that that $A,a$ does not p-isolate $p(x)$.
+  Otherwise, by Fact~\ref{fact_isolation}, $\neg\xi_i(x,a)\rightarrow p(x)$ for some consistent $\neg\xi_i(x,a)$.
+  This contradicts $a\models\gamma_{i+1}(z)$.
   
   Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
   
-  Suppose for a contradiction that $\neg\xi_i(x\,;z)\wedge\gamma'_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$, that is, 
-  
-  \ceq{\hfill\neg\xi_i(x\,;z)\wedge\gamma'_i(z)}{\rightarrow}{\varphi(x).} 
-  
+  Suppose for a contradiction that $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$.
   This immediately implies that 
   
-  \ceq{\hfill\exists z\;\big[\neg\xi_i(x\,;z)\wedge\gamma'_i(z)\big]}{\rightarrow}{p(x).}
+  \ceq{\hfill\exists z\;\big[\neg\xi_i(x,z)\wedge\neg\tilde{\gamma}_i(z)\big]}{\rightarrow}{p(x).}
   
-  Then $p(x)$ is isolated by a formula in $\Sigma^{\rm p/c}(A)$.
-  By Fact~\ref{fact_isolation}, this is a contradiction.
+  By Fact~\ref{fact_isolation}, $p(x)$ is p-isolated, a contradiction.
 \end{proof}
 
 From the lemma we easily obtain an omitting types theorem for positive types that is very close to the classical one.
@@ -1850,75 +1807,112 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Continuous omitting types.}
+\section{Continuous omitting types}
 
-Let $p(x)\subseteq{\EuScript L}^{\rm c}$ be a parameter-free type.
-We define
+We say that the type $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{c-isolated\/} by $A$ if for every $\tau,D$ there is a formula $\varphi(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_{\tau,D}x\ p(x')$.
 
-\ceq{\hfill p_{\tau,D}(x)}{=}{\Big\{\exists x'\sim_{\tau,D}x\ \ \varphi(x')\ \ :\ \ \varphi(x)\in p\Big\}}
+The following has the same proof as Fact~\ref{fact_isolation}.
 
-By saturation 
+\begin{fact}\label{fact_isolation}
+  Let ${\EuScript F}$ be a c-dense set of continuous formulas.
+  Then, for any given $\tau,D$, the following are equivalent
+  \begin{itemize}
+  \item[1.] there is $\varphi(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_{\tau,D}x\ p(x')$;
+  \item[2.] there is $\varphi(x)\in{\EuScript F}(A)$ such that $\neg\varphi(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_{\tau,D}x\ p(x')$;
+  \item[3.] there is $\varphi(x)\in{\EuScript F}(A)$ consistent with $p(x)$ and $\varphi'>\varphi$ that isolates $\exists x'\sim_{\tau,D}x\ p(x')$;
+  \end{itemize}
+\end{fact}
 
-\ceq{\hfill p_{\tau,D}(x)}{\leftrightarrow}{\exists x'\sim_{\tau,D}x\ \ p(x')}
 
-But note that the equivalence may fail when evaluated in a model that is not sufficiently saturated.
-
-When $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$, say $p(x)=q(x,a)$ for some $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in{\EuScript U}^{|z|}$, we write $p_{\tau,D}(x)$ for $q_{\tau,D}(x,a)$.
-We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$, is c-isolated \emph{in the limit\/} by $A$ if for every $\tau,D$ the type $p_{\tau,D}(x)$ is c-isolated by $A$.
-% When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
-  
 \begin{fact}\label{fact_sim_n}
   % Let ${\EuScript L}^{\rm c}$ be separable.
   Let $M$ be a c-model.
-  Let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a maximally consistent type that is c-isolated in the limit by $M$.
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a maximally consistent type that is c-isolated by $M$.
   Then $p(x)$ is realized in ${\rm Ccl}(M)$.
 \end{fact}
 
 \begin{proof}
-  Let $p(x)=q(x,a)$ for some maximally consistent type $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in M^{|z|}$.
-  Pick some formulas $\varphi_{\tau,D}(x)\in{\EuScript L}^{\rm c}(M)$ such that 
+  For every $\tau,D$ pick a formula $\varphi_{\tau,D}(x)\in{\EuScript L}^{\rm c}(M)$ such that 
   
-  \ceq{\hfill\neg\varphi_{\tau,D}(x)}{\rightarrow}{\exists x',y'\sim_{\tau,D} x,a\ \ q(x',y').}
+  \ceq{\hfill\neg\varphi_{\tau,D}(x)}{\rightarrow}{\exists x'\sim_{\tau,D} x\ \ p(x').}
 
   Let $b_{\tau,D}\in M$ be a solution of $\neg\varphi_{\tau,D}(x)$.
-  By maximality 
+  As $p(x)$ is maximally consistent 
   
-  \ceq{\hfill q(x',y')}{\rightarrow}{b_{\tau,D}\sim_{\tau,D}x'\ \wedge\ a\sim_{\tau,D}y'.}
+  \ceq{\hfill p(x)}{\rightarrow}{b_{\tau,D}\sim_{\tau,D}x.}
 
-  Let $b',a'\models q(x',y')$.
-  Then $b'\in{\rm Ccl}(M)$ and, by Proposition~\ref{fact_continuous}, $b'\models q(x',a)$.
+  Let $b\models p(x)$.
+  Then $b\in{\rm Ccl}(M)$.
 \end{proof}
 
-In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$, then there is a sequence of elements of $M$ that converges in the $I$-topology to a realization of $p(x)$.
+In words, the proof above shows that if $p(x)$ is c-isolated by $M$, then there is a sequence of elements of $M$ that converges inthe $I$-topology to a realization of $p(x)$. 
 
  \begin{fact}\label{fact_wcisolatio_realization} 
-   If $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$, then $p(x)$ is c-isolated in the limit by $M$.
+   If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is c-isolated by $M$.
  \end{fact}
  
 \begin{proof}
-  Let $p(x)=q(x,a)$ for some $q(x,z)\subseteq{\EuScript L}^{\rm c}$ and $a\in M^{|z|}$.
   Let $b\in{\rm Ccl}(M)^{|x|}$ realize $p(x)$.
   Let $\tau,D$ be given.
-  By Fact~\ref{fact_isolation} it suffices to find a consistent formula $\varphi(x)\in{\EuScript L}^{\rm c}(M)$ and some $\varphi'>\varphi$ such that 
-  
-  \ceq{\hfill\varphi'(x)}{\rightarrow}{\exists x',z'\sim_{\tau,D}x,a\ \ p(x',z').}
-
+  By Fact~\ref{fact_isolation} it suffices to find a continuous formula $\varphi(x)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\exists x'\sim_{\tau,D}x\ p(x')$.
   Let $C$ be a neighborhood of the diagonal such that $C'\circ C'\subseteq D$ for some $C'>C$.
-  Let $c\in M^{|x|}$ be such that $c\sim_{\tau,C} b$.
-  Then we can take $x\sim_{\tau,C}c$ as $\varphi(x)$ and $x\sim_{\tau,C'}c$ as $\varphi'(x)$.
+  Let $a\in M$ be such that $a\sim_{\tau,C} b$.
+  Then we can take $x\sim_{\tau,C'}a$ as $\varphi(x)$ and $x\sim_{\tau,C'}a$ as $\varphi'(x)$.
+\end{proof}
+
+\begin{lemma}\label{lem_kuratowskiUlam_cont}
+  Let ${\EuScript L}^{\rm c}(A)$ be separable.
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$, be non c-isolated by $A$.
+  Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm c}(A)$, has a solution $a$ such that $A,a$ does not c-isolate $p(x)$.
+\end{lemma}
+
+\begin{proof}
+  Let $\tau,D$ witness that $p(x)$ is not c-isolated by $A$. 
+  We construct a sequence of ${\EuScript L}^{\rm c}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$, witnessed bt the same $\tau, D$.
+  
+  Let $\langle\xi_i(x,z):i<\omega\rangle$ enumerate a countable c-dense subset of ${\EuScript L}^{\rm c}_{x,z}(A)$.
+  Let $\gamma_0(z)$ be a consistent continuous formulas such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$.
+  This exists by Proposition~\ref{prop_Fapprox}.
+  Now we define $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$.
+  Let $\gamma_i(z)$ and $\gamma'_i>\gamma_i$ be given.
+  Pick $\tilde{\gamma}_i\perp\gamma_i$ such that $\gamma_i(z)\rightarrow\neg\tilde{\gamma}_i(z)\rightarrow\gamma'_i(z)$.
+  
+  \begin{itemize}
+  \item[1.] If $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is inconsistent with $p(x)$, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$.
+  \item[2.] Otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
+  
+  (\#)\hfil $\neg\tilde{\gamma}_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x,z)\wedge\neg\exists x'\sim_{\tau,D}x\ \varphi(x')\big].$\kern15ex
+  
+  Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent continuous formulas such that $\gamma'_{i+1}(z)$ implies (\#).
+  Such formulas exist by Proposition~\ref{prop_Fapprox}.
+  \end{itemize}
+  
+  Let $a\models\{\gamma_i(z):i<\omega\}$.
+  We claim that that $A,a$ does not c-isolate $p(x)$, witnessed by $\tau,D$.
+  Otherwise $\neg\xi_i(x,a)\rightarrow\exists x'\sim_{\tau,D}x\  p(x')$ for some $\neg\xi_i(x,a)$ consistent with $p(x)$.
+  This contradicts $a\models\gamma_{i+1}(z)$.
+  
+  Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
+  
+  Suppose for a contradiction that $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is consistent with $p(x)$ while (\#) is inconsistent for all formulas $\varphi(x)\in p$.
+  This immediately implies that 
+  
+  \ceq{\hfill\exists z\;\big[\neg\xi_i(x,z)\wedge\neg\tilde{\gamma}_i(z)\big]}{\rightarrow}{\exists x'\sim_{\tau,D}x\ p(x').}
+  
+  By Fact~\ref{fact_isolation}, this yelds the desired contradiction.
 \end{proof}
 
 \begin{theorem}[Continuous Omitting Types]\label{thm_cOTT}
   Let ${\EuScript L}^{\rm c}$ be separable.
   Let $A$ be countable.
-  Assume also that $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is not c-isolated in the limit.
-  Then there is a c-model $M$ containing $A$ such that ${\rm Ccl}(M)$ omits $p(x)$.
+  Assume also that $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is not c-isolated.
+  Then there is a c-model $M$ containing $A$ such that ${\rm Ccl}(M)$ omits $p(x)$. 
 \end{theorem}
 
 \begin{proof}
   By assumption $\exists y\sim_{\tau,D}x\ p(y)$ is not c-isolated for some $\tau,D$. 
   Appy Lemma~\ref{lem_kuratowskiUlam} and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable c-model $M$ that does not isolate the type $\exists y\sim_{\tau,D}x\ p(y)$.
-  Then $M$ does not isolate $p(x)$ in the limit.
+  Then $M$ does not isolate $p(x)$.
   By Fact~\ref{fact_wcisolatio_realization}, ${\rm Ccl}(M)$ omits $p(x)$. 
 \end{proof}
 
@@ -1928,7 +1922,7 @@ In words, the proof above shows that if $p(x)$ is c-isolated in the limit by $M$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Continuous \boldmath$\omega$-categoricity.}
+\section{Continuous \boldmath$\omega$-categoricity}
 
 
 \def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
@@ -1937,36 +1931,34 @@ In the discussion of countable categoricity we assume that the underlying theory
 This assumption is not necessary (it is rather a consequence of categoricity), but it allows to work inside a monster model and simplify the notation.
 
 Let $M$ be a c-model.
-Let $A\subseteq{\rm Ccl}(M)$.
-We say that $M$ is \emph{c-atomic\/} over $A$ if the types $\mbox{c-tp}(a/A)$, for any finite tuple $a$ of elements of $M$, are c-isolated by $A$ in the limit.
+We say that $M$ is \emph{c-atomic\/} over $A$ if for every finite tuple $a$ of elements of $M$ the type $\mbox{c-tp}(a/A)$ is c-isolated by $A$.
 
 % When ${\EuScript L}^{\rm c}$ is separable, there is a sequence $\langle\tau_n,D_n:n<\omega\rangle$ such that for every $\tau,D$ there is an $n<\omega$ such that $x\sim_{\tau_n,D_n}y\ \rightarrow\ x\sim_{\tau,D}y$. 
 % We write \emph{$x\sim_ny$\/} for $\sim_{\tau_n,D_n}$.
 
-\begin{fact}\label{fact_atomic_over_Aa}
+\begin{fact}[False]\label{fact_atomic_over_Aa}
   % Let ${\EuScript L}^{\rm c}$ be separable.
   Let $M$ be a c-model that is c-atomic over $A$.
   Then $M$ is c-atomic over $A,b$ for every finite tuple $b$ of elements of ${\rm Ccl}(M)$.
 \end{fact}
 
 \begin{proof}
-  Let $c\in M^{|z|}$.
-  Let $p(x,y,z)=\mbox{c-tp}(a,b,c)$, where $a\in A^{|z|}$.
-  Assume that $p(a,y,z)$ is c-isolated in the limit by $A$.
-  We verify that $p(a,b,z)$ is c-isolated in the limit.
-  Let $\varphi_{\tau,D}(y,z)\in{\EuScript L}^{\rm c}(A)$ be such that $\neg\varphi_{\tau,D}(y,z)$ is consistent and
+  Let $a,b\in M^{|x,y|}$.
+  Let $p(x,y)=\mbox{c-tp}(a,b)$.
+  Assume that $p(x,y)$ is c-isolated by $A$.
+  We verify that $p(x,b)$ is c-isolated.
+  Let $\varphi_{\tau,D}(x,y)\in{\EuScript L}^{\rm c}(A)$ be such that $\neg\varphi_{\tau,D}(x,y)$ is consistent with $p(x,y)$ and 
 
-  \ceq{\hfill\neg\varphi_{\tau,D}(y,z)}{\rightarrow}{\exists x',y',z'\sim_{\tau,D} a,y,z\ \ p(x',y',z').}
+  \ceq{\hfill\neg\varphi_{\tau,D}(x,y)}{\rightarrow}{\exists x',y',\sim_{\tau,D} x,y\ \ p(x',y').}
 
   % Note that $\neg\varphi_{\tau,D}(b,c)$ holds for all $\tau,D$.
   %  $\neg\varphi_{tau,D}(x,c)$ is consistent
   % Then $\neg\varphi_n(b,z)\ \rightarrow\ \exists z',x',y'\sim_{\tau,D} a,x,c\ p(z',x',y')$.
   Then, clearly
 
-  \ceq{\hfill\neg\varphi_{\tau,D}(b,z)}{\rightarrow}{\exists x',y',z'\sim_{\tau,D} a,b,z\ \ p(x',y',z').}
+  \ceq{\hfill\neg\varphi_{\tau,D}(x,b)}{\rightarrow}{\exists x',y'\sim_{\tau,D} x,b\ \ p(x',y').}
 
   Then we are only left to prove that $\neg\varphi_{\tau,D}(b,z)$ is consistent.
-  
 \end{proof}
 
 \begin{fact}\label{fact_atomic_iso}
@@ -1986,8 +1978,8 @@ We say that $M$ is \emph{c-atomic\/} over $A$ if the types $\mbox{c-tp}(a/A)$, f
   Let $a$ be an enumeration of ${\rm dom}(f_n)$.
   Let $b\in M$. 
   Let $p(x,y)=\mbox{c-tp}(a,b)$.
-  As $M$ is atomic over $a$ by Fact~\ref{fact_atomic_over_Aa}, the type $p(a,y)$ is c-isolated in the limit.
-  Then also the type $p(f_na,y)$ is c-isolated in the limit.
+  As $M$ is atomic over $a$ by Fact~\ref{fact_atomic_over_Aa}, the type $p(a,y)$ is c-isolated.
+  Then also the type $p(f_na,y)$ is c-isolated.
   Let $c\in{\rm Ccl}(N)$ realize $p(f_na,y)$.
   Let $f_{n+1}$ be a reduced relation such that $f_{n+1}\ \subseteq\ f_n\cup\{\langle a,c\rangle\}\ \subseteq\ (\sim)\circ f_{n+1}\circ(\sim)$.
 
@@ -2003,14 +1995,15 @@ The following analogue of Ryll-Nardzewski's Theorem follows as usual.
   Then the following are equivalent
   \begin{itemize}
     \item[1.] $T$ is c-$\omega$-categorical;
-    \item[2.] every consistent type $p(x)\subseteq{\EuScript L}^{\rm c}$, for $x$ any finite tuple of variables, is c-isolated in the limit.
+    \item[2.] every consistent type $p(x)\subseteq{\EuScript L}^{\rm c}$, for $x$ any finite tuple of variables, is c-isolated.
   \end{itemize}
 \end{theorem}
 
 \begin{proof}
   (1$\Rightarrow$2) 
-  This is the classica argument.
-  If $p(x)$ is not c-isolated in the limit, by the compactness theorem and the continuous omitting type theorem we can find two countable c-models $M$ and $N$ such that $M$ realize $p(x)$ and ${\rm Ccl}(N)$ omits $p(x)$.
+  This is just the classical argument.
+  If $p(x)$ is consistent it is realized in some countable c-model $M$.
+  If $p(x)$ is not c-isolated, by the continuous omitting type theorem there is a c-model $M$ such that  ${\rm Ccl}(N)$ omits $p(x)$.
   Then ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are not c-isomorphic, hence $T$ is not c-$\omega$-categorical.
 
   (2$\Rightarrow$1) As, every model is c-atomic,  c-$\omega$-categoricity follows from Fact~\ref{fact_atomic_iso} as in the classical case.
@@ -2022,7 +2015,7 @@ The classical argument proves also the following.
   Fix a finite tuple of variables $x$.
   The following are equivalent
   \begin{itemize}
-    \item[1.] every consistent $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated in the limit;
+    \item[1.] every consistent $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated;
     \item[2.] for every given $\tau, D$ there there are at most $n_{\tau, D}<\omega$ many types $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$ such that $\exists y\sim_{\tau,D}x\ p_i(y)$ are pairwise inconsistent.
   \end{itemize}
 \end{proposition}
