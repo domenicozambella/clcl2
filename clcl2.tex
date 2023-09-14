@@ -1192,16 +1192,13 @@ The following fact will be used below without mention.
 
 Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 
-\ceq{\hfill\emph{$x\sim_{\tau,D}y$}}{=}{\bigwedge_{i=1}^n\forall z\ \ \langle \tau_i(x,z),\tau_i(y,z)\rangle\in D}
+\ceq{\hfill\emph{$x\sim_{\tau,D} y$}}{=}{\bigwedge_{i=1}^n\forall z\ \ \langle \tau_i(x,z),\tau_i(y,z)\rangle\in D}
 
 for some compact neighborhood $D$ of $\Delta$.
-Hence we define
-
-\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_{\tau,D}y\ :\ \tau(x,z)\textrm{ tuple of terms, } D\textrm{ compact neigborhood of }\Delta\Big\}.}
-
-The formulas $x\sim_{\tau,D}y$, as $\tau, D$ range as above, form a prebase for a system of entougages on ${\EuScript U}^{|x|}$.
-We refer to this uniformity and the topology associated as the \emph{$I$-topology.}
-Though not needed in the sequel, it is worth mentioning that the $I$-topology on ${\EuScript U}^{|x|}$ coincides with the product of the $I$-topology on ${\EuScript U}$.
+We write \emph{${\EuScript E}$} for the set containing the pairs $\tau,D$ as above.
+The formulas $x\sim_\varepsilon y$ form a prebase for a system of entougages on ${\EuScript U}^{|x|}$.
+We refer to this uniformity and the topology associated as the topology \emph{induced by $I$.}
+Though not needed in the sequel, it is worth mentioning that the topology induced by $I$ on ${\EuScript U}^{|x|}$ coincides with the product of the topology induced by $I$ on ${\EuScript U}$.
 This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
 
 \begin{fact}\label{fact_continuous}
@@ -1232,13 +1229,18 @@ This can be verified by an argument similar to the proof of Fact~\ref{fact_produ
   % \ceq{\hfill x\sim y}{\rightarrow}{\exists z\,\varphi(x,z,\eta)\leftrightarrow\exists z\,\varphi(y,z,\eta).} 
 \end{proof}
 
+We define
+
+\ceq{\hfill\emph{$x\sim'y$}}{=}{\Big\{x\sim_\varepsilon y\ :\ \varepsilon\in{\EuScript E}\Big\}.}
+
 The following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
+
 \begin{corollary}\label{corol_pertubation}
-  For every $\varphi(x)\in{\EuScript L}^{\rm c}$, every $\varphi'>\varphi$, and every $\tilde{\varphi}\bot\varphi$ there is a tuple of terms $\tau$ and a compact neighborhood of the diagonal $D$ such that
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}$, every $\varphi'>\varphi$, and every $\tilde{\varphi}\bot\varphi$ there an $\varepsilon\in{\EuScript E}$ such that
 
-  \ceq{{\rm i.}\hfill x\sim_{\tau,D}\!y\ \wedge\ \varphi(y)}{\rightarrow}{\varphi'(x)}
+  \ceq{{\rm i.}\hfill x\sim_\varepsilon \!y\ \wedge\ \varphi(y)}{\rightarrow}{\varphi'(x)}
 
-  \ceq{{\rm ii.}\hfill x\sim_{\tau,D}\!y\ \wedge\ \tilde{\varphi}(y)}{\rightarrow}{\neg\varphi(x).}
+  \ceq{{\rm ii.}\hfill x\sim_\varepsilon \!y\ \wedge\ \tilde{\varphi}(y)}{\rightarrow}{\neg\varphi(x).}
 \end{corollary}
 
 \begin{proof}
@@ -1265,13 +1267,13 @@ The \emph{Cauchy completion\/} of $A$ is the set
 \end{fact}
 
 \begin{proof}
-  Suppose that $a\sim'x$ is finitely satisfied in ${\rm Ccl}(A)$.
-  Let $\tau,D$ be given.
-  We prove that  $a\sim_{\tau,D}x$ is satisfied in $A$.
-  Let $E$ be a compact neighborhood of the diagonal such that $E\circ E\subseteq D$.
-  There is some $b\in{\rm Ccl}(A)$ such that $b\sim_{\tau,E}a$.
-  There is some $c\in A$ such that $c\sim_{\tau,E}b$.
-  Then $c\sim_{_{\tau,D}}a$, as required.
+  Suppose that $x\sim'a$ is finitely satisfied in ${\rm Ccl}(A)$.
+  Let $\varepsilon\in{\EuScript E}$ be given.
+  We prove that  $a\sim_\varepsilon x$ is satisfied in $A$.
+  Let $\eta\in{\EuScript E}$ be such that $x\sim_\eta y\sim_\eta z\ \rightarrow\ x\sim_\varepsilon z$.
+  There is some $b\in{\rm Ccl}(A)$ such that $b\sim_\eta a$.
+  There is some $c\in A$ such that $c\sim_\eta b$.
+  Then $c$ satisfies $x\sim_\varepsilon a$, as required.
 \end{proof}
 
 We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
@@ -1283,12 +1285,12 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauch
 
 \begin{proof}
   If $p(x)$ is a Cauchy type, then $p(x)\rightarrow a\sim x$ for some $a\models p(x)$.
-  Thas $M$ is a c-model, $p'(x)$ is finitely satisfied in $M$. 
+  As $M$ is a c-model, $p'(x)$ is finitely satisfied in $M$. 
   Then also $a\sim' x$ is finitely satisfied. 
   Hence $a\in{\rm Ccl}(M)$.
   % Assume that $a\sim'x$ is finitely satisfied in $A$. 
-  % Let $a_{\tau,D}\in A$ be a solution of $a\sim_{\tau,D}x$ where $\tau$ ranges over the finite tuples parameter-free terms and $D$ ranges over the compact neighborhoods of the diagonal.
-  % Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_{\tau,D}a_{\tau,D}$ is a Cauchy type.
+  % Let $a_{\tau,D}\in A$ be a solution of $a\sim_\varepsilon x$ where $\tau$ ranges over the finite tuples parameter-free terms and $D$ ranges over the compact neighborhoods of the diagonal.
+  % Then, by the uniqueness of the limit (up to $\sim$-equivalence), the type $p(x)$ containing the formulas $x\sim_\varepsilon a_{\tau,D}$ is a Cauchy type.
   % Then $\Bar A$ contains all realizations of $p(x)$.
 \end{proof}
 
@@ -1379,13 +1381,13 @@ Moreover, $f(a)$ the unique representative of $R_{/\sim}\big([a]\big)$ in the ra
 \begin{proof}
   Let $\varphi(x)$ and $\varphi''>\varphi'>\varphi$ be given.
   Let $\langle a,b\rangle\in{\rm Ccl}(R)$ and assume $\varphi(a)$.
-  Let $\tau,D$ be such that 
+  Let $\varepsilon\in{\EuScript E}$ be such that 
 
-  \ceq{1.\hfill x\sim_{\tau,D}y\wedge\varphi(x)}{\rightarrow}{\varphi'(y)}
+  \ceq{1.\hfill x\sim_\varepsilon y\wedge\varphi(x)}{\rightarrow}{\varphi'(y)}
 
-  \ceq{2.\hfill x\sim_{\tau,D}y\wedge\varphi'(x)}{\rightarrow}{\varphi''(y)}
+  \ceq{2.\hfill x\sim_\varepsilon y\wedge\varphi'(x)}{\rightarrow}{\varphi''(y)}
 
-  By the definition of Cauchy completion, there are $a',b'\sim_{\tau,D}a,b$ such that $\langle a',b'\rangle\in R$.
+  By the definition of Cauchy completion, there are $a',b'\sim_\varepsilon a,b$ such that $\langle a',b'\rangle\in R$.
   Then from (1) we infer that $\varphi'(a')$.
   As $R$ is c-elementary, $\varphi'(b')$. 
   Then $\varphi''(b)$ follows from (2).
@@ -1578,7 +1580,7 @@ The following proposition is our version of the Tarski-Vaught test.
   (1$'\!\Rightarrow$2)
   Let $\psi'>\psi''>\psi$.
   Reasoning as in the proof of (1$\Rightarrow$2) we obtain that ${\rm Ccl}(M)\models\psi''(a)$ for some $a\in{\rm Ccl}(M)$.
-  By Corollary~\ref{corol_pertubation}, $a\sim_{\tau,D}x\rightarrow\psi'(x)$ for some $\tau,D$.
+  By Corollary~\ref{corol_pertubation}, $a\sim_\varepsilon x\rightarrow\psi'(x)$ for some $\varepsilon$.
   As $a\sim'x$ is finitely satisflied in $M$, it follows that $\psi'(c)$ for some $c\in M$.
 
   (2$\Leftrightarrow$3)
@@ -1590,21 +1592,21 @@ The following proposition is our version of the Tarski-Vaught test.
   Let $a\in M^{n}$ and let $f$ be a function symbol of sort ${\sf H}^{n}\to{\sf H}$.
   We prove that $fa\in M$.
   We show that $fa\sim' x$ is finitely satisfied in $M$.
-  Consider the formula $fa\sim_{\tau,D} x$.
+  Consider the formula $fa\sim_\varepsilon  x$ where $\varepsilon$ is the pair $\tau,D$.
   By Lemma~\ref{lem_interpolation}, there is a formula in $\tilde{\varphi}(x)\in{\EuScript L}^{\rm p}(M)$ such that
   
-  \ceq{\hfill fa\sim_{\tau,\Delta}x}{\rightarrow}{\neg\tilde{\varphi}(x)}\parbox{6ex}{\hfil$\rightarrow$}$fa\sim_{\tau,D} x$
+  \ceq{\hfill fa\sim_\tau x}{\rightarrow}{\neg\tilde{\varphi}(x)}\parbox{6ex}{\hfil$\rightarrow$}$fa\sim_\varepsilon  x$
 
-  By Fact~\ref{fact_Fdense}.ii there is a consistent formula  $\neg\psi(x)$, for some $\psi(x)\in{\EuScript F}(M)$, that implies $fa\sim_{\tau,D} x$.
-  Then, by (3), $fa\sim_{\tau,D} x$ is satisfied in $M$.
+  By Fact~\ref{fact_Fdense}.ii there is a consistent formula  $\neg\psi(x)$, for some $\psi(x)\in{\EuScript F}(M)$, that implies $fa\sim_\varepsilon  x$.
+  Then, by (3), $fa\sim_\varepsilon  x$ is satisfied in $M$.
   This proves our claim.
 
   Now, we claim that (2) holds also for every $\psi(x)\in{\EuScript F}\big({\rm Ccl}(M)\big)$.
   Let $\psi(x,z)\in{\EuScript F}(M)$ and $\psi'>\psi$ be given.
   Let $b\in{\rm Ccl}(M)^{|z|}$.
-  Suppose that $\exists x\,\psi(x,b)$ and let $\tau,D$ be such that $z\sim_{\tau,D}b\rightarrow\exists x\,\psi''(x,z)$ where $\psi'>\psi''>\psi$.
-  By Corollary~\ref{corol_pertubation}, we can also assume that $z\sim_{\tau,D}b\wedge\psi''(x,z)\rightarrow\psi'(x,b)$. 
-  Let $b'\in M^{|z|}$ be such that $b'\sim_{\tau,D}b$.
+  Suppose that $\exists x\,\psi(x,b)$ and let $\varepsilon$ be such that $z\sim_\varepsilon b\rightarrow\exists x\,\psi''(x,z)$ where $\psi'>\psi''>\psi$.
+  By Corollary~\ref{corol_pertubation}, we can also assume that $z\sim_\varepsilon b\wedge\psi''(x,z)\rightarrow\psi'(x,b)$. 
+  Let $b'\in M^{|z|}$ be such that $b'\sim_\varepsilon b$.
   By (2) there is an $a\in M^{|x|}$ such that $\psi''(a,b')$.
   Then $\psi'(a,b)$ follows.
   This proves the second claim.
@@ -1716,6 +1718,7 @@ In this section we prove a version of the omitting types theorem.
 
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} by $A$.
+We we omit reference to $A$ when this is clear from the context (e.g.\@ when $A$ is the set of parameters of $p(x)$).
 
 % When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
 Note that, by Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p-isolated by $A$, then $p(x)$ is realized in every p-model containing $A$.
@@ -1760,13 +1763,13 @@ In this case a weaker notion of isolation is appropriate.
   This exists by Proposition~\ref{prop_Fapprox}.
   Now we define $\gamma_{i+1}(z)$ and  $\gamma'_{i+1}>\gamma_{i+1}$.
   Let  $\gamma_i(z)$ and $\gamma'_i>\gamma_i$ be given.
-  Pick $\tilde{\gamma}_i\perp\gamma_i$ such that $\gamma_i(z)\rightarrow\neg\tilde{\gamma}_i(z)\rightarrow\gamma'_i(z)$.
+  Pick $\tilde{\gamma}\perp\gamma_i$ such that $\gamma_i(z)\rightarrow\neg\tilde{\gamma}(z)\rightarrow\gamma'_i(z)$.
   
   \begin{itemize}
-  \item[1.] If $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is inconsistent, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$.
+  \item[1.] If $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is inconsistent, let $\gamma_{i+1}=\gamma_i$ and  $\gamma'_{i+1}=\gamma'_i$.
   \item[2.] Otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
   
-  (\#)\hfil $\neg\tilde{\gamma}_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x,z)\wedge\neg\varphi(x)\big].$\kern19ex
+  (\#)\hfil $\neg\tilde{\gamma}(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x,z)\wedge\neg\varphi(x)\big].$\kern19ex
   
   Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive formulas such that $\gamma'_{i+1}(z)$ implies (\#).
   Such formulas exist by Proposition~\ref{prop_Fapprox}.
@@ -1782,7 +1785,7 @@ In this case a weaker notion of isolation is appropriate.
   Suppose for a contradiction that $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is consistent while (\#) is inconsistent for all formulas $\varphi(x)\in p$.
   This immediately implies that 
   
-  \ceq{\hfill\exists z\;\big[\neg\xi_i(x,z)\wedge\neg\tilde{\gamma}_i(z)\big]}{\rightarrow}{p(x).}
+  \ceq{\hfill\exists z\;\big[\neg\xi_i(x,z)\wedge\neg\tilde{\gamma}(z)\big]}{\rightarrow}{p(x).}
   
   By Fact~\ref{fact_isolation}, $p(x)$ is p-isolated, a contradiction.
 \end{proof}
@@ -1809,87 +1812,85 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Continuous omitting types}
 
-We say that the type $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{c-isolated\/} by $A$ if for every $\tau,D$ there is a formula $\varphi(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_{\tau,D}x\ p(x')$.
+We say that the type $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{c-isolated\/} by $A$ if for every $\varepsilon\in{\EuScript E}$ there is a formula $\varphi_\varepsilon(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi\varepsilon(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_\varepsilon x\ p(x')$.
 
-The following has the same proof as Fact~\ref{fact_isolation}.
+Notice that we are not simply requiring that the type $\exists x'\sim_\varepsilon x\ p(x')$ is isolated: we also require that $\neg\varphi(x)$ is consistent with $p(x)$.
+This is necessary in the proof of Lemma~\ref{lem_atomic_iso}.
 
-\begin{fact}\label{fact_isolation}
-  Let ${\EuScript F}$ be a c-dense set of continuous formulas.
-  Then, for any given $\tau,D$, the following are equivalent
-  \begin{itemize}
-  \item[1.] there is $\varphi(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_{\tau,D}x\ p(x')$;
-  \item[2.] there is $\varphi(x)\in{\EuScript F}(A)$ such that $\neg\varphi(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_{\tau,D}x\ p(x')$;
-  \item[3.] there is $\varphi(x)\in{\EuScript F}(A)$ consistent with $p(x)$ and $\varphi'>\varphi$ that isolates $\exists x'\sim_{\tau,D}x\ p(x')$;
-  \end{itemize}
-\end{fact}
-
+Assume for the rest of this section that ${\EuScript L}^{\rm c}$ is separable.
+Then there is a sequence $\langle\varepsilon_n:n\in\omega\rangle$ such that for every $\tau, D$ there is an $n$ such that $x\sim_{\varepsilon_n}y\ \rightarrow\ x\sim_\varepsilon y$.
+We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
+We may assume that $x\sim_ny\ \rightarrow\ x\sim_{n+1}y$.
+If the type $p(x)$ is c-isolated, say $\neg\varphi_n(x)$ isolates $\exists x'\sim_nx\ p(x')$, then we my assume that $\neg\varphi_{n+1}(x)\rightarrow\neg\varphi_n(x)$.
 
 \begin{fact}\label{fact_sim_n}
-  % Let ${\EuScript L}^{\rm c}$ be separable.
-  Let $M$ be a c-model.
-  Let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a maximally consistent type that is c-isolated by $M$.
+  Let ${\EuScript L}^{\rm c}$ be separable.
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ be c-isolated by $A$.
+  Let $M$ be a c-model containing $A$.
   Then $p(x)$ is realized in ${\rm Ccl}(M)$.
 \end{fact}
 
 \begin{proof}
-  For every $\tau,D$ pick a formula $\varphi_{\tau,D}(x)\in{\EuScript L}^{\rm c}(M)$ such that 
+  Let $a_n\in M$ be a solution of $\neg\varphi_n(x)$.
+  By the assumption above, the type 
   
-  \ceq{\hfill\neg\varphi_{\tau,D}(x)}{\rightarrow}{\exists x'\sim_{\tau,D} x\ \ p(x').}
-
-  Let $b_{\tau,D}\in M$ be a solution of $\neg\varphi_{\tau,D}(x)$.
-  As $p(x)$ is maximally consistent 
+  \ceq{\hfill p(x)}{\cup}{\big\{a_n\sim_nx\ :\ n\in\omega\big\}}
   
-  \ceq{\hfill p(x)}{\rightarrow}{b_{\tau,D}\sim_{\tau,D}x.}
-
-  Let $b\models p(x)$.
-  Then $b\in{\rm Ccl}(M)$.
+  is consistent.
+  Its realizations belong to ${\rm Ccl}(M)$.
 \end{proof}
 
-In words, the proof above shows that if $p(x)$ is c-isolated by $M$, then there is a sequence of elements of $M$ that converges inthe $I$-topology to a realization of $p(x)$. 
+In words, the proof above shows that if $p(x)$ is c-isolated, then in every c-model contains a sequence of elements that converges, in the topology induced by $I$, to a realization of $p(x)$.
 
- \begin{fact}\label{fact_wcisolatio_realization} 
-   If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is c-isolated by $M$.
- \end{fact}
- 
+\begin{fact}\label{fact_wcisolatio_realization}
+  Let ${\EuScript L}^{\rm c}$ be separable.
+  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is c-isolated by $M$.
+\end{fact}
+
 \begin{proof}
   Let $b\in{\rm Ccl}(M)^{|x|}$ realize $p(x)$.
-  Let $\tau,D$ be given.
-  By Fact~\ref{fact_isolation} it suffices to find a continuous formula $\varphi(x)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\exists x'\sim_{\tau,D}x\ p(x')$.
-  Let $C$ be a neighborhood of the diagonal such that $C'\circ C'\subseteq D$ for some $C'>C$.
-  Let $a\in M$ be such that $a\sim_{\tau,C} b$.
-  Then we can take $x\sim_{\tau,C'}a$ as $\varphi(x)$ and $x\sim_{\tau,C'}a$ as $\varphi'(x)$.
+  Let $\varepsilon\in{\EuScript E}$ be given.
+  By Fact~\ref{fact_isolation} it suffices to find a continuous formula $\varphi(x)$ and some $\varphi'>\varphi$ such that $\varphi'(x)\rightarrow\exists x'\sim_\varepsilon x\ p(x')$.
+
+  Let $\eta'\in{\EuScript E}$ be such that $x\sim_{\eta'} y\sim_{\eta'} z\ \rightarrow\ x\sim_\varepsilon z$.
+  Pick some $a\in M^{|x|}$ that satisfies $x\sim_{\eta'} b$.
+  Then $x\sim_{\eta'}a\ \rightarrow\exists\ x'\sim_\varepsilon x\ p(x')$.
+  Finally, note that $(\sim_{\eta'})>(\sim_\eta)$ for some $\eta\in{\EuScript E}$.
 \end{proof}
 
 \begin{lemma}\label{lem_kuratowskiUlam_cont}
   Let ${\EuScript L}^{\rm c}(A)$ be separable.
-  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$, be non c-isolated by $A$.
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$, be non c-isolated.
   Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm c}(A)$, has a solution $a$ such that $A,a$ does not c-isolate $p(x)$.
 \end{lemma}
 
 \begin{proof}
-  Let $\tau,D$ witness that $p(x)$ is not c-isolated by $A$. 
-  We construct a sequence of ${\EuScript L}^{\rm c}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$, witnessed bt the same $\tau, D$.
+  The proof is essentially that of Lemma~\ref{lem_kuratowskiUlam}.
+  We go over it again to check that the stronger requiremnt of consistency does not invalidate the argument.
+
+  Let $\varepsilon\in{\EuScript E}$ witness that $p(x)$ is not c-isolated by $A$. 
+  We construct a sequence of ${\EuScript L}^{\rm c}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$, witnessed by the same $\varepsilon$.
   
   Let $\langle\xi_i(x,z):i<\omega\rangle$ enumerate a countable c-dense subset of ${\EuScript L}^{\rm c}_{x,z}(A)$.
   Let $\gamma_0(z)$ be a consistent continuous formulas such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$.
   This exists by Proposition~\ref{prop_Fapprox}.
   Now we define $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$.
   Let $\gamma_i(z)$ and $\gamma'_i>\gamma_i$ be given.
-  Pick $\tilde{\gamma}_i\perp\gamma_i$ such that $\gamma_i(z)\rightarrow\neg\tilde{\gamma}_i(z)\rightarrow\gamma'_i(z)$.
+  Pick $\tilde{\gamma}\perp\gamma_i$ such that $\gamma_i(z)\rightarrow\neg\tilde{\gamma}(z)\rightarrow\gamma'_i(z)$.
   
   \begin{itemize}
   \item[1.] If $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is inconsistent with $p(x)$, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$.
   \item[2.] Otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
   
-  (\#)\hfil $\neg\tilde{\gamma}_i(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x,z)\wedge\neg\exists x'\sim_{\tau,D}x\ \varphi(x')\big].$\kern15ex
+  (\#)\hfil $\neg\tilde{\gamma}(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x,z)\wedge\neg\exists x'\sim_\varepsilon x\ \varphi(x')\big].$\kern15ex
   
   Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent continuous formulas such that $\gamma'_{i+1}(z)$ implies (\#).
   Such formulas exist by Proposition~\ref{prop_Fapprox}.
   \end{itemize}
   
   Let $a\models\{\gamma_i(z):i<\omega\}$.
-  We claim that that $A,a$ does not c-isolate $p(x)$, witnessed by $\tau,D$.
-  Otherwise $\neg\xi_i(x,a)\rightarrow\exists x'\sim_{\tau,D}x\  p(x')$ for some $\neg\xi_i(x,a)$ consistent with $p(x)$.
+  We claim that that $A,a$ does not c-isolate $p(x)$, witnessed by $\varepsilon$.
+  Otherwise $\neg\xi_i(x,a)\rightarrow\exists x'\sim_\varepsilon x\  p(x')$ for some $\neg\xi_i(x,a)$ consistent with $p(x)$.
   This contradicts $a\models\gamma_{i+1}(z)$.
   
   Therefore the proof is complete if we can show that it is always possible to find the formula $\varphi(x)$ required in (2).
@@ -1897,7 +1898,7 @@ In words, the proof above shows that if $p(x)$ is c-isolated by $M$, then there 
   Suppose for a contradiction that $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is consistent with $p(x)$ while (\#) is inconsistent for all formulas $\varphi(x)\in p$.
   This immediately implies that 
   
-  \ceq{\hfill\exists z\;\big[\neg\xi_i(x,z)\wedge\neg\tilde{\gamma}_i(z)\big]}{\rightarrow}{\exists x'\sim_{\tau,D}x\ p(x').}
+  \ceq{\hfill\exists z\;\big[\neg\xi_i(x,z)\wedge\neg\tilde{\gamma}(z)\big]}{\rightarrow}{\exists x'\sim_\varepsilon x\ p(x').}
   
   By Fact~\ref{fact_isolation}, this yelds the desired contradiction.
 \end{proof}
@@ -1910,9 +1911,8 @@ In words, the proof above shows that if $p(x)$ is c-isolated by $M$, then there 
 \end{theorem}
 
 \begin{proof}
-  By assumption $\exists y\sim_{\tau,D}x\ p(y)$ is not c-isolated for some $\tau,D$. 
-  Appy Lemma~\ref{lem_kuratowskiUlam} and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable c-model $M$ that does not isolate the type $\exists y\sim_{\tau,D}x\ p(y)$.
-  Then $M$ does not isolate $p(x)$.
+  By assumption $\exists y\sim_\varepsilon x\ p(y)$ is not c-isolated for some $\varepsilon\in{\EuScript E}$. 
+  Appy Lemma~\ref{lem_kuratowskiUlam} and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable c-model $M$ that does not isolate $\exists y\sim_\varepsilon x\ p(y)$.
   By Fact~\ref{fact_wcisolatio_realization}, ${\rm Ccl}(M)$ omits $p(x)$. 
 \end{proof}
 
@@ -1924,45 +1924,37 @@ In words, the proof above shows that if $p(x)$ is c-isolated by $M$, then there 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Continuous \boldmath$\omega$-categoricity}
 
-
 \def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
 In the discussion of countable categoricity we assume that the underlying theory is complete.
 This assumption is not necessary (it is rather a consequence of categoricity), but it allows to work inside a monster model and simplify the notation.
 
 Let $M$ be a c-model.
-We say that $M$ is \emph{c-atomic\/} over $A$ if for every finite tuple $a$ of elements of $M$ the type $\mbox{c-tp}(a/A)$ is c-isolated by $A$.
+We say that $M$ is \emph{atomic\/} if for every finite tuple $a$ of elements of $M$ the type $\mbox{c-tp}(a)$ is c-isolated.
 
-% When ${\EuScript L}^{\rm c}$ is separable, there is a sequence $\langle\tau_n,D_n:n<\omega\rangle$ such that for every $\tau,D$ there is an $n<\omega$ such that $x\sim_{\tau_n,D_n}y\ \rightarrow\ x\sim_{\tau,D}y$. 
-% We write \emph{$x\sim_ny$\/} for $\sim_{\tau_n,D_n}$.
-
-\begin{fact}[False]\label{fact_atomic_over_Aa}
-  % Let ${\EuScript L}^{\rm c}$ be separable.
-  Let $M$ be a c-model that is c-atomic over $A$.
-  Then $M$ is c-atomic over $A,b$ for every finite tuple $b$ of elements of ${\rm Ccl}(M)$.
-\end{fact}
+\begin{lemma}\label{lem_atomic_iso}
+  Let ${\EuScript L}^{\rm c}$ be separable.
+  Let $k:M\rightarrow N$ be a finite c-elementary bijection between two atomic c-models.
+  Then for every $c\in M$ there is $d\in{\rm Ccl}(N)$ such that $k\cup\{\langle c,d\rangle\}$ is a c-elementary relation.
+\end{lemma}
 
 \begin{proof}
-  Let $a,b\in M^{|x,y|}$.
-  Let $p(x,y)=\mbox{c-tp}(a,b)$.
-  Assume that $p(x,y)$ is c-isolated by $A$.
-  We verify that $p(x,b)$ is c-isolated.
-  Let $\varphi_{\tau,D}(x,y)\in{\EuScript L}^{\rm c}(A)$ be such that $\neg\varphi_{\tau,D}(x,y)$ is consistent with $p(x,y)$ and 
-
-  \ceq{\hfill\neg\varphi_{\tau,D}(x,y)}{\rightarrow}{\exists x',y',\sim_{\tau,D} x,y\ \ p(x',y').}
-
-  % Note that $\neg\varphi_{\tau,D}(b,c)$ holds for all $\tau,D$.
-  %  $\neg\varphi_{tau,D}(x,c)$ is consistent
-  % Then $\neg\varphi_n(b,z)\ \rightarrow\ \exists z',x',y'\sim_{\tau,D} a,x,c\ p(z',x',y')$.
-  Then, clearly
-
-  \ceq{\hfill\neg\varphi_{\tau,D}(x,b)}{\rightarrow}{\exists x',y'\sim_{\tau,D} x,b\ \ p(x',y').}
-
-  Then we are only left to prove that $\neg\varphi_{\tau,D}(b,z)$ is consistent.
+  Let $a$ enumerate ${\rm dom} k$.
+  Let $p(x,y)=\mbox{c-tp}(a,c)$, it suffices to prove that $p(x,y)$ is realized by some for some $d\in{\rm Ccl}(N)$.
+  Let 
+  
+  \ceq{\hfill\neg\varphi_n(x,y)}{\rightarrow}{\exists x',y'\sim_nx,y\ \ p(x',y').}
+  
+  As $\neg\varphi_n(x,y)$ is consistent with $p(x,y)$ then $a,c\models\neg\varphi_n(x,y)$.
+  Then by c-elementarity, $\neg\varphi(ka,y)$ is consistent.
+  Let $d_n\in M$ be such that $ka,d_n\models\neg\varphi_n(x,y)$.
+  Let $b,d$ be a realization of the type $\{ka,d_n\sim_nx,y:n\in\omega\}\cup p(x,y)$.
+  As $ka\sim b$, also $ka,d$ realizes $p(x,y)$.
+  As $d\in{\rm Ccl}(N)$, the proof is complete
 \end{proof}
 
 \begin{fact}\label{fact_atomic_iso}
-  Let $M$ and $N$ be countable c-atomic c-models.
+  Let $M$ and $N$ be countable atomic c-models.
   Then ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$  are c-isomorphic.
 \end{fact}
 
@@ -1976,11 +1968,9 @@ We say that $M$ is \emph{c-atomic\/} over $A$ if for every finite tuple $a$ of e
 
   Let $n$ be even.
   Let $a$ be an enumeration of ${\rm dom}(f_n)$.
-  Let $b\in M$. 
+  Let $c\in M$.
   Let $p(x,y)=\mbox{c-tp}(a,b)$.
-  As $M$ is atomic over $a$ by Fact~\ref{fact_atomic_over_Aa}, the type $p(a,y)$ is c-isolated.
-  Then also the type $p(f_na,y)$ is c-isolated.
-  Let $c\in{\rm Ccl}(N)$ realize $p(f_na,y)$.
+  As $M$ is atomic by Lemma~\ref{lem_atomic_iso}, for some $d\in{\rm Ccl}(N)$ the relation $f_n\cup\{\langle c,d\rangle\}$ is c-elementary.
   Let $f_{n+1}$ be a reduced relation such that $f_{n+1}\ \subseteq\ f_n\cup\{\langle a,c\rangle\}\ \subseteq\ (\sim)\circ f_{n+1}\circ(\sim)$.
 
   When $n$ is odd we proceed similarly with $f_n^{-1}$.
@@ -2003,10 +1993,10 @@ The following analogue of Ryll-Nardzewski's Theorem follows as usual.
   (1$\Rightarrow$2) 
   This is just the classical argument.
   If $p(x)$ is consistent it is realized in some countable c-model $M$.
-  If $p(x)$ is not c-isolated, by the continuous omitting type theorem there is a c-model $M$ such that  ${\rm Ccl}(N)$ omits $p(x)$.
+  If $p(x)$ is not c-isolated, by the continuous omitting type theorem there is a c-model $N$ such that  ${\rm Ccl}(N)$ omits $p(x)$.
   Then ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are not c-isomorphic, hence $T$ is not c-$\omega$-categorical.
 
-  (2$\Rightarrow$1) As, every model is c-atomic,  c-$\omega$-categoricity follows from Fact~\ref{fact_atomic_iso} as in the classical case.
+  (2$\Rightarrow$1) As, every c-model is atomic,  c-$\omega$-categoricity follows from Fact~\ref{fact_atomic_iso} as in the classical case.
 \end{proof}
 
 The classical argument proves also the following.
@@ -2016,18 +2006,18 @@ The classical argument proves also the following.
   The following are equivalent
   \begin{itemize}
     \item[1.] every consistent $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated;
-    \item[2.] for every given $\tau, D$ there there are at most $n_{\tau, D}<\omega$ many types $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$ such that $\exists y\sim_{\tau,D}x\ p_i(y)$ are pairwise inconsistent.
+    \item[2.] for every given $\varepsilon\in{\EuScript E}$ there there are at most $n_\varepsilon<\omega$ many types $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$ such that $\exists y\sim_\varepsilon x\ p_i(y)$ are pairwise inconsistent.
   \end{itemize}
 \end{proposition}
 
 \begin{proof}
-  (1$\Rightarrow$2) 
-  Let $\tau, D$ be given.
-  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}$, for $i<\lambda$, be such that $\exists y\sim_{\tau,D}x\ p_i(y)$ are pairwise inconsistent.
+  (1$\Rightarrow$2)
+  Let $\varepsilon\in{\EuScript E}$ be given.
+  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}$, for $i<\lambda$, be such that $\exists y\sim_\varepsilon x\ p_i(y)$ are pairwise inconsistent.
   Suppose that $\lambda$ is maximal and, for a contradiction, that it is infinite.
-  Let $\neg\varphi_i(x)$, where $\varphi_i(x)\in{\EuScript L}^{\rm c}$, be the formulas that isolate $\exists y\sim_{\tau,D}x\ p_i(x)$.
-  As these types are pairwise inconsistent, then the continuous type $q(x)=\{\varphi_i(x):i<\lambda\}$ is consistent.
-  The type $\exists y\sim_{\tau,D}x\ q(x)$ is inconsistent with all $\exists y\sim_{\tau,D}x\ p_i(x)$.
+  Let $\neg\varphi_i(x)$, where $\varphi_i(x)\in{\EuScript L}^{\rm c}$, be the formulas that isolate $\exists y\sim_\varepsilon x\ p_i(x)$.
+  As these types are pairwise inconsistent, then the type $q(x)=\{\varphi_i(x):i<\lambda\}$ is consistent.
+  The type $\exists y\sim_\varepsilon x\ q(x)$ is inconsistent with all $\exists y\sim_\varepsilon x\ p_i(x)$.
   This contradicts the maximality of $\lambda$.
 
   (2$\Rightarrow$1?) 
@@ -2044,7 +2034,7 @@ The classical argument proves also the following.
   This contradicts the maximality of $n$.
 
   Let $q(x)\subseteq{\EuScript L}^{\rm c}(A)$.
-  We prove that $\exists y\sim_{\tau,D}x\ q(y)$ is c-isolated.
+  We prove that $\exists y\sim_\varepsilon x\ q(y)$ is c-isolated.
   By maximality $\exists y\sim_{\tau,E}x\ q(y)$ is consistent with, say, $\exists y\sim_{\tau,E}x\ \varphi_1(x)$.
   Without loss of generality, assume $q(x)\rightarrow\exists y\sim_{\tau,E}x\ \varphi_1(x)$.
   Note that
@@ -2071,7 +2061,7 @@ The classical argument proves also the following.
   
 
 
-  \ceq{1.\hfill\neg\bigvee_{i=1}^n\varphi_i(x)}{\rightarrow}{\exists y\sim_{\tau,D}x\ q(y)}
+  \ceq{1.\hfill\neg\bigvee_{i=1}^n\varphi_i(x)}{\rightarrow}{\exists y\sim_\varepsilon x\ q(y)}
   
   Suppose not for a contradiction.
   Let $a$ satisfy the antecedent but not the consequence of (1).
