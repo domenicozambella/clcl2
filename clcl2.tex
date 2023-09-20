@@ -193,7 +193,7 @@ In the first part we revisit some results of~\cite{clcl}.
 We rephrase some theorems and add a few remarks and examples\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead. 
 % We will also omit a few proofs from Sections~\ref{morphisms}, \ref{compactness}, and~\ref{Ielimination}.
 }.
-Our notation and terminology diverges slightly, only where necessary.
+Our notation and terminology diverges slightly, where necessary.
 
 Let \emph{$I$\/} be some fixed first-order structure which is endowed with a Hausdorff compact topology (in particular, a normal topology).
 The language \emph{${\EuScript L}_{\sf I}$\/} contains a relation symbol for each compact subsets $C\subseteq I^n$ and a function symbol for each continuous functions $f:I^n\to I$.
@@ -211,7 +211,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,I\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure, while $I$ is the structure above.
   We write \emph{${\sf H}$} and \emph{${\sf I}$\/} to denote the two sorts of ${\EuScript L}$.
   
-  The language ${\EuScript L}$ adds a relation symbol $r_{\varphi}(x)$ for every $\varphi(x)\in {\EuScript L}_{\sf H}$.
+  The language ${\EuScript L}$ has a relation symbol $r_{\varphi}(x)$ for every $\varphi(x)\in {\EuScript L}_{\sf H}$.
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$. 
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
@@ -225,26 +225,29 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
 % Models have the form $\langle M _1\dots,M_k, I\rangle$.
 % The new symbols in the language ${\EuScript L}$ are of sort ${\sf H}_1^{n_1}\dots,{\sf H}_k^{n_k}\to {\sf I}$.
 
-Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of trivial cases (when $I$ is finite), they are not standard.
+Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of trivial cases (when $I$ is finite), these are not standard.
 As a remedy, below we carve out a set of formulas ${\EuScript L}^{\rm p}$, the set of positive formulas, such that every model has an positive elementary saturated extension that is also standard.
 
 As usual, ${\EuScript L}_{\sf I}$, ${\EuScript L}_{\sf H}$, and ${\EuScript L}$ denote both first-order languages and the corresponding set of formulas.
 We write ${\EuScript L}_x$ when when we restrict variables to $x$.
-If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in {\EuScript L}_{\sf H}$ (this is only correct up to equivalence).
+% If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in {\EuScript L}_{\sf H}$ (this is only correct up to equivalence).
 % The symbols ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ defined below denote only sets of ${\EuScript L}$-formulas.
+Note that ${\EuScript L}$ has three types of atomic formulas
 
-Note that ${\EuScript L}$ has two types of atomic formulas: 
 \begin{itemize}
-  \item[1.] atomic formulas in ${\EuScript L}_{\sf H}$ (hence, up to equivalence, all formulas of ${\EuScript L}_{\sf H}$);
-  \item[2.] formulas of the form $\tau(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
+  \item[0.] $t(x)=s(x)$ where $t(x)$ and $s(x)$ are terms of sort ${\sf H}^{|x|}\to {\sf H}$;
+  \item[1.] $r_\varphi(x)$ for some $\varphi(x)\in{\EuScript L}_{\sf H}$  (maybe more, but these suffices up to equivalence);
+  \item[2.] $\tau(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$.
 \end{itemize}
+
+The latter are called \emph{continuous atomic\/} formulas.
 
 \begin{definition}\label{def_LL}
   A formula in ${\EuScript L}$ is \emph{positive\/} if it uses only the Boolean connectives $\wedge$, $\vee$; the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$ of sort ${\sf H}$; and the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ of sort ${\sf I}$.
 
   The set of positive formulas is denoted by \emph{${\EuScript L}^{\rm p}$.}
 
-  A \emph{continuous\/} formula is a positive formula where only atomic formulas as in (2) above occur.
+  A \emph{continuous\/} formula is a positive formula where only continuous atomic formulas occur.
   The set of continuous formulas is denoted by \emph{${\EuScript L}^{\rm c}$.}
 
   %In propositions that holds for both ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ we write \emph{${\EuScript L}^{\rm p/c}$.}
@@ -263,7 +266,7 @@ The positive formulas of Henson and Iovino correspond to those formulas in ${\Eu
 
 Working within ${\EuScript L}^{\rm p}$ simplifies the comparision with classical model theory but comes at a price.
 Instead, allowing quantifiers of sort ${\sf I}$ is almost for free.
-We will see (cf.\@ Propositions~\ref{prop_LHapprox1} and~\ref{prop_cLHapprox1}) that the formulas in ${\EuScript L}^{\rm p/c}$ are approximated by formulas in ${\EuScript L}^{\rm p/c}$ without quantifiers of sort ${\sf I}$.
+In Section~\ref{cIelimination} will see that the formulas in ${\EuScript L}^{\rm p/c}$ are approximated by formulas in ${\EuScript L}^{\rm p/c}$ without quantifiers of sort ${\sf I}$.
 
 The main fact to note about ${\EuScript L}^{\rm c}$ is that it is a language without equality of sort ${\sf H}$.
 The difference beween ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ is similar to the difference between the space of absolutely integrable functions (w.r.t.\@ some measure $\mu$) and the Lebesgue space $L^1(\mu)$.
@@ -806,7 +809,8 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 
 \begin{remark}\label{remk_approx_EH_free}
   By Corollary~\ref{corol_st}, when $\varphi(x\,;\eta)$ does not contains existential quantifiers of sort ${\sf H}$, the proposition above does not require the assumption of saturation.
-  In general, some saturation is necessary: consider the model presented after Corollary~\ref{corol_st} and the formula $\exists x\,\big(x>0\ \wedge\ \iota(x)\in\{0\}\big)$. 
+  In general, some saturation is necessary: consider the model presented after Corollary~\ref{corol_st} and the formula $\exists x\,\big(x>0\ \wedge\ \iota(x)\in\{0\}\big)$.
+  See~[Unumbered paragraph after Corollary~5.16]\cite{HI} for a counterexample in ${\EuScript L}^{\rm c}$.
 \end{remark}
 
 % \begin{remark}\label{rem_model_approx}
@@ -1290,28 +1294,36 @@ We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauch
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Morphims}\label{morphisms}
 
-The (partial) map $f:{\EuScript U}\rightarrow{\EuScript U}$ is \emph{p-elementary\/} if $\varphi(a)\rightarrow\varphi(fa)$ for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in({\rm dom }f)^{|x|}$.
-It is easy to see that $f$ is always an injective function (because it preserves the inequality of sort ${\sf H}$).
-Hence, by the following fact $f^{-1}$ is also p-elementary.
+\begin{comment}
+Let ${\EuScript F}$ be a set of formulas.
+We say that the map $f:{\EuScript U}\rightarrow{\EuScript U}$ preserves the truth of formulas in ${\EuScript F}$ if $\varphi(a)\rightarrow\varphi(fa)$ for every $\varphi(x)\in{\EuScript F}$.
+If ${\EuScript F}$ is ${\EuScript L}^{\rm p}$, we say that $f$ is \emph{p-elementary.}
+
+It is easy to see that p-elemenrary maps are always injective (because it preserves the inequalities of sort ${\sf H}$).
+By the following fact, also $f^{-1}$ is p-elementary.
 
 \begin{fact}\label{fact_pel_invertible}
-  If $f:{\EuScript U}\rightarrow{\EuScript U}$ is a p-elementary then $\varphi(a)\leftrightarrow\varphi(fa)$ holds for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in({\rm dom }f)^{|x|}$.
+  Let ${\EuScript F}$ be a p-dense set of positive formulas. 
+  If $f$ preserve the truth of formulas in ${\EuScript F}$, then $\varphi(a)\leftrightarrow\varphi(fa)$ for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in({\rm dom }f)^{|x|}$.
 \end{fact}
 
 \begin{proof}
   Assume $\neg\varphi(a)$ and apply Proposition~\ref{prop_Fapprox} to infer that  $\psi(fa)$ holds for some $\psi(x)\in{\EuScript L}^{\rm p}$ that implies $\neg\varphi(x)$.
 \end{proof}
 
-If $f:{\EuScript U}\rightarrow{\EuScript U}$ is p-elementary, ${\rm dom}f\subseteq M$, and ${\rm range}f\subseteq N$ then we say that $f:M\rightarrow N$ is p-elementary.
-This is imprecise but convenient.
+If $f$ is p-elementary, ${\rm dom}f\subseteq M$, and ${\rm range}f\subseteq N$ then we say that $f:M\rightarrow N$ is p-elementary.
+This terminology is convenient but imprecise.
 More correctly, in~\cite{clcl} such maps are called \textit{approximate\/} p-elementary.
 In fact, from the elementarity of $f:{\EuScript U}\rightarrow{\EuScript U}$ we can (only) infer that
 
 \ceq{\hfill M\models\{\varphi(a)\}'}{\Leftrightarrow}{N\models\{\varphi(fa)\}'.}
 
-For simplicity, as we always only evaluate formulas in ${\EuScript U}$ we will safely drop the modifier \textit{approximate}.
+As below we always evaluate formulas in ${\EuScript U}$, we can safely drop the modifier \textit{approximate}.
+  
+\end{comment}
 
-The definition of c-elementary maps is more delicate due to the lack of equality.
+Here we only discuss the continuous case and refer to~\cite{clcl} for the positive case.
+The definition of c-elementary maps is delicate due to the lack of equality of sort ${\sf H}$.
 A possible approach is to work in the quotient ${\EuScript U}/{\sim}$.
 A second possibility is to replace functions with relations.
 The two options differs only in the notation.
@@ -1319,33 +1331,56 @@ Here we go for the second.
 
 Let $R$ be a binary relation on ${\EuScript U}$.
 If $a=\langle a_i:i<\lambda\rangle$ and $b=\langle b_i:i<\lambda\rangle$ we write $\langle a,b\rangle\in R$ to abbreviate: $\langle a_i,b_i\rangle\in R$ for all $i<\lambda$.
-We say that $R$ is an \emph{c-elementary relation\/}
+Let ${\EuScript F}$ be a set of formulas.
+We say that $R$ preserves the truth of ${\EuScript F}$-formulas if 
 
-\ceq{\#\hfill \varphi(a)}{\rightarrow}{\varphi(b)}\hfill  for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and every $\langle a,b\rangle\in R$.
+\ceq{\#\hfill\varphi(a)}{\rightarrow}{\varphi(b)}\hfill for every $\varphi(x)\in{\EuScript F}$ and every $\langle a,b\rangle\in R$.
+
+We will consider two extreem cases for ${\EuScript F}$: the set of all continuous formulas and the set of atomic continuous formlas.
+We donote the latter by \emph{${\EuScript L}^{\rm c}_{\rm at}$.} \rm
+Relations that preserve the truth of ${\EuScript L}^{\rm c}$-formulas are called \emph{c-elementary.}
 
 % Below, for simplicity we only consider c-elementary relations between ${\EuScript U}$ and itself.
 % Then, by Fact~\ref{fact_HImorphisms} and Proposition~\ref{prop_approx}, the condition above is aquivalent to
 
-By the same proof as in Fact~\ref{fact_pel_invertible} we obtain the following.
-Therefore if $R$ is c-elementary, also $R^{-1}$ is c-elementary.
+By the following fact, if $R$ is c-elementary, also $R^{-1}$ is c-elementary.
 
-\begin{fact}
-  If $R$ is a c-elementary relation then $\varphi(a)\leftrightarrow\varphi(b)$ for every $\varphi(x)\in{\EuScript L}^{\rm c}$ and every $\langle a,b\rangle\in R$.
+\begin{fact} 
+  Let ${\EuScript F}$ be either ${\EuScript L}^{\rm c}$ or ${\EuScript L}^{\rm c}_{\rm at}$.
+  Let $R$ be a relation that preserves the truth of ${\EuScript F}$-formulas.
+  Then the converse implication in (\#) holds.
 \end{fact}
 
-The relation $(\sim)$ is c-elementary by Fact~\ref{fact_continuous}.
-Then, if the relation $R$ is c-elementary, also $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ is c-elementary.
-We identify a c-elementary relation $R\ =\ \mathrel{(\sim)}\circ\mathrel{R}\circ\mathrel{(\sim)}$ with the map 
+\begin{proof}
+  ${\EuScript F}={\EuScript L}^{\rm c}$. \ 
+  Assume $\neg\varphi(a)$ and apply Proposition~\ref{prop_Fapprox} to infer that  $\psi(a)$ holds for some $\psi(x)\in{\EuScript L}^{\rm c}$ that implies $\neg\varphi(x)$.
 
-\ceq{\hfill R_{/\sim}\ \ :\ \ {\EuScript U}/{\sim}}{\to}{{\EuScript U}/{\sim}}
+  ${\EuScript F}={\EuScript L}^{\rm c}_{\rm at}$. \ 
+  Assume $\tau(a)\notin C$ then $\tau\in\tilde{C}$ for some compact $\tilde{C}$ disjoint of $C$.
+  Then $\tau(b)\notin C$ follows.
+\end{proof}
 
-\ceq{\hfill [a]\ }{\mapsto}{\ [b]} \hfill for some/any $b$ such that $\langle a,b\rangle\in R$.
+% The relation $(\sim)$ is c-elementary by Fact~\ref{fact_continuous}.
+% Therefore, if $R$ is c-elementary, also $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ is c-elementary.
+% We identify a c-elementary relation $R\ =\ \mathrel{(\sim)}\circ\mathrel{R}\circ\mathrel{(\sim)}$ with the map 
+%
+% \ceq{\hfill R_{/\sim}\ \ :\ \ {\EuScript U}/{\sim}}{\to}{{\EuScript U}/{\sim}}
+%
+% \ceq{\hfill [a]\ }{\mapsto}{\ [b]} \hfill for some/any $b$ such that $\langle a,b\rangle\in R$.
+%
+% It is easy to verify that the definition is well-given and that $R_{/\sim}$ is injective.
 
-It is easy to verify that the definition is well-given and that $R_{/\sim}$ is injective.
+We say that the relation $R$ is \emph{reduced\/} if there is no $R'\ \subset\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ such that $R\ \subset\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 
-We say that $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
-It is easy to verify that every relation $R$ contains a reduced relation $R'$ such that 
-$R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+\begin{fact}
+  Every relation $R$ contains a reduced relation $R'$ such that $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+\end{fact}
+
+\begin{proof}
+  Let $\langle R_i:i<\lambda\rangle$ be maximal decreasing chain of relations $R_i\mathrel{\subseteq}R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$.
+  Let  $R'$ the intersection  of the chain.
+  By maximality $R'$ is reduced and $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$ is clear.
+\end{proof}
 
 % Note that if the relations $R_i$ are such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$, for every $i<\lambda$, then 
 
@@ -1354,30 +1389,50 @@ $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 % It follows that for every $R$ there is a reduced $R'\ \subseteq\ R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 % When $R\ =\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ then the converse inclusion is obvious and we obtain that $R\ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 
-\begin{fact} 
-  Let $R$ be reduced.
-  Then $R$ is the graph of an injective map $f:{\rm dom}(R)\to{\rm range}(R)$.
+\begin{fact}\label{fact_reduced_funct} 
+  Let ${\EuScript F}={\EuScript L}^{\rm c}$.
+  Let $R$ be a reduced relation that preserves of the truth of ${\EuScript F}$-formulas.
+  Then $R$ is (the graph of) an injective map $f:{\rm dom}(R)\to{\rm range}(R)$.
+
+  The same is holds when ${\EuScript F}={\EuScript L}^{\rm c}_{\rm at}$ if ${\rm dom}(R)$ and ${\rm range}(R)$ are c-models.
 \end{fact}
+
 \begin{proof}
+  ${\EuScript F}={\EuScript L}^{\rm c}$. \ 
   Let $a\in{\rm dom}R$ and assume that $\langle a,b\rangle,\langle a,b'\rangle\in R$.
   To prove functionality suppose for a contradiction that $b\neq b'$.
   As $R$ is reduced, $b\not\sim b'$.
-  Then $a\not\sim a$, a contradiction.
-  This prove functionality, for injectivity apply the same argument to $R^{-1}$.
+  Then $b\not\sim_\varepsilon b'$ for some $\varepsilon\in{\EuScript E}$.
+  By Proposition~\ref{prop_Fapprox} $b,b'$ satisfies a continuous formula $\psi(x,x')$ that implies  $x\not\sim_\varepsilon x'$.
+  Then $a,a$ also satisfies $\psi(x,x')$, a contradiction.
+  This proves functionality, for injectivity apply the same argument to $R^{-1}$.
+
+  ${\EuScript F}={\EuScript L}^{\rm c}_{\rm at}$. \ 
+  Reason as above to obtain $b\not\sim_\varepsilon b'$, say $\varepsilon=\langle\tau,D\rangle$.
+  Then the formula 
+  
+  \ceq{\hfill\neg\varphi(b,b',z)}{=}{\neg\bigwedge_{i=1}^n\langle\tau_i(b,z),\tau_i(b',z)\rangle\in D}.
+  
+  is consistent.
+  By the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) $\neg\varphi(b,b',z)$ has a solution $c\in{\rm range}(R)^{|z|}$.
+  Then $\neg\varphi(a,a,d)$ for some $d\in{\rm dom}(R)^{|z|}$ which is a contradiction.
 \end{proof}
 
-Assume $R\ =\ \mathrel{(\sim)}\circ\mathrel{R}\circ\mathrel{(\sim)}$ for simplicity.
-Let $f$ be a reduced relation such that $f\ \subseteq\ R\ =\ \mathrel{(\sim)}\circ \mathrel{f}\circ\mathrel{(\sim)}$.
-Then $f$ is a function defined in exacly one representative $a$ of each $(\sim)$-equivalence class $[a]\subseteq{\rm dom}(R)$.
-Moreover, $f(a)$ the unique representative of $R_{/\sim}\big([a]\big)$ in the range of $f$.
+Let $f \subseteq\ R$ be a reduced c-elementary relation such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{f}\circ\mathrel{(\sim)}$.
+Then $f$ is a function defined in exacly one representative $a$ of each $(\sim)$-equivalence class $[a]$ that intersects ${\rm dom}(R)$.
 
 \begin{fact}\label{fact_Rcompletion}
-  If $R$ is a c-elementary relation then ${\rm Ccl}(R)$ is also c-elementary.
-  We also have that ${\rm Ccl}(R)\ =\ \mathrel{(\sim)}\circ \mathrel{{\rm Ccl}(R)}\circ\mathrel{(\sim)}$.
+  Let ${\EuScript F}$ be either ${\EuScript L}^{\rm c}$ or ${\EuScript L}^{\rm c}_{\rm at}$.
+  The following are equivalent
+  \begin{itemize}
+    \item[1.] $R$ preserves the truth of ${\EuScript F}$-formulas;
+    \item[2.] ${\rm Ccl}(R)$ preserves the truth of ${\EuScript F}$-formulas.
+  \end{itemize}
 \end{fact}
 
 \begin{proof}
-  Let $\varphi(x)$ and $\varphi''>\varphi'>\varphi$ be given.
+  We prove the nontrivial implication, 1$\Rightarrow$2.
+  Let $\varphi(x)\in{\EuScript F}$ and $\varphi''>\varphi'>\varphi$ be given.
   Let $\langle a,b\rangle\in{\rm Ccl}(R)$ and assume $\varphi(a)$.
   Let $\varepsilon\in{\EuScript E}$ be such that 
 
@@ -1387,30 +1442,24 @@ Moreover, $f(a)$ the unique representative of $R_{/\sim}\big([a]\big)$ in the ra
 
   By the definition of Cauchy completion, there are $a',b'\sim_\varepsilon\! a,b$ such that $\langle a',b'\rangle\in R$.
   Then from (1) we infer that $\varphi'(a')$.
-  As $R$ is c-elementary, $\varphi'(b')$. 
+  Note that $\varphi'(x)\in{\EuScript F}$, then $\varphi'(b')$. 
   Then $\varphi''(b)$ follows from (2).
   As $\varphi''>\varphi$ is arbitrary, the fact follows from Proposition~\ref{prop_approx}.
-
-  The second claim is immediate.
 \end{proof}
 
 Let $M$ and $N$ be c-models.
-A c-elementary relation such that ${\rm dom}(R)=M$ and ${\rm range}(R)=N$ is called a \emph{c-isomorphism\/} between $M$ and $N$.
+An \emph{c-isomorphism\/} between $M$ and $M$ is a relation $R$ that preserves the truth of ${\EuScript L}^{\rm c}_{\rm at}$-formulas and $M\subseteq{\rm dom}(R)$,  $N\subseteq{\rm range}(R)$.
+The term isomorphism may sound inappropriate but it is justifies by the following fact.
 
-The following is noted for reference.
-
-\begin{remark}\label{rem_c_auto}
-  To be a c-automorphism of ${\EuScript U}$ the relation $R$ only needs to satisfy (\#) for formulas of the form $\tau(x)\in C$.
-\end{remark}
-
-\begin{fact}\label{fact_c_iso}
-  Let $R$ be a c-elementary relation.
-  Let $M\subseteq{\rm dom}(R)$ and $N\subseteq{\rm range}(R)$ be c-models.
-  Then there is a c-isomorphism between ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$.
+\begin{fact}\label{rem_c_iso}
+  Let $R$ be a c-isomorphism between $M$ and $N$, two c-models.
+  Let $f\subseteq{\rm Ccl}(R)$ be a reduced relation such that ${\rm Ccl}(R)\ =\ \mathrel{(\sim)}\circ \mathrel{f}\circ\mathrel{(\sim)}$.
+  Then $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ is a bijective map such that $\varphi(a)\leftrightarrow\varphi(fa)$ for all $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in{\rm Ccl}(M)^{|x|}$.
 \end{fact}
 
 \begin{proof}
-  By Fact~\ref{fact_Rcompletion} we can assume that ${\rm Ccl}(M)\subseteq{\rm dom}(R)$ and ${\rm Ccl}(N)\subseteq{\rm range}(R)$, hence a restriction of $R$ is the required c-isomorphism.
+  From Fact~\ref{fact_reduced_funct} we obtain that $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ is bijective map.
+  To prove $\varphi(a)\leftrightarrow\varphi(fa)$ we reason by induction as in the classical case.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1418,26 +1467,26 @@ The following is noted for reference.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Elimination of quantifiers of sort \textsf{I} for continuous formulas}\label{cIelimination}
+\section{Elimination of quantifiers of sort \textsf{I}}\label{cIelimination}
 
 We write \emph{${\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$} for the set of positive/continuous formulas without quantifiers of sort ${\sf I}$.
 In~\cite{clcl} it is proved that ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ is a p-dense set.
-Here we show that the argument can be adapted to continuous formulas.
+Here we adapt the argument to continuous formulas.
 
-We define ${\rm c}-{\sf I}{\rm qf}$-relations similarly to c-elementary relations but (\#) in Section~\ref{morphisms} is required to hold for formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
-We ask the reader to verify that the content of that section applies verbatim to ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-relation.
+We ask the reader to verify that Fact~\ref{fact_reduced_funct} holds, with the same proof, when $R$ preserves the truth of formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
 
 \begin{proposition}
-  All ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$-elementary maps of small cardinality extend to c-automorphisms of ${\EuScript U}$.
+  Every relation of small cardinality $R$ that preserves the truth of formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$ extends to c-automorphisms of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
-  We construct by back-and-forth a sequence $f_i:{\EuScript U}\rightarrow{\EuScript U}$ of finite c-elementary reduced relations (i.e.\@ injective maps) and let 
+  We construct by back-and-forth a sequence $f_i:{\EuScript U}\rightarrow{\EuScript U}$ of reduced relations (i.e.\@ injective maps) that preserve the truth formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
+  Finally we set 
   
   \ceq{\hfill R}{=}{\bigcup_{i\in|{\EuScript U}|}(\sim)\circ f_i\circ(\sim).}
 
   We will ensure that ${\EuScript U}={\rm dom}(R)={\rm range}(R)$.
-  Then $R$ is a c-automorphism of ${\EuScript U}$ by Remark~\ref{rem_c_auto}.
+  Then $R$ is a c-automorphism of ${\EuScript U}$ by Remark~\ref{rem_c_iso}.
 
   Let $i$ be even.
   Let $a$ be an enumeration of ${\rm dom}(f_n)$.
@@ -1733,11 +1782,11 @@ We say that ${\EuScript L}^{\rm p/c}$ is \emph{separable\/} if there is a counta
 In this section we prove a version of the omitting types theorem.
 
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
-If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p}(A)$ we say that it is \emph{p-isolated\/} by $A$.
+If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p/c}(A)$ we say that it is \emph{p/c-isolated\/} by $A$.
 We we omit reference to $A$ when this is clear from the context (e.g.\@ when $A$ is the set of parameters of $p(x)$).
 
-% When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p-isolated. 
-Note that, by Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p-isolated by $A$, then $p(x)$ is realized in every p-model containing $A$.
+% When $A$ is clear from the context (e.g., when $p(x)$ is presented as a type over $A$) we say simply p/c-isolated. 
+Note that, by Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p/c-isolated by $A$, then $p(x)$ is realized in every p/c-model containing $A$.
 We also have that if $p(x)$ is is realized in $M$, a p-model, then $p(x)$ is p-isolated by $M$.
 In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$ is positive by Morleyzation.
 
@@ -1745,10 +1794,10 @@ The continuous case will be considered in the next section.
 In this case a weaker notion of isolation is appropriate.
 
 \begin{fact}\label{fact_isolation}
-  Let ${\EuScript F}$ be a p-dense set of positive formulas.
+  Let ${\EuScript F}$ be a p/c-dense set of positive/continuous formulas.
   Then the following are equivalent
   \begin{itemize}
-  \item[1.] $p(x)$ is p-isolated by $A$;
+  \item[1.] $p(x)$ is p/c-isolated by $A$;
   \item[2.] $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript F}(A)$;
   \item[3.] $p(x)$ is isolated by some $\varphi'(x)$ such that  $\varphi'>\varphi$ for some consistent $\varphi(x)\in{\EuScript F}(A)$.
   \end{itemize}
@@ -1766,16 +1815,16 @@ In this case a weaker notion of isolation is appropriate.
 
 
 \begin{lemma}\label{lem_kuratowskiUlam}
-  Let ${\EuScript L}^{\rm p}(A)$ be separable.
-  Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$, be non p-isolated by $A$.
-  Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm p}(A)$, has a solution $a$ such that $A,a$ does not p-isolate $p(x)$.
+  Let ${\EuScript L}^{\rm p/c}(A)$ be separable.
+  Let $p(x)\subseteq{\EuScript L}^{\rm p/c}(A)$, be non p/c-isolated by $A$.
+  Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm p/c}(A)$, has a solution $a$ such that $A,a$ does not p/c-isolate $p(x)$.
 \end{lemma}
 
 \begin{proof}
-  We construct a sequence of ${\EuScript L}^{\rm p}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
+  We construct a sequence of ${\EuScript L}^{\rm p/c}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$.
   
-  Let $\langle\xi_i(x,z):i<\omega\rangle$ enumerate a countable p-dense subset of ${\EuScript L}^{\rm p}_{x,z}(A)$.
-  Let $\gamma_0(z)$ be a consistent positive formulas such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$.
+  Let $\langle\xi_i(x,z):i<\omega\rangle$ enumerate a countable p/c-dense subset of ${\EuScript L}^{\rm p/c}_{x,z}(A)$.
+  Let $\gamma_0(z)$ be a consistent positive/continuous formulas such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$.
   This exists by Proposition~\ref{prop_Fapprox}.
   Now we define $\gamma_{i+1}(z)$ and  $\gamma'_{i+1}>\gamma_{i+1}$.
   Let  $\gamma_i(z)$ and $\gamma'_i>\gamma_i$ be given.
@@ -1787,12 +1836,12 @@ In this case a weaker notion of isolation is appropriate.
   
   (\#)\hfil $\neg\tilde{\gamma}(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x,z)\wedge\neg\varphi(x)\big].$\kern19ex
   
-  Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive formulas such that $\gamma'_{i+1}(z)$ implies (\#).
+  Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent positive/continuous formulas such that $\gamma'_{i+1}(z)$ implies (\#).
   Such formulas exist by Proposition~\ref{prop_Fapprox}.
   \end{itemize}
   
   Let $a\models\{\gamma_i(z):i<\omega\}$.
-  We claim that that $A,a$ does not p-isolate $p(x)$.
+  We claim that that $A,a$ does not p/c-isolate $p(x)$.
   Otherwise, by Fact~\ref{fact_isolation}, $\neg\xi_i(x,a)\rightarrow p(x)$ for some consistent $\neg\xi_i(x,a)$.
   This contradicts $a\models\gamma_{i+1}(z)$.
   
@@ -1803,12 +1852,12 @@ In this case a weaker notion of isolation is appropriate.
   
   \ceq{\hfill\exists z\;\big[\neg\xi_i(x,z)\wedge\neg\tilde{\gamma}(z)\big]}{\rightarrow}{p(x).}
   
-  By Fact~\ref{fact_isolation}, $p(x)$ is p-isolated, a contradiction.
+  By Fact~\ref{fact_isolation}, $p(x)$ is p/c-isolated, a contradiction.
 \end{proof}
 
 From the lemma we easily obtain an omitting types theorem for positive types that is very close to the classical one.
 
-\begin{theorem}[Positive Omitting Types]\label{prop_OTT}
+\begin{theorem}[Positive Omitting Types]\label{thm_pOTT}
   Let ${\EuScript L}^{\rm p}$ be separable.
   Let $A$ be countable.
   Assume also that $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ is not p-isolated.
@@ -1828,27 +1877,41 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Continuous omitting types}
 
-We say that the type $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{c-isolated\/} by $A$ if for every $\varepsilon\in{\EuScript E}$ there is a formula $\varphi_\varepsilon(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi_\varepsilon(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_\varepsilon\! x\ p(x')$.
+We say that the type $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{approximately c-isolated\/} by $A$ if for every $\varepsilon\in{\EuScript E}$ there is a formula $\varphi_\varepsilon(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi_\varepsilon(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_\varepsilon\! x\ p(x')$.
 
-Notice that we are not simply requiring that the type $\exists x'\sim_\varepsilon\! x\ p(x')$ is isolated: we also require that $\neg\varphi_\varepsilon(x)$ is consistent with $p(x)$.
-This is necessary in the proof of Lemma~\ref{lem_atomic_iso}.
+Notice the requirement that the formula that isolates $\exists x'\sim_\varepsilon\! x\ p(x')$ is consistent with $p(x)$.
+This is used in the proof of Lemma~\ref{lem_atomic_iso}.
 
 Assume for the rest of this section that ${\EuScript L}^{\rm c}$ is separable.
 Then there is a sequence $\langle\varepsilon_n:n\in\omega\rangle$ such that for every $\varepsilon\in{\EuScript E}$ there is an $n$ such that $x\sim_{\varepsilon_n}y\ \rightarrow\ x\sim_\varepsilon\! y$.
 We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
-We may assume that $x\sim_{n+1}y\ \rightarrow\ x\sim_ny$.
-If the type $p(x)$ is c-isolated, say $\neg\varphi_n(x)$ isolates $\exists x'\sim_nx\ p(x')$, then we my assume that $\neg\varphi_{n+1}(x)\rightarrow\neg\varphi_n(x)$.
+
+\begin{fact}
+  Let ${\EuScript L}^{\rm c}$ be separable.
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ be maximally consistent type that is approximately c-isolated.
+  Let $\varphi_n(x)\in{\EuScript L}^{\rm c}(A)$ be uch that $\neg\varphi_n(x)$ is consistent with $p(x)$ and isoaltes  $\exists x'\sim_nx\ p(x')$.
+  We can assume that $\varphi_n(x)\rightarrow\varphi_{n+1}(x)$.
+\end{fact}
+
+\begin{proof}
+  Let $\psi_n(x)=\varphi_0(x)\vee\dots\vee\varphi_n(x)$.
+  Clearly $\neg\psi_n(x)\ \rightarrow\ x\sim_\varepsilon\! y$, then we only need verify that $\neg\psi_n(x)$ is consistent with $p(x)$.
+  But this is the case because by maximality $p(x)\rightarrow\neg\varphi_n(x)$.
+\end{proof}
+% When a maximally consistent type $p(x)$ is approximately c-isolated, say $\neg\varphi_n(x)$ isolates $\exists x'\sim_nx\ p(x')$, then we my assume that $\neg\varphi_{n+1}(x)\rightarrow\neg\varphi_n(x)$.
+
+
 
 \begin{fact}\label{fact_sim_n}
   Let ${\EuScript L}^{\rm c}$ be separable.
-  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ be c-isolated by $A$.
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ be maximally consistent and approximately c-isolated by $A$.
   Let $M$ be a c-model containing $A$.
   Then $p(x)$ is realized in ${\rm Ccl}(M)$.
 \end{fact}
 
 \begin{proof}
-  Let $a_n\in M$ be a solution of $\neg\varphi_n(x)$.
-  By the assumption above, the type 
+  Let $a_n\in M$ be a solution of $\neg\varphi_n(x)$, where the $\varphi_n(x)$ are as in the fact above.
+  Then the type 
   
   \ceq{\hfill p(x)}{\cup}{\big\{a_n\sim_nx\ :\ n\in\omega\big\}}
   
@@ -1856,11 +1919,11 @@ If the type $p(x)$ is c-isolated, say $\neg\varphi_n(x)$ isolates $\exists x'\si
   Its realizations belong to ${\rm Ccl}(M)$.
 \end{proof}
 
-In words, the proof above shows that if $p(x)$ is c-isolated, then in every c-model contains a sequence of elements that converges, in the topology induced by $I$, to a realization of $p(x)$.
+In words, the proof above shows that if $p(x)$ is approximately c-isolated, then in every c-model contains a sequence of elements that converges, in the topology induced by $I$, to a realization of $p(x)$.
 
 \begin{fact}\label{fact_wcisolatio_realization}
   Let ${\EuScript L}^{\rm c}$ be separable.
-  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is c-isolated by $M$.
+  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is approximately c-isolated by $M$.
 \end{fact}
 
 \begin{proof}
@@ -1876,15 +1939,15 @@ In words, the proof above shows that if $p(x)$ is c-isolated, then in every c-mo
 
 \begin{lemma}\label{lem_kuratowskiUlam_cont}
   Let ${\EuScript L}^{\rm c}(A)$ be separable.
-  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$, be non c-isolated.
+  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$, be non approximately c-isolated.
   Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm c}(A)$, has a solution $a$ such that $A,a$ does not c-isolate $p(x)$.
 \end{lemma}
 
 \begin{proof}
   The proof is essentially that of Lemma~\ref{lem_kuratowskiUlam}.
-  We go over it again to check that the stronger requiremnt of consistency does not invalidate the argument.
+  We go over it again to check that the stronger requirement of consistency does not invalidate the argument.
 
-  Let $\varepsilon\in{\EuScript E}$ witness that $p(x)$ is not c-isolated by $A$. 
+  Let $\varepsilon\in{\EuScript E}$ witness that $p(x)$ is not approximately c-isolated by $A$. 
   We construct a sequence of ${\EuScript L}^{\rm c}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$, witnessed by the same $\varepsilon$.
   
   Let $\langle\xi_i(x,z):i<\omega\rangle$ enumerate a countable c-dense subset of ${\EuScript L}^{\rm c}_{x,z}(A)$.
@@ -1922,13 +1985,13 @@ In words, the proof above shows that if $p(x)$ is c-isolated, then in every c-mo
 \begin{theorem}[Continuous Omitting Types]\label{thm_cOTT}
   Let ${\EuScript L}^{\rm c}$ be separable.
   Let $A$ be countable.
-  Assume also that $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is not c-isolated.
+  Assume also that $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is not approximately c-isolated.
   Then there is a c-model $M$ containing $A$ such that ${\rm Ccl}(M)$ omits $p(x)$. 
 \end{theorem}
 
 \begin{proof}
-  By assumption $\exists y\sim_\varepsilon\! x\ p(y)$ is not c-isolated for some $\varepsilon\in{\EuScript E}$. 
-  Appy Lemma~\ref{lem_kuratowskiUlam} and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable c-model $M$ that does not isolate $\exists y\sim_\varepsilon\! x\ p(y)$.
+  By assumption $\exists y\sim_\varepsilon\! x\ p(y)$ is not approximately c-isolated for some $\varepsilon\in{\EuScript E}$. 
+  Just as in the classical case, we appy Lemma~\ref{lem_kuratowskiUlam} and the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) to obtain a countable c-model $M$ that does not isolate $\exists y\sim_\varepsilon\! x\ p(y)$.
   By Fact~\ref{fact_wcisolatio_realization}, ${\rm Ccl}(M)$ omits $p(x)$. 
 \end{proof}
 
@@ -1946,7 +2009,7 @@ In the discussion of countable categoricity we assume that the underlying theory
 This assumption is not necessary (it is rather a consequence of categoricity), but it allows to work inside a monster model and simplify the notation.
 
 Let $M$ be a c-model.
-We say that $M$ is \emph{atomic\/} if for every finite tuple $a$ of elements of $M$ the type $\mbox{c-tp}(a)$ is c-isolated.
+We say that $M$ is \emph{atomic\/} if for every finite tuple $a$ of elements of $M$ the type $\mbox{c-tp}(a)$ is approximately c-isolated.
 
 \begin{lemma}\label{lem_atomic_iso}
   Let ${\EuScript L}^{\rm c}$ be separable.
@@ -2003,27 +2066,28 @@ The following analogue of Ryll-Nardzewski's Theorem follows by the classical arg
   Then the following are equivalent
   \begin{itemize}
     \item[1.] $T$ is c-$\omega$-categorical;
-    \item[2.] every consistent type $p(x)\subseteq{\EuScript L}^{\rm c}$, for $x$ any finite tuple of variables, is c-isolated.
+    \item[2.] every consistent type $p(x)\subseteq{\EuScript L}^{\rm c}$, for $x$ any finite tuple of variables, is approximately c-isolated.
   \end{itemize}
 \end{theorem}
 
 \begin{proof}
   (1$\Rightarrow$2)
   If $p(x)$ is consistent it is realized in some countable c-model $M$.
-  If $p(x)$ is not c-isolated, by the continuous omitting type theorem there is a c-model $N$ such that  ${\rm Ccl}(N)$ omits $p(x)$.
+  If $p(x)$ is not approximately c-isolated, by the continuous omitting type theorem there is a c-model $N$ such that  ${\rm Ccl}(N)$ omits $p(x)$.
   Then ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are not c-isomorphic, hence $T$ is not c-$\omega$-categorical.
 
-  (2$\Rightarrow$1) As, every c-model is atomic,  c-$\omega$-categoricity follows from Fact~\ref{fact_atomic_iso} as in the classical case.
+  (2$\Rightarrow$1) As, every c-model is atomic,  c-$\omega$-categoricity follows from Fact~\ref{fact_atomic_iso}.
 \end{proof}
 
+\begin{comment}
 The classical argument proves also the following.
 
 \begin{proposition}
   Fix a finite tuple of variables $x$.
   The following are equivalent
   \begin{itemize}
-    \item[1.] every consistent $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is c-isolated;
-    \item[2.] for every given $\varepsilon\in{\EuScript E}$ there there are at most $n_\varepsilon<\omega$ many types $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$ such that $\exists y\sim_\varepsilon\! x\ p_i(y)$ are pairwise inconsistent.
+    \item[1.] every consistent $p(x)\subseteq{\EuScript L}^{\rm c}$ is approximately c-isolated;
+    \item[2.] for every given $\varepsilon\in{\EuScript E}$ there there are at most $n_\varepsilon<\omega$ many types $p_i(x)\subseteq{\EuScript L}^{\rm c}$ such that $\exists y\sim_\varepsilon\! x\ p_i(y)$ are pairwise inconsistent.
   \end{itemize}
 \end{proposition}
 
@@ -2038,8 +2102,8 @@ The classical argument proves also the following.
   This contradicts the maximality of $\lambda$.
 
   (2$\Rightarrow$1?) 
-  Let $\tau, D$ be given and pick a compact neighborhood of the diagonal $E$ such that $E\circ E\circ E\subseteq D$.
-  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$, for $i<n$, be such that $\exists y\sim_{\tau,E}x\ p_i(x)$ are pairwise inconsistent.
+  Let $\varepsilon\in{\EuScript E}$ be given and pick $\eta$ such that $x\sim_\eta y\sim_\eta z\rightarrow x\sim_\varepsilon z$.
+  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$, for $i<n$, be such that $\exists y\sim_\eta x\ p_i(x)$ are pairwise inconsistent.
   By compactness there are some $\varphi_i(x)\in p_i$ such that $\exists y\sim_{\tau,E}x\ \varphi_i(x)$ are pairwise inconsistent.
   Assume $n=n_{\tau,E}$ is maximal.
   Let $F=E\circ E$.
@@ -2047,13 +2111,13 @@ The classical argument proves also the following.
 
   \ceq{}{~}{\bigvee_{i=1}^n\exists y\sim_{\tau,F}a\ \ \varphi_i(y)}
   
-  In fact, if $q(x)=\mbox{c-tp}(a/A)$, where $a$ does not satisfy the formula above, then $\exists y\sim_{\tau,E}x\ q(y)$ would be inconsistent with every $\exists y\sim_{\tau,E}x\ p_i(x)$.
+  In fact, if $q(x)=\mbox{c-tp}(a)$, where $a$ does not satisfy the formula above, then $\exists y\sim_\eta x\ q(y)$ would be inconsistent with every $\exists y\sim_{\tau,E}x\ p_i(x)$.
   This contradicts the maximality of $n$.
 
-  Let $q(x)\subseteq{\EuScript L}^{\rm c}(A)$.
-  We prove that $\exists y\sim_\varepsilon\! x\ q(y)$ is c-isolated.
-  By maximality $\exists y\sim_{\tau,E}x\ q(y)$ is consistent with, say, $\exists y\sim_{\tau,E}x\ \varphi_1(x)$.
-  Without loss of generality, assume $q(x)\rightarrow\exists y\sim_{\tau,E}x\ \varphi_1(x)$.
+  Let $q(x)\subseteq{\EuScript L}^{\rm c}$.
+  We prove that $\exists y\sim_\varepsilon\! x\ q(y)$ is approximately c-isolated.
+  By maximality $\exists y\sim_\varepsilon\! x\ q(y)$ is consistent with, say, $\exists y\sim_\varepsilon\! x\ \varphi_1(x)$.
+  Without loss of generality, assume $q(x)\rightarrow\exists y\sim_\varepsilon\! x\ \varphi_1(x)$.
   Note that
 
   \ceq{\hfill\exists y\sim_{\tau,E}x\ \varphi_1(x)}{\rightarrow}{\neg\bigvee_{i=2}^n\exists y\sim_{\tau,F}x\ \ \varphi_i(y)}
@@ -2084,6 +2148,8 @@ The classical argument proves also the following.
   Let $a$ satisfy the antecedent but not the consequence of (1).
 
 \end{proof}
+  
+\end{comment}
 
 
 
@@ -2093,46 +2159,8 @@ The classical argument proves also the following.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Example: metric spaces}
+\section{Example: Lebesgue spaces}
 
-We discuss a simple example.
-Let $I$ be $\mathds{R}^+\cup\{0,\infty\}$, with the topology that makes it homeomorphic to the unit interval.
-Let $M,d$ is a metric space.
-Let ${\EuScript L}_{\sf H}$ contain symbols for functions $M^n\to M$ that are uniformly continuous.
-Let ${\EuScript L}$ contain a symbol for $d$ and possibly for some funtions of $M^n\to I$ that are uniformly continuous w.r.t.\@ the metric $d$.
-
-Let $\langle M,I\rangle$ be the structure that interprets the symbols of the language as natural.
-
-Let ${\EuScript U}$ be a positive monster model that is  an ${\EuScript L}^{\rm p}$ elementary extension of $M$.
-Clearly, $d$ does not define a metric on ${\EuScript U}$ as there are pairs of elements at infinite distance.
-However, when restricted to a ball of finite radius, $d$ defines a pseudometric on ${\EuScript U}$.
-Therefore the notion of convergent sequence makes perfectly sense in ${\EuScript U}$.
-As all functions have been required to be uniformly continuous, it is immediate that $x\sim_{\sf I}y$ is equivalent to $d(x,y)=0$.
-
-\begin{fact}
-  Let $ {\EuScript U}$ be as above.
-  Then for every p-model $N$ and $a\in{\EuScript U}$ the following are equivalent
-  \begin{itemize}
-    \item[1.] $p(x)=\mbox{p-tp}(a/N)$ is a Cauchy type;
-    \item[2.] there is a sequence $\langle a_i: i\in\omega\rangle$ of elements of $N$ that converges to $a$.
-  \end{itemize} 
-\end{fact}
-
-\begin{proof}
-
-  (2$\Rightarrow$1) 
-  Let $\langle \varepsilon_i: i\in\omega\rangle$ be a sequence of reals that converges to $0$ and such that $d(a_i,a)\le\varepsilon_i$ for every $i\in\omega$.
-  Then the formulas $d(a_i,x)\le\varepsilon_i$ are in $p(x)$.
-  Then every element realizing $p(x)$ is at distance $0$ from $a$.
-  Therefore  $p(x)\rightarrow a\sim x$.
-
-  (1$\Rightarrow$2) 
-  As $p(x)$ is Cauchy type, $p(x)\rightarrow a\sim x$.
-  Then $p'(x)\rightarrow d(a,x)<2^{-i}$ for all $i$.
-  By compactness (see Fact~\ref{fact_compactness_imp}) there are formulas $\varphi_i(x)\in p$ such that $\varphi'_i(x)\rightarrow d(a,x)<2^{-i}$ for some $\varphi'_i>\varphi_i$.
-  By ${\EuScript L}^{\rm p}$-elementarity there is an $a_i\in N$ such that $\varphi'(a_i)$.
-  As $d(a,a_i)<2^{-i}$ for all $i$, the sequence $\langle a_i: i\in\omega\rangle$ converges to $a$.
-\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
