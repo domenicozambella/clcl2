@@ -275,7 +275,7 @@ However, even when $L^1(\mu)$ is our focus of interest, it is often easier to ar
 For a similar reason ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ are better studied in parallel.
 
 The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
-For instance, it is easy to see (cf.\@ Example~\ref{ex_Rvlogic}) that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic.%
+For instance, it is easy to see  that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic(cf.\@ the example below taken from~\cite{clcl}).%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
 %A painstaking technical comparison with real valued logic is not in the scope of this indroductory exploratory paper.}.
 
@@ -331,7 +331,10 @@ These would have natural interpretations, e.g.\@ a group acting on a compact set
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Henson-Iovino approximations}\label{ultrapws}
+\section{Henson-Iovino approximations}\label{ultrapws} 
+The notion of approximation is a central tool in the work of Hension and Iovino on normed spaces.
+In~\cite{clcl} the natural generalization to standard structures is presented.
+We recall the definition and the main properties.
 
 For $C,C'$ compact substes of $I^n$, we write $C'>C$ if $C'$ is a neighborhood of $C$.
 For $\varphi,\varphi'$ (free variables are hidden) positive formulas possibly with parameters we write \emph{$\varphi'>\varphi$\/} if $\varphi'$ is obtained by replacing in $\varphi$ each atomic formula of the form $t\in C$ with $t\in C'$, for some $C'>C$.
@@ -382,6 +385,13 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
   By Lemma~\ref{lem_interpolation}, the set of negations of positive/continuous formulas is p/c-dense.
 \end{example}
 
+The following fact is easily proved by induction.
+
+\begin{fact}
+  Let ${\EuScript F}$ be a set of formulas closed under the connectives $\wedge$, $\vee$, $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$.
+  Then ${\EuScript F}$ is dense if the condition above is satisfied fo  $\varphi(x)$ atomic.
+\end{fact}
+
 \begin{example}
   Let ${\EuScript C}$ be a prebase of closed subsets of $I$.
   The set of formulas built inductively from atomic formulas of the form $\tau(x,\eta)\in C$ for $C\in{\EuScript C}$ is c-dense.
@@ -390,8 +400,8 @@ in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi
 \begin{example}
   Let $I=[0,1]$.
   The set of formulas built inductively from atomic formulas of the form $\tau\in\{0\}$ is c-dense.
-  In fact, as every compact subset of $I$ is the intersection of finite unions of closed intervals, the formulas built using only atomic formulas of the form $\tau\in[\alpha,\beta]$ are c-dense.
-  Finally note that $\tau\in[\alpha,\beta]$ is equivalent to $\tau\dotminus\beta\in\{0\}\ \wedge\ \alpha\dotminus\tau\in\{0\}$.
+  In fact, first note that by the example above we can restrict to formulas built inductively from atomic formulas of the form $\tau\in[\alpha,\beta]$.
+  Then note that $\tau\in[\alpha,\beta]$ is equivalent to $\tau\dotminus\beta\in\{0\}\ \wedge\ \alpha\dotminus\tau\in\{0\}$.
 \end{example}
 
 \begin{example}
@@ -713,7 +723,7 @@ for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in M^{|x|}$.
 %   Then for every $ab\in M^\alpha$, where $\alpha<|N|$, such that $a\equiv b$, there is an ${\EuScript L}^{\rm p}$-automorphism of $N$ that maps $a$ to $b$.
 % \end{proposition}
 
-The following proposition shows that a slight amount of saturation tames the positive formulas.
+The following proposition of~\cite{clcl} shows that a slight amount of saturation tames the positive formulas.
 
 \begin{proposition}\label{prop_approx}
   Let $N$ be a positively $\omega$-saturated standard structure.
@@ -810,7 +820,7 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 \begin{remark}\label{remk_approx_EH_free}
   By Corollary~\ref{corol_st}, when $\varphi(x\,;\eta)$ does not contains existential quantifiers of sort ${\sf H}$, the proposition above does not require the assumption of saturation.
   In general, some saturation is necessary: consider the model presented after Corollary~\ref{corol_st} and the formula $\exists x\,\big(x>0\ \wedge\ \iota(x)\in\{0\}\big)$.
-  See~[Unumbered paragraph after Corollary~5.16]\cite{HI} for a counterexample in ${\EuScript L}^{\rm c}$.
+  See~[Paragraph after Corollary~5.16]\cite{HI} for a counterexample in ${\EuScript L}^{\rm c}$.
 \end{remark}
 
 % \begin{remark}\label{rem_model_approx}
@@ -1180,7 +1190,7 @@ Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 
 for some compact neighborhood $D$ of $\Delta$.
 We write \emph{${\EuScript E}$} for the set containing the pairs $\tau,D$ as above.
-The formulas $x\sim_\varepsilon\! y$ form a prebase for a system of entougages on ${\EuScript U}^{|x|}$.
+The formulas $x\sim_\varepsilon\! y$, as $\varepsilon$ ranges over ${\EuScript E}$, form a base for a system of entougages on ${\EuScript U}^{|x|}$.
 We refer to this uniformity and the topology associated as the topology \emph{induced by $I$.}
 Though not needed in the sequel, it is worth mentioning that the topology induced by $I$ on ${\EuScript U}^{|x|}$ coincides with the product of the topology induced by $I$ on ${\EuScript U}$.
 This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
@@ -1240,7 +1250,7 @@ We may happen that $p(x)$ is finitely satisfiable while $q(x)\leftrightarrow p(x
 In particular if $M$ is a p-model and $q(x)=\mbox{p-tp}(a/M)$ then $q'(x)$ is always finitely satisfiable while $q(x)$ need not.
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
-We say that that a set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if it contains all those $a\in{\EuScript U}$ such that $a\sim'x$ is finitely satisfied in $A$.
+A set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if it contains all those $a\in{\EuScript U}$ such that $a\sim'x$ is finitely satisfied in $A$.
 Note that Cauchy complete sets are in particular closed under $\sim$-equivalence.
 The \emph{Cauchy completion\/} of $A$ is the set 
 
@@ -1886,17 +1896,18 @@ Assume for the rest of this section that ${\EuScript L}^{\rm c}$ is separable.
 Then there is a sequence $\langle\varepsilon_n:n\in\omega\rangle$ such that for every $\varepsilon\in{\EuScript E}$ there is an $n$ such that $x\sim_{\varepsilon_n}y\ \rightarrow\ x\sim_\varepsilon\! y$.
 We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
 
-\begin{fact}
+\begin{fact}\label{fact_approx_iso}
   Let ${\EuScript L}^{\rm c}$ be separable.
   Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ be maximally consistent type that is approximately c-isolated.
-  Let $\varphi_n(x)\in{\EuScript L}^{\rm c}(A)$ be uch that $\neg\varphi_n(x)$ is consistent with $p(x)$ and isoaltes  $\exists x'\sim_nx\ p(x')$.
-  We can assume that $\varphi_n(x)\rightarrow\varphi_{n+1}(x)$.
+  Then this is witnessed by formulas $\psi(x)\in{\EuScript L}^{\rm c}(A)$ such that $\psi_n(x)\rightarrow\psi_{n+1}(x)$.
+  Finally, if $a_n\models\neg\psi_n(x)$ the the type $p(x)\cup\big\{a_n\sim_nx\ :\ n\in\omega\big\}$ is consistent.
 \end{fact}
 
 \begin{proof}
   Let $\psi_n(x)=\varphi_0(x)\vee\dots\vee\varphi_n(x)$.
-  Clearly $\neg\psi_n(x)\ \rightarrow\ x\sim_\varepsilon\! y$, then we only need verify that $\neg\psi_n(x)$ is consistent with $p(x)$.
+  Clearly $\neg\psi_n(x)\ \rightarrow\ x\sim_n\! y$, then we only need verify that $\neg\psi_n(x)$ is consistent with $p(x)$.
   But this is the case because by maximality $p(x)\rightarrow\neg\varphi_n(x)$.
+  The second claim folows immediately.
 \end{proof}
 % When a maximally consistent type $p(x)$ is approximately c-isolated, say $\neg\varphi_n(x)$ isolates $\exists x'\sim_nx\ p(x')$, then we my assume that $\neg\varphi_{n+1}(x)\rightarrow\neg\varphi_n(x)$.
 
@@ -1910,20 +1921,16 @@ We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
 \end{fact}
 
 \begin{proof}
-  Let $a_n\in M$ be a solution of $\neg\varphi_n(x)$, where the $\varphi_n(x)$ are as in the fact above.
-  Then the type 
-  
-  \ceq{\hfill p(x)}{\cup}{\big\{a_n\sim_nx\ :\ n\in\omega\big\}}
-  
-  is consistent.
-  Its realizations belong to ${\rm Ccl}(M)$.
+  Let $a_n\in M$ be as in the fact above.
+  Then any solution of the type $p(x)\cup\big\{a_n\sim_nx\ :\ n\in\omega\big\}$ belongs to ${\rm Ccl}(M)$.  
 \end{proof}
 
 In words, the proof above shows that if $p(x)$ is approximately c-isolated, then in every c-model contains a sequence of elements that converges, in the topology induced by $I$, to a realization of $p(x)$.
 
 \begin{fact}\label{fact_wcisolatio_realization}
   Let ${\EuScript L}^{\rm c}$ be separable.
-  If $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is realized in ${\rm Ccl}(M)$ for some c-model $M$ containing $A$, then $p(x)$ is approximately c-isolated by $M$.
+  Let $M$ be a c-model containing $A$.
+  Then any $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ that is realized in ${\rm Ccl}(M)$ is approximately c-isolated by $M$.
 \end{fact}
 
 \begin{proof}
@@ -2022,16 +2029,17 @@ We say that $M$ is \emph{atomic\/} if for every finite tuple $a$ of elements of 
   We can assume that $k$ is reduced, i.e.\@ it is an injective map ${\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$.
   Let $a$ enumerate ${\rm dom} k$.
   Let $p(x,y)=\mbox{c-tp}(a,c)$, it suffices to prove that $p(x,y)$ is realized by some $d\in{\rm Ccl}(N)$.
-  Let 
+  Let $\psi_n(x,y)\in{\EuScript L}^{\rm c}$ be such that
   
-  \ceq{\hfill\neg\varphi_n(x,y)}{\rightarrow}{\exists x',y'\sim_nx,y\ \ p(x',y').}
+  \ceq{\hfill\neg\psi_n(x,y)}{\rightarrow}{\exists x',y'\sim_nx,y\ \ p(x',y')}
   
-  As $\neg\varphi_n(x,y)$ is consistent with $p(x,y)$ then $a,c\models\neg\varphi_n(x,y)$.
+  and $\psi_n(x,y)\rightarrow\psi_{n+1}(x,y)$.
+  As $\neg\psi_n(x,y)$ is consistent with $p(x,y)$ then $a,c\models\neg\psi_n(x,y)$.
   Then by c-elementarity, $\neg\varphi(ka,y)$ is consistent.
-  Let $d_n\in{\rm Ccl}(M)$ be such that $ka,d_n\models\neg\varphi_n(x,y)$.
+  Let $d_n\in{\rm Ccl}(M)$ be such that $ka,d_n\models\neg\psi_n(x,y)$.
   Let $b,d$ be a realization of the type $\{ka,d_n\sim_nx,y:n\in\omega\}\cup p(x,y)$.
   As $ka\sim b$, also $ka,d$ realizes $p(x,y)$.
-  As $d\in{\rm Ccl}(N)$, the proof is complete
+  As $d\in{\rm Ccl}(N)$, the proof is complete.
 \end{proof}
 
 \begin{fact}\label{fact_atomic_iso}
@@ -2044,8 +2052,7 @@ We say that $M$ is \emph{atomic\/} if for every finite tuple $a$ of elements of 
   
   \ceq{\hfill R}{=}{\bigcup_{n\in\omega}(\sim)\circ f_n\circ(\sim).}
 
-  We will ensure that $M\subseteq{\rm dom}(R)$ and $N\subseteq{\rm range}(R)$.
-  By Fact~\ref{fact_c_iso} this suffices to prove the fact.
+  We will ensure that $M\subseteq{\rm dom}(R)$ and $N\subseteq{\rm range}(R)$, hence that $R$ is a c-isomorphism between $M$ and $N$.
 
   Let $n$ be even.
   Let $a$ be an enumeration of ${\rm dom}(f_n)$.
@@ -2478,131 +2485,5 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ is stable if ther
 Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
 
 Note that by compactness if $\varphi(x\,;z)$ and $\tilde\varphi\perp\varphi$ are stably separated then there is a maximal length $m$ of a sequence $\langle a_i\,;b_i\,:\,i<m\rangle$ such that (1) and (2) above.
-
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-\section{Elementary relations}
-
-Let $M$ and $N$ be models.
-We say that $R\subseteq M\times N$ is an \emph{p-elementary relation\/} between $M$ and $N$ if for every $\varphi(x)\in{\EuScript L}$
-
-\ceq{\hfill M\models\varphi(a)}{\Rightarrow}{N\models\varphi(b)}\hfill for every $a$ and $b$ such that $a\mathbin{R}b$.
-
-Note that, when $a=a_1,\dots,a_n$ and $b=b_1,\dots,b_n$ are tuples, $a\mathbin{R}b$ stands for $a_i\mathbin{R}b_i$ for every $i\in\{1,\dots,n\}$.
-
-\begin{fact}
-  Let $R\subseteq{\EuScript U}^2$ be an p-elementary relation of cardinality $<\kappa$.
-  Then there is a total and surjective p-elemenrary relation $S\subseteq{\EuScript U}^2$ containing $R$.
-\end{fact}
-
-\begin{proof}
-  We apply the usual back-and-forth construction with a pinch of extra caution.
-  Let $a$ be an enumeration of the domain of $R$.
-  Let $\bar a=\langle a_i:i<\lambda\rangle$ be an enumeration of all tuples of length $|a|$ such that $aRa_i$.
-  As $\kappa$ is inaccessible, $\lambda<\kappa$.
-  Let $b\in U$.
-  It suffices to prove that there is a $c$ such that $R\cup\{\langle b,c\rangle\}$ is an $\mathds{L}$-relation.
-  Let $p(x,z)={\rm tp}(b,a)$ and let
-  
-  \ceq{\hfill q(x,\bar z)}{=}{\bigcup_{i<\lambda}p(x,z_i).}
-
-  We claim that $q(x,\bar a)$ is a finitely consistent type.
-  A finite conjunction of formulas in $q(x,\bar a)$ has the form $\psi(x,a_{i_1})\wedge\dots\wedge\psi(x,a_{i_n})$.
-  As $\psi(b,a)$ and $a_{i_1},\dots,a_{i_n}\,R\;a,\dots,a$, we conclude that the condition $\psi(x,a_{i_1})\wedge\dots\wedge\psi(x,a_{i_n})$ is satisfied.
-  The existence of the required element $c$ follows by saturation.
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-\section{}
-
-\begin{corollary}
-  Let $A\subseteq{\EuScript U}$ have cardinality $<\kappa$.
-  Let $p(x)={\rm tp}_\mathds{L}(a/A)$, where $a\in{\EuScript U}^{|x|}$ is a tuple of length $|x|<\kappa$.
-  Then
-
-  \ceq{\hfill p({\EuScript U})}{=}{\big\{b : bRa,\ R\in{\rm Aut}({\EuScript U}/A)\big\}}
-\end{corollary}
-
-
-
-Let ${\EuScript M}$ and ${\EuScript N}$ be models.
-We say that $R\subseteq M\times N$ is an \emph{$\mathds{L}$-(elementary) relation\/} between ${\EuScript M}$ and ${\EuScript N}$ (or on ${\EuScript M}$ if the two coicide) if for every $\varphi(x)\in\mathds{L}$
-
-\ceq{\hfill{\EuScript M}\models\varphi(a)}{\Leftrightarrow}{{\EuScript N}\models\varphi(b)} \hfill for every $a$ and $b$ such that $a\mathbin{R}b$.
-
-Recall that, when $a=a_1,\dots,a_n$ and $b=b_1,\dots,b_n$ are tuples, $a\mathbin{R}b$ stands for $a_i\mathbin{R}b_i$ for every $i\in\{1,\dots,n\}$.
-
-We define an equivalence relation \emph{$(\sim_{\EuScript M})$\/} on $ M$ as follows
-
-\ceq{1.\hfill a\,\sim_{\EuScript M\!}b}
-{\Leftrightarrow}
-{\Big({\EuScript M}\models\varphi(a)\leftrightarrow\varphi(b)}
-\ \ for every $\varphi(x)\in\mathds{L}( M)\Big)$,
-
-where $|x|=|a|=|b|=1$.
-Note that this relation would be trivial had we included  in $\mathds{L}(M)$ equality between elements of $M$.
-
-The following proposition is easily proved by induction on the syntax. 
-
-\begin{proposition}
-  The following are equivalent for every $a,b\in M$.
-  \begin{itemize}
-    \item[1.] $a\equiv_{\EuScript M}b$;
-    \item[2.] ${\EuScript M}\models \tau(a)=\tau(b)$ for every $\tau(x)\in\mathds{T}(M)$, with $|x|=1$.
-  \end{itemize}
-\end{proposition}
-
-\begin{lemma}
-  The relation $(\sim_{\EuScript M\!})\subseteq  M^2$ is an $\mathds{L}$-relation.
-  Moreover, it is maximal among the $\mathds{L}$-relations on ${\EuScript M}$, i.e.\@ no $\mathds{L}$-relation properly contains $(\sim_{\EuScript M\!})$.
-\end{lemma}
-
-\begin{proof}
-  Assume $a\sim_{\EuScript M\!}b$, where $a=a_1,\dots,a_n$ and $b=b_1,\dots,b_n$.
-  Recall that this means that $a_i\sim_{\EuScript M\!}b_i$ for all $i\in\{1,\dots,n\}$.
-  Let $\Delta$ denote the diagonal relation on $ M$.
-  Note that $a_i\sim_{\EuScript M\!}b_i$ is equivalent to saying that $\Delta\cup\{(a_i,b_i)\}$ is an $\mathds{L}$-relation.
-  As $\mathds{L}$-relations are closed under composition $\Delta\cup\big\{(a_1,b_1),\dots,(a_n,b_n)\big\}$ is $\mathds{L}$-elementary.
-  It follows that for every $\varphi(x)\in\mathds{L}$
-
-  \ceq{2.\hfill{\EuScript M}\models\varphi(a)}{\Leftrightarrow}{{\EuScript M}\models\varphi(b).}
-  
-  This proves that $(\sim_{\EuScript M\!})$ is an $\mathds{L}$-relation.
-  Finally, maximality is immediate.
-  % Suppose $E$ and equivalence $\mathds{L}$-relation on ${\EuScript M\!}$ properly containing $(\sim_{\EuScript M\!})$.
-  % Pick $a,b\in M$ such that $a\mathbin{E}b$ and $a\not\sim_{\EuScript M\!}b$.
-\end{proof}
-
-
-\begin{lemma}
-  Let $R\subseteq  M\times N$ be total and surjective $\mathds{L}$-relation.
-  Then there is a unique maximal $\mathds{L}$-relation containing $R$.
-  This maximal $\mathds{L}$-relation is equal to both $(\sim_{\EuScript M\!})\,R$ and $R\,(\sim_{\EuScript N\!})$, where justapposition of relations stands for composition.
-\end{lemma}
-\begin{proof}
-  It is immediate to verify that $(\sim_{\EuScript M\!})\,R$ is an $\mathds{L}$-relation containing $R$.
-  Let $S$ be any maximal $\mathds{L}$-relation containing $R$.
-  By maximality, $(\sim_{\EuScript M\!})\,S=S$.
-  As $S$ is a total relation $(\sim_{\EuScript M\!})\subseteq SS^{-1}$.
-  Therefore, by the lemma above, $(\sim_{\EuScript M\!})=SS^{-1}$.
-  As $R$ is a surjective relation, $S\subseteq S\,S^{-1}R$.
-  Finally, by maximality, we conclude that $S=(\sim_{\EuScript M\!})\,R$.
-  A similar argument proves that $S=R\,(\sim_{\EuScript N\!})$.
-\end{proof}
-
-We write ${\rm Aut}({\EuScript M})$ for the set of maximal, total and surjective, $\mathds{L}$-relations $R\subseteq  M^2$.
-The choice of the symbol Aut is motivated by the lemma above.
-In fact any such relation $R$ induces a unique automorphism on the (properly defined) quotient structure ${\EuScript M}/{\sim_{\EuScript M\!}}$.
 
 \end{document}
