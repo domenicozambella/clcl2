@@ -9,7 +9,6 @@
 \usepackage{datetime2} 
 \usepackage[colorlinks=true,linkcolor=blue,]{hyperref}
 
-\usepackage[a4paper,hmargin=34mm, vmargin=30mm]{geometry}
 \usepackage{stackengine}
 \usepackage{scalerel}
 \usepackage{mathtools}
@@ -107,49 +106,11 @@
    \smash{\tikz[baseline]\node[rectangle, fill=teal!25, rounded corners, inner xsep=0.5ex, inner ysep=0.2ex, anchor=base, minimum height = 2.7ex]{\strut #1};}}
 
 
-% \def\forallH{\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}}
-% \def\existsH{\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}}
-% \def\forallI{\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}}
-% \def\existsI{\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}}
 
-
-
-\newcommand\questionsign[1][2ex]{%
-  \renewcommand\stacktype{L}%
-  \scaleto{\stackon[-.6pt]{\color{red}$\triangle$}{\color{red}\bfseries\small ?}}{#1}%
-}
-
-\newcommand\dangersign[1][3.5ex]{%
-  \renewcommand\stacktype{L}%
-  \scaleto{\stackon[1.9pt]{\Huge\color{red}$\triangle$}{\color{red}\bfseries\small !}}{#1}%
-}
-
-%%%%%%% GETCOMMIT
-\newcommand\dotGitHEAD{}
-\newcommand\branch{}
-
-
-\makeatletter\let\myfilehandle\@inputcheck\makeatother
-
-\openin\myfilehandle=.git/HEAD\relax
-
-\begingroup\endlinechar-1
-  \global\read\myfilehandle to \dotGitHEAD
-\endgroup
-\closein\myfilehandle
-
-\newcommand\GetBranch{}
-\def\GetBranch ref: refs/heads/#1\relax{\renewcommand{\branch}{#1}}
-
-\expandafter\GetBranch\dotGitHEAD\relax
-
-\makeatother
-
-\linespread{1.1}
+\linespread{1.2}
 \author{S. A. Polymath}
 \begin{document}
 \title{Standard analysis}
-\hfill\texttt{Branch:\ \branch\ \DTMnow}\bigskip
 \maketitle
 \raggedbottom
 
@@ -165,7 +126,7 @@
   \noindent
   We review and elaborate on the properties of positive formulas and their approximations.
   In parallel, we introduce \textit{continuous\/} formulas which provide a better counterpart to Henson and Iovino theory of normed spaces and/or real-valued model theory.
-  Finally, within the setting of standard structures we discuss $\omega$-categoricity.
+  Within the setting of standard structures we discuss $\omega$-categoricity.
 \end{abstract}
 
 
@@ -208,6 +169,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
 
 \begin{definition}\label{def_0}
   Let ${\EuScript L}$ be a two sorted language that expands both ${\EuScript L}_{\sf H}$ and ${\EuScript L}_{\sf I}$.
+
   A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,I\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure, while $I$ is the structure above.
   We write \emph{${\sf H}$} and \emph{${\sf I}$\/} to denote the two sorts of ${\EuScript L}$.
   
@@ -215,7 +177,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$. 
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
-  Finally and most relevantly, ${\EuScript L}$ contains arbitrarily many function symbols of sort ${\sf H}^n\to {\sf I}$.
+  Finally and most relevantly, ${\EuScript L}$ contains arbitrarily many symbols for functions of sort ${\sf H}^n\to {\sf I}$.
 
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
@@ -236,7 +198,7 @@ Note that ${\EuScript L}$ has two types of atomic formulas
 
 \begin{itemize}
   \item[1.] $r_\varphi(x)$ for some $\varphi(x)\in{\EuScript L}_{\sf H}$  (maybe more, but these suffices up to equivalence);
-  \item[2.] $\tau(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$ (up to equivalence, equality has also this form).
+  \item[2.] $\tau(x\,;\eta)\in C$, where $C\subseteq I^n$ is a compact set and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$ (up to equivalence, equality has also this form).
 \end{itemize}
 
 The latter are called \emph{continuous atomic\/} formulas.
@@ -637,7 +599,7 @@ Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
 
  \begin{proof}
   Let $\langle ^*\!M,^*\!\!I\rangle$ be an ${\EuScript L}$-elementary saturated superstructure of $\langle M,I\rangle$.
-  Then $\langle ^*\!M,^*\!\!I\rangle\models p(\alpha)$ for some $\alpha\in ^*\!\!I$.
+  Pick some $\alpha\in ^*\!\!I$ such that $\langle ^*\!M,^*\!\!I\rangle\models p(\alpha)$.
   By the lemma above, $^*\!M\models p({\rm st}(\alpha))$.
   Now observe that the truth of formulas without  existential quantifiers of sort ${\sf H}$ is preserved by substructures.
  \end{proof}
@@ -840,7 +802,7 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 
 \def\ceq#1#2#3{\parbox[t]{18ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the \emph{positive monster\/} model.
+We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the positive monster model.
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
 Truth is evaluated in ${\EuScript U}$ unless otherwise is specified.
 We denote by $T$ the positive theory of {${\EuScript U}$.
@@ -2354,179 +2316,4 @@ The classical argument proves also the following.
 % \section{Continuous group actions}
 \end{biblist}
 \end{bibdiv}
-
-
-% \end{document}
-
-\vskip5ex
-
-\hfil\dangersign[8ex]
-%%%%%%%%%%%%%%
-%\noindent\llap{\dangersign}\kern1ex\ignorespaces
-
-\hfil Danger after this point
-\vskip10ex
-
-
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-\section{Elimination of quantifiers}
-
-Let $T$ be a positive theory.
-We say that $T$ has (approximate, positive) elimination of quantifiers if the quantifier-free positive formulas are p-dense modulo $T$.
-Equivalently, if every complete type is equivalent to a quantifier-free positive types.
-
-%for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $\varphi'>\varphi$ there is a formula $\psi(x)\in{\EuScript L}^{\rm p}$ without quantifiers of sort ${\sf H}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds modulo $T$.
-
-The following fact is routinely proved by back-and-forth.
-
-\begin{fact}\label{fact_backandforth}
-  The following are equivalent
-  \begin{itemize}
-    \item[1.] $T$ has elimination of quantifiers;
-    \item[2.] every finite partial embedding $k:M\to N$ beween p-models of $T$ is an approximate p-elementary map;
-    \item[3.]  for every finite partial embedding $k:M\to N$ between $\omega$-saturated p-models of $T$, and for every $b\in M$ there is a $c\in N$ such that $k\cup\{\langle b,c\rangle\}:M\to N$ is also a partial embedding.
-  \end{itemize}
-\end{fact}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-\section{Pseudofinite randomizations}
-
-\def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
-
-Let $T$ be a complete first-order theory of signature $L$ with an infinite model.
-Let ${\EuScript U}$ be a model of $T$.
-Let $\Omega$ be a finite set.
-We denote by ${\EuScript U}^\Omega$ the set of functions $\Omega\to{\EuScript U}$.
-The elements of ${\EuScript U}^\Omega$ are denoted by letters decorated with a circonflexe accent $\hat a,\hat b,$ etc.
-The value of $\hat a$ at $\omega\in\Omega$ is denoted by $a_\omega$.
-We now define models of the form $\langle{\EuScript U}^\Omega, I\rangle$, where $I$ is the real interval $[0,1]$ with the usual topology.
-
-The language ${\EuScript L}_{\sf H}$ is empty.
-The language ${\EuScript L}$ contains functions of sort ${\sf H}^{|x|}\to{\sf I}$, one for each formula $\varphi(x)\in L$.
-These are denoted by $\Pr\varphi(\hat x)$. 
-Variables of sort ${\sf H}$ are decorated with a circonflexe accent.
-The interpretation of the function symbol $\Pr\varphi(\hat x)$ is 
-
-\ceq{\hfill\Pr\big(\varphi(\hat a)\big)}
-{=}
-{\frac{\#\llbracket\varphi(\hat a)\rrbracket}{\#\Omega},}
-
-where by $\#$ denotes the finite cardinality, and
-
-\ceq{\hfill\llbracket\varphi(\hat a)\rrbracket}{=}{\big\{\omega\in\Omega\ :\ {\EuScript U}\models\varphi(a_\omega)\big\}.}
-
-The pseudofinite randomization of $T$ is the positive theory
-
-\ceq{\hfill T^{\rm pfr}}
-{=}
-{\Big\{\varphi\in{\EuScript L}^{\rm p}\ :\ \langle{\EuScript U}^\Omega, I\rangle\models\varphi\textrm{ for all sufficiently large finite set }\Omega\Big\}}
-
-In this section we prove that $T^{\rm pfr}$ is a compete theory with elimination of quantifiers.
-We prove the lemma that is required for the back-and-forth.
-
-\begin{lemma}
-  Let $k:M\to N$ be a finite partial embedding between positively $\omega$-saturated models of $T^{\rm pfr}$.
-  Then for every $\hat b\in M$ and there is a $\hat c\in N$ such that $k\cup\{\langle\hat b,\hat c\rangle\}:M\to N$ is a partial embedding.
-\end{lemma}
-
-\begin{proof}
-  Let $\hat a$ be an enumeration of ${\rm dom} k$.
-  Let $p(\hat x,\hat z)$ be set of formulas of the form $\gamma=\Pr\varphi(\hat x,\hat z)$, for some $\gamma\in I$, that hold in $M,\hat b,\hat a$.
-  Note that $p(\hat x,\hat z)$ implies the atomic type of $\hat b,\hat a$ in $M$.
-  Therefore it suffices to show that $p(\hat x,k\hat a)$ is finitely consistent in $N$.
-
-  Pick a finite set of these formulas, say $\gamma_i=\Pr\varphi_i(\hat x,\hat z)$, for $i<n$.
-  Me may assume that the fomulas $\varphi_i(x,z)$ define a partition of ${\EuScript U}^{|x,z|}$.
-  By the saturation of $N$, it suffices to prove that for every $\varepsilon>0$ there is a $\hat c\in N$ such that
-  
-  \ceq{\hfill\gamma_i}{=_\varepsilon}{\Pr\varphi_i(\hat c,k\hat a)}\hfill ($\alpha=_\varepsilon\beta$ is a shorthand for $|\alpha-\beta|\le\varepsilon$)
-  
-  is true in $N$ for all $i<n$.
-  
-  Some preliminary work is required.
-  For each $J\subseteq n$ define the following $L$-formulas
-
-  \ceq{\hfill \xi_J(z)}{=}{\bigwedge_{i\in J}\exists x\;\varphi_i(x,z)\wedge\bigwedge_{i\in n\smallsetminus J}\neg\exists x\;\varphi_i(x,z)}
-
-  These formulas $\xi_J(z)$ partition ${\EuScript U}^{|z|}$.
-  For $J\subseteq n$ let $\alpha_J$ be such that 
-  
-  \ceq{2.\hfill\alpha_J}{=}{\Pr\big(\xi_J(\hat z)\big)}
-  
-  is in $p(\hat x,\hat z)$.
-  Let ${\EuScript J}=\{J\subseteq n\ :\ \alpha_J\neq0\}$. 
-  When $J\in{\EuScript J}$, there are some $\beta_{i,J}$ such that the formulas
-
-  \ceq{3.\hfill \beta_{i,J}}{=}{\Pr\bigg(\varphi_i(\hat x,\hat z)\ \Big|\ \xi_J(\hat z)\bigg).}
-
-  are are among the consequences of $p(\hat x,\hat z)$.
-  As the formulas $\varphi_i(x,z)$ define a partition, the $\beta_{i,J}$ add up to $1$ for any fixed $J$.
-  Note that $\beta_{i,J}=0$ for $i\notin J$.
-  Clearly, have that 
-
-  \ceq{4.\hfill \gamma_i}{=}{\sum_{J\in{\EuScript J}}\beta_{i,J}\alpha_J.}
-
-  It is plain that for $i\in J$ the following is a consequence of $p(\hat x,\hat z)$
-
-  \ceq{5.\hfill 1}{=}{\Pr\bigg(\exists x\,\varphi_i(x,\hat z)\ \Big|\ \xi_J(\hat z)\bigg)}
-
-  Now we prove that (2) \& (5) $\Rightarrow$ (1) holds in ${\EuScript U}^\Omega$ when $\Omega$ large enough (larger than $n/\varepsilon$ suffices).
-  Strictly speaking, this implication is not a positive formula, but the reader can easily verify that a suitable approximation of (2) and (5) suffices. 
-  
-  Let $\hat a'\in{\EuScript U}^\Omega$ satisfy (2) and (5) for every $i\in J\subseteq n$. 
-  We define $\hat c'\in{\EuScript U}^\Omega$ such that 
-  
-  \ceq{\hfill{\EuScript U}^\Omega}{\models}{\beta_{i,J}=_\varepsilon\Pr\bigg(\varphi_i(\hat c',\hat a')\ \Big|\ \xi_J(\hat a')\bigg).}
-  
-  We may define $\hat c'$ separately in each event $\llbracket\xi_J(\hat a')\rrbracket$.
-  Partition $\llbracket\xi_J(\hat a')\rrbracket$ into events $E_i\subseteq\Omega$, for $i\in J$, such that $\# E_i/\#\Omega=_\varepsilon\beta_{i,J}$.
-  Then define $c'_\omega$ for $\omega\in E_i$ to be any witness of $\exists x\,\varphi_i(x,a_\omega)$.
-  By (5), we can always find such a witness.
-  
-  Finally, by (4), we deduce
-
-  \ceq{\hfill{\EuScript U}^\Omega}{\models}{\gamma_i=_\varepsilon\Pr\big(\varphi_i(\hat c',\hat a')\big).}
-
-  As $k\hat a$ satisfy (2) and (5), we conclude that some $\hat c\in N$ satisfy (1).
-\end{proof}
-
-Now, from Fact~\ref{fact_backandforth} we obtain that $T^{\rm pfr}$ has elimination of quantifiers.
-Completeness follows.
-
-\begin{corollary}
-  The theory  $T^{\rm pfr}$ is compete and has elimination of quantifiers.
-\end{corollary}
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-\section{Stability}
-
-A partitioned formula $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ is stable if there is no sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ and no $\tilde\varphi\perp\varphi$ such that for every $i,j<\omega$
-
-\ceq{\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)}
-
-\ceq{\hfill i>j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j)}
-
-Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
-
-Note that by compactness if $\varphi(x\,;z)$ and $\tilde\varphi\perp\varphi$ are stably separated then there is a maximal length $m$ of a sequence $\langle a_i\,;b_i\,:\,i<m\rangle$ such that (1) and (2) above.
-
 \end{document}
