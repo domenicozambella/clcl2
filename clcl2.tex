@@ -1,4 +1,4 @@
-\documentclass[10pt,oneside]{amsproc}
+\documentclass{amsproc}
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -9,7 +9,6 @@
 \usepackage{datetime2} 
 \usepackage[colorlinks=true,linkcolor=blue,]{hyperref}
 
-\usepackage[a4paper,hmargin=34mm, vmargin=30mm]{geometry}
 \usepackage{stackengine}
 \usepackage{scalerel}
 \usepackage{mathtools}
@@ -106,24 +105,6 @@
 \renewcommand*{\emph}[1]{%
    \smash{\tikz[baseline]\node[rectangle, fill=teal!25, rounded corners, inner xsep=0.5ex, inner ysep=0.2ex, anchor=base, minimum height = 2.7ex]{\strut #1};}}
 
-
-% \def\forallH{\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}}
-% \def\existsH{\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}}
-% \def\forallI{\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}}
-% \def\existsI{\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}}
-
-
-
-\newcommand\questionsign[1][2ex]{%
-  \renewcommand\stacktype{L}%
-  \scaleto{\stackon[-.6pt]{\color{red}$\triangle$}{\color{red}\bfseries\small ?}}{#1}%
-}
-
-\newcommand\dangersign[1][3.5ex]{%
-  \renewcommand\stacktype{L}%
-  \scaleto{\stackon[1.9pt]{\Huge\color{red}$\triangle$}{\color{red}\bfseries\small !}}{#1}%
-}
-
 %%%%%%% GETCOMMIT
 \newcommand\dotGitHEAD{}
 \newcommand\branch{}
@@ -145,7 +126,7 @@
 
 \makeatother
 
-\linespread{1.1}
+\linespread{1.2}
 \author{S. A. Polymath}
 \begin{document}
 \title{Standard analysis}
@@ -156,8 +137,8 @@
 \begin{abstract}
   Let ${\EuScript L}$ be a first-order two-sorted language.
   Let $I$ be some fixed structure.
-  A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$ where $I$ is fixed.
-  When $I$ is a compact topological space (and ${\EuScript L}$ meets a few requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
+  A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$.
+  When $I$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
   This has been demostrated by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI}) and has been generalized to arbitrary structures in~\cite{clcl}.
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
   The main tool is the notion of approximation of a positive formula and of its negation.
@@ -165,7 +146,7 @@
   \noindent
   We review and elaborate on the properties of positive formulas and their approximations.
   In parallel, we introduce \textit{continuous\/} formulas which provide a better counterpart to Henson and Iovino theory of normed spaces and/or real-valued model theory.
-  Finally, within the setting of standard structures we discuss $\omega$-categoricity.
+  Within this setting we discuss $\omega$-categoricity.
 \end{abstract}
 
 
@@ -208,6 +189,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
 
 \begin{definition}\label{def_0}
   Let ${\EuScript L}$ be a two sorted language that expands both ${\EuScript L}_{\sf H}$ and ${\EuScript L}_{\sf I}$.
+
   A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,I\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure, while $I$ is the structure above.
   We write \emph{${\sf H}$} and \emph{${\sf I}$\/} to denote the two sorts of ${\EuScript L}$.
   
@@ -215,7 +197,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$. 
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
-  Finally and most relevantly, ${\EuScript L}$ contains arbitrarily many function symbols of sort ${\sf H}^n\to {\sf I}$.
+  Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\to {\sf I}$.
 
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
@@ -236,14 +218,11 @@ Note that ${\EuScript L}$ has two types of atomic formulas
 
 \begin{itemize}
   \item[1.] $r_\varphi(x)$ for some $\varphi(x)\in{\EuScript L}_{\sf H}$  (maybe more, but these suffices up to equivalence);
-  \item[2.] $\tau(x\,;\eta)\in C$, where $C\subseteq I^n$ is compact and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$ (up to equivalence, equality has also this form).
+  \item[2.] $\tau(x\,;\eta)\in C$, where $C\subseteq I^n$ is a compact set and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf I}^{|\eta|}\to {\sf I}$ (up to equivalence, equality has also this form).
 \end{itemize}
-
-The latter are called \emph{continuous atomic\/} formulas.
 
 \begin{definition}\label{def_LL}
   A formula in ${\EuScript L}$ is \emph{positive\/} if it uses only the Boolean connectives $\wedge$, $\vee$; the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$ of sort ${\sf H}$; and the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$ of sort ${\sf I}$.
-
   The set of positive formulas is denoted by \emph{${\EuScript L}^{\rm p}$.}
 
   A \emph{continuous\/} formula is a positive formula where only continuous atomic formulas occur.
@@ -259,15 +238,14 @@ The latter are called \emph{continuous atomic\/} formulas.
 
 \begin{notation}
   Much of the theory below is developed in parallel in the positive and the continuous case.
-  For the sake of conciseness, we write \emph{p/c} for a placeholder that should be replaced by either of \emph{p} or \emph{c.}
+  For the sake of conciseness, we write \emph{p/c} as a placeholder for either one of \emph{p} or \emph{c.}
 \end{notation}
 
 The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript L}^{\rm c}$ that do not have quantifiers of sort ${\sf I}$.
 
 Allowing quantifiers of sort ${\sf I}$ comes almost for free.
 In Section~\ref{cIelimination} will see that the formulas in ${\EuScript L}^{\rm c}$ are approximated by formulas in ${\EuScript L}^{\rm c}$ without quantifiers of sort ${\sf I}$.
-
-Instead, working within ${\EuScript L}^{\rm p}$ comes at a price but it is convenient at it simplifies the comparision with classical model theory.
+Instead, working within ${\EuScript L}^{\rm p}$ comes at a price but it is convenient as it simplifies the comparision with classical model theory.
 
 An important fact to note about ${\EuScript L}^{\rm c}$ is that it is a language without equality of sort ${\sf H}$.
 The difference beween ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ is similar to the difference between the space of absolutely integrable functions (w.r.t.\@ some measure $\mu$) and the Lebesgue space $L^1(\mu)$.
@@ -303,7 +281,7 @@ The following example is inspired by~\cite{HPP}.
 \end{example}
 
 The theory of normed spaces is one of the motivating examples for standard structures.
-The requirement for $I$ to be compact seems to be a limitation, but it is not a real one.
+The requirement for $I$ to be compact seems a limitation, but it is not a real one.
 Essentially, functional analysis and model theory are only concerned with the unit ball of normed spaces.
 To formalize the unit ball of a normed space as a standard structure (where $I$ is the unit interval) is straightforward but cumbersome.
 Alternatively one can view a normed space as a many-sorted structure: a sort for each ball of radius $n\in\mathds{Z}^+$.
@@ -335,7 +313,7 @@ These would have natural interpretations, e.g.\@ a group acting on a compact set
 \section{Henson-Iovino approximations}\label{ultrapws} 
 The notion of approximation is a central tool in the work of Hension and Iovino on normed spaces.
 In~\cite{clcl} the natural generalization to standard structures is presented.
-We recall the definition and the main properties.
+We recall the definitions and the main properties.
 
 For $C,C'$ compact substes of $I^n$, we write $C'>C$ if $C'$ is a neighborhood of $C$.
 For $\varphi,\varphi'$ (free variables are hidden) positive formulas possibly with parameters we write \emph{$\varphi'>\varphi$\/} if $\varphi'$ is obtained by replacing in $\varphi$ each atomic formula of the form $t\in C$ with $t\in C'$, for some $C'>C$.
@@ -390,7 +368,7 @@ The following fact is easily proved by induction.
 
 \begin{fact}
   Let ${\EuScript F}$ be a set of formulas closed under the connectives $\wedge$, $\vee$, $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$.
-  Then ${\EuScript F}$ is dense if the condition above is satisfied when  $\varphi(x)$ atomic.
+  Then ${\EuScript F}$ is /c-dense if the condition above is satisfied when  $\varphi(x)$ atomic.
 \end{fact}
 
 Using the fact above, it is immediate to verify the following.
@@ -517,10 +495,10 @@ Note that this is the same as requiring that (1) holds for all formulas without 
 
 Our goal is to prove a compactness theorem for positive theories that only requires standard structures.
 To bypass lengthy routine applications of ultrafilters, ultrapowers, and ultralimits, % -- as it would be like reinventing the wiel.
-we assume the Classical Compactness Theorem and build on that.
+we assume the classical Compactness Theorem and build on that.
 
 In this section we recall the notion of standard part of an element of the elementary extension of a compact Hausdorff topological space.
-Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the Positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
+Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
 The reader willing to accept it without proof may skip this section.
 
 Let $\langle N, {}^*\!\!I\rangle$ be an ${\EuScript L}$-structure that extends ${\EuScript L}$-elementarily the standard structure $M$. %$\langle M, I\rangle$.
@@ -637,7 +615,7 @@ Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
 
  \begin{proof}
   Let $\langle ^*\!M,^*\!\!I\rangle$ be an ${\EuScript L}$-elementary saturated superstructure of $\langle M,I\rangle$.
-  Then $\langle ^*\!M,^*\!\!I\rangle\models p(\alpha)$ for some $\alpha\in ^*\!\!I$.
+  Pick some $\alpha\in ^*\!\!I$ such that $\langle ^*\!M,^*\!\!I\rangle\models p(\alpha)$.
   By the lemma above, $^*\!M\models p({\rm st}(\alpha))$.
   Now observe that the truth of formulas without  existential quantifiers of sort ${\sf H}$ is preserved by substructures.
  \end{proof}
@@ -840,7 +818,7 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 
 \def\ceq#1#2#3{\parbox[t]{18ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the \emph{positive monster\/} model.
+We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the positive monster model.
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
 Truth is evaluated in ${\EuScript U}$ unless otherwise is specified.
 We denote by $T$ the positive theory of {${\EuScript U}$.
@@ -859,15 +837,16 @@ However, all p/c-models agree on the approximated truth.
 \end{fact}
 
 \begin{proof}
-  (1$\Rightarrow$2) \ Only the implication $\Leftarrow$ requires a proof.
-  Assume $\varphi(a)$.
+  (1$\Rightarrow$2) \ Implication $\Rightarrow$ follows from Proposition~\ref{prop_approx}.
+  For the converse, assume $\varphi(a)$.
   Let $\varphi'>\varphi$.
   We prove $M\models\varphi'(a)$.
   By Lemma~\ref{lem_interpolation} there is some $\tilde{\varphi}\perp\varphi''$ such that $\varphi''\rightarrow\neg\tilde{\varphi}\rightarrow\varphi'$.
   Then $\neg\tilde{\varphi}(a)$ and therefore  $M\models\neg\tilde{\varphi}(a)$.
   Then $M\models\varphi'(a)$.
 
-  (2$\Rightarrow$1) \ By Proposition~\ref{prop_approx}.
+  (2$\Rightarrow$1) \ If $M\models\varphi(a)$ then $M\models\big\{\varphi(a)\big\}'$.
+  Then $\varphi(a)$ follows from (2).
 \end{proof}
 
 The following fact demostrates how positive compactness applies.
@@ -894,7 +873,8 @@ Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 
 \begin{proof}
   Let $\varphi'>\varphi$.
-  Pick $\varphi''$ such that $\varphi'>\varphi''>\varphi$ and $\psi\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi''(x)$.
+  Pick $\varphi''$ such that $\varphi'>\varphi''>\varphi$.
+  By density, $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi''(x)$ for som $\psi(x)\in{\EuScript F}$.
   It suffices to prove that $\psi'(x)\rightarrow\varphi'(x)$ for some $\psi'>\psi$.
   By Proposition~\ref{prop_approx}, $\psi(x)\leftrightarrow\{\psi(x)\}'$.
   Therefore, $\psi'(x)\rightarrow\varphi'(x)$ follows from Fact~\ref{fact_compactness_imp}.
@@ -990,7 +970,8 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
 
   Suppose $\varphi(x)\in{\EuScript L}^{\rm p/c}(A)\smallsetminus  p$.
   Then $\neg\varphi(a)$.
-  Hence $\tilde{\varphi}(a)$ holds for some $\tilde{\varphi}\perp\varphi$ and $p(x)\rightarrow\neg\varphi(x)$ follows.
+  Hence $\tilde{\varphi}(a)$ holds for some $\tilde{\varphi}\perp\varphi$.
+  Therefore $p(x)\rightarrow\neg\varphi(x)$ follows.
 \end{proof}
 
 The fact above extends as follows.
@@ -1236,13 +1217,10 @@ The following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposi
   For every $\varphi(x)\in{\EuScript L}^{\rm c}$, every $\varphi'>\varphi$, and every $\tilde{\varphi}\bot\varphi$ there an $\varepsilon\in{\EuScript E}$ such that
 
   \ceq{{\rm i.}\hfill x\sim_\varepsilon\! \!y\ \wedge\ \varphi(y)}{\rightarrow}{\varphi'(x)}
-
-  \ceq{{\rm ii.}\hfill x\sim_\varepsilon\! \!y\ \wedge\ \tilde{\varphi}(y)}{\rightarrow}{\neg\varphi(x).}
 \end{corollary}
 
 \begin{proof}
   As $x\sim' y\ \cup\ \big\{\varphi(x)\big\}\ \rightarrow\ \varphi(y)$ by the fact above, (i) follows from Fact~\ref{fact_compactness_imp}.
-  Similarly, we obtain (ii) from $x\sim' y\ \cup\ \big\{\tilde{\varphi}(x)\big\}\ \rightarrow\ \neg\varphi(y)$.
 \end{proof}
 
 
@@ -1383,16 +1361,17 @@ By the following fact, if $R$ is c-elementary, also $R^{-1}$ is c-elementary.
 %
 % It is easy to verify that the definition is well-given and that $R_{/\sim}$ is injective.
 
-We say that the relation $R$ is \emph{reduced\/} if there is no $R'\ \subset\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ such that $R\ \subset\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+We say that the relation $R$ is \emph{reduced\/} if there is no relation $R'\ \subset\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ such that $R\ \subset\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 
 \begin{fact}
-  Every relation $R$ contains a reduced relation $R'$ such that $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+  Every relation $R$ contains a reduced $R'$ such that $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 \end{fact}
 
 \begin{proof}
   Let $\langle R_i:i<\lambda\rangle$ be maximal decreasing chain of relations $R_i\mathrel{\subseteq}R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$.
   Let  $R'$ the intersection  of the chain.
-  By maximality $R'$ is reduced and $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$ is clear.
+  By maximality, $R'$ is a reduced relation.
+  Finally, $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$ is clear.
 \end{proof}
 
 % Note that if the relations $R_i$ are such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$, for every $i<\lambda$, then 
@@ -1427,8 +1406,8 @@ We say that the relation $R$ is \emph{reduced\/} if there is no $R'\ \subset\ \m
   \ceq{\hfill\neg\varphi(b,b',z)}{=}{\neg\bigwedge_{i=1}^n\langle\tau_i(b,z),\tau_i(b',z)\rangle\in D}.
   
   is consistent.
-  By the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) $\neg\varphi(b,b',z)$ has a solution $c\in{\rm range}(R)^{|z|}$.
-  Then $\neg\varphi(a,a,d)$ for some $d\in{\rm dom}(R)^{|z|}$ which is a contradiction.
+  By the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) $\neg\varphi(b,b',z)$ has a solution, say $c$, in ${\rm range}(R)^{|z|}$.
+  Then $\neg\varphi(a,a,d)$ for some $d\mathrel{R} c$ which is a contradiction.
 \end{proof}
 
 Let $f \subseteq\ R$ be a reduced c-elementary relation such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{f}\circ\mathrel{(\sim)}$.
@@ -1898,6 +1877,8 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Continuous omitting types}
 
+\def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
+
 In this section we present a version of the omitting type theorem.
 We are interested in omitting types in Cauchy complete models.
 We only consider the continuous case.
@@ -1964,7 +1945,8 @@ We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
 \end{fact}
 
 \begin{proof}
-  If $a_n\in M$ is as in the fact above, then any solution of the type $p(x)\cup\big\{a_n\sim_nx\ :\ n\in\omega\big\}$ belongs to ${\rm Ccl}(M)$.
+  Let $a_n\in M$ be as in the fact above.
+  Then any solution of $p(x)\cup\big\{a_n\sim_nx\ :\ n\in\omega\big\}$ belongs to ${\rm Ccl}(M)$.
 \end{proof}
 
 In words, the proof above shows that if $p(x)$ is approximately c-isolated, then in every c-model contains a sequence of elements that converges, in the topology induced by $I$, to a realization of $p(x)$.
@@ -2126,125 +2108,100 @@ The following analogue of Ryll-Nardzewski's Theorem follows by the classical arg
   Then ${\rm Ccl}(M)$ and ${\rm Ccl}(N)$ are not c-isomorphic, hence $T$ is not c-$\omega$-categorical.
 
   (2$\Rightarrow$1) \ 
-  As, every c-model is atomic,  c-$\omega$-categoricity follows from Fact~\ref{fact_atomic_iso}.
+  By (2), every c-model is atomic.
+  Then c-$\omega$-categoricity follows from Fact~\ref{fact_atomic_iso}.
 \end{proof}
 
-\begin{comment}
-The classical argument proves also the following.
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+\section{Stable formulas}
 
-\begin{proposition}
-  Fix a finite tuple of variables $x$.
-  The following are equivalent
+The following definition is classical.
+A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that for every $i,j<n$
+
+\ceq{{\rm i.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)}
+
+\ceq{{\rm ii.}\hfill i>j}{\Rightarrow}{\neg\varphi(a_i\,;b_j)}
+
+
+
+\begin{fact}
+  For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
   \begin{itemize}
-    \item[1.] every consistent $p(x)\subseteq{\EuScript L}^{\rm c}$ is approximately c-isolated;
-    \item[2.] for every given $\varepsilon\in{\EuScript E}$ there there are at most $n_\varepsilon<\omega$ many types $p_i(x)\subseteq{\EuScript L}^{\rm c}$ such that $\exists y\sim_\varepsilon\! x\ p_i(y)$ are pairwise inconsistent.
-  \end{itemize}
-\end{proposition}
+    \item[1.] $\varphi(x\,;z)$ is stable;
+    \item[2.] for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and no $\tilde{\varphi}\perp\varphi$
+
+    \noindent\kern-\leftmargin
+    \ceq{{\rm i'.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)}
+    
+    \noindent\kern-\leftmargin
+    \ceq{{\rm ii'.}\hfill i>j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j)}
+  \end{itemize} 
+\end{fact}
 
 \begin{proof}
-  (1$\Rightarrow$2)
-  Let $\varepsilon\in{\EuScript E}$ be given.
-  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}$, for $i<\lambda$, be such that $\exists y\sim_\varepsilon\! x\ p_i(y)$ are pairwise inconsistent.
-  Suppose that $\lambda$ is maximal and, for a contradiction, that it is infinite.
-  Let $\neg\varphi_i(x)$, where $\varphi_i(x)\in{\EuScript L}^{\rm c}$, be the formulas that isolate $\exists y\sim_\varepsilon\! x\ p_i(x)$.
-  As these types are pairwise inconsistent, then the type $q(x)=\{\varphi_i(x):i<\lambda\}$ is consistent.
-  The type $\exists y\sim_\varepsilon\! x\ q(x)$ is inconsistent with all $\exists y\sim_\varepsilon\! x\ p_i(x)$.
-  This contradicts the maximality of $\lambda$.
+  (1$\Rightarrow$2) \ 
+  Suppose $\langle a_i\,;b_i\,:\,i<n\rangle$ is such that (i$'$) and (ii$'$).
+  As $\tilde\varphi(x\,;z)\rightarrow\neg\varphi(x\,;z)$, then $\varphi(x\,;z)$ is not $n$-stable.
 
-  (2$\Rightarrow$1?) 
-  Let $\varepsilon\in{\EuScript E}$ be given and pick $\eta$ such that $x\sim_\eta y\sim_\eta z\rightarrow x\sim_\varepsilon z$.
-  Let $p_i(x)\subseteq{\EuScript L}^{\rm c}(A)$, for $i<n$, be such that $\exists y\sim_\eta x\ p_i(x)$ are pairwise inconsistent.
-  By compactness there are some $\varphi_i(x)\in p_i$ such that $\exists y\sim_{\tau,E}x\ \varphi_i(x)$ are pairwise inconsistent.
-  Assume $n=n_{\tau,E}$ is maximal.
-  Let $F=E\circ E$.
-  We claim that for every $a$
-
-  \ceq{}{~}{\bigvee_{i=1}^n\exists y\sim_{\tau,F}a\ \ \varphi_i(y)}
-  
-  In fact, if $q(x)=\mbox{c-tp}(a)$, where $a$ does not satisfy the formula above, then $\exists y\sim_\eta x\ q(y)$ would be inconsistent with every $\exists y\sim_{\tau,E}x\ p_i(x)$.
-  This contradicts the maximality of $n$.
-
-  Let $q(x)\subseteq{\EuScript L}^{\rm c}$.
-  We prove that $\exists y\sim_\varepsilon\! x\ q(y)$ is approximately c-isolated.
-  By maximality $\exists y\sim_\varepsilon\! x\ q(y)$ is consistent with, say, $\exists y\sim_\varepsilon\! x\ \varphi_1(x)$.
-  Without loss of generality, assume $q(x)\rightarrow\exists y\sim_\varepsilon\! x\ \varphi_1(x)$.
-  Note that
-
-  \ceq{\hfill\exists y\sim_{\tau,E}x\ \varphi_1(x)}{\rightarrow}{\neg\bigvee_{i=2}^n\exists y\sim_{\tau,F}x\ \ \varphi_i(y)}
+  (2$\Rightarrow$1) \ 
+  Suppose $\langle a_i\,;b_i\,:\,i<n\rangle$ is such that (i) and (ii).
+  By Proposition~\ref{prop_Fapprox} and Lemma~\ref{lem_interpolation}, there is $\tilde\varphi\perp\varphi$ such that $\tilde\varphi(a_i\,;b_j)\rightarrow\varphi(a_i\,;b_j)$ for every $j<i<n$.
+  Then $\neg$(1) follows.
+\end{proof}
 
 
+\begin{fact}
+  For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
+  \begin{itemize}
+    \item[1.] $\varphi(x\,;z)$ is stable;
+    \item[2.] there is no sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ such that (i) and (ii) above.
+  \end{itemize} 
+\end{fact}
+
+\begin{proof}
+  Only 2$\Rightarrow$1 requires a proof.
+  Negate (1).
+  For every $n$ let $\tilde\varphi_n\perp\varphi$ withness the failure of (2) in the fact above.
+  Let $\bar x\,;\bar y=\langle x_i\,;z_i\ :\ i<\omega\rangle$.
+  The type $\{\varphi(x_i\,;z_j), \tilde\varphi_n(x_j\,;z_i)\ :\ i<j<\omega\}$ is finitely consistent.
 
 
-  We claim that
-
-
-  \ceq{\hfill\neg\bigvee_{i=2}^n\exists y\sim_{\tau,F}x\ \ \varphi_i(y)}{\rightarrow}{}
-
-
-  Let 
-  
-  \ceq{\hfill{\EuScript C}}{=}{\Big\{\langle C_1,\dots,C_n\rangle\ :\ E\subseteq C_i\subseteq D\ \textrm{compact, }\forall x\bigvee_{i=1}^n\exists y\sim_{\tau,C_i}x\ \ \varphi_i(y)\Big\}}
-  
-  
-  , for $i<n$ be  such that 
-
-  \ceq{\hfill}{~}{}
-  
-
-
-  \ceq{1.\hfill\neg\bigvee_{i=1}^n\varphi_i(x)}{\rightarrow}{\exists y\sim_\varepsilon\! x\ q(y)}
-  
-  Suppose not for a contradiction.
-  Let $a$ satisfy the antecedent but not the consequence of (1).
 
 \end{proof}
+
+Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
+
+
+A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{finitely definable\/} by $\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ and $\tilde{\varphi}\bot\varphi$ such that
+
+\ceq{{\rm i.}\hfill B^{|z|}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \cap\, {\EuScript D}}
+
+\ceq{{\rm ii.}\hfill B^{|z|}\ \cap\ \tilde{\varphi}(a\,;{\EuScript U})}{=}{B^{|z|}\, \smallsetminus\, {\EuScript D}}
+
+We say that ${\EuScript D}$ is \emph{externally definable\/}  by $\varphi(x\,;z)$ if there is a maximal consistent $\varphi(x\,;z)$-type $p(x)\subseteq{\EuScript L}({\EuScript U})$ such that ${\EuScript D}=\big\{b\ :\  \varphi(x\,;b)\in p\big\}$.
+
+\begin{fact}
+  The following are equivalent
+  \begin{itemize}
+    \item[1.] ${\EuScript D}$ is finitely definable;
+    \item[2.] ${\EuScript D}$ is externally definable;
+  \end{itemize}
+\end{fact}
+
+\begin{proof}
+  (1$\Rightarrow$2) \ 
+  Let 
   
-\end{comment}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Example: Lebesgue spaces}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Continuous group actions}
-% Let $M$ be a topological space.
-% Let $G\le{\rm Homeo}(M)$ be a subgroup closed in the topology of the pointwise convergence.
-% Then there is a compact topological space $I$ and a p-model ${\EuScript M}=\langle M,I\rangle$ such that ${\rm Aut}({\EuScript M})$ is isomorphic to $G$ as a topological group.
-
-% Assume $M$ is compact, or otherwise substitute it with its Stone-Chech compactification.
-% Consider $M^\omega$ as a topological space with the product topology.
-% Let $G$ acts on $M^\omega$ coordinatewise. 
-% Let $I$ be the set containing the topological closures of the $G$-orbits of elements of $M^\omega$, in notation this is the set $\big\{{\rm cl}(Ga):a\in M^\omega\big\}$.
-
-% % First note that we can embed $M^{<\omega}$ into $M^\omega$, namely we map the tuple  $\langle a_1,\dots,a_n\rangle$, to the sequence  $\langle a_1,\dots,a_n^\omega\rangle$, where $a_n^\omega$ stands for an infinite sequence with constant value $a_n$.
-
-% Let ${\EuScript M}=\langle M,I\rangle$.
-% The language ${\EuScript L}_{\sf H}$ is empty while ${\EuScript L}$ contains symbols for the functions
-
-% \ceq{\hfill \pi^n\ :\ M^n}{\to}{I}
-
-% \ceq{\hfill (a_1,\dots,a_n)}{\mapsto}{{\rm cl}\big(G(a_1,\dots,a_n^\omega)\big)},
-
-% Where $a_n^\omega$ stands for the element $a_n$ repeated $\omega$-times.
-% We claim that the $I$-topology on $M$ coincides with its original topology.
-% There is a natural embedding of $G$ into ${\rm Aut}({\EuScript M})$.
-% Let $\gamma\in{\rm Aut}({\EuScript M})$ we claim that for every $a_1,\dots,a_n$ and every there is a $g\in G$ such that $\tau_{t,C}(\gamma(a),ga)$
-
-
-
+  \ceq{\hfill p(x)}{=}{\big\{\varphi(x\,;b)\ :\ b\in{\EuScript D}\big\}\ \cup\ \big\{\neg\varphi(x\,;b)\ :\ b\notin{\EuScript D}\big\}}. 
+  
+  By 
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
@@ -2354,179 +2311,4 @@ The classical argument proves also the following.
 % \section{Continuous group actions}
 \end{biblist}
 \end{bibdiv}
-
-
-% \end{document}
-
-\vskip5ex
-
-\hfil\dangersign[8ex]
-%%%%%%%%%%%%%%
-%\noindent\llap{\dangersign}\kern1ex\ignorespaces
-
-\hfil Danger after this point
-\vskip10ex
-
-
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-\section{Elimination of quantifiers}
-
-Let $T$ be a positive theory.
-We say that $T$ has (approximate, positive) elimination of quantifiers if the quantifier-free positive formulas are p-dense modulo $T$.
-Equivalently, if every complete type is equivalent to a quantifier-free positive types.
-
-%for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $\varphi'>\varphi$ there is a formula $\psi(x)\in{\EuScript L}^{\rm p}$ without quantifiers of sort ${\sf H}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds modulo $T$.
-
-The following fact is routinely proved by back-and-forth.
-
-\begin{fact}\label{fact_backandforth}
-  The following are equivalent
-  \begin{itemize}
-    \item[1.] $T$ has elimination of quantifiers;
-    \item[2.] every finite partial embedding $k:M\to N$ beween p-models of $T$ is an approximate p-elementary map;
-    \item[3.]  for every finite partial embedding $k:M\to N$ between $\omega$-saturated p-models of $T$, and for every $b\in M$ there is a $c\in N$ such that $k\cup\{\langle b,c\rangle\}:M\to N$ is also a partial embedding.
-  \end{itemize}
-\end{fact}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-\section{Pseudofinite randomizations}
-
-\def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
-
-Let $T$ be a complete first-order theory of signature $L$ with an infinite model.
-Let ${\EuScript U}$ be a model of $T$.
-Let $\Omega$ be a finite set.
-We denote by ${\EuScript U}^\Omega$ the set of functions $\Omega\to{\EuScript U}$.
-The elements of ${\EuScript U}^\Omega$ are denoted by letters decorated with a circonflexe accent $\hat a,\hat b,$ etc.
-The value of $\hat a$ at $\omega\in\Omega$ is denoted by $a_\omega$.
-We now define models of the form $\langle{\EuScript U}^\Omega, I\rangle$, where $I$ is the real interval $[0,1]$ with the usual topology.
-
-The language ${\EuScript L}_{\sf H}$ is empty.
-The language ${\EuScript L}$ contains functions of sort ${\sf H}^{|x|}\to{\sf I}$, one for each formula $\varphi(x)\in L$.
-These are denoted by $\Pr\varphi(\hat x)$. 
-Variables of sort ${\sf H}$ are decorated with a circonflexe accent.
-The interpretation of the function symbol $\Pr\varphi(\hat x)$ is 
-
-\ceq{\hfill\Pr\big(\varphi(\hat a)\big)}
-{=}
-{\frac{\#\llbracket\varphi(\hat a)\rrbracket}{\#\Omega},}
-
-where by $\#$ denotes the finite cardinality, and
-
-\ceq{\hfill\llbracket\varphi(\hat a)\rrbracket}{=}{\big\{\omega\in\Omega\ :\ {\EuScript U}\models\varphi(a_\omega)\big\}.}
-
-The pseudofinite randomization of $T$ is the positive theory
-
-\ceq{\hfill T^{\rm pfr}}
-{=}
-{\Big\{\varphi\in{\EuScript L}^{\rm p}\ :\ \langle{\EuScript U}^\Omega, I\rangle\models\varphi\textrm{ for all sufficiently large finite set }\Omega\Big\}}
-
-In this section we prove that $T^{\rm pfr}$ is a compete theory with elimination of quantifiers.
-We prove the lemma that is required for the back-and-forth.
-
-\begin{lemma}
-  Let $k:M\to N$ be a finite partial embedding between positively $\omega$-saturated models of $T^{\rm pfr}$.
-  Then for every $\hat b\in M$ and there is a $\hat c\in N$ such that $k\cup\{\langle\hat b,\hat c\rangle\}:M\to N$ is a partial embedding.
-\end{lemma}
-
-\begin{proof}
-  Let $\hat a$ be an enumeration of ${\rm dom} k$.
-  Let $p(\hat x,\hat z)$ be set of formulas of the form $\gamma=\Pr\varphi(\hat x,\hat z)$, for some $\gamma\in I$, that hold in $M,\hat b,\hat a$.
-  Note that $p(\hat x,\hat z)$ implies the atomic type of $\hat b,\hat a$ in $M$.
-  Therefore it suffices to show that $p(\hat x,k\hat a)$ is finitely consistent in $N$.
-
-  Pick a finite set of these formulas, say $\gamma_i=\Pr\varphi_i(\hat x,\hat z)$, for $i<n$.
-  Me may assume that the fomulas $\varphi_i(x,z)$ define a partition of ${\EuScript U}^{|x,z|}$.
-  By the saturation of $N$, it suffices to prove that for every $\varepsilon>0$ there is a $\hat c\in N$ such that
-  
-  \ceq{\hfill\gamma_i}{=_\varepsilon}{\Pr\varphi_i(\hat c,k\hat a)}\hfill ($\alpha=_\varepsilon\beta$ is a shorthand for $|\alpha-\beta|\le\varepsilon$)
-  
-  is true in $N$ for all $i<n$.
-  
-  Some preliminary work is required.
-  For each $J\subseteq n$ define the following $L$-formulas
-
-  \ceq{\hfill \xi_J(z)}{=}{\bigwedge_{i\in J}\exists x\;\varphi_i(x,z)\wedge\bigwedge_{i\in n\smallsetminus J}\neg\exists x\;\varphi_i(x,z)}
-
-  These formulas $\xi_J(z)$ partition ${\EuScript U}^{|z|}$.
-  For $J\subseteq n$ let $\alpha_J$ be such that 
-  
-  \ceq{2.\hfill\alpha_J}{=}{\Pr\big(\xi_J(\hat z)\big)}
-  
-  is in $p(\hat x,\hat z)$.
-  Let ${\EuScript J}=\{J\subseteq n\ :\ \alpha_J\neq0\}$. 
-  When $J\in{\EuScript J}$, there are some $\beta_{i,J}$ such that the formulas
-
-  \ceq{3.\hfill \beta_{i,J}}{=}{\Pr\bigg(\varphi_i(\hat x,\hat z)\ \Big|\ \xi_J(\hat z)\bigg).}
-
-  are are among the consequences of $p(\hat x,\hat z)$.
-  As the formulas $\varphi_i(x,z)$ define a partition, the $\beta_{i,J}$ add up to $1$ for any fixed $J$.
-  Note that $\beta_{i,J}=0$ for $i\notin J$.
-  Clearly, have that 
-
-  \ceq{4.\hfill \gamma_i}{=}{\sum_{J\in{\EuScript J}}\beta_{i,J}\alpha_J.}
-
-  It is plain that for $i\in J$ the following is a consequence of $p(\hat x,\hat z)$
-
-  \ceq{5.\hfill 1}{=}{\Pr\bigg(\exists x\,\varphi_i(x,\hat z)\ \Big|\ \xi_J(\hat z)\bigg)}
-
-  Now we prove that (2) \& (5) $\Rightarrow$ (1) holds in ${\EuScript U}^\Omega$ when $\Omega$ large enough (larger than $n/\varepsilon$ suffices).
-  Strictly speaking, this implication is not a positive formula, but the reader can easily verify that a suitable approximation of (2) and (5) suffices. 
-  
-  Let $\hat a'\in{\EuScript U}^\Omega$ satisfy (2) and (5) for every $i\in J\subseteq n$. 
-  We define $\hat c'\in{\EuScript U}^\Omega$ such that 
-  
-  \ceq{\hfill{\EuScript U}^\Omega}{\models}{\beta_{i,J}=_\varepsilon\Pr\bigg(\varphi_i(\hat c',\hat a')\ \Big|\ \xi_J(\hat a')\bigg).}
-  
-  We may define $\hat c'$ separately in each event $\llbracket\xi_J(\hat a')\rrbracket$.
-  Partition $\llbracket\xi_J(\hat a')\rrbracket$ into events $E_i\subseteq\Omega$, for $i\in J$, such that $\# E_i/\#\Omega=_\varepsilon\beta_{i,J}$.
-  Then define $c'_\omega$ for $\omega\in E_i$ to be any witness of $\exists x\,\varphi_i(x,a_\omega)$.
-  By (5), we can always find such a witness.
-  
-  Finally, by (4), we deduce
-
-  \ceq{\hfill{\EuScript U}^\Omega}{\models}{\gamma_i=_\varepsilon\Pr\big(\varphi_i(\hat c',\hat a')\big).}
-
-  As $k\hat a$ satisfy (2) and (5), we conclude that some $\hat c\in N$ satisfy (1).
-\end{proof}
-
-Now, from Fact~\ref{fact_backandforth} we obtain that $T^{\rm pfr}$ has elimination of quantifiers.
-Completeness follows.
-
-\begin{corollary}
-  The theory  $T^{\rm pfr}$ is compete and has elimination of quantifiers.
-\end{corollary}
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-\section{Stability}
-
-A partitioned formula $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ is stable if there is no sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ and no $\tilde\varphi\perp\varphi$ such that for every $i,j<\omega$
-
-\ceq{\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)}
-
-\ceq{\hfill i>j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j)}
-
-Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
-
-Note that by compactness if $\varphi(x\,;z)$ and $\tilde\varphi\perp\varphi$ are stably separated then there is a maximal length $m$ of a sequence $\langle a_i\,;b_i\,:\,i<m\rangle$ such that (1) and (2) above.
-
 \end{document}
