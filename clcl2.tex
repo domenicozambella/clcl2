@@ -139,7 +139,7 @@
   Let $I$ be some fixed structure.
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$.
   When $I$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
-  This has been demostrated by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI}) and has been generalized to arbitrary structures in~\cite{clcl}.
+  This has been demostrated by Henson and Henson-Iovino for Banach spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to arbitrary structures in~\cite{clcl}.
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
   The main tool is the notion of approximation of a positive formula and of its negation.
   These have been introduced by Henson and Iovino.\\[1ex]
@@ -168,10 +168,10 @@
 
 \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-We refer to the introduction of~\cite{clcl} for motivations.
-Aside from that, this paper is reasonably self-contained.
-In the first part we revisit some results of~\cite{clcl}.
-We rephrase some theorems and add a few remarks and examples\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead. 
+% We refer to the introduction of~\cite{clcl} for motivations.
+% Aside from that, this paper is reasonably self-contained.
+In order to make the paper reasonably self contained, in the first few sections we revisit some results of~\cite{clcl}.
+Some theorems are rephrased and we add a few remarks and examples\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead. 
 % We will also omit a few proofs from Sections~\ref{morphisms}, \ref{compactness}, and~\ref{Ielimination}.
 }.
 Our notation and terminology diverges slightly, where necessary.
@@ -190,7 +190,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
 \begin{definition}\label{def_0}
   Let ${\EuScript L}$ be a two sorted language that expands both ${\EuScript L}_{\sf H}$ and ${\EuScript L}_{\sf I}$.
 
-  A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,I\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure, while $I$ is the structure above.
+  A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,I\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure.
   We write \emph{${\sf H}$} and \emph{${\sf I}$\/} to denote the two sorts of ${\EuScript L}$.
   
   The language ${\EuScript L}$ has a relation symbol $r_{\varphi}(x)$ for every $\varphi(x)\in {\EuScript L}_{\sf H}$.
@@ -311,7 +311,7 @@ These would have natural interpretations, e.g.\@ a group acting on a compact set
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Henson-Iovino approximations}\label{ultrapws} 
-The notion of approximation is a central tool in the work of Hension and Iovino on normed spaces.
+The notion of approximation is a central tool in the work of Hension and Henson-Iovino on normed spaces, see e.g.~\cite{HI}.
 In~\cite{clcl} the natural generalization to standard structures is presented.
 We recall the definitions and the main properties.
 
@@ -321,19 +321,19 @@ If no such atomic formulas occurs in $\varphi$, then $\varphi>\varphi$.
 We call $\varphi'$ a \emph{weakening\/} of $\varphi$.
 Note that $>$ is a dense transitive relation and that  $\varphi\to\varphi'$ in every ${\EuScript L}$-structure.
 
-We write \emph{$\tilde{\varphi}\perp\varphi$\/} when $\tilde{\varphi}$ is obtained by replacing each atomic formula $t\in C$ occurring in $\varphi$ with $t\in\tilde{C}$ where $\tilde{C}$ is some compact set disjoint from $C$.
+We write \emph{$\tilde\varphi\perp\varphi$\/} when $\tilde\varphi$ is obtained by replacing each atomic formula $t\in C$ occurring in $\varphi$ with $t\in\tilde{C}$ where $\tilde{C}$ is some compact set disjoint from $C$.
 The atomic formulas in ${\EuScript L}_{\sf H}$ are replaced with their negation.
 Finally each connective is replaced by its dual i.e., $\vee, \wedge, \exists,\forall$ are replaced by $\wedge,\vee,\forall,\exists$, respectively.
-We say that  $\tilde{\varphi}$ is a \emph{strong negation} of $\varphi$.
-It is clear that $\tilde{\varphi}\rightarrow\neg\varphi$ in every ${\EuScript L}$-structure.
+We say that  $\tilde\varphi$ is a \emph{strong negation} of $\varphi$.
+It is clear that $\tilde\varphi\rightarrow\neg\varphi$ in every ${\EuScript L}$-structure.
 
 Notice that the weakening and the strong negation of a formula in ${\EuScript L}^{\rm c}$ is also in ${\EuScript L}^{\rm c}$.
 
 \begin{lemma}\label{lem_interpolation}
   For all positive formulas $\varphi$
   \begin{itemize}
-    \item[1.]for every $\varphi'>\varphi$ there is a formula $\tilde{\varphi}\perp\varphi$ such that $\varphi\rightarrow\neg \tilde{\varphi}\rightarrow\varphi'$;
-    \item[2.] for every\, $\tilde{\varphi}\perp\varphi$ there is a formula $\varphi'>\varphi$ such that  $\varphi\rightarrow\varphi'\rightarrow\neg \tilde{\varphi}$.
+    \item[1.]for every $\varphi'>\varphi$ there is a formula $\tilde\varphi\perp\varphi$ such that $\varphi\rightarrow\neg \tilde\varphi\rightarrow\varphi'$;
+    \item[2.] for every\, $\tilde\varphi\perp\varphi$ there is a formula $\varphi'>\varphi$ such that  $\varphi\rightarrow\varphi'\rightarrow\neg \tilde\varphi$.
   \end{itemize}
 \end{lemma}
 
@@ -342,8 +342,8 @@ Notice that the weakening and the strong negation of a formula in ${\EuScript L}
   Suppose $\varphi$ is of the form $t\in C$.
   Let $\varphi'$ be $t\in C'$, for some $C'>C$.
   Let $O$ be an open set such that $C\subseteq O\subseteq C'$.
-  Then $\tilde{\varphi}=(t\in I\smallsetminus O)$ is as required by the lemma.
-  Suppose instead that $\tilde{\varphi}$ is of the form $t\in\tilde{C}$ for some compact $\tilde{C}$ disjoint from $C$.
+  Then $\tilde\varphi=(t\in I\smallsetminus O)$ is as required by the lemma.
+  Suppose instead that $\tilde\varphi$ is of the form $t\in\tilde{C}$ for some compact $\tilde{C}$ disjoint from $C$.
   By the normality of $I$, there is  $C'>C$ disjoint from $\tilde{C}$.
   Then  $\varphi'=\big(t\in C'\big)$ is as required.
   The lemma follows easily by induction.
@@ -356,7 +356,7 @@ For every type $p(x)$, we write
 in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
 
 \begin{definition}\label{def_dense}
-  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p/c-dense\/} modulo $T$, a theory, if for every positive/continuous $\varphi(x)$ and every $\varphi'>\varphi$, there is $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
+  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p/c-dense\/} modulo $T$, a theory, if for every positive/continuous $\varphi(x)$ and every $\varphi'>\varphi$, there is a formula $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
   % If $T$ is empty, we say p/c-dense modulo ${\EuScript L}$.
 \end{definition}
 
@@ -371,9 +371,9 @@ The following fact is easily proved by induction.
   Then ${\EuScript F}$ is /c-dense if the condition above is satisfied when  $\varphi(x)$ atomic.
 \end{fact}
 
-Using the fact above, it is immediate to verify the following.
+Using the fact, it is immediate to verify the following.
 
-\begin{example}
+\begin{example}\label{ex_prebase}
   Let ${\EuScript C}$ be a prebase of closed subsets of $I$.
   The set of formulas built inductively from atomic formulas of the form $\tau(x,\eta)\in C$ for $C\in{\EuScript C}$ is c-dense.
 \end{example}
@@ -381,7 +381,7 @@ Using the fact above, it is immediate to verify the following.
 \begin{example}
   Let $I=[0,1]$.
   The set of formulas built inductively from atomic formulas of the form $\tau=0$ is c-dense.
-  In fact, first note that by the example above we can restrict to formulas built inductively from atomic formulas of the form $\tau\in[\alpha,\beta]$.
+  In fact, first note that by Example~\ref{ex_prebase} we can restrict to formulas built inductively from atomic formulas of the form $\tau\in[\alpha,\beta]$.
   Then note that $\tau\in[\alpha,\beta]$ is equivalent to $\tau\dotminus\beta\in\{0\}\ \wedge\ \alpha\dotminus\tau\in\{0\}$.
 \end{example}
 
@@ -454,8 +454,8 @@ The following holds in general.
   Assume the r.h.s.\@ of the equivalence.
   Fix $\varphi'>\varphi$ and prove $M\models\varphi'(a)$.
   Let  $\varphi'>\varphi''>\varphi$.
-  By Lemma~\ref{lem_interpolation} there is some $\tilde{\varphi}\perp\varphi''$ such that $\varphi''\rightarrow\neg\tilde{\varphi}\rightarrow\varphi'$.
-  Then $N\models\neg\tilde{\varphi}(fa)$ and therefore  $M\models\neg\tilde{\varphi}(a)$.
+  By Lemma~\ref{lem_interpolation} there is some $\tilde\varphi\perp\varphi''$ such that $\varphi''\rightarrow\neg\tilde\varphi\rightarrow\varphi'$.
+  Then $N\models\neg\tilde\varphi(fa)$ and therefore  $M\models\neg\tilde\varphi(a)$.
   Then $M\models\varphi'(a)$.
 \end{proof}
 
@@ -616,7 +616,7 @@ Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
  \begin{proof}
   Let $\langle ^*\!M,^*\!\!I\rangle$ be an ${\EuScript L}$-elementary saturated superstructure of $\langle M,I\rangle$.
   Pick some $\alpha\in ^*\!\!I$ such that $\langle ^*\!M,^*\!\!I\rangle\models p(\alpha)$.
-  By the lemma above, $^*\!M\models p({\rm st}(\alpha))$.
+  By Lemma~\ref{lem_st}, $^*\!M\models p({\rm st}(\alpha))$.
   Now observe that the truth of formulas without  existential quantifiers of sort ${\sf H}$ is preserved by substructures.
  \end{proof}
  
@@ -799,7 +799,7 @@ For existential quantifiers of sort ${\sf I}$ we argue similarly.% by applying C
 \def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
 \begin{remark}\label{remk_approx_EH_free}
-  By Corollary~\ref{corol_st}, when $\varphi(x\,;\eta)$ does not contains existential quantifiers of sort ${\sf H}$, the proposition above does not require the assumption of saturation.
+  By Corollary~\ref{corol_st}, when $\varphi(x\,;\eta)$ does not contains existential quantifiers of sort ${\sf H}$, Proposition~\ref{prop_approx} does not require any assumption of saturation.
   In general, some saturation is necessary: consider the model presented after Corollary~\ref{corol_st} and the formula $\exists x\,\big(x>0\ \wedge\ \iota(x)\in\{0\}\big)$.
   See~[Paragraph after Corollary~5.16]\cite{HI} for a counterexample in ${\EuScript L}^{\rm c}$.
 \end{remark}
@@ -841,8 +841,8 @@ However, all p/c-models agree on the approximated truth.
   For the converse, assume $\varphi(a)$.
   Let $\varphi'>\varphi$.
   We prove $M\models\varphi'(a)$.
-  By Lemma~\ref{lem_interpolation} there is some $\tilde{\varphi}\perp\varphi''$ such that $\varphi''\rightarrow\neg\tilde{\varphi}\rightarrow\varphi'$.
-  Then $\neg\tilde{\varphi}(a)$ and therefore  $M\models\neg\tilde{\varphi}(a)$.
+  By Lemma~\ref{lem_interpolation} there is some $\tilde\varphi\perp\varphi''$ such that $\varphi''\rightarrow\neg\tilde\varphi\rightarrow\varphi'$.
+  Then $\neg\tilde\varphi(a)$ and therefore  $M\models\neg\tilde\varphi(a)$.
   Then $M\models\varphi'(a)$.
 
   (2$\Rightarrow$1) \ If $M\models\varphi(a)$ then $M\models\big\{\varphi(a)\big\}'$.
@@ -857,8 +857,15 @@ Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
   Let $p(x)\subseteq{\EuScript L}^{\rm p}(A)$ be a type.
   Then for every  $\varphi(x)\in{\EuScript L}^{\rm p}({\EuScript U})$
   \begin{itemize}
-    \item[i.] if $p(x)\rightarrow\neg\varphi(x)$ then $\psi(x)\rightarrow\neg\varphi(x)$ for some $\psi(x)$ conjunction of formulas in $p(x)$;
-    \item[ii.] if $p(x)\rightarrow\varphi(x)$ and $\varphi'>\varphi$ then $\psi(x)\rightarrow\varphi'(x)$ for some conjunction of formulas in $p(x)$.
+    \item[i.] if $p(x)\rightarrow\neg\varphi(x)$ then for some conjunction $\psi(x)$ of formulas in $p(x)$
+    
+    \noindent\kern-\leftmargin
+    \ceq{\hfill\psi(x)}{\rightarrow}{\neg\varphi(x);}
+
+    \item[ii.] if $p(x)\rightarrow\varphi(x)$ and $\varphi'>\varphi$ then for some conjunction $\psi(x)$ of formulas in $p(x)$
+    
+    \noindent\kern-\leftmargin
+    \ceq{\hfill\psi(x)}{\rightarrow}{\varphi'(x).}
   \end{itemize} 
 \end{fact}
 
@@ -966,15 +973,15 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
 
   \ceq{\hfill\varphi(x)}
   {\leftrightarrow}
-  {\bigwedge_{\tilde{\varphi}\perp\varphi}\neg\tilde{\varphi}(x).}
+  {\bigwedge_{\tilde\varphi\perp\varphi}\neg\tilde\varphi(x).}
 
   Suppose $\varphi(x)\in{\EuScript L}^{\rm p/c}(A)\smallsetminus  p$.
   Then $\neg\varphi(a)$.
-  Hence $\tilde{\varphi}(a)$ holds for some $\tilde{\varphi}\perp\varphi$.
+  Hence $\tilde\varphi(a)$ holds for some $\tilde\varphi\perp\varphi$.
   Therefore $p(x)\rightarrow\neg\varphi(x)$ follows.
 \end{proof}
 
-The fact above extends as follows.
+The Fact~\ref{fact_max_cons_L} extends as follows.
 
 \begin{fact}\label{fact_max_cons_F}
   Let $p(x)\subseteq{\EuScript F}(A)$, where ${\EuScript F}$ is a p/c-dense set of positive/continuous formulas.
@@ -1104,7 +1111,7 @@ Still, we can infer an approximate form of equivalence.
 \end{proof}
 
 % \begin{proposition}\label{prop_LHapprox2}
-%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$. For every given $\tilde{\varphi}\perp\varphi$ there is some $\psi(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde{\varphi}(x)$.
+%   Let $\varphi(x)\in{\EuScript L}^{\rm p}(A)$. For every given $\tilde\varphi\perp\varphi$ there is some $\psi(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde\varphi(x)$.
 % \end{proposition}
 
   
@@ -1214,13 +1221,13 @@ We define
 The following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
 
 \begin{corollary}\label{corol_pertubation}
-  For every $\varphi(x)\in{\EuScript L}^{\rm c}$, every $\varphi'>\varphi$, and every $\tilde{\varphi}\bot\varphi$ there an $\varepsilon\in{\EuScript E}$ such that
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}$, every $\varphi'>\varphi$, and every $\tilde\varphi\bot\varphi$ there an $\varepsilon\in{\EuScript E}$ such that
 
   \ceq{{\rm i.}\hfill x\sim_\varepsilon\! \!y\ \wedge\ \varphi(y)}{\rightarrow}{\varphi'(x)}
 \end{corollary}
 
 \begin{proof}
-  As $x\sim' y\ \cup\ \big\{\varphi(x)\big\}\ \rightarrow\ \varphi(y)$ by the fact above, (i) follows from Fact~\ref{fact_compactness_imp}.
+  As $x\sim' y\ \cup\ \big\{\varphi(x)\big\}\ \rightarrow\ \varphi(y)$ by Fact~\ref{fact_continuous}, (i) follows from Fact~\ref{fact_compactness_imp}.
 \end{proof}
 
 
@@ -1232,7 +1239,7 @@ In particular if $M$ is a p-model and $q(x)=\mbox{p-tp}(a/M)$ then $q'(x)$ is al
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
 A set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if it contains all those $a\in{\EuScript U}$ such that $a\sim'x$ is finitely satisfied in $A$.
-Note that Cauchy complete sets are in particular closed under $\sim$-equivalence.
+Note that Cauchy complete sets are in particular closed under $(\sim)$-equivalence.
 The \emph{Cauchy completion\/} of $A$ is the set 
 
 \ceq{\hfill\emph{${\rm Ccl}(A)$}}{=}{\big\{a:a\sim'x\textrm{ is finitely satisfied in }A\big\}}.
@@ -1254,7 +1261,7 @@ The \emph{Cauchy completion\/} of $A$ is the set
 We say that $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is a \emph{Cauchy type\/} if it is consistent and $p(x)\wedge p(y)\rightarrow x\sim y$.
 
 \begin{fact}
-  Let $M$ be a c-model and let $p(x)\subseteq{\EuScript L}^{\rm c}(M)$ be a Cauchy type.
+  Let $M$ be a p/c-model and let $p(x)\subseteq{\EuScript L}^{\rm P/c}(M)$ be a Cauchy type.
   Then all realizations of $p(x)$ belong to ${\rm Ccl}(M)$.
 \end{fact}
 
@@ -1313,42 +1320,48 @@ As below we always evaluate formulas in ${\EuScript U}$, we can safely drop the 
   
 \end{comment}
 
-Here we only discuss the continuous case and refer to~\cite{clcl} for the positive case.
-The definition of c-elementary maps is delicate due to the lack of equality of sort ${\sf H}$.
+The notion of p-elementarity is discussed in detail in~\cite{clcl}.
+In this section we are mostly concerned with the continuous case.
+This is delicate due to the lack of equality of sort ${\sf H}$.
 A possible approach is to work in the quotient ${\EuScript U}/{\sim}$.
 A second possibility is to replace functions with relations.
 The two options differs only in the notation.
 Here we go for the second.
 
-Let $R$ be a binary relation on ${\EuScript U}$.
+For semplicity, we only discuss morphisms between saturated structures.
+We fix, besides ${\EuScript U}$, a second saturated structure ${\EuScript V}$.
+
+Let $R\mathrel{\subseteq}{\EuScript U}\times{\EuScript V}$ be a binary relation.
 If $a=\langle a_i:i<\lambda\rangle$ and $b=\langle b_i:i<\lambda\rangle$ we write $\langle a,b\rangle\in R$ to abbreviate: $\langle a_i,b_i\rangle\in R$ for all $i<\lambda$.
 Let ${\EuScript F}$ be a set of formulas.
 We say that $R$ preserves the truth of ${\EuScript F}$-formulas if 
 
-\ceq{\#\hfill\varphi(a)}{\rightarrow}{\varphi(b)}\hfill for every $\varphi(x)\in{\EuScript F}$ and every $\langle a,b\rangle\in R$.
+\ceq{\#\hfill{\EuScript U}\models\varphi(a)}{\Rightarrow}{{\EuScript V}\models\varphi(b)}\hfill for every $\varphi(x)\in{\EuScript F}$ and every $\langle a,b\rangle\in R$.
 
-We will consider two extreem cases for ${\EuScript F}$: the set of all continuous formulas and the set of atomic continuous formlas.
-We donote the latter by \emph{${\EuScript L}^{\rm c}_{\rm at}$.} \rm
-Relations that preserve the truth of ${\EuScript L}^{\rm c}$-formulas are called \emph{c-elementary.}
+We will consider four extreem cases for ${\EuScript F}$: the set of all positive/continuous formulas and the set of atomic positive/continuous formulas.
+We donote the latter by \emph{${\EuScript L}^{\rm p/c}_{\rm at}$.}
+Relations that preserve the truth of ${\EuScript L}^{\rm p/c}$-formulas are called \emph{p/c-elementary.}
+Note that in p-elementary relations are (graphs of) injective functions and some of the facts below become trivial. 
 
 % Below, for simplicity we only consider c-elementary relations between ${\EuScript U}$ and itself.
 % Then, by Fact~\ref{fact_HImorphisms} and Proposition~\ref{prop_approx}, the condition above is aquivalent to
 
-By the following fact, if $R$ is c-elementary, also $R^{-1}$ is c-elementary.
+By the following fact, if $R$ preserves the truth of ${\EuScript F}$-formulas so does $R^{-1}$.
 
-\begin{fact} 
-  Let ${\EuScript F}$ be either ${\EuScript L}^{\rm c}$ or ${\EuScript L}^{\rm c}_{\rm at}$.
+\begin{fact}\label{fact_Rinverse}
+  Let ${\EuScript F}$ be either ${\EuScript L}^{\rm p/c}$ or ${\EuScript L}^{\rm p/c}_{\rm at}$.
   Let $R$ be a relation that preserves the truth of ${\EuScript F}$-formulas.
   Then the converse implication in (\#) holds.
 \end{fact}
 
 \begin{proof}
-  ${\EuScript F}={\EuScript L}^{\rm c}$. \ 
-  Assume $\neg\varphi(a)$ and apply Proposition~\ref{prop_Fapprox} to infer that  $\psi(a)$ holds for some $\psi(x)\in{\EuScript L}^{\rm c}$ that implies $\neg\varphi(x)$.
+  ${\EuScript F}={\EuScript L}^{\rm p/c}$. \ 
+  Assume ${\EuScript U}\models\neg\varphi(a)$ and apply Proposition~\ref{prop_Fapprox} to infer that ${\EuScript U}\models\psi(a)$ for some $\psi(x)\in{\EuScript L}^{\rm c}$ that implies $\neg\varphi(x)$.
+  Then ${\EuScript V}\models\neg\varphi(b)$ follows.
 
-  ${\EuScript F}={\EuScript L}^{\rm c}_{\rm at}$. \ 
-  Assume $\tau(a)\notin C$ then $\tau\in\tilde{C}$ for some compact $\tilde{C}$ disjoint of $C$.
-  Then $\tau(b)\notin C$ follows.
+  ${\EuScript F}={\EuScript L}^{\rm p/c}_{\rm at}$. \ 
+  Assume ${\EuScript U}\models\tau(a)\notin C$ then ${\EuScript U}\models\tau(a)\in\tilde{C}$ for some compact $\tilde{C}$ disjoint of $C$.
+  Then ${\EuScript V}\models\tau(b)\notin C$ follows.
 \end{proof}
 
 % The relation $(\sim)$ is c-elementary by Fact~\ref{fact_continuous}.
@@ -1361,10 +1374,12 @@ By the following fact, if $R$ is c-elementary, also $R^{-1}$ is c-elementary.
 %
 % It is easy to verify that the definition is well-given and that $R_{/\sim}$ is injective.
 
-We say that the relation $R$ is \emph{reduced\/} if there is no relation $R'\ \subset\ \mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}$ such that $R\ \subset\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+We denote by the same symbol $(\sim)$ the equivalence relation defined in Section~\ref{Cauchy} in ${\EuScript U}$ and ${\EuScript V}$.
+The context will disambiguate.
+We say that the relation $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R$ such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 
 \begin{fact}
-  Every relation $R$ contains a reduced $R'$ such that $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+  For every $R$ there is a reduced $R'\subseteq R$ such that $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 \end{fact}
 
 \begin{proof}
@@ -1386,12 +1401,12 @@ We say that the relation $R$ is \emph{reduced\/} if there is no relation $R'\ \s
   Let $R$ be a reduced relation that preserves of the truth of ${\EuScript F}$-formulas.
   Then $R$ is (the graph of) an injective map $f:{\rm dom}(R)\to{\rm range}(R)$.
 
-  The same is holds when ${\EuScript F}={\EuScript L}^{\rm c}_{\rm at}$ if ${\rm dom}(R)$ and ${\rm range}(R)$ are c-models.
+  The same holds when ${\EuScript F}={\EuScript L}^{\rm c}_{\rm at}$ if ${\rm dom}(R)$ and ${\rm range}(R)$ are c-models.
 \end{fact}
 
 \begin{proof}
   ${\EuScript F}={\EuScript L}^{\rm c}$. \ 
-  Let $a\in{\rm dom}R$ and assume that $\langle a,b\rangle,\langle a,b'\rangle\in R$.
+  Let $a\in{\rm dom}(R)$ and assume that $\langle a,b\rangle,\langle a,b'\rangle\in R$.
   To prove functionality suppose for a contradiction that $b\neq b'$.
   As $R$ is reduced, $b\not\sim b'$.
   Then $b\not\sim_\varepsilon b'$ for some $\varepsilon\in{\EuScript E}$.
@@ -1440,22 +1455,29 @@ Then $f$ is a function defined in exacly one representative $a$ of each $(\sim)$
 \end{proof}
 
 \begin{definition}\label{def_ciso}
-  Let $M$ and $N$ be c-models.
-  An \emph{c-isomorphism\/} between $M$ and $M$ is a relation $R$ that preserves the truth of ${\EuScript L}^{\rm c}_{\rm at}$-formulas and $M\subseteq{\rm dom}(R)$,  $N\subseteq{\rm range}(R)$.
+  Let $M$ and $N$ be p/c-elementary substructures of ${\EuScript U}$, respectively ${\EuScript V}$.
+  An \emph{p/c-isomorphism\/} between $M$ and $M$ is a relation $R$ that preserves the truth of ${\EuScript L}^{\rm p/c}_{\rm at}$-formulas and $M={\rm dom}(R)$,  $N={\rm range}(R)$.
 \end{definition}
 
-The term isomorphism may sound inappropriate but it is justified by the following fact.
+ It is clear that p-isomorphisms coincide with ${\EuScript L}$-isomorphisms. 
+ Indeed, in this case $R$ is a bijective function that preserve the truth of atomic and, by Fact~\ref{fact_Rinverse}, negated atomic formulas.
+ On the other hand, in the continuous case the term isomorphism may sound inappropriate.
+ It is justified by the following fact.
 
-\begin{fact}\label{rem_c_iso}
-  Let $R$ be a c-isomorphism between $M$ and $N$, two c-models.
+\begin{fact}\label{fact_c_iso}
+  Let $R$ be a c-isomorphism between $M$ and $N$.
   Let $f\subseteq{\rm Ccl}(R)$ be a reduced relation such that ${\rm Ccl}(R)\ =\ \mathrel{(\sim)}\circ \mathrel{f}\circ\mathrel{(\sim)}$.
-  Then $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ is a bijective map such that $\varphi(a)\leftrightarrow\varphi(fa)$ for all $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in{\rm Ccl}(M)^{|x|}$.
+  Then $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ is an injective map such that 
+  
+  \ceq{\hfill{\EuScript U}\models\varphi(a)}{\Leftrightarrow}{{\EuScript V}\models\varphi(fa)}\hfill for all $\varphi(x)\in{\EuScript L}^{\rm c}$ and $a\in{\rm dom}(f)^{|x|}$.
 \end{fact}
 
 \begin{proof}
-  From Fact~\ref{fact_reduced_funct} we obtain that $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ is bijective map.
+  From Fact~\ref{fact_reduced_funct} we obtain that $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ is an injective map.
   To prove $\varphi(a)\leftrightarrow\varphi(fa)$ we reason by induction as in the classical case.
 \end{proof}
+
+Note that, though $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ above is neither total nor surjective, ${\rm dom}(f)$ and ${\rm range}(f)$ intersect every $(\sim)$-equivalence class.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1468,20 +1490,20 @@ We write \emph{${\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$} for the set of posit
 In~\cite{clcl} it is proved that ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ is a p-dense set.
 Here we adapt the argument to continuous formulas.
 
-We ask the reader to verify that Fact~\ref{fact_reduced_funct} holds, with the same proof, when $R$ preserves the truth of formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
-
-\begin{proposition}
-  Every relation of small cardinality $R$ that preserves the truth of formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$ extends to c-automorphisms of ${\EuScript U}$.
+\begin{proposition}\label{prop_Iqf_elim}
+  Every relation of small cardinality $R$ that preserves the truth of formulas in ${\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$ extends to p/c-automorphisms of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
+  We prove the proposition in the continuous case.
+  A simplified version of the same argument applies to the positive case.
+
   We construct by back-and-forth a sequence $f_i:{\EuScript U}\rightarrow{\EuScript U}$ of reduced relations (i.e.\@ injective maps) that preserve the truth formulas in ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$.
   Finally we set 
   
   \ceq{\hfill R}{=}{\bigcup_{i\in|{\EuScript U}|}(\sim)\circ f_i\circ(\sim).}
 
-  We will ensure that ${\EuScript U}={\rm dom}(R)={\rm range}(R)$.
-  Then $R$ is a c-automorphism of ${\EuScript U}$ by Remark~\ref{rem_c_iso}.
+  We will ensure that ${\EuScript U}={\rm dom}(R)={\rm range}(R)$, hence that $R$ is a c-automorphism of ${\EuScript U}$.
 
   Let $i$ be even.
   Let $a$ be an enumeration of ${\rm dom}(f_n)$.
@@ -1491,17 +1513,27 @@ We ask the reader to verify that Fact~\ref{fact_reduced_funct} holds, with the s
   Let $c\in{\EuScript U}$ realize $p(f_ia,y)$.
   Let $f_{i+1}$ be a reduced relation such that $f_{i+1}\ \subseteq\ f_i\cup\{\langle b,c\rangle\}\ \subseteq\ (\sim)\circ f_{i+1}\circ(\sim)$.
 
-  When $i$ is odd we proceed similarly with $f_i^{-1}$.
+  When $i$ is odd we proceed similarly with $f_i^{-1}$ for $f_i$.
   Limit stages are obvious.
 \end{proof}
 
 \begin{corollary}\label{corol_cLcomplete}
   Let $a\in{\EuScript U}^{|x|}$.
-  Let $p(x)={\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{c-tp}(a)$. 
+  Let
+  \begin{itemize}
+    \item[i.] $p(x)={\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{tp}(a)$.
+    \item[ii.] $p(x)={\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{c-tp}(a)$.
+  \end{itemize}
+
   Then $p(x)\leftrightarrow q(x)$.
 \end{corollary}
 
 \begin{proof}
+  (i) \ 
+  By Proposition~\ref{prop_Iqf_elim} as p-isomorphisms are ${\EuScript L}$-isomorphisms.
+
+
+  (ii) \ 
   Only $\rightarrow$ requires a proof.
   If $a$ contains entries $a_i\sim a_j$, replace $a_j$ with $a_i$.
   Note that the tuple $a'$ obtained in this manner has the same c-type of $a$.
@@ -1514,22 +1546,22 @@ We ask the reader to verify that Fact~\ref{fact_reduced_funct} holds, with the s
 \end{proof}
 
 \begin{proposition}\label{prop_cLHapprox1}
-  The set ${\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}$ is c-dense modulo $T$.
+  The set ${\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$ is p/c-dense modulo $T$.
 \end{proposition}
 
 \begin{proof}
   Let $\varphi(x)$ be a positive formula.
-  We need to prove that for every $\varphi'>\varphi$ there is some formula $\psi(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
+  We need to prove that for every $\varphi'>\varphi$ there is some formula $\psi(x)\in{\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
   By Corollary~\ref{corol_cLcomplete} and Proposition~\ref{prop_approx}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{p'(x)\rightarrow\neg\varphi(x)}p'(x)}
 
-  where $p(x)$ ranges over the maximally consistent ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$-types.
+  where $p(x)$ ranges over the maximally consistent ${\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$-types.
   By Fact~\ref{fact_compactness_imp} and Lemma~\ref{lem_interpolation}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{\neg\tilde{\psi}(x)\rightarrow\neg\varphi(x)}\neg\tilde{\psi}(x),}
 
-  where $\tilde{\psi}(x)\in{\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$.
+  where $\tilde{\psi}(x)\in{\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$.
   Equivalently,
 
   \ceq{\hfill\varphi(x)}{\leftarrow}{\bigwedge_{\tilde{\psi}(x)\leftarrow\varphi(x)}\tilde{\psi}(x).}
@@ -1570,11 +1602,11 @@ The following proposition is our version of the Tarski-Vaught test.
     \ceq{\hfill \exists x\,\neg\psi(x)}{\Rightarrow}
     {\textrm{ there is an }a\in M\textrm{ such that }\neg\psi(a).}
   \end{itemize}
-  If ${\EuScript F}$ is a c-dense set of continuous formulas then (2) and (3) above are equivalent to
+  If ${\EuScript F}$ is a c-dense set of continuous formulas then (2) and (3) are equivalent to
   \begin{itemize}
     \item[1$'$.] ${\rm Ccl}(M)$ is a c-model.
   \end{itemize}
-  Moreover, if $M$ is a substructure, then (1$'$), (2) and (3) are also equivalent to
+  Moreover, if $M$ is a substructure, then (1$'$), (2) and (3) are equivalent to
   \begin{itemize}
     \item[1$''$.] $M$ is a c-model.
   \end{itemize}
@@ -1654,9 +1686,9 @@ The following proposition is our version of the Tarski-Vaught test.
   We prove that $fa\in M$.
   We show that $fa\sim' x$ is finitely satisfied in $M$.
   Consider the formula $fa\sim_\varepsilon\!  x$ where $\varepsilon$ is the pair $\tau,D$.
-  By Lemma~\ref{lem_interpolation}, there is a formula in $\tilde{\varphi}(x)\in{\EuScript L}^{\rm p}(M)$ such that
+  By Lemma~\ref{lem_interpolation}, there is a formula in $\tilde\varphi(x)\in{\EuScript L}^{\rm p}(M)$ such that
   
-  \ceq{\hfill fa\sim_\tau x}{\rightarrow}{\neg\tilde{\varphi}(x)}\parbox{6ex}{\hfil$\rightarrow$}$fa\sim_\varepsilon\!  x$
+  \ceq{\hfill fa\sim_\tau x}{\rightarrow}{\neg\tilde\varphi(x)}\parbox{6ex}{\hfil$\rightarrow$}$fa\sim_\varepsilon\!  x$
 
   By Fact~\ref{fact_Fdense}.ii there is a consistent formula  $\neg\psi(x)$, for some $\psi(x)\in{\EuScript F}(M)$, that implies $fa\sim_\varepsilon\!  x$.
   Then, by (3), $fa\sim_\varepsilon\!  x$ is satisfied in $M$.
@@ -1702,7 +1734,7 @@ The following proposition is our version of the Tarski-Vaught test.
 
 
 \begin{remark}\label{rem_Tarski_Vaught}
-  The theorem above shows in particular that for every substructure $M$ the following are equivalent
+  Theorem~\ref{thm_Tarski_Vaught} shows in particular that for every substructure $M$ the following are equivalent
   \begin{itemize}
     \item[1.] $M$ is a c-model;
     \item[2.] ${\rm Ccl}(M)$ is a c-model.
@@ -1808,8 +1840,8 @@ In this case a weaker notion of isolation is appropriate.
   (1$\Rightarrow$3) By Proposition~\ref{prop_Fapprox}.i.
 
   (3$\Rightarrow$1) Let $\varphi'>\varphi$ be as in (3). 
-  Let $\tilde{\varphi}\bot\varphi$ be such that $\varphi(x)\rightarrow\neg\tilde{\varphi}(x)\rightarrow\varphi'(x)$. 
-  Then $\neg\tilde{\varphi}(x)$ isolates $p(x)$.
+  Let $\tilde\varphi\bot\varphi$ be such that $\varphi(x)\rightarrow\neg\tilde\varphi(x)\rightarrow\varphi'(x)$. 
+  Then $\neg\tilde\varphi(x)$ isolates $p(x)$.
 \end{proof}
 
 
@@ -1907,8 +1939,8 @@ By Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is c-isolated by $A$, then $p(x)$ is 
   (1$\Rightarrow$3) By Proposition~\ref{prop_Fapprox}.i.
 
   (3$\Rightarrow$1) Let $\varphi'>\varphi$ be as in (3). 
-  Let $\tilde{\varphi}\bot\varphi$ be such that $\varphi(x)\rightarrow\neg\tilde{\varphi}(x)\rightarrow\varphi'(x)$. 
-  Then $\neg\tilde{\varphi}(x)$ isolates $p(x)$.
+  Let $\tilde\varphi\bot\varphi$ be such that $\varphi(x)\rightarrow\neg\tilde\varphi(x)\rightarrow\varphi'(x)$. 
+  Then $\neg\tilde\varphi(x)$ isolates $p(x)$.
 \end{proof}
 
 We say that the type $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{approximately c-isolated\/} by $A$ if for every $\varepsilon\in{\EuScript E}$ there is a formula $\varphi_\varepsilon(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi_\varepsilon(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_\varepsilon\! x\ p(x')$.
@@ -1945,7 +1977,7 @@ We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
 \end{fact}
 
 \begin{proof}
-  Let $a_n\in M$ be as in the fact above.
+  Let $a_n\in M$ be as in Fact~\ref{fact_isolationpp}.
   Then any solution of $p(x)\cup\big\{a_n\sim_nx\ :\ n\in\omega\big\}$ belongs to ${\rm Ccl}(M)$.
 \end{proof}
 
@@ -2051,7 +2083,7 @@ We say that $M$ is \emph{atomic\/} if for every finite tuple $a$ of elements of 
 
 \begin{proof}
   We can assume that $k$ is reduced, i.e.\@ it is an injective map ${\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$.
-  Let $a$ enumerate ${\rm dom} k$.
+  Let $a$ enumerate ${\rm dom}(k)$.
   Let $p(x,y)=\mbox{c-tp}(a,c)$, it suffices to prove that $p(x,y)$ is realized by some $d\in{\rm Ccl}(N)$.
   By Fact~\ref{fact_isolationpp} there are some formulas $\psi_n(x,y)\in{\EuScript L}^{\rm c}$ such that
   
@@ -2119,7 +2151,9 @@ The following analogue of Ryll-Nardzewski's Theorem follows by the classical arg
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
-\section{Stable formulas}
+\section{Stable formulas (wild experiments)}
+
+\def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
 The following definition is classical.
 A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that for every $i,j<n$
@@ -2130,11 +2164,11 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<
 
 
 
-\begin{fact}
+\begin{fact}\label{fact_stable_p}
   For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
   \begin{itemize}
     \item[1.] $\varphi(x\,;z)$ is stable;
-    \item[2.] for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and no $\tilde{\varphi}\perp\varphi$
+    \item[2.] for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and no $\tilde\varphi\perp\varphi$
 
     \noindent\kern-\leftmargin
     \ceq{{\rm i'.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)}
@@ -2146,17 +2180,23 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<
 
 \begin{proof}
   (1$\Rightarrow$2) \ 
-  Suppose $\langle a_i\,;b_i\,:\,i<n\rangle$ is such that (i$'$) and (ii$'$).
-  As $\tilde\varphi(x\,;z)\rightarrow\neg\varphi(x\,;z)$, then $\varphi(x\,;z)$ is not $n$-stable.
+  Negate (2).
+  Then for every $n$ there is a sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and a formula $\tilde\varphi$ such that (i$'$) and (ii$'$).
+  As $\tilde\varphi(x\,;z)\rightarrow\neg\varphi(x\,;z)$, then $\varphi(x\,;z)$ is not stable.
 
   (2$\Rightarrow$1) \ 
-  Suppose $\langle a_i\,;b_i\,:\,i<n\rangle$ is such that (i) and (ii).
-  By Proposition~\ref{prop_Fapprox} and Lemma~\ref{lem_interpolation}, there is $\tilde\varphi\perp\varphi$ such that $\tilde\varphi(a_i\,;b_j)\rightarrow\varphi(a_i\,;b_j)$ for every $j<i<n$.
-  Then $\neg$(1) follows.
+  Negate (1).
+  Then for every $n$ there is a sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that (i) and (ii).
+  By Proposition~\ref{prop_approx} and Lemma~\ref{lem_interpolation}
+  
+  \ceq{\hfill\neg\varphi(x\,;z)}{\leftrightarrow}{\bigvee_{\tilde\varphi\perp\varphi}\tilde\varphi(x\,;z).}
+  
+  Then for every $j<i<n$ there is a formula  $\tilde\varphi_{i,j}\perp\varphi$ such that $\tilde\varphi_{i,j}(a_i\,;b_j)$.
+  From the definition of strong negation it easy to infer that there is some $\tilde\varphi_n\perp\varphi$ such that $\tilde\varphi_{i,j}(x\,;z)\rightarrow\tilde\varphi_n(x\,;z)$ for all $j<i<n$.
+  Then $\neg$(2) follows.
 \end{proof}
 
-
-\begin{fact}
+\begin{fact}[wrong?]
   For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
   \begin{itemize}
     \item[1.] $\varphi(x\,;z)$ is stable;
@@ -2164,25 +2204,28 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<
   \end{itemize} 
 \end{fact}
 
-\begin{proof}
+\begin{proof}[wrong proof]
   Only 2$\Rightarrow$1 requires a proof.
   Negate (1).
-  For every $n$ let $\tilde\varphi_n\perp\varphi$ withness the failure of (2) in the fact above.
+  For every $n$ let $\tilde\varphi_n\perp\varphi$ withness the failure of (2).
+  Reasoning as in the proof of Fact~\ref{fact_stable_p}, we can require that $\tilde\varphi_n(x\,;z)\rightarrow\tilde\varphi_{n+1}(x\,;z)$.
+  
   Let $\bar x\,;\bar y=\langle x_i\,;z_i\ :\ i<\omega\rangle$.
-  The type $\{\varphi(x_i\,;z_j), \tilde\varphi_n(x_j\,;z_i)\ :\ i<j<\omega\}$ is finitely consistent.
+  Our choice of $\tilde\varphi_n(x\,;z)$ ensures that the following type is finitely consistent
 
+  \ceq{\hfill p(\bar x\,;\bar z)}{=}{\big\{\varphi(x_i\,;z_j)\ :\ i<j<\omega\big\}\ \cup\ \big\{\tilde\varphi_n(x_i\,;z_j)\ :\ j<i<\omega\big\}.}
 
-
+  Any realization of $p(\bar x\,;\bar z)$ is as required by (2).
 \end{proof}
 
 Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
 
 
-A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{finitely definable\/} by $\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ and $\tilde{\varphi}\bot\varphi$ such that
+A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{finitely definable\/} by $\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ and $\tilde\varphi\bot\varphi$ such that
 
 \ceq{{\rm i.}\hfill B^{|z|}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \cap\, {\EuScript D}}
 
-\ceq{{\rm ii.}\hfill B^{|z|}\ \cap\ \tilde{\varphi}(a\,;{\EuScript U})}{=}{B^{|z|}\, \smallsetminus\, {\EuScript D}}
+\ceq{{\rm ii.}\hfill B^{|z|}\ \cap\ \tilde\varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \smallsetminus\, {\EuScript D}}
 
 We say that ${\EuScript D}$ is \emph{externally definable\/}  by $\varphi(x\,;z)$ if there is a maximal consistent $\varphi(x\,;z)$-type $p(x)\subseteq{\EuScript L}({\EuScript U})$ such that ${\EuScript D}=\big\{b\ :\  \varphi(x\,;b)\in p\big\}$.
 
