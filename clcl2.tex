@@ -20,7 +20,7 @@
 \usepackage{amsfonts}
 \usepackage{euscript}
 % \def\EuScript#1{\mathscr#1}
-\usepackage{fourier}
+\usepackage{fourier-otf}
 % \usepackage{palatino}
 % \usepackage{mathpazo} % add possibly `sc` and `osf` options
 %\usepackage{eulervm}
@@ -145,11 +145,9 @@
   These have been introduced by Henson and Iovino.\\[1ex]
   \noindent
   We review and elaborate on the properties of positive formulas and their approximations.
-  In parallel, we introduce \textit{continuous\/} formulas which provide a better counterpart to Henson and Iovino theory of normed spaces and/or real-valued model theory.
+  In parallel, we introduce \textit{continuous\/} formulas which provide a better counterpart to Henson and Iovino theory of normed spaces and the real-valued model theory of metric spaces of~\cite{BBYHU}.
   Within this setting we discuss $\omega$-categoricity.
 \end{abstract}
-
-
 
 % The model theory of standard structures is based on the notions of positive formulas and of approximations.
 % These evolved from the Henson-Iovino model theory of Banach spaces~\cite{HI}.
@@ -164,7 +162,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Standard structures}\label{uno}
-
 
 \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
@@ -238,7 +235,7 @@ Note that ${\EuScript L}$ has two types of atomic formulas
 
 \begin{notation}
   Much of the theory below is developed in parallel in the positive and the continuous case.
-  For the sake of conciseness, we write \emph{p/c} as a placeholder for either one of \emph{p} or \emph{c.}
+  For the sake of conciseness, we write \emph{p/c} as a placeholder that can be replaced for either one of \emph{p} or \emph{c.}
 \end{notation}
 
 The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript L}^{\rm c}$ that do not have quantifiers of sort ${\sf I}$.
@@ -283,8 +280,9 @@ The following example is inspired by~\cite{HPP}.
 The theory of normed spaces is one of the motivating examples for standard structures.
 The requirement for $I$ to be compact seems a limitation, but it is not a real one.
 Essentially, functional analysis and model theory are only concerned with the unit ball of normed spaces.
-To formalize the unit ball of a normed space as a standard structure (where $I$ is the unit interval) is straightforward but cumbersome.
-Alternatively one can view a normed space as a many-sorted structure: a sort for each ball of radius $n\in\mathds{Z}^+$.
+
+To formalize the unit ball of a normed space as a standard structure (where $I$ is the unit interval) is straightforward in theory but cumbersome in practice.
+Alternatively, one could view a normed space as a many-sorted structure: a sort for each ball of radius $n\in\mathds{Z}^+$.
 Unfortunately, this also results in a bloated formalism.
 
 A neater formalization is possible if one accepts that some positive elementary extensions (to be defined below) of a normed space could contain vectors of infinite norm hence not be themselves proper normed spaces.
@@ -292,7 +290,8 @@ However these infinities are harmless if one restrics to balls of fine radius.
 In fact, inside any ball of finite radius these improper normed spaces are completely standard.
 
 \begin{example}\label{ex_normed_spaces}
-Let $I=\mathds{R}\cup\{\pm\infty\}$.
+Let $I=\mathds{R}\cup\{\pm\infty\}
+$.
 Let ${\EuScript L}_{\sf H}$ be the language of real (or complex) vector spaces.
 The language ${\EuScript L}$ contains a function symbol $\|\mbox{-}\|$ of sort ${\sf H}\to {\sf I}$.
 Normed space are standard structures with the natural interpretation of the language.
@@ -584,7 +583,7 @@ Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
 
 \begin{lemma}\label{lem_st}
   With the notation as above.
-  For every $\varphi(x\,;\eta)\in{\EuScript L}^{\rm p}$, \  $a\in N^{|x|}$ and $\alpha\in({}^*\!\!I)^{|\eta|}$ 
+  For every $\varphi(x\,;\eta)\in{\EuScript L}^{\rm p}$, \  $a\in N^{|x|}$, $\alpha\in({}^*\!\!I)^{|\eta|}$ 
   
   \ceq{\hfill\langle N,{}^*\!\!I\rangle\models\varphi(a\,;\alpha)}
   {\Rightarrow}
@@ -686,13 +685,13 @@ We say that $M$ is a \emph{p-elementary\/} substructure of $N$ if $M\subseteq N$
 for every $\varphi(x)\in{\EuScript L}^{\rm p}$ and every $a\in M^{|x|}$.
 
 \begin{theorem}
-  Every standard structure has a p-elementary extension to a p-saturated standard structure (possibly of inaccessible cardinality).
+  Every standard structure has a p-elementary extension to a p-satu\-rated standard structure (possibly of inaccessible cardinality).
 \end{theorem}
 
 \begin{proof}
   Let $\langle {}^*\!\!M,{}^*\!\!I\rangle$ be an ${\EuScript L}$-saturated ${\EuScript L}$-elementary extension of the standard structure $\langle M,I\rangle$.
   Let $\langle {}^*\!\!M,I\rangle$ be its standard part as defined in Section~\ref{standard_part}.
-  By Lemma~\ref{lem_st}, $\langle {}^*\!\!M,I\rangle$ realizes all finitely consistent positive types with fewer than $|{}^*\!\!M|$ parameters.
+  By Lemma~\ref{lem_st}, $\langle {}^*\!\!M,I\rangle$ realizes all finitely consistent positive types with $<|{}^*\!\!M|$ parameters.
 \end{proof}
 
 
@@ -1011,7 +1010,7 @@ The Fact~\ref{fact_max_cons_L} extends as follows.
   
   \ceq{{\rm i.}\hfill\neg\varphi(x)}
   {\leftrightarrow}
-  {\bigvee\big\{\phantom\neg\psi(x)\ :\ \ \psi'(x)\rightarrow\neg\varphi(x)\textrm{ and }\psi'>\psi\textrm{ for some }\psi(x)\in{\EuScript F}\big\};}
+  {\bigvee\big\{\psi(x)\in{\EuScript F}\ :\  \psi'(x)\rightarrow\neg\varphi(x)\textrm{ for some }\psi'>\psi\big\};}
 
   \ceq{{\rm ii.}\hfill\neg\varphi(x)}
   {\leftrightarrow}
@@ -1221,7 +1220,7 @@ We define
 The following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposition~5.15}.
 
 \begin{corollary}\label{corol_pertubation}
-  For every $\varphi(x)\in{\EuScript L}^{\rm c}$, every $\varphi'>\varphi$, and every $\tilde\varphi\bot\varphi$ there an $\varepsilon\in{\EuScript E}$ such that
+  For every $\varphi(x)\in{\EuScript L}^{\rm c}$ and every $\varphi'>\varphi$ there an $\varepsilon\in{\EuScript E}$ such that
 
   \ceq{{\rm i.}\hfill x\sim_\varepsilon\! \!y\ \wedge\ \varphi(y)}{\rightarrow}{\varphi'(x)}
 \end{corollary}
@@ -1239,7 +1238,7 @@ In particular if $M$ is a p-model and $q(x)=\mbox{p-tp}(a/M)$ then $q'(x)$ is al
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
 A set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if it contains all those $a\in{\EuScript U}$ such that $a\sim'x$ is finitely satisfied in $A$.
-Note that Cauchy complete sets are in particular closed under $(\sim)$-equivalence.
+Note that Cauchy complete sets are in particular closed under the equivalence $(\sim)$.
 The \emph{Cauchy completion\/} of $A$ is the set 
 
 \ceq{\hfill\emph{${\rm Ccl}(A)$}}{=}{\big\{a:a\sim'x\textrm{ is finitely satisfied in }A\big\}}.
@@ -1379,7 +1378,9 @@ The context will disambiguate.
 We say that the relation $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R$ such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 
 \begin{fact}
-  For every $R$ there is a reduced $R'\subseteq R$ such that $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
+  For every $R$ there is a reduced relation $R'\subseteq R$ such that 
+  
+  \ceq{\hfill\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}}{=}{\mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}.}
 \end{fact}
 
 \begin{proof}
@@ -1646,11 +1647,11 @@ The following proposition is our version of the Tarski-Vaught test.
   Indeed, for any $\varphi'>\varphi$,
 
   \ceq{\hfill M\models\exists y\,\varphi(a,y)}
-  {\Rightarrow}{M\models\exists y\,\psi(a,y)}\hfill\rlap{for some $\psi\in{\EuScript F}$ such that $\varphi(a,y)\rightarrow\psi(a,y)\rightarrow\varphi'(a,y)$}\kern52ex% in every ${\EuScript L}$-structure
+  {\Rightarrow}{M\models\exists y\,\psi(a,y)}\hfill for some $\psi\in{\EuScript F}$ such that $\varphi\rightarrow\psi\rightarrow\varphi'$
   
   \ceq{}
   {\Rightarrow}
-  {M\models\psi(a,b)}\hfill\rlap{for some $b\in M$ by (2)}\kern52ex
+  {M\models\psi(a,b)}\hfill for some $b\in M$ by (2)
   
   \ceq{}
   {\Rightarrow}
@@ -1658,7 +1659,7 @@ The following proposition is our version of the Tarski-Vaught test.
   
   \ceq{}
   {\Rightarrow}
-  {\varphi'(a,b)}\hfill\rlap{by induction hypothesis}\kern52ex
+  {\varphi'(a,b)}\hfill by induction hypothesis
 
   \ceq{}
   {\Rightarrow}
@@ -1763,13 +1764,12 @@ We say that ${\EuScript L}^{\rm p/c}$ is \emph{separable\/} if there is a counta
 \end{proof}
 
 \begin{proposition}
-  Assume that ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$.
-  Then, if $I$ is a second countable (the topology has a countable base), then ${\EuScript L}^{\rm c}$ is separable modulo ${\EuScript L}$.
-  Moreover if ${\EuScript L}_{\sf H}$ is countable also then ${\EuScript L}^{\rm p}$ is separable.
+  If ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$ and $I$ is a second countable (the topology has a countable base), then ${\EuScript L}^{\rm c}$ is separable modulo ${\EuScript L}$.
+  Moreover if ${\EuScript L}_{\sf H}$ is countable then also ${\EuScript L}^{\rm p}$ is separable.
 \end{proposition}
 
 \begin{proof}
-  Fix a countable filter of compact neighborhoods of the diagonal of ${\sf I}^2$.  
+  Fix a countable filter of compact neighborhoods of the diagonal of ${\sf I}^2$.....  
 \end{proof}
 
 
@@ -1918,7 +1918,6 @@ We only consider the continuous case.
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm c}(A)$ we say that it is \emph{c-isolated\/} by $A$.
 We omit the reference to $A$ when this is clear from the context (e.g., when $p(x)$ is presented as a type over $A$).
-
 By Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is c-isolated by $A$, then $p(x)$ is realized in every c-model containing $A$.
 % We also have that if $p(x)$ is is realized in $M$, a p-model, then $p(x)$ is p-isolated by $M$.
 % In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$ is positive by Morleyzation.
@@ -1944,12 +1943,11 @@ By Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is c-isolated by $A$, then $p(x)$ is 
 \end{proof}
 
 We say that the type $p(x)\subseteq{\EuScript L}^{\rm c}({\EuScript U})$ is \emph{approximately c-isolated\/} by $A$ if for every $\varepsilon\in{\EuScript E}$ there is a formula $\varphi_\varepsilon(x)\in{\EuScript L}^{\rm c}(A)$ such that $\neg\varphi_\varepsilon(x)$ is consistent with $p(x)$ and isolates $\exists x'\sim_\varepsilon\! x\ p(x')$.
-
 Notice the requirement that the formula that isolates $\exists x'\sim_\varepsilon\! x\ p(x')$ is consistent with $p(x)$.
 This is used in the proof of Lemma~\ref{lem_atomic_iso}.
 
 Assume for the rest of this section that ${\EuScript L}^{\rm c}$ is separable.
-Then there is a sequence $\langle\varepsilon_n:n\in\omega\rangle$ such that for every $\varepsilon\in{\EuScript E}$ there is an $n$ such that $x\sim_{\varepsilon_n}y\ \rightarrow\ x\sim_\varepsilon\! y$.
+Let $\langle\varepsilon_n:n\in\omega\rangle$ be such that for every $\varepsilon\in{\EuScript E}$ there is an $n$ such that $x\sim_{\varepsilon_n}y\ \rightarrow\ x\sim_\varepsilon\! y$.
 We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
 
 \begin{fact}\label{fact_isolationpp}
@@ -1986,7 +1984,7 @@ In words, the proof above shows that if $p(x)$ is approximately c-isolated, then
 \begin{fact}\label{fact_wcisolatio_realization}
   Let ${\EuScript L}^{\rm c}$ be separable.
   Let $M$ be a c-model containing $A$.
-  Then any $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ that is realized in ${\rm Ccl}(M)$ is approximately c-isolated by $M$.
+  Then every type $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ that is realized in ${\rm Ccl}(M)$ is approximately c-isolated by $M$.
 \end{fact}
 
 \begin{proof}
@@ -2002,7 +2000,7 @@ In words, the proof above shows that if $p(x)$ is approximately c-isolated, then
 
 \begin{lemma}\label{lem_kuratowskiUlam_cont}
   Let ${\EuScript L}^{\rm c}(A)$ be separable.
-  Let $p(x)\subseteq{\EuScript L}^{\rm c}(A)$, be non approximately c-isolated.
+  Assume that $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is not approximately c-isolated.
   Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm c}(A)$, has a solution $a$ such that $A,a$ does not c-isolate $p(x)$.
 \end{lemma}
 
@@ -2064,7 +2062,7 @@ In words, the proof above shows that if $p(x)$ is approximately c-isolated, then
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Continuous \boldmath$\omega$-categoricity}
+\section{Continuous countable categoricity}
 
 \def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
@@ -2151,7 +2149,30 @@ The following analogue of Ryll-Nardzewski's Theorem follows by the classical arg
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
-\section{Stable formulas (wild experiments)}
+\section{Indiscernibles (tentative/garbadge)}
+
+\def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
+
+Let $J,<$ be an infinite linear order.
+A sequence $\langle a_i:i\in J\rangle$ is p/c-indiscernible if $\mbox{p/c-tp}(a_{\restriction J_0})= \mbox{p/c-tp}(a_{\restriction J_1})$ for every $J_0,J_1\subseteq J$ such that $|J_0|=|J_1|<\omega$.
+
+
+Let $a=\langle a_i:i\in J\rangle$.
+Let $x=\langle x_i:i<\omega\rangle$.
+The p/c-EM-type of $a$ is the set
+
+\ceq{\hfill p(x)}{=}{\Big\{\varphi(x_{\restriction n})\in{\EuScript L}^{\rm p/c}\ \ :\ \ \varphi(a_{\restriction J_0})\textrm{ for every }J_0\subseteq J, |J_0|=n)\Big\}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+\section{Stable formulas (tentative/garbadge)}
 
 \def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
@@ -2220,7 +2241,6 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<
 
 Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
 
-
 A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{finitely definable\/} by $\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ and $\tilde\varphi\bot\varphi$ such that
 
 \ceq{{\rm i.}\hfill B^{|z|}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \cap\, {\EuScript D}}
@@ -2265,26 +2285,49 @@ We say that ${\EuScript D}$ is \emph{externally definable\/}  by $\varphi(x\,;z)
 \begin{bibdiv}
 \begin{biblist}[]\normalsize
 
-\bib{G}{article}{
-  label={G},
-  author = {Goldbring, Isaac},
-  title = {Lecture notes on nonstandard analysis},
+
+\bib{BBYHU}{article}{
+  label={BBYHU},
+  author={Ben Yaacov, Ita\"{\i}},
+  author={Berenstein, Alexander},
+  author={Henson, C. Ward},
+  author={Usvyatsov, Alexander},
+  title={Model theory for metric structures},
   conference={
-    title={UCLA Summer School in Logic 2012}
-   },
-  eprint = {www.math.uci.edu/~isaac/NSA\%20notes.pdf},
+      title={Model theory with applications to algebra and analysis. Vol. 2},
+  },
+  book={
+      series={London Math. Soc. Lecture Note Ser.},
+      volume={350},
+      publisher={Cambridge Univ. Press, Cambridge},
+  },
+  %  isbn={978-0-521-70908-8},
+  date={2008},
+  pages={315--427},
+  %  review={\MR{2436146}},
+  %  doi={10.1017/CBO9780511735219.011},
 }
 
-\bib{H}{arXiv}{
-  label={H},
-  author = {Hart, Bradd},
-  title = {An Introduction To Continuous Model Theory},
-  eprint={2303.03969},
-  doi = {10.48550/arXiv.2303.03969},
-  url = {https://arxiv.org/abs/},
-  publisher = {arXiv},
-  date = {2023},
-}
+% \bib{G}{article}{
+%   label={G},
+%   author = {Goldbring, Isaac},
+%   title = {Lecture notes on nonstandard analysis},
+%   conference={
+%     title={UCLA Summer School in Logic 2012}
+%    },
+%   eprint = {www.math.uci.edu/~isaac/NSA\%20notes.pdf},
+% }
+
+% \bib{H}{arXiv}{
+%   label={H},
+%   author = {Hart, Bradd},
+%   title = {An Introduction To Continuous Model Theory},
+%   eprint={2303.03969},
+%   doi = {10.48550/arXiv.2303.03969},
+%   url = {https://arxiv.org/abs/},
+%   publisher = {arXiv},
+%   date = {2023},
+% }
 
 \bib{Hr}{article}{
    label={Hr},
