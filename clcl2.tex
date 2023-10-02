@@ -30,6 +30,7 @@
 % \usepackage{stmaryrd}
 % \usepackage{stix}
 \def\dotminus{\stackon[.2ex]{$-$}{$.$}}
+% \def\wneg{\stackon[-.2ex]{$\neg$}{$\neg$}}
 \usepackage{dsfont}
 % \newcommand*{\TakeFourierOrnament}[1]{{%
 % \fontencoding{U}\fontfamily{futs}\selectfont\char#1}}
@@ -145,7 +146,7 @@
   These have been introduced by Henson and Iovino.\\[1ex]
   \noindent
   We review and elaborate on the properties of positive formulas and their approximations.
-  In parallel, we introduce \textit{continuous\/} formulas which provide a better counterpart to Henson and Iovino theory of normed spaces and the real-valued model theory of metric spaces of~\cite{BBYHU}.
+  In parallel, we introduce \textit{continuous\/} formulas which provide a better counterpart to Henson and Iovino theory of normed spaces and the real-valued model theory of metric spaces of~\cite{BBHU}.
   Within this setting we discuss $\omega$-categoricity.
 \end{abstract}
 
@@ -319,6 +320,11 @@ For $\varphi,\varphi'$ (free variables are hidden) positive formulas possibly wi
 If no such atomic formulas occurs in $\varphi$, then $\varphi>\varphi$.
 We call $\varphi'$ a \emph{weakening\/} of $\varphi$.
 Note that $>$ is a dense transitive relation and that  $\varphi\to\varphi'$ in every ${\EuScript L}$-structure.
+For every type $p(x)$, we write 
+
+\ceq{\hfill \emph{$p'(x)$}}{=}{\big\{\varphi'(x)\ :\ \varphi'>\varphi\textrm{ for some }\varphi(x)\in p\big\}}
+
+in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
 
 We write \emph{$\tilde\varphi\perp\varphi$\/} when $\tilde\varphi$ is obtained by replacing each atomic formula $t\in C$ occurring in $\varphi$ with $t\in\tilde{C}$ where $\tilde{C}$ is some compact set disjoint from $C$.
 The atomic formulas in ${\EuScript L}_{\sf H}$ are replaced with their negation.
@@ -348,12 +354,6 @@ Notice that the weakening and the strong negation of a formula in ${\EuScript L}
   The lemma follows easily by induction.
 \end{proof}
 
-For every type $p(x)$, we write 
-
-\ceq{\hfill \emph{$p'(x)$}}{=}{\big\{\varphi'(x)\ :\ \varphi'>\varphi\textrm{ for some }\varphi(x)\in p\big\}}
-
-in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
-
 \begin{definition}\label{def_dense}
   A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p/c-dense\/} modulo $T$, a theory, if for every positive/continuous $\varphi(x)$ and every $\varphi'>\varphi$, there is a formula $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
   % If $T$ is empty, we say p/c-dense modulo ${\EuScript L}$.
@@ -367,7 +367,7 @@ The following fact is easily proved by induction.
 
 \begin{fact}
   Let ${\EuScript F}$ be a set of formulas closed under the connectives $\wedge$, $\vee$, $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\forall\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf I}{.8ex}\kern-.2ex}$.
-  Then ${\EuScript F}$ is /c-dense if the condition above is satisfied when  $\varphi(x)$ atomic.
+  Then ${\EuScript F}$ is p/c-dense if the condition in Definition~\ref{def_dense} is satisfied when $\varphi(x)$ atomic.
 \end{fact}
 
 Using the fact, it is immediate to verify the following.
@@ -957,7 +957,7 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
   Let $p(x)\subseteq{\EuScript L}^{\rm p/c}(A)$.
   The following are equivalent
   \begin{itemize}
-    \item[1.] $p(x)$ is a maximally standardly consistent subsets of ${\EuScript L}^{\rm p/c}_x(A)$;
+    \item[1.] $p(x)$ is a subsets of ${\EuScript L}^{\rm p/c}_x(A)$ that is maximally consistent in ${\EuScript U}^{|x|}$;
     \item[2.] $p(x)=\mbox{p/c-tp}(a/A)$ for some $a\in{\EuScript U}^{|x|}$.
   \end{itemize}
 \end{fact}
@@ -1384,7 +1384,7 @@ We say that the relation $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R$
 \end{fact}
 
 \begin{proof}
-  Let $\langle R_i:i<\lambda\rangle$ be maximal decreasing chain of relations $R_i\mathrel{\subseteq}R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$.
+  Let $\langle R_i:i<\lambda\rangle$ be a decreasing chain of maximal length of relations such that $R_i\mathrel{\subseteq}R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R_i}\circ\mathrel{(\sim)}$.
   Let  $R'$ the intersection  of the chain.
   By maximality, $R'$ is a reduced relation.
   Finally, $\mathrel{(\sim)}\circ \mathrel{R}\circ\mathrel{(\sim)}\ \ =\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$ is clear.
@@ -1489,7 +1489,7 @@ Note that, though $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ above is neither total
 
 We write \emph{${\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$} for the set of positive/continuous formulas without quantifiers of sort ${\sf I}$.
 In~\cite{clcl} it is proved that ${\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}$ is a p-dense set.
-Here we adapt the argument to continuous formulas.
+Here we adapt the argument so that it it applies also to the continuous case.
 
 \begin{proposition}\label{prop_Iqf_elim}
   Every relation of small cardinality $R$ that preserves the truth of formulas in ${\EuScript L}^{\rm p/c}_{{\sf I}{\rm qf}}$ extends to p/c-automorphisms of ${\EuScript U}$.
@@ -1519,14 +1519,13 @@ Here we adapt the argument to continuous formulas.
 \end{proof}
 
 \begin{corollary}\label{corol_cLcomplete}
-  Let $a\in{\EuScript U}^{|x|}$.
-  Let
+  % Let $a\in{\EuScript U}^{|x|}$.
+  Let $p(x)$ and $q(x)$ be as in (i) or (ii) below.
+  Then $p(x)\leftrightarrow q(x)$.
   \begin{itemize}
     \item[i.] $p(x)={\EuScript L}^{\rm p}_{{\sf I}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{tp}(a)$.
     \item[ii.] $p(x)={\EuScript L}^{\rm c}_{{\sf I}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{c-tp}(a)$.
   \end{itemize}
-
-  Then $p(x)\leftrightarrow q(x)$.
 \end{corollary}
 
 \begin{proof}
@@ -1743,8 +1742,7 @@ The following proposition is our version of the Tarski-Vaught test.
 \end{remark}
 
 Classically, the first application of the Tarski-Vaught test is in the proof of the downward L\"owen\-heim-Skolem Theorem.
-Note that here the classical downward L\"owenheim-Skolem Theorem holds in full for all ${\EuScript L}$-structures.
-In particular every $A\subseteq{\EuScript U}$ is contained in a standard structure of cardinality $|{\EuScript L}(A)|$.
+Note that by the classical downward L\"owenheim-Skolem Theorem every $A\subseteq{\EuScript U}$ is contained in a standard structure of cardinality $|{\EuScript L}(A)|$.
 In this form the L\"owenheim-Skolem Theorem is not very informative.
 In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in ${\EuScript L}_{\sf I}$.
 
@@ -1764,7 +1762,7 @@ We say that ${\EuScript L}^{\rm p/c}$ is \emph{separable\/} if there is a counta
 \end{proof}
 
 \begin{proposition}
-  If ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$ and $I$ is a second countable (the topology has a countable base), then ${\EuScript L}^{\rm c}$ is separable modulo ${\EuScript L}$.
+  If ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf I}$ and $I$ is a second countable (the topology has a countable base), then ${\EuScript L}^{\rm c}$ is separable.
   Moreover if ${\EuScript L}_{\sf H}$ is countable then also ${\EuScript L}^{\rm p}$ is separable.
 \end{proposition}
 
@@ -1911,7 +1909,7 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 
 \def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-In this section we present a version of the omitting type theorem.
+In this section we present a version of the omitting types theorem.
 We are interested in omitting types in Cauchy complete models.
 We only consider the continuous case.
 
@@ -2001,7 +1999,7 @@ In words, the proof above shows that if $p(x)$ is approximately c-isolated, then
 \begin{lemma}\label{lem_kuratowskiUlam_cont}
   Let ${\EuScript L}^{\rm c}(A)$ be separable.
   Assume that $p(x)\subseteq{\EuScript L}^{\rm c}(A)$ is not approximately c-isolated.
-  Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm c}(A)$, has a solution $a$ such that $A,a$ does not c-isolate $p(x)$.
+  Then every consistent formula $\neg\psi(z)$, with $\psi(z)\in{\EuScript L}^{\rm c}(A)$, has a solution $a$ such that $A,a$ does not approximately c-isolate $p(x)$.
 \end{lemma}
 
 \begin{proof}
@@ -2149,22 +2147,59 @@ The following analogue of Ryll-Nardzewski's Theorem follows by the classical arg
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
-\section{Indiscernibles (tentative/garbadge)}
+\section{Indiscernibles}
 
-\def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
+\def\ceq#1#2#3{\parbox[t]{15ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
 Let $J,<$ be an infinite linear order.
-A sequence $\langle a_i:i\in J\rangle$ is p/c-indiscernible if $\mbox{p/c-tp}(a_{\restriction J_0})= \mbox{p/c-tp}(a_{\restriction J_1})$ for every $J_0,J_1\subseteq J$ such that $|J_0|=|J_1|<\omega$.
+A sequence $a=\langle a_i:i\in J\rangle$ is p/c-indiscernible if 
 
+\ceq{\hfill\mbox{p/c-tp}(a_{\restriction J_0})}{=}{\mbox{p/c-tp}(a_{\restriction J_1})}
 
-Let $a=\langle a_i:i\in J\rangle$.
+for every $J_0,J_1\subseteq J$ such that $|J_0|=|J_1|<\omega$.
+Note that as maximal positive types are complete, positive indisceribles are classical indiscernibles.
+
 Let $x=\langle x_i:i<\omega\rangle$.
-The p/c-EM-type of $a$ is the set
+Let $b=\langle b_i:i\in L\rangle$. 
+The Ehrenfeucht-Mostowski p/c-type of $a$ is the type
 
-\ceq{\hfill p(x)}{=}{\Big\{\varphi(x_{\restriction n})\in{\EuScript L}^{\rm p/c}\ \ :\ \ \varphi(a_{\restriction J_0})\textrm{ for every }J_0\subseteq J, |J_0|=n)\Big\}}
+\ceq{\hfill\mbox{EM-p/c-tp}(b)}{=}{\bigcup_{n<\omega}\Big\{\varphi(x_{\restriction n})\in{\EuScript L}^{\rm p/c}\ \ :\ \ \varphi(b_{\restriction L_0})\textrm{ for every } L_0\subseteq L, |L_0|=n\Big\}.}
+
+The following classical results holds unmodified.
+
+\begin{theorem}
+  Let $J,<$ and $L,<$ be infinite linear orders.
+  Let $b=\langle b_i:i\in L\rangle$.
+  Then there is a sequence of p/c-indiscernibles $a=\langle a_i:i\in J\rangle$ with the same Ehrenfeucht-Mostowski p/c-type as $b$.
+\end{theorem}
+
+\begin{proof}
+  The usual argument works but requires tuch of additional attention.
+
+  If $\psi(z)$ is a formula and $w$ is tuple of variables of the same length of $z$, we write $\psi(/w)$ for the formula obtained replacing $z$ by $w$ in $\psi(z)$.
+
+  Let $e(x)=\mbox{EM-p/c-tp}(b)$.
+  Let $z=\langle z_i:i\in J\rangle$.
+  Define
+
+  \ceq{\hfill q(z)}{=}{\bigcup_{n<\omega}\Big\{\varphi(/z_{\restriction J_0})\ \ :\ \ \varphi(x_{\restriction n})\in e,\  J_0\subseteq J, |J_0|=n\Big\}\quad\cup}
+
+  \ceq{\hfill }{ }{\bigcup_{n<\omega}\Big\{\varphi(/z_{\restriction J_0})\leftrightarrow\varphi(/z_{\restriction J_1})\ \ :\ \ \varphi(x_{\restriction n})\in{\EuScript L}^{\rm p/c},\  J_i\subseteq J,\  |J_i|=n\Big\}.}
+
+  By Ramsey's theorem $q(z)$ is finitely consistent (but note that positive saturation is not enough to infer the existence of a realization in ${\EuScript U}$).
+  Let $p(z)\subseteq{\EuScript L}^{\rm p/c}$ be maximal among the types that are finitely consistent with $q(z)$.
+
+  We claim that $p(z)$ is complete.
+  Namely, that $p(z)\rightarrow\neg\varphi(z)$ whenever $\varphi(z)\notin p$.
+  In fact, if $\varphi(z)\notin p$ then $\varphi'(z)\notin p$ for some $\varphi'>\varphi$.
+  Pick $\tilde\varphi\perp\varphi$ such that $\varphi\rightarrow\neg\tilde\varphi\rightarrow\varphi'$.
+  Then $\tilde\varphi(z)\vee\varphi'(z)$ is tautological.
+  As $\varphi'(z)\notin p$, by maximality $\tilde\varphi(z)\in p$ and $p(z)\rightarrow\neg\varphi(z)$ follows.
+
+  Then any $a\models p(z)$ is as required by the theorem.
+\end{proof}
 
 
-
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
@@ -2172,7 +2207,7 @@ The p/c-EM-type of $a$ is the set
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
-\section{Stable formulas (tentative/garbadge)}
+\section{Stable formulas (tentative)}
 
 \def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
@@ -2189,20 +2224,17 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<
   For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
   \begin{itemize}
     \item[1.] $\varphi(x\,;z)$ is stable;
-    \item[2.] for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and no $\tilde\varphi\perp\varphi$
+    \item[2.] for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and no $\tilde\varphi\perp\varphi$ such that (i) above and 
 
     \noindent\kern-\leftmargin
-    \ceq{{\rm i'.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)}
-    
-    \noindent\kern-\leftmargin
-    \ceq{{\rm ii'.}\hfill i>j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j)}
+    \ceq{\kern\leftmargin{\rm ii'.}\hfill i>j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j)}
   \end{itemize} 
 \end{fact}
 
 \begin{proof}
   (1$\Rightarrow$2) \ 
   Negate (2).
-  Then for every $n$ there is a sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and a formula $\tilde\varphi$ such that (i$'$) and (ii$'$).
+  Then for every $n$ there is a sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and a formula $\tilde\varphi$ such that (i) and (ii$'$).
   As $\tilde\varphi(x\,;z)\rightarrow\neg\varphi(x\,;z)$, then $\varphi(x\,;z)$ is not stable.
 
   (2$\Rightarrow$1) \ 
@@ -2213,31 +2245,31 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<
   \ceq{\hfill\neg\varphi(x\,;z)}{\leftrightarrow}{\bigvee_{\tilde\varphi\perp\varphi}\tilde\varphi(x\,;z).}
   
   Then for every $j<i<n$ there is a formula  $\tilde\varphi_{i,j}\perp\varphi$ such that $\tilde\varphi_{i,j}(a_i\,;b_j)$.
-  From the definition of strong negation it easy to infer that there is some $\tilde\varphi_n\perp\varphi$ such that $\tilde\varphi_{i,j}(x\,;z)\rightarrow\tilde\varphi_n(x\,;z)$ for all $j<i<n$.
+  By the definition of strong negation we infer that there is some $\tilde\varphi_n\perp\varphi$ such that $\tilde\varphi_{i,j}(x\,;z)\rightarrow\tilde\varphi_n(x\,;z)$ for all $j<i<n$.
   Then $\neg$(2) follows.
 \end{proof}
 
-\begin{fact}[wrong?]
-  For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
-  \begin{itemize}
-    \item[1.] $\varphi(x\,;z)$ is stable;
-    \item[2.] there is no sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ such that (i) and (ii) above.
-  \end{itemize} 
-\end{fact}
+% \begin{fact}[wrong?!]
+%   For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
+%   \begin{itemize}
+%     \item[1.] $\varphi(x\,;z)$ is stable;
+%     \item[2.] there is no sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ of indiscernibles such that $\varphi(a_0\,;b_1)$ and $\tilde\varphi(b_1\,;a_0)$ for every $\tilde\varphi\perp\varphi$.
+%   \end{itemize} 
+% \end{fact}
 
-\begin{proof}[wrong proof]
-  Only 2$\Rightarrow$1 requires a proof.
-  Negate (1).
-  For every $n$ let $\tilde\varphi_n\perp\varphi$ withness the failure of (2).
-  Reasoning as in the proof of Fact~\ref{fact_stable_p}, we can require that $\tilde\varphi_n(x\,;z)\rightarrow\tilde\varphi_{n+1}(x\,;z)$.
+% \begin{proof}[wrong proof]
+%   Only 2$\Rightarrow$1 requires a proof.
+%   Negate (1).
+%   For every $n$ let $\tilde\varphi_n\perp\varphi$ withness the failure of (2).
+%   Reasoning as in the proof of Fact~\ref{fact_stable_p}, we can require that $\tilde\varphi_n(x\,;z)\rightarrow\tilde\varphi_{n+1}(x\,;z)$.
   
-  Let $\bar x\,;\bar y=\langle x_i\,;z_i\ :\ i<\omega\rangle$.
-  Our choice of $\tilde\varphi_n(x\,;z)$ ensures that the following type is finitely consistent
+%   Let $\bar x\,;\bar y=\langle x_i\,;z_i\ :\ i<\omega\rangle$.
+%   Our choice of $\tilde\varphi_n(x\,;z)$ ensures that the following type is finitely consistent
 
-  \ceq{\hfill p(\bar x\,;\bar z)}{=}{\big\{\varphi(x_i\,;z_j)\ :\ i<j<\omega\big\}\ \cup\ \big\{\tilde\varphi_n(x_i\,;z_j)\ :\ j<i<\omega\big\}.}
+%   \ceq{\hfill p(\bar x\,;\bar z)}{=}{\big\{\varphi(x_i\,;z_j)\ :\ i<j<\omega\big\}\ \cup\ \big\{\tilde\varphi_n(x_i\,;z_j)\ :\ j<i<\omega\big\}.}
 
-  Any realization of $p(\bar x\,;\bar z)$ is as required by (2).
-\end{proof}
+%   Any realization of $p(\bar x\,;\bar z)$ is as required by (2).
+% \end{proof}
 
 Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
 
@@ -2286,8 +2318,8 @@ We say that ${\EuScript D}$ is \emph{externally definable\/}  by $\varphi(x\,;z)
 \begin{biblist}[]\normalsize
 
 
-\bib{BBYHU}{article}{
-  label={BBYHU},
+\bib{BBHU}{article}{
+  label={BBHU},
   author={Ben Yaacov, Ita\"{\i}},
   author={Berenstein, Alexander},
   author={Henson, C. Ward},
