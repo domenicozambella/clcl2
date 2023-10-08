@@ -147,7 +147,7 @@
   \noindent
   We review and elaborate on the properties of positive formulas and their approximations.
   In parallel, we introduce \textit{continuous\/} formulas which provide a better counterpart to Henson and Iovino theory of normed spaces and the real-valued model theory of metric spaces of~\cite{BBHU}.
-  To demostrate this setting in action we discuss $\omega$-categoricity and stability.
+  To demostrate this setting in action we discuss $\omega$-categoricity and (local) stability.
 \end{abstract}
 
 % The model theory of standard structures is based on the notions of positive formulas and of approximations.
@@ -1337,10 +1337,10 @@ We say that $R$ preserves the truth of ${\EuScript F}$-formulas if
 
 \ceq{\#\hfill{\EuScript U}\models\varphi(a)}{\Rightarrow}{{\EuScript V}\models\varphi(b)}\hfill for every $\varphi(x)\in{\EuScript F}$ and every $\langle a,b\rangle\in R$.
 
-We will consider four extreem cases for ${\EuScript F}$: the set of all positive/continuous formulas and the set of atomic positive/continuous formulas.
-We donote the latter by \emph{${\EuScript L}^{\rm p/c}_{\rm at}$.}
+We will consider two extreem cases for ${\EuScript F}$: the set of all positive/continuous formulas and the set of atomic positive/continuous formulas.
+We denote the latter by \emph{${\EuScript L}^{\rm p/c}_{\rm at}$.}
 Relations that preserve the truth of ${\EuScript L}^{\rm p/c}$-formulas are called \emph{p/c-elementary.}
-Note that in p-elementary relations are (graphs of) injective functions and some of the facts below become trivial. 
+Note that p-elementary relations are (graphs of) injective functions and some of the facts below become trivial. 
 
 % Below, for simplicity we only consider c-elementary relations between ${\EuScript U}$ and itself.
 % Then, by Fact~\ref{fact_HImorphisms} and Proposition~\ref{prop_approx}, the condition above is aquivalent to
@@ -1373,7 +1373,7 @@ By the following fact, if $R$ preserves the truth of ${\EuScript F}$-formulas so
 %
 % It is easy to verify that the definition is well-given and that $R_{/\sim}$ is injective.
 
-We denote by the same symbol $(\sim)$ the equivalence relation defined in Section~\ref{Cauchy} in ${\EuScript U}$ and ${\EuScript V}$.
+We denote by $(\sim)$ the equivalence relation defined as in Section~\ref{Cauchy}; we use the same same symbol for the relation in ${\EuScript U}$ and in ${\EuScript V}$.
 The context will disambiguate.
 We say that the relation $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R$ such that $R\ \subseteq\ \mathrel{(\sim)}\circ \mathrel{R'}\circ\mathrel{(\sim)}$.
 
@@ -1910,13 +1910,13 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 \def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
 In this section we present a version of the omitting types theorem.
-We are interested in omitting types in Cauchy complete models.
+We are interested in obtaining Cauchy complete models omitting a given type.
 We only consider the continuous case.
 
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript L}^{\rm p/c}(A)$ we say that it is \emph{p/c-isolated\/} by $A$.
 We omit the reference to $A$ when this is clear from the context (e.g., when $p(x)$ is presented as a type over $A$).
-By Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p/c-isolated by $A$, then $p(x)$ is realized in every c-model containing $A$.
+By Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p/c-isolated by $A$, then $p(x)$ is realized in every p/c-model containing $A$.
 % We also have that if $p(x)$ is is realized in $M$, a p-model, then $p(x)$ is p-isolated by $M$.
 % In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$ is positive by Morleyzation.
 
@@ -2237,12 +2237,12 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<
 
 \ceq{{\rm ii.}\hfill i>j}{\Rightarrow}{\neg\varphi(a_i\,;b_j)}
 
-One possible manner to adapt this definition to our context it to replace (ii) with
+One possible adaptation of this definition to our context is to replace (ii) with
 
-\ceq{{\rm ii'.}\hfill i>j}{\Rightarrow}{\neg\varphi(a_i\,;b_j)}
+\ceq{{\rm ii'.}\hfill i>j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j)}
 
 where $\tilde\varphi\perp\varphi$.
-We note that if require that is $n$ the same for all $\tilde\varphi$ we do not get anything new.
+The following fact shows that if require $n$ to be the same for all $\tilde\varphi$ we do not get anything new.
 
 \begin{fact}\label{fact_stable_p}
   For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
@@ -2271,43 +2271,102 @@ We note that if require that is $n$ the same for all $\tilde\varphi$ we do not g
 \end{proof}
 
 The classical notion of stabity is too strong in many circumstances.
-We say that $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ is \emph{approximately stable\/} if for every $\tilde\varphi\perp\varphi$ there is an $n<\omega $ such that no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ saisfies (i) and (ii') above.
+We say that the formula $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ is \emph{weakly stable\/} if for every $\tilde\varphi\perp\varphi$ there is an $n<\omega $ such that no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ saisfies (i) and (ii$'$) above.
 
 \begin{fact}
   The following are equivalent
   \begin{itemize}
-    \item[1.] $\varphi(x\,;z)$ is approximately stable;
-    \item[2.] for every $\tilde\varphi\perp\varphi$ no sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ saisfies (i) and (ii') above;
-    \item[3.] no sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ saisfies (i) and (ii') above for every $\tilde\varphi\perp\varphi$;
-    \item[3.] There is no indiscernible sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ such that $\varphi(a_0\,;b_1)$ and  $\tilde\varphi(a_1\,;b_0)$ for every $\tilde\varphi\perp\varphi$.
+    \item[1.] $\varphi(x\,;z)$ is weakly stable;
+    \item[2.] no $\langle a_i\,;b_i\,:\,i<\omega\rangle$ and $\tilde\varphi\perp\varphi$ satisfiy (i) and (ii$'$);
+    \item[3.] no indiscernible sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ is such that $\varphi(a_0\,;b_1)$ and $\neg\varphi(a_1\,;b_0)$.
   \end{itemize}
 \end{fact}
 
-Using the terminology of~\cite{Hr}, $\varphi(x\,;z)$ is stable if it is stably separated from all $\tilde\varphi\perp\varphi$.
+Note that (2) says that $\varphi(x\,;z)$ is weakly stable if it is stably separated from every $\tilde\varphi\perp\varphi$, as defined in~\cite{Hr}.
 
-A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{finitely definable\/} by $\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ and $\tilde\varphi\bot\varphi$ such that
+Classically, (3) is equivalent to stability, but note that classical and positive monster models do not have the same indiscernible sequences. 
 
-\ceq{{\rm i.}\hfill B^{|z|}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \cap\, {\EuScript D}}
+Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and $\tilde\varphi\perp\varphi$.
+A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{p-approximable\/} by $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ if for some $\tilde\varphi\perp\varphi$ for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ such that
 
-\ceq{{\rm ii.}\hfill B^{|z|}\ \cap\ \tilde\varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \smallsetminus\, {\EuScript D}}
+\ceq{{\rm iii.}\hfill B^{|z|}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \cap\, {\EuScript D}.}
 
-We say that ${\EuScript D}$ is \emph{externally definable\/}  by $\varphi(x\,;z)$ if there is a maximal consistent $\varphi(x\,;z)$-type $p(x)\subseteq{\EuScript L}({\EuScript U})$ such that ${\EuScript D}=\big\{b\ :\  \varphi(x\,;b)\in p\big\}$.
+\ceq{{\rm iv.}\hfill B^{|z|}\ \cap\ \tilde\varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \smallsetminus\, {\EuScript D}.}
+
+We say that ${\EuScript D}$ is p-approximable \emph{from below\/} if we can strengthen (iv) by requiring that
+
+\ceq{{\rm v.}\hfill\neg{\EuScript D}}{\subseteq}{\tilde\varphi(a\,;{\EuScript U});}
+
+We say that ${\EuScript D}$ is \emph{externally p-definable\/} if for some formula $\tilde\varphi\perp\varphi$ the type below is finitely consistent
+
+\ceq{\hfill p(x)}{=}{\big\{\varphi(x\,;b)\ :\ b\in{\EuScript D}\big\}\ \cup\ \big\{\tilde\varphi(x\,;b)\ :\ b\notin{\EuScript D}\big\}.} 
+
+The following fact is straightforward. 
 
 \begin{fact}
-  The following are equivalent
+  For any $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ the following are equivalent
   \begin{itemize}
-    \item[1.] ${\EuScript D}$ is finitely definable;
-    \item[2.] ${\EuScript D}$ is externally definable;
+    \item[1.] ${\EuScript D}$ is p-approximable by $\varphi(x\,;z)$;
+    \item[2.] ${\EuScript D}$ is externally p-definable by $\varphi(x\,;z)$.
   \end{itemize}
 \end{fact}
+
+\begin{lemma}
+  Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ be a weakly stable.
+  If ${\EuScript D}$ is p-approximable by $\varphi(x\,;z)$ from below then ${\EuScript D}=\neg\psi({\EuScript U})$ where $\psi(z)=\tilde\varphi(a_1\,;z)\vee\dots\vee\tilde\varphi(a_n\,;z)$ for some $a_i\in{\EuScript U}^{|x|}$.
+\end{lemma}
 
 \begin{proof}
-  (1$\Rightarrow$2) \ 
-  Let 
+  The elements $a_n$ are defined recursively together with some auxiliary elements $b_n\in{\EuScript D}$.
+  Suppose $b_0,\dots,b_{n-1}$ have been defined (this assumption is empty if $n=0$).
+  We first define $a_n$, then $b_n$.
+  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\varphi(a_n\,;{\EuScript U})$ and $\neg{\EuScript D}\subseteq\varphi(a_n\,;{\EuScript U})$.
+  This is possible by (iii) and (v).
+  Now, if possible, choose $b_n$ such that
+
+  \ceq{\hfill b_n}{\in}{{\EuScript D}\ \cap\ \bigcup^n_{i=0}\tilde\varphi(a_i\,;{\EuScript U})}.
+
+  If this is not possible, $a_0,\dots,a_n$ are are required by the lemma.
+  We claim that at some $n$ the procedure above halts.
+  In fact, otherwise we would obtain $\langle a_i\,;b_i : i\le \omega\rangle$ such that
   
-  \ceq{\hfill p(x)}{=}{\big\{\varphi(x\,;b)\ :\ b\in{\EuScript D}\big\}\ \cup\ \big\{\neg\varphi(x\,;b)\ :\ b\notin{\EuScript D}\big\}}. 
+  \ceq{1.\hfill i>j}{\Rightarrow}{\varphi(a_i\,;b_j);}
+
+  \ceq{2.\hfill i<j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j).}
   
-  By 
+  Though the inequalities in (1) and (2) are the reversed of those in (i) and (ii$'$), by a simple argument of compactness this is sufficient to contradict the weak stability of $\varphi(x\,;z)$.
+\end{proof}
+
+\begin{lemma}
+  If ${\EuScript D}$ is p-approximated by a weakly stable formula $\varphi(x\,;z)$.
+  Then, for some $m$, the formula 
+
+  \ceq{\hfill\psi(x_0,\dots,x_m\,;z)}{=}{\varphi(x_0\,;z)\wedge\dots\wedge\varphi(x_m\,;z)}
+
+  p-approximates ${\EuScript D}$ from below.
+\end{lemma}
+
+\begin{proof}
+  Let $\tilde\varphi\perp\varphi$ be a strong negation witnessing the p-approximation.
+  Let $m$ be such that no sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i) and (ii$'$).
+  Let $B\subseteq{\EuScript D}$ be finite.
+  We prove that there are some $a_0,\dots,a_m$ such that $B\subseteq\psi(a_0,\dots,a_m\,;{\EuScript U})$ and $\neg{\EuScript D}\subseteq\tilde\psi(a_0,\dots,a_m\,;{\EuScript U})$, where
+
+  \ceq{\hfill\psi(x_0,\dots,x_m\,;z)}{=}{\tilde\varphi(x_0\,;z)\wedge\dots\wedge\tilde\varphi(x_m\,;z).}
+  
+  It is easy to see that this sufficies for the lemma.
+  As in the proof above, we define $a_n$ and $b_n$ by recursion.
+  Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\notin{\EuScript D}$ have been defined.
+  We first define $a_n$, then $b_n$. 
+  Choose $a_n\in{\EuScript U}^{|x|}$ such that $B\subseteq\varphi(a_n\,;{\EuScript U})$ and $\{b_0,\dots,b_{n-1}\}\subseteq\tilde\varphi(a_n\,;{\EuScript U})$.
+  This $a_n$ exists by p-approximability.
+  Now, if possible, let $b_n$ such that
+
+  \ceq{\hfill b_n}{\in}{\bigcap^n_{i=0}\tilde\varphi(a_i,{\EuScript U})\smallsetminus{\EuScript D}}
+  
+  If this is not possible, the required parameters are $a_0,\dots,a_n$ and $a_i=a_m$ for $n<i\le m$.
+  We claim that at some $n$ the procedure above halts at some $n\le m$.
+  In fact, otherwise we would obtain a sequence $\langle a_i\,;b_i : i\le m+1\rangle$ contradicting our choice of $m$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%
