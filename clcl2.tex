@@ -2270,91 +2270,104 @@ The following fact shows that if require $n$ to be the same for all $\tilde\varp
   The negation of (2) follows.
 \end{proof}
 
-The classical notion of stabity is too strong in many circumstances.
-We say that the formula $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ is \emph{weakly stable\/} if for every $\tilde\varphi\perp\varphi$ there is an $n<\omega $ such that no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ saisfies (i) and (ii$'$) above.
+The classical notion of stabity is too strong in some circumstances.
+The following definition is taken from~\cite{Hr}.
+The formulas $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ are \emph{stably separated\/} if there is an $n<\omega $ such that no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ saisfies (i) and (ii$'$) above.
 
-\begin{fact}
+\begin{fact}\label{fact_ssep}
+  Let $\varphi(x\,;z), \tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$.
   The following are equivalent
   \begin{itemize}
-    \item[1.] $\varphi(x\,;z)$ is weakly stable;
-    \item[2.] no $\langle a_i\,;b_i\,:\,i<\omega\rangle$ and $\tilde\varphi\perp\varphi$ satisfiy (i) and (ii$'$);
-    \item[3.] no indiscernible sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ is such that $\varphi(a_0\,;b_1)$ and $\neg\varphi(a_1\,;b_0)$.
+    \item[1.] $\varphi,\tilde\varphi$ are stably separated;
+    \item[2.] no $\langle a_i\,;b_i\,:\,i<\omega\rangle$ satisfies (i) and (ii$'$);
+    \item[3.] no indiscernible sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ is such that $\varphi(a_0\,;b_1)$ and $\tilde\varphi(a_1\,;b_0)$.
   \end{itemize}
 \end{fact}
 
-Note that (2) says that $\varphi(x\,;z)$ is weakly stable if it is stably separated from every $\tilde\varphi\perp\varphi$, as defined in~\cite{Hr}.
+Two simple remarks.
+If $\varphi(x\,;z)$ is stable then it is stably separated from every $\tilde\varphi\perp\varphi$ and in general from any $\tilde\varphi$ that is inconsistent with $\varphi$.
+A simple compactness argument shows that if $\varphi,\tilde\varphi$ is stably separated then also $\tilde\varphi,\varphi$ is stably separated.
+We also need the following which is an easy consequence of (3) of Fact~\ref{fact_ssep}.
 
-Classically, (3) is equivalent to stability, but note that classical and positive monster models do not have the same indiscernible sequences. 
+\begin{fact}
+  Let $\varphi_i(x\,;z),\tilde\varphi_i(x\,;z)\in{\EuScript L}^{\rm p}$, for $i=1,\dots,n$ be stably separated.
+  Then the formulas $\varphi_1\wedge\dots\wedge\varphi_n$ and $\tilde\varphi_1\vee\dots\vee\tilde\varphi_n$.
+\end{fact}
 
-Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and $\tilde\varphi\perp\varphi$.
-A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{p-approximable\/} by $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ if for some $\tilde\varphi\perp\varphi$ for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ such that
+The following definition is derived from~\cite{Z}: the term \textit{approximable\/} not related to the topology of $I$.
+A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{p-approximable\/} by $\varphi,\tilde\varphi$ if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ such that
 
 \ceq{{\rm iii.}\hfill B^{|z|}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \cap\, {\EuScript D}.}
 
 \ceq{{\rm iv.}\hfill B^{|z|}\ \cap\ \tilde\varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \smallsetminus\, {\EuScript D}.}
 
-We say that ${\EuScript D}$ is p-approximable \emph{from below\/} if we can strengthen (iv) by requiring that
+We say that ${\EuScript D}$ is p-approximable \emph{from below\/} if (iv) can be strengthened by requiring that
 
 \ceq{{\rm v.}\hfill\neg{\EuScript D}}{\subseteq}{\tilde\varphi(a\,;{\EuScript U});}
 
-We say that ${\EuScript D}$ is \emph{externally p-definable\/} if for some formula $\tilde\varphi\perp\varphi$ the type below is finitely consistent
+We say that ${\EuScript D}$ is \emph{externally p-definable\/} by $\varphi,\tilde\varphi$ if the type below is finitely consistent
 
 \ceq{\hfill p(x)}{=}{\big\{\varphi(x\,;b)\ :\ b\in{\EuScript D}\big\}\ \cup\ \big\{\tilde\varphi(x\,;b)\ :\ b\notin{\EuScript D}\big\}.} 
 
-The following fact is straightforward. 
-
-\begin{fact}
+\begin{remark}
   For any $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ the following are equivalent
   \begin{itemize}
     \item[1.] ${\EuScript D}$ is p-approximable by $\varphi(x\,;z)$;
     \item[2.] ${\EuScript D}$ is externally p-definable by $\varphi(x\,;z)$.
   \end{itemize}
-\end{fact}
+\end{remark}
 
-\begin{lemma}
+The following two lemmas are required to prove a generalization of the well-known fact that sets that are externally definable by a stable formula are definable.
+
+\begin{lemma}\label{lem_def_frombelow}
   Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ be a weakly stable.
-  If ${\EuScript D}$ is p-approximable by $\varphi(x\,;z)$ from below then ${\EuScript D}=\neg\psi({\EuScript U})$ where $\psi(z)=\tilde\varphi(a_1\,;z)\vee\dots\vee\tilde\varphi(a_n\,;z)$ for some $a_i\in{\EuScript U}^{|x|}$.
+  If ${\EuScript D}$ is p-approximable by $\varphi(x\,;z)$ from below then $\neg{\EuScript D}=\psi({\EuScript U})$ where $\psi(z)=\tilde\varphi(a_1\,;z)\wedge\dots\wedge\tilde\varphi(a_n\,;z)$ for some $a_i\in{\EuScript U}^{|x|}$.
 \end{lemma}
 
 \begin{proof}
   The elements $a_n$ are defined recursively together with some auxiliary elements $b_n\in{\EuScript D}$.
   Suppose $b_0,\dots,b_{n-1}$ have been defined (this assumption is empty if $n=0$).
   We first define $a_n$, then $b_n$.
-  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\varphi(a_n\,;{\EuScript U})$ and $\neg{\EuScript D}\subseteq\varphi(a_n\,;{\EuScript U})$.
+  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\varphi(a_n\,;{\EuScript U})$ and $\neg{\EuScript D}\subseteq\tilde\varphi(a_n\,;{\EuScript U})$.
   This is possible by (iii) and (v).
   Now, if possible, choose $b_n$ such that
 
-  \ceq{\hfill b_n}{\in}{{\EuScript D}\ \cap\ \bigcup^n_{i=0}\tilde\varphi(a_i\,;{\EuScript U})}.
+  \ceq{\hfill b_n}{\in}{{\EuScript D}\ \cap\ \bigcap^n_{i=0}\tilde\varphi(a_i\,;{\EuScript U})}.
 
-  If this is not possible, $a_0,\dots,a_n$ are are required by the lemma.
-  We claim that at some $n$ the procedure above halts.
+  If this is not possible, then
+  
+  \ceq{\hfill\neg{\EuScript D}}{\subseteq}{\bigcap^n_{i=0}\tilde\varphi(a_i\,;{\EuScript U})}.
+  
+  As the other inclusion is clear, $a_0,\dots,a_n$ are those required by the lemma.
+  We claim that at some $n$ the procedure halts.
   In fact, otherwise we would obtain $\langle a_i\,;b_i : i\le \omega\rangle$ such that
   
   \ceq{1.\hfill i>j}{\Rightarrow}{\varphi(a_i\,;b_j);}
 
   \ceq{2.\hfill i<j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j).}
   
-  Though the inequalities in (1) and (2) are the reversed of those in (i) and (ii$'$), by a simple argument of compactness this is sufficient to contradict the weak stability of $\varphi(x\,;z)$.
+  This shows that the pair $\tilde\varphi,\varphi$ is not stably sepatated.
+  As remarked above, this contradicts the stable separation of  $\varphi,\tilde\varphi$.
 \end{proof}
 
-\begin{lemma}
-  If ${\EuScript D}$ is p-approximated by a weakly stable formula $\varphi(x\,;z)$.
-  Then, for some $m$, the formula 
+\begin{lemma}\label{lem_apx_frombelow}
+  Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and $\tilde\varphi\perp\varphi$ be stably sepatated.
+  Let ${\EuScript D}$ be p-approx\-imable by $\varphi,\tilde\varphi$.
+  Then, for some $m$, the formulas 
 
   \ceq{\hfill\psi(x_0,\dots,x_m\,;z)}{=}{\varphi(x_0\,;z)\wedge\dots\wedge\varphi(x_m\,;z)}
+
+  \ceq{\hfill\tilde\psi(x_0,\dots,x_m\,;z)}{=}{\tilde\varphi(x_0\,;z)\vee\dots\vee\tilde\varphi(x_m\,;z)}
 
   p-approximates ${\EuScript D}$ from below.
 \end{lemma}
 
 \begin{proof}
-  Let $\tilde\varphi\perp\varphi$ be a strong negation witnessing the p-approximation.
   Let $m$ be such that no sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i) and (ii$'$).
   Let $B\subseteq{\EuScript D}$ be finite.
-  We prove that there are some $a_0,\dots,a_m$ such that $B\subseteq\psi(a_0,\dots,a_m\,;{\EuScript U})$ and $\neg{\EuScript D}\subseteq\tilde\psi(a_0,\dots,a_m\,;{\EuScript U})$, where
+  We prove that there are some $a_0,\dots,a_m$ such that $B\subseteq\varphi(a_i\,;{\EuScript U})$ for all $i\le m$ and $\neg{\EuScript D}\subseteq\tilde\psi(a_0,\dots,a_m\,;{\EuScript U})$.
+  It is easy to see that this proves (iii) and (v).
 
-  \ceq{\hfill\psi(x_0,\dots,x_m\,;z)}{=}{\tilde\varphi(x_0\,;z)\wedge\dots\wedge\tilde\varphi(x_m\,;z).}
-  
-  It is easy to see that this sufficies for the lemma.
   As in the proof above, we define $a_n$ and $b_n$ by recursion.
   Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\notin{\EuScript D}$ have been defined.
   We first define $a_n$, then $b_n$. 
@@ -2362,11 +2375,32 @@ The following fact is straightforward.
   This $a_n$ exists by p-approximability.
   Now, if possible, let $b_n$ such that
 
-  \ceq{\hfill b_n}{\in}{\bigcap^n_{i=0}\tilde\varphi(a_i,{\EuScript U})\smallsetminus{\EuScript D}}
+  \ceq{\hfill b_n}{\in}{\bigcap^n_{i=0}\neg\tilde\varphi(a_i,{\EuScript U})\smallsetminus{\EuScript D}}
   
-  If this is not possible, the required parameters are $a_0,\dots,a_n$ and $a_i=a_m$ for $n<i\le m$.
+  If this is not possible, then
+  
+  \ceq{\hfill\neg{\EuScript D}}{\subseteq}{\bigcup^n_{i=0}\tilde\varphi(a_i,{\EuScript U})}
+  
+  hence, setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
   We claim that at some $n$ the procedure above halts at some $n\le m$.
-  In fact, otherwise we would obtain a sequence $\langle a_i\,;b_i : i\le m+1\rangle$ contradicting our choice of $m$.
+  In fact, otherwise we would obtain a sequence $\langle a_i\,;b_i : i\le m+1\rangle$ such that (i) and (ii$'$), contradicting our choice of $m$.
+\end{proof}
+
+\begin{theorem}
+  Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and $\tilde\varphi\perp\varphi$ be stably sepatated.
+  Let ${\EuScript D}$ be p-approx\-imable by $\varphi,\tilde\varphi$.
+  Then there are $a_{i,j}\in{\EuScript U}^{|x|}$ and $c_{i,j}\in{\EuScript U}^{|x|}$ such that
+
+  \ceq{1.\hfill\neg{\EuScript D}}{=}{\bigcup^n_{i=0}\ \bigcap^m_{j=0}\tilde\varphi(a_{i,j},{\EuScript U})}
+
+  \ceq{2.\hfill{\EuScript D}}{=}{\bigcup^n_{i=0}\ \bigcap^m_{j=0}\varphi(c_{i,j},{\EuScript U})}
+\end{theorem}
+
+\begin{proof}
+  We prove (1). 
+  The same argument applied to the pair of formulas $\tilde\varphi,\varphi$ proves (2).
+  Apply Lemma~\ref{lem_apx_frombelow} to obtain $\psi(x_0,\dots,x_m\,;z)$ and  $\tilde\psi(x_0,\dots,x_m\,;z)$ that approximate ${\EuScript D}$ from below.
+  Then (1) follows from Lemma~\ref{lem_def_frombelow}.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -2487,6 +2521,20 @@ The following fact is straightforward.
   title = {Continuous Logic for the Classical Logician},
   note={T.a.},
   date = {202?},
+}
+
+\bib{Z}{article}{
+  label={Z},
+   author={Zambella, Domenico},
+   title={Elementary classes of finite VC-dimension},
+   journal={Arch. Math. Logic},
+   volume={54},
+   date={2015},
+   number={5-6},
+   pages={511--520},
+  %  issn={0933-5846},
+  %  review={\MR{3372605}},
+  %  doi={10.1007/s00153-015-0424-0},
 }
 
 
