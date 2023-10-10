@@ -1149,7 +1149,7 @@ The following fact will be used below without mention.
   \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
   %
   By induction.
-  Only implication $\Leftarrow$ requires a proof
+  Only implication $\Leftarrow$ requires a proof.
   For limit ordinals induction is trivial.
   Assume $a_i\sim b_i$ for every $i\le\lambda$.
   Let $|a|=|b|=\lambda$ and assume inductively that (note that it suffices to consider tuples $\tau$ of arity $1$) 
@@ -2237,7 +2237,8 @@ A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<
 
 \ceq{{\rm ii.}\hfill i>j}{\Rightarrow}{\neg\varphi(a_i\,;b_j)}
 
-One possible adaptation of this definition to our context is to replace (ii) with
+Now, let  $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$.
+We can adapt the definition above by replacing (ii) with
 
 \ceq{{\rm ii'.}\hfill i>j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j)}
 
@@ -2284,61 +2285,76 @@ The formulas $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ are \
   \end{itemize}
 \end{fact}
 
-Two simple remarks.
+Two simple remarks:
 If $\varphi(x\,;z)$ is stable then it is stably separated from every $\tilde\varphi\perp\varphi$ and in general from any $\tilde\varphi$ that is inconsistent with $\varphi$.
 A simple compactness argument shows that if $\varphi,\tilde\varphi$ is stably separated then also $\tilde\varphi,\varphi$ is stably separated.
 We also need the following which is an easy consequence of (3) of Fact~\ref{fact_ssep}.
 
 \begin{fact}
   Let $\varphi_i(x\,;z),\tilde\varphi_i(x\,;z)\in{\EuScript L}^{\rm p}$, for $i=1,\dots,n$ be stably separated.
-  Then the formulas $\varphi_1\wedge\dots\wedge\varphi_n$ and $\tilde\varphi_1\vee\dots\vee\tilde\varphi_n$.
+  Then the formulas $\varphi_1\wedge\dots\wedge\varphi_n$ and $\tilde\varphi_1\vee\dots\vee\tilde\varphi_n$ are stably separated.
 \end{fact}
 
-The following definition is derived from~\cite{Z}: the term \textit{approximable\/} not related to the topology of $I$.
-A set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{p-approximable\/} by $\varphi,\tilde\varphi$ if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ such that
+% The following two definitions are derived from~\cite{Z} but we replace the word \textit{approximated\/} with \textit{finitely separated\/} as more appropriate.
+Let $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ be mutually inconsistent formulas.
+Two sets ${\EuScript D},\tilde{\EuScript D}\subseteq{\EuScript U}^{|z|}$ are \emph{separated\/} by $\varphi,\tilde\varphi$ if for some $a\in{\EuScript U}^{x|}$ we have ${\EuScript D}\subseteq\varphi(a\,;{\EuScript U})$ and $\tilde{\EuScript D}\subseteq\tilde\varphi(a\,;{\EuScript U})$.
+We say that they are \emph{finitely separated\/} if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ such that
 
-\ceq{{\rm iii.}\hfill B^{|z|}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \cap\, {\EuScript D}.}
+\ceq{{\rm iii.}\hfill B^{|z|}\, \cap\, {\EuScript D}}{\subseteq}{\varphi(a\,;{\EuScript U});}
 
-\ceq{{\rm iv.}\hfill B^{|z|}\ \cap\ \tilde\varphi(a\,;{\EuScript U})}{=}{B^{|z|}\, \smallsetminus\, {\EuScript D}.}
+\ceq{{\rm iv.}\hfill B^{|z|}\ \cap\ \tilde{\EuScript D}}{\subseteq}{\tilde\varphi(a\,;{\EuScript U}).}
 
-We say that ${\EuScript D}$ is p-approximable \emph{from below\/} if (iv) can be strengthened by requiring that
+Finally, we say finitely separated \emph{from above\/} if (iii) can be strengthened by requiring that
 
-\ceq{{\rm v.}\hfill\neg{\EuScript D}}{\subseteq}{\tilde\varphi(a\,;{\EuScript U});}
+\ceq{{\rm v.}\hfill{\EuScript D}}{\subseteq}{\varphi(a\,;{\EuScript U}).}
 
-We say that ${\EuScript D}$ is \emph{externally p-definable\/} by $\varphi,\tilde\varphi$ if the type below is finitely consistent
+Dually, we say \emph{from below\/} if (iv) can be strengthened by requiring that
 
-\ceq{\hfill p(x)}{=}{\big\{\varphi(x\,;b)\ :\ b\in{\EuScript D}\big\}\ \cup\ \big\{\tilde\varphi(x\,;b)\ :\ b\notin{\EuScript D}\big\}.} 
+\ceq{{\rm vi.}\hfill\tilde{\EuScript D}}{\subseteq}{\tilde\varphi(a\,;{\EuScript U}).}
+
+
+To justify the terminology, we note that in the classical case, i.e.\@ when $\tilde{\EuScript D}=\neg{\EuScript D}$ and $\tilde\varphi\leftrightarrow\varphi$, \textit{finitely separated from below\/} becomes \textit{approximated from below\/} as defined in~\cite{Z}. 
+
 
 \begin{remark}
-  For any $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ the following are equivalent
+  We say that ${\EuScript D},\tilde{\EuScript D}$ are \emph{externally separated\/} by $\varphi,\tilde\varphi$ if the type below is finitely consistent
+
+  \ceq{\hfill p(x)}{=}{\big\{\varphi(x\,;b)\ :\ b\in{\EuScript D}\big\}\ \cup\ \big\{\tilde\varphi(x\,;b)\ :\ b\in\tilde{\EuScript D}\big\}.} 
+
+  In the classical case externally separated becomes externally definable.
+
+  It is easy to see that the following are equivalent
   \begin{itemize}
-    \item[1.] ${\EuScript D}$ is p-approximable by $\varphi(x\,;z)$;
-    \item[2.] ${\EuScript D}$ is externally p-definable by $\varphi(x\,;z)$.
+    \item[1.] ${\EuScript D},\tilde{\EuScript D}$ is finitely separated by $\varphi,\tilde\varphi$;
+    \item[2.] ${\EuScript D},\tilde{\EuScript D}$ is externally separated by $\varphi,\tilde\varphi$.
   \end{itemize}
 \end{remark}
 
 The following two lemmas are required to prove a generalization of the well-known fact that sets that are externally definable by a stable formula are definable.
 
 \begin{lemma}\label{lem_def_frombelow}
-  Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ be a weakly stable.
-  If ${\EuScript D}$ is p-approximable by $\varphi(x\,;z)$ from below then $\neg{\EuScript D}=\psi({\EuScript U})$ where $\psi(z)=\tilde\varphi(a_1\,;z)\wedge\dots\wedge\tilde\varphi(a_n\,;z)$ for some $a_i\in{\EuScript U}^{|x|}$.
+  Let $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ stably separated.
+  Let ${\EuScript D},\tilde{\EuScript D}$ be finitely separated from below by $\varphi,\tilde\varphi$.
+  Then ${\EuScript D},\tilde{\EuScript D}$ are finitely separated separated by $\psi,\tilde\psi$ where 
+  
+  \ceq{\hfill\psi(z)}{=}{\varphi(x_1\,;z)\vee\dots\vee\varphi(_n\,;z)}
+
+  \ceq{\hfill\tilde\psi(z)}{=}{\tilde\varphi(x_1\,;z)\wedge\dots\wedge\tilde\varphi(x_n\,;z)}
+  
+  Moreover ${\EuScript D}\cap\tilde\psi({\EuScript U})=\varnothing$.
 \end{lemma}
 
 \begin{proof}
   The elements $a_n$ are defined recursively together with some auxiliary elements $b_n\in{\EuScript D}$.
   Suppose $b_0,\dots,b_{n-1}$ have been defined (this assumption is empty if $n=0$).
   We first define $a_n$, then $b_n$.
-  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\varphi(a_n\,;{\EuScript U})$ and $\neg{\EuScript D}\subseteq\tilde\varphi(a_n\,;{\EuScript U})$.
+  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\varphi(a_n\,;{\EuScript U})$ and $\tilde{\EuScript D}\subseteq\tilde\varphi(a_n\,;{\EuScript U})$.
   This is possible by (iii) and (v).
   Now, if possible, choose $b_n$ such that
 
   \ceq{\hfill b_n}{\in}{{\EuScript D}\ \cap\ \bigcap^n_{i=0}\tilde\varphi(a_i\,;{\EuScript U})}.
 
-  If this is not possible, then
-  
-  \ceq{\hfill\neg{\EuScript D}}{\subseteq}{\bigcap^n_{i=0}\tilde\varphi(a_i\,;{\EuScript U})}.
-  
-  As the other inclusion is clear, $a_0,\dots,a_n$ are those required by the lemma.
+  If this is not possible, then $a_0,\dots,a_n$ are those required by the lemma.
   We claim that at some $n$ the procedure halts.
   In fact, otherwise we would obtain $\langle a_i\,;b_i : i\le \omega\rangle$ such that
   
@@ -2351,35 +2367,35 @@ The following two lemmas are required to prove a generalization of the well-know
 \end{proof}
 
 \begin{lemma}\label{lem_apx_frombelow}
-  Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and $\tilde\varphi\perp\varphi$ be stably sepatated.
-  Let ${\EuScript D}$ be p-approx\-imable by $\varphi,\tilde\varphi$.
+  Let $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ be stably sepatated.
+  Let ${\EuScript D},\tilde{\EuScript D}$ be finitely separated by $\varphi,\tilde\varphi$.
   Then, for some $m$, the formulas 
 
   \ceq{\hfill\psi(x_0,\dots,x_m\,;z)}{=}{\varphi(x_0\,;z)\wedge\dots\wedge\varphi(x_m\,;z)}
 
   \ceq{\hfill\tilde\psi(x_0,\dots,x_m\,;z)}{=}{\tilde\varphi(x_0\,;z)\vee\dots\vee\tilde\varphi(x_m\,;z)}
 
-  p-approximates ${\EuScript D}$ from below.
+  finitely separates ${\EuScript D}\,\tilde{\EuScript D}$ from below.
 \end{lemma}
 
 \begin{proof}
   Let $m$ be such that no sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i) and (ii$'$).
   Let $B\subseteq{\EuScript D}$ be finite.
-  We prove that there are some $a_0,\dots,a_m$ such that $B\subseteq\varphi(a_i\,;{\EuScript U})$ for all $i\le m$ and $\neg{\EuScript D}\subseteq\tilde\psi(a_0,\dots,a_m\,;{\EuScript U})$.
+  We prove that there are some $a_0,\dots,a_m$ such that $B\subseteq\varphi(a_i\,;{\EuScript U})$ for all $i\le m$ and $\tilde{\EuScript D}\subseteq\tilde\psi(a_0,\dots,a_m\,;{\EuScript U})$.
   It is easy to see that this proves (iii) and (v).
 
   As in the proof above, we define $a_n$ and $b_n$ by recursion.
-  Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\notin{\EuScript D}$ have been defined.
+  Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\in\tilde{\EuScript D}$ have been defined.
   We first define $a_n$, then $b_n$. 
   Choose $a_n\in{\EuScript U}^{|x|}$ such that $B\subseteq\varphi(a_n\,;{\EuScript U})$ and $\{b_0,\dots,b_{n-1}\}\subseteq\tilde\varphi(a_n\,;{\EuScript U})$.
   This $a_n$ exists by p-approximability.
   Now, if possible, let $b_n$ such that
 
-  \ceq{\hfill b_n}{\in}{\bigcap^n_{i=0}\neg\tilde\varphi(a_i,{\EuScript U})\smallsetminus{\EuScript D}}
+  \ceq{\hfill b_n}{\in}{\bigcap^n_{i=0}\varphi(a_i,{\EuScript U})\cap\tilde{\EuScript D}}
   
   If this is not possible, then
   
-  \ceq{\hfill\neg{\EuScript D}}{\subseteq}{\bigcup^n_{i=0}\tilde\varphi(a_i,{\EuScript U})}
+  \ceq{\hfill\tilde{\EuScript D}}{\subseteq}{\neg\bigcap^n_{i=0}\varphi(a_i,{\EuScript U})}
   
   hence, setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
   We claim that at some $n$ the procedure above halts at some $n\le m$.
