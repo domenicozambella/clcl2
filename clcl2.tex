@@ -2306,15 +2306,15 @@ We say that they are \emph{finitely separated\/} if for every finite set $B\subs
 
 Finally, we say finitely separated \emph{from above\/} if (iii) can be strengthened by requiring that
 
-\ceq{{\rm v.}\hfill{\EuScript D}}{\subseteq}{\varphi(a\,;{\EuScript U}).}
+\ceq{{\rm v.}\hfill\varnothing}{=}{{\EuScript D}\ \cap\ \tilde\varphi(a\,;{\EuScript U}).}
 
 Dually, we say \emph{from below\/} if (iv) can be strengthened by requiring that
 
-\ceq{{\rm vi.}\hfill\tilde{\EuScript D}}{\subseteq}{\tilde\varphi(a\,;{\EuScript U}).}
+\ceq{{\rm vi.}\hfill\varnothing}{=}{\tilde{\EuScript D}\ \cap\ \varphi(a\,;{\EuScript U}).}
 
-
-To justify the terminology, we note that in the classical case, i.e.\@ when $\tilde{\EuScript D}=\neg{\EuScript D}$ and $\tilde\varphi\leftrightarrow\varphi$, \textit{finitely separated from below\/} becomes \textit{approximated from below\/} as defined in~\cite{Z}. 
-
+Note that in the classical case, i.e.\@ when $\tilde{\EuScript D}=\neg{\EuScript D}$ and $\tilde\varphi\leftrightarrow\varphi$, the condition (v) and (vi) become ${\EuScript D}\subseteq\varphi(a\,;{\EuScript U})$ and $\varphi(a\,;{\EuScript U})\subseteq{\EuScript D}$ respectively.
+Then we have taken over the terminology of~\cite{Z} 
+only \textit{approximation\/} there becomes here \textit{finite separation\/} to avoid confusion.
 
 \begin{remark}
   We say that ${\EuScript D},\tilde{\EuScript D}$ are \emph{externally separated\/} by $\varphi,\tilde\varphi$ if the type below is finitely consistent
@@ -2381,7 +2381,7 @@ The following two lemmas are required to prove a generalization of the well-know
 \begin{proof}
   Let $m$ be such that no sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i) and (ii$'$).
   Let $B\subseteq{\EuScript D}$ be finite.
-  We prove that there are some $a_0,\dots,a_m$ such that $B\subseteq\varphi(a_i\,;{\EuScript U})$ for all $i\le m$ and $\tilde{\EuScript D}\subseteq\tilde\psi(a_0,\dots,a_m\,;{\EuScript U})$.
+  We prove that there are some $a_0,\dots,a_m$ such that $B\subseteq\varphi(a_i\,;{\EuScript U})$ for all $i\le m$ and $\tilde{\EuScript D}\cap\tilde\psi(a_0,\dots,a_m\,;{\EuScript U})=\varnothing$.
   It is easy to see that this proves (iii) and (v).
 
   As in the proof above, we define $a_n$ and $b_n$ by recursion.
@@ -2390,14 +2390,10 @@ The following two lemmas are required to prove a generalization of the well-know
   Choose $a_n\in{\EuScript U}^{|x|}$ such that $B\subseteq\varphi(a_n\,;{\EuScript U})$ and $\{b_0,\dots,b_{n-1}\}\subseteq\tilde\varphi(a_n\,;{\EuScript U})$.
   This $a_n$ exists by p-approximability.
   Now, if possible, let $b_n$ such that
-
-  \ceq{\hfill b_n}{\in}{\bigcap^n_{i=0}\varphi(a_i,{\EuScript U})\cap\tilde{\EuScript D}}
   
-  If this is not possible, then
+  \ceq{\hfill b_n}{\in}{\tilde{\EuScript D}\ \cap\ \bigcap^n_{i=0}\varphi(a_i,{\EuScript U})}
   
-  \ceq{\hfill\tilde{\EuScript D}}{\subseteq}{\neg\bigcap^n_{i=0}\varphi(a_i,{\EuScript U})}
-  
-  hence, setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
+  If this is not possible, then setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
   We claim that at some $n$ the procedure above halts at some $n\le m$.
   In fact, otherwise we would obtain a sequence $\langle a_i\,;b_i : i\le m+1\rangle$ such that (i) and (ii$'$), contradicting our choice of $m$.
 \end{proof}
