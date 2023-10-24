@@ -140,7 +140,7 @@
   Let $I$ be some fixed structure.
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,I\rangle$.
   When $I$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
-  This has been demostrated by Henson and Henson-Iovino for Banach spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to arbitrary structures in~\cite{clcl}.
+  This has been shown by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to arbitrary structures in~\cite{clcl}.
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
   The main tool is the notion of approximation of a positive formula and of its negation.
   These have been introduced by Henson and Iovino.\\[1ex]
@@ -251,7 +251,7 @@ For the latter only equality almost everywhere is relevant.
 However, even when $L^1(\mu)$ is our focus of interest, it is often easier to argue about real valued functions.
 For a similar reason ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ are better studied in parallel.
 
-The extra expressive power offered by quantifiers of sort ${\sf I}$ is also convenient.
+The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
 For instance, the example below (from~\cite{clcl}) should convince the reader that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic.% (cf.\@ the example below taken from~\cite{clcl}).%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
 %A painstaking technical comparison with real valued logic is not in the scope of this indroductory exploratory paper.}.
@@ -300,7 +300,7 @@ It is easy to verify that the unit ball of a standard structure is the unit ball
 Note that the same remains true if we add to the language any continuous (equivalently, bounded) operator or functional.
 \end{example}
 
-We conclude this introduction by advertising a question in~\cite{clcl}.
+We conclude this introduction with a question.
 Is it possible to extend the Positive Compactness Theorem (Theorem~\ref{thm_compattezza}) to a larger class of languages?
 E.g.\@ can we allow in ${\EuScript L}$ (and in ${\EuScript L}^{\rm p/c}$) function symbols of sort ${\sf H}^n\times {\sf I}^m\to {\sf I}$ with both $n$ and $m$ positive?
 These would have natural interpretations, e.g.\@ a group acting on a compact set $I$.
@@ -311,7 +311,7 @@ These would have natural interpretations, e.g.\@ a group acting on a compact set
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Henson-Iovino approximations}\label{ultrapws} 
-The notion of approximation is a central tool in the work of Hension and Henson-Iovino on normed spaces, see e.g.~\cite{HI}.
+The notion of approximation is a central tool in the work of Henson and Iovino on the model theory of normed spaces, see e.g.~\cite{HI}.
 In~\cite{clcl} the natural generalization to standard structures is presented.
 We recall the definitions and the main properties.
 
@@ -616,7 +616,7 @@ Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
   Let $\langle ^*\!M,^*\!\!I\rangle$ be an ${\EuScript L}$-elementary saturated superstructure of $\langle M,I\rangle$.
   Pick some $\alpha\in ^*\!\!I$ such that $\langle ^*\!M,^*\!\!I\rangle\models p(\alpha)$.
   By Lemma~\ref{lem_st}, $^*\!M\models p({\rm st}(\alpha))$.
-  Now observe that the truth of formulas without  existential quantifiers of sort ${\sf H}$ is preserved by substructures.
+  Now observe that the truth of formulas without the quantifier $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}}$ are preserved by substructures.
  \end{proof}
  
  The exclusion of existential quantifiers of sort ${\sf H}$ is necessary.
@@ -1123,7 +1123,7 @@ Still, we can infer an approximate form of equivalence.
 %%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cauchy completions}\label{Cauchy}
 
-For $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ a tuple of terms of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
+We recall a few definitions from~\cite{clcl}. For $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ a tuple of terms of sort ${\sf H}^{|x|+|z|}\to {\sf I}$ we define the formula
 
 \ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\bigwedge_{i=1}^n\forall z\ \ \tau_i(x,z)=\tau_i(y,z),}
 
@@ -1183,7 +1183,7 @@ We write \emph{${\EuScript E}$} for the set containing the pairs $\tau,D$ as abo
 The formulas $x\sim_\varepsilon y$, as $\varepsilon$ ranges over ${\EuScript E}$, form a base for a system of entougages on ${\EuScript U}^{|x|}$.
 We refer to this uniformity and the topology associated as the topology \emph{induced by $I$.}
 Though not needed in the sequel, it is worth mentioning that the topology induced by $I$ on ${\EuScript U}^{|x|}$ coincides with the product of the topology induced by $I$ on ${\EuScript U}$.
-This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}.
+This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}. See~\cite{clcl} for details.
 
 \begin{fact}\label{fact_continuous}
   For every $\varphi(x)\in{\EuScript L}^{\rm c}$ 
@@ -1233,8 +1233,7 @@ The following corollary corresponds to the Perturbation Lemma~\cite{HI}*{Proposi
 
 We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $A$ if every conjunction of formulas in $q(x)$ has a solution in $A^{|x|}$.
 This definition coincides with the classical one, but in our context, the notion is less roboust.
-We may happen that $p(x)$ is finitely satisfiable while $q(x)\leftrightarrow p(x)$ is not.
-In particular if $M$ is a p-model and $q(x)=\mbox{p-tp}(a/M)$ then $q'(x)$ is always finitely satisfiable while $q(x)$ need not.
+For instance, if $M$ is a p-model and $q(x)=\mbox{p-tp}(a/M)$ then $q'(x)$ is always finitely satisfiable while $q(x)$ need not.
 
 % It is immediate that ${\EuScript L}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf I}$-invariant.
 A set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if it contains all those $a\in{\EuScript U}$ such that $a\sim'x$ is finitely satisfied in $A$.
@@ -2186,36 +2185,37 @@ The Ehrenfeucht-Mostowski p/c-type of $a$ is the type
 
 The following classical results holds unmodified.
 
-\begin{theorem}
+\begin{theorem}\label{thm_EM}
   Let $J,<$ and $L,<$ be infinite linear orders.
   Let $b=\langle b_i:i\in L\rangle$.
-  Then there is a sequence of p/c-indiscernibles $a=\langle a_i:i\in J\rangle$ with the same Ehrenfeucht-Mostowski p/c-type as $b$.
+  Then there is a sequence of p/c-indiscernibles $a=\langle a_i:i\in J\rangle$ that realizes the Ehrenfeucht-Mostowski p/c-type as $b$.
 \end{theorem}
 
 \begin{proof}
   The usual argument works but requires some additional attention.
 
-  If $\psi(z)$ is a formula and $w$ is tuple of variables of the same length of $z$, we write $\psi(z/w)$ for the formula obtained replacing $z$ by $w$ in $\psi(z)$.
+  If $\psi(z)$ is a formula and $w$ is tuple of variables of the same length of $z$, we write $\psi(/w)$ for the formula obtained replacing $z$ by $w$ in $\psi(z)$.
 
   Let $e(x)=\mbox{EM-p/c-tp}(b)$.
   Let $z=\langle z_i:i\in J\rangle$.
   Define
 
-  \ceq{\hfill q(z)}{=}{\bigcup_{n<\omega}\Big\{\varphi(x_{\restriction n}/z_{\restriction J_0})\ \ :\ \ \varphi(x_{\restriction n})\in e,\  J_0\subseteq J, |J_0|=n\Big\}\quad\cup}
+  \ceq{\hfill q(z)}{=}{\bigcup_{n<\omega}\Big\{\varphi(/z_{\restriction J_0})\ \ :\ \ \varphi(x_{\restriction n})\in e,\  J_0\subseteq J, |J_0|=n\Big\}\quad\cup}
 
-  \ceq{\hfill }{ }{\bigcup_{n<\omega}\Big\{\varphi(x_{\restriction n}/z_{\restriction J_0})\leftrightarrow\varphi(x_{\restriction n}/z_{\restriction J_1})\ \ :\ \ \varphi(x_{\restriction n})\in{\EuScript L}^{\rm p/c},\  J_i\subseteq J,\  |J_i|=n\Big\}.}
+  \ceq{\hfill }{ }{\bigcup_{n<\omega}\Big\{\varphi(/z_{\restriction J_0})\leftrightarrow\varphi(/z_{\restriction J_1})\ \ :\ \ \varphi(x_{\restriction n})\in{\EuScript L}^{\rm p/c},\  J_i\subseteq J,\  |J_i|=n\Big\}.}
 
-  By Ramsey's theorem $q(z)$ is finitely consistent (but note that positive saturation is not enough to infer the existence of a realization in ${\EuScript U}$).
-  Let $p(z)\subseteq{\EuScript L}^{\rm p/c}$ be maximal among the types that are finitely consistent with $q(z)$.
+  By Ramsey's theorem $q$ is finitely consistent (but note that positive saturation is not enough to infer the existence of a realization in ${\EuScript U}$).
+  Let $p(z)\subseteq{\EuScript L}^{\rm p/c}$ be maximal among the types that are finitely consistent with $q$.
 
-  We claim that $p(z)$ is complete.
-  Namely, that $p(z)\rightarrow\neg\varphi(z)$ whenever $\varphi(z)\notin p$.
-  In fact, if $\varphi(z)\notin p$ then $\varphi'(z)\notin p$ for some $\varphi'>\varphi$.
-  Pick $\tilde\varphi\perp\varphi$ such that $\varphi\rightarrow\neg\tilde\varphi\rightarrow\varphi'$.
-  Then $\tilde\varphi(z)\vee\varphi'(z)$ is tautological.
-  As $\varphi'(z)\notin p$, by maximality $\tilde\varphi(z)\in p$ and $p(z)\rightarrow\neg\varphi(z)$ follows.
-
-  Then any $a\models p(z)$ is as required by the theorem.
+  We claim that any $a\models p(z)$ is as required by the theorem.
+  Clearly $a$ realized the EM-p/c type of $b$, hence we only have to prove that $a$ is a sequence of indiscernibles.
+  Let $a_{\restriction J_0}\models\varphi(x_{\restriction n})$ for some $\varphi(x_{\restriction n})\in{\EuScript L}^{\rm p/c}$ and some $J_0\subseteq J$ of cardinality $n$.
+  We show that $a_{\restriction J_1}\models\varphi(x_{\restriction n})$ 
+  for every $J_1\subseteq J$ of cardinality $n$.
+  This is clear if $\varphi(/z_{\restriction J_0})$ is in $p$, so assume it is not.
+  Then $\{\varphi(/z_{\restriction J_0})\}'\subseteq p$.
+  Then also $\{\varphi(/z_{\restriction J_1})\}'\subseteq p$.
+  Therefore  $a_{\restriction J_1}\models\{\varphi(x_{\restriction n})\}$ which suffices by saturation.
 \end{proof}
 
 
@@ -2228,191 +2228,99 @@ The following classical results holds unmodified.
 %%%%%%%%%%%%%%%%%%%%%
 \section{Stable formulas (tentative)}
 
-\def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
+\def\ceq#1#2#3{\parbox[t]{26ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
 The following definition is classical.
-A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that for every $i,j<n$
+A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that 
 
-\ceq{{\rm i.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)}
+\ceq{{\rm i.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)\ \wedge\ \neg\varphi(a_j\,;b_i)}\hfill  for every $i,j<n$.
 
-\ceq{{\rm ii.}\hfill i>j}{\Rightarrow}{\neg\varphi(a_i\,;b_j)}
+We say that $\varphi(x\,;z)$ is \emph{$\varepsilon$-stable\/} if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that 
 
-Now, let  $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$.
-We can adapt the definition above by replacing (ii) with
+\ceq{{\rm i'.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)\ \wedge\ \neg\varphi_\varepsilon(a_j\,;b_i)}\hfill  for every $i,j<n$.
 
-\ceq{{\rm ii'.}\hfill i>j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j)}
+where $\varphi_\varepsilon(a_j\,;b_i)$ stands for $\exists x,z\sim_\varepsilon a_j,b_i\ \varphi(x\,;z)$.
+We say that $\varphi(x\,;z)$ is \emph{$\sim$-stable\/} if it is $\varepsilon$-stable for every $\varepsilon$.
 
-where $\tilde\varphi\perp\varphi$.
-The following fact shows that if require $n$ to be the same for all $\tilde\varphi$ we do not get anything new.
+The set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{$\varepsilon$-approximated\/} by $\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}^{|z|}$ there is an $a\in{\EuScript U}^{|x|}$ such that for every $b\in B$
 
-\begin{fact}\label{fact_stable_p}
-  For every $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ the following are equivalent
-  \begin{itemize}
-    \item[1.] $\varphi(x\,;z)$ is stable;
-    \item[2.] for some $n<\omega$, no $\langle a_i\,;b_i\,:\,i<n\rangle$ and $\tilde\varphi\perp\varphi$ are such that (i) and (ii$'$)
-  \end{itemize} 
-\end{fact}
+\ceq{{\rm ii.}\hfill B\ \cap\ {\EuScript D}}{\subseteq}{B\ \cap\ \varphi(a\,;{\EuScript U});}
 
-\begin{proof}
-  (1$\Rightarrow$2) \ 
-  Negate (2).
-  Then for every $n$ there is a sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ and a formula $\tilde\varphi$ such that (i) and (ii$'$).
-  As $\tilde\varphi(x\,;z)\rightarrow\neg\varphi(x\,;z)$, then $\varphi(x\,;z)$ is not stable.
+\ceq{{\rm iii.}\hfill B\ \cap\ \neg{\EuScript D}_\varepsilon}{\subseteq}{B\ \cap\ \neg\varphi_\varepsilon(a\,;{\EuScript U}).}
 
-  (2$\Rightarrow$1) \ 
-  Negate (1).
-  Then for every $n$ there is a sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that (i) and (ii).
-  By Proposition~\ref{prop_approx} and Lemma~\ref{lem_interpolation}
-  
-  \ceq{\hfill\neg\varphi(x\,;z)}{\leftrightarrow}{\bigvee_{\tilde\varphi\perp\varphi}\tilde\varphi(x\,;z).}
-  
-  Then for every $j<i<n$ there is a formula  $\tilde\varphi_{i,j}\perp\varphi$ such that $\tilde\varphi_{i,j}(a_i\,;b_j)$.
-  By the definition of strong negation we infer that there is some $\tilde\varphi_n\perp\varphi$ such that $\tilde\varphi_{i,j}(x\,;z)\rightarrow\tilde\varphi_n(x\,;z)$ for all $j<i<n$.
-  The negation of (2) follows.
-\end{proof}
+Finally, we say $\varepsilon$-approximated \emph{from below\/} if we also have
 
-The classical notion of stabity is too strong in some circumstances.
-The following definition is taken from~\cite{Hr}.
-The formulas $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ are \emph{stably separated\/} if there is an $n<\omega $ such that no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ saisfies (i) and (ii$'$) above.
+\ceq{\hfill\varphi(a\,;{\EuScript U})}{\subseteq}{{\EuScript D}_\varepsilon.}
 
-\begin{fact}\label{fact_ssep}
-  Let $\varphi(x\,;z), \tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$.
-  The following are equivalent
-  \begin{itemize}
-    \item[1.] $\varphi,\tilde\varphi$ are stably separated;
-    \item[2.] no $\langle a_i\,;b_i\,:\,i<\omega\rangle$ satisfies (i) and (ii$'$);
-    \item[3.] no indiscernible sequence $\langle a_i\,;b_i\,:\,i<\omega\rangle$ is such that $\varphi(a_0\,;b_1)$ and $\tilde\varphi(a_1\,;b_0)$.
-  \end{itemize}
-\end{fact}
-
-Two simple remarks:
-If $\varphi(x\,;z)$ is stable then it is stably separated from every $\tilde\varphi\perp\varphi$ and in general from any $\tilde\varphi$ that is inconsistent with $\varphi$.
-A simple compactness argument shows that if $\varphi,\tilde\varphi$ is stably separated then also $\tilde\varphi,\varphi$ is stably separated.
-We also need the following which is an easy consequence of (3) of Fact~\ref{fact_ssep}.
-
-\begin{fact}
-  Let $\varphi_i(x\,;z),\tilde\varphi_i(x\,;z)\in{\EuScript L}^{\rm p}$, for $i=1,\dots,n$ be stably separated.
-  Then the formulas $\varphi_1\wedge\dots\wedge\varphi_n$ and $\tilde\varphi_1\vee\dots\vee\tilde\varphi_n$ are stably separated.
-\end{fact}
-
-% The following two definitions are derived from~\cite{Z} but we replace the word \textit{approximated\/} with \textit{finitely separated\/} as more appropriate.
-Let $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ be mutually inconsistent formulas.
-Two sets ${\EuScript D},\tilde{\EuScript D}\subseteq{\EuScript U}^{|z|}$ are \emph{separated\/} by $\varphi,\tilde\varphi$ if for some $a\in{\EuScript U}^{x|}$ we have ${\EuScript D}\subseteq\varphi(a\,;{\EuScript U})$ and $\tilde{\EuScript D}\subseteq\tilde\varphi(a\,;{\EuScript U})$.
-We say that they are \emph{finitely separated\/} if for every finite set $B\subseteq{\EuScript U}$ there is an $a\in{\EuScript U}^{|x|}$ such that
-
-\ceq{{\rm iii.}\hfill B^{|z|}\, \cap\, {\EuScript D}}{\subseteq}{\varphi(a\,;{\EuScript U});}
-
-\ceq{{\rm iv.}\hfill B^{|z|}\ \cap\ \tilde{\EuScript D}}{\subseteq}{\tilde\varphi(a\,;{\EuScript U}).}
-
-Finally, we say finitely separated \emph{from above\/} if (iii) can be strengthened by requiring that
-
-\ceq{{\rm v.}\hfill\varnothing}{=}{{\EuScript D}\ \cap\ \tilde\varphi(a\,;{\EuScript U}).}
-
-Dually, we say \emph{from below\/} if (iv) can be strengthened by requiring that
-
-\ceq{{\rm vi.}\hfill\varnothing}{=}{\tilde{\EuScript D}\ \cap\ \varphi(a\,;{\EuScript U}).}
-
-Note that in the classical case, i.e.\@ when $\tilde{\EuScript D}=\neg{\EuScript D}$ and $\tilde\varphi\leftrightarrow\varphi$, the condition (v) and (vi) become ${\EuScript D}\subseteq\varphi(a\,;{\EuScript U})$ and $\varphi(a\,;{\EuScript U})\subseteq{\EuScript D}$ respectively.
-Then we have taken over the terminology of~\cite{Z} 
-only \textit{approximation\/} there becomes here \textit{finite separation\/} to avoid confusion.
-
-\begin{remark}
-  We say that ${\EuScript D},\tilde{\EuScript D}$ are \emph{externally separated\/} by $\varphi,\tilde\varphi$ if the type below is finitely consistent
-
-  \ceq{\hfill p(x)}{=}{\big\{\varphi(x\,;b)\ :\ b\in{\EuScript D}\big\}\ \cup\ \big\{\tilde\varphi(x\,;b)\ :\ b\in\tilde{\EuScript D}\big\}.} 
-
-  In the classical case externally separated becomes externally definable.
-
-  It is easy to see that the following are equivalent
-  \begin{itemize}
-    \item[1.] ${\EuScript D},\tilde{\EuScript D}$ is finitely separated by $\varphi,\tilde\varphi$;
-    \item[2.] ${\EuScript D},\tilde{\EuScript D}$ is externally separated by $\varphi,\tilde\varphi$.
-  \end{itemize}
-\end{remark}
-
-The following two lemmas are required to prove a generalization of the well-known fact that sets that are externally definable by a stable formula are definable.
-
-\begin{lemma}\label{lem_def_frombelow}
-  Let $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ stably separated.
-  Let ${\EuScript D},\tilde{\EuScript D}$ be finitely separated from below by $\varphi,\tilde\varphi$.
-  Then ${\EuScript D},\tilde{\EuScript D}$ are finitely separated separated by $\psi,\tilde\psi$ where 
-  
-  \ceq{\hfill\psi(z)}{=}{\varphi(x_1\,;z)\vee\dots\vee\varphi(_n\,;z)}
-
-  \ceq{\hfill\tilde\psi(z)}{=}{\tilde\varphi(x_1\,;z)\wedge\dots\wedge\tilde\varphi(x_n\,;z)}
-  
-  Moreover ${\EuScript D}\cap\tilde\psi({\EuScript U})=\varnothing$.
+\begin{lemma}
+  Let $\varphi(x\,;z)$ be $\varepsilon$-stable.
+  If ${\EuScript D}$ is $\varepsilon$-approximable by $\varphi(x\,;z)$ then ${\EuScript D}$ is $\varepsilon$-approx\-imable from below by $\varphi(x_0\,;z)\wedge\dots\wedge\varphi(x_m\,;z)$, for some $m$.
 \end{lemma}
 
 \begin{proof}
-  The elements $a_n$ are defined recursively together with some auxiliary elements $b_n\in{\EuScript D}$.
-  Suppose $b_0,\dots,b_{n-1}$ have been defined (this assumption is empty if $n=0$).
-  We first define $a_n$, then $b_n$.
-  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\varphi(a_n\,;{\EuScript U})$ and $\tilde{\EuScript D}\subseteq\tilde\varphi(a_n\,;{\EuScript U})$.
-  This is possible by (iii) and (v).
+  Let $m$ be such that no sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i$'$).
+  Let $B\subseteq{\EuScript U}^{|z|}$ be finite.
+  It suffices to prove that there are some $a_0,\dots,a_m$ such that 
+  
+  \ceq{\hfill B\cap{\EuScript D}}{\subseteq}{\varphi(a_i,\,;{\EuScript U})}\hfill for every $0\le i\le m$;
+  
+  \ceq{\hfill B\cap\neg{\EuScript D}_\varepsilon}{\subseteq}{\neg\varphi_\varepsilon(a_i\,;{\EuScript U})}\hfill for every $0\le i\le m$;
+
+  \ceq{\hfill\bigcap_{i=0}^m\varphi(a_i,\,;{\EuScript U})}{\subseteq}{{\EuScript D}_\varepsilon.}
+
+  We define $a_n$ and $b_n$ by recursion.
+  Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\notin{\EuScript D}_\varepsilon$ have been defined.
+  We first define $a_n$, then $b_n$. 
+  Choose $a_n\in{\EuScript U}^{|x|}$ such that 
+  
+  \ceq{\hfill B\cap{\EuScript D}}{\subseteq}{\varphi(a_n,\,;{\EuScript U})};
+  
+
+  \ceq{\hfill \{b_0,\dots,b_{n-1}\}\cup\big(B\cap\neg{\EuScript D}_\varepsilon\big)}{\subseteq}{\neg\varphi_\varepsilon(a_n\,;{\EuScript U}).}
+
+  This is possible by (ii) and (iii).
   Now, if possible, choose $b_n$ such that
 
-  \ceq{\hfill b_n}{\in}{{\EuScript D}\ \cap\ \bigcap^n_{i=0}\tilde\varphi(a_i\,;{\EuScript U})}.
+  \ceq{\hfill b_n}{\in}{\neg{\EuScript D}_\varepsilon\cap\bigcap_{i=0}^n\varphi(a_i,\,;{\EuScript U})}.
+
+  If this is not possible, then setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
+  We claim that at some $n\le m$ the procedure above halts.
+  In fact, otherwise we would obtain a sequence $\langle a_i\,;b_i : i\le m\rangle$ such that (i$'$), contradicting our choice of $m$.
+\end{proof}
+
+
+\begin{lemma}\label{lem_def_frombelow}
+  Let $\varphi(x\,;z)$ be $\varepsilon$-stable.
+  Let ${\EuScript D}$ be $\varepsilon$-approximable from below by $\varphi$.
+  Then ${\EuScript D}\subseteq\varphi_\varepsilon(a\,;{\EuScript U})$ for some $a\in{\EuScript U}^{|x|}$. 
+\end{lemma}
+
+\begin{proof}
+  The elements $a_n$ are defined recursively together with some auxiliary elements $b_n$.
+  Suppose $b_0,\dots,b_{n-1}\in{\EuScript D}$ have been defined.
+  We first define $a_n$, then $b_n$.
+  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\varphi(a_n\,;{\EuScript U})$.
+  This is possible by (ii).
+  Now, if possible, choose $b_n$ such that
+
+  \ceq{\hfill b_n}{\in}{{\EuScript D}\ \smallsetminus\ \bigcup^n_{i=0}\varphi_\epsilon(a_i\,;{\EuScript U})}.
 
   If this is not possible, then $a_0,\dots,a_n$ are those required by the lemma.
   We claim that at some $n$ the procedure halts.
-  In fact, otherwise we would obtain $\langle a_i\,;b_i : i\le \omega\rangle$ such that
-  
-  \ceq{1.\hfill i>j}{\Rightarrow}{\varphi(a_i\,;b_j);}
-
-  \ceq{2.\hfill i<j}{\Rightarrow}{\tilde\varphi(a_i\,;b_j).}
-  
-  This shows that the pair $\tilde\varphi,\varphi$ is not stably sepatated.
-  As remarked above, this contradicts the stable separation of  $\varphi,\tilde\varphi$.
+  In fact, otherwise we would obtain $\langle a_i\,;b_i : i\le \omega\rangle$ such that 
 \end{proof}
 
 \begin{lemma}\label{lem_apx_frombelow}
-  Let $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ be stably sepatated.
-  Let ${\EuScript D},\tilde{\EuScript D}$ be finitely separated by $\varphi,\tilde\varphi$.
-  Then, for some $m$, the formulas 
+  Let $\varphi(x\,;z)\in{\EuScript L}$ be $\varepsilon$-stable.
+  Let ${\EuScript D}$ be approximable by $\varphi(x\,;z)$.
+  Then the formula 
 
-  \ceq{\hfill\psi(x_0,\dots,x_m\,;z)}{=}{\varphi(x_0\,;z)\wedge\dots\wedge\varphi(x_m\,;z)}
+  \ceq{\hfill\psi(x_0,x_1\,;z)}{=}{\varphi(x_0\,;z)\vee\varphi(x_1\,;z)}
 
-  \ceq{\hfill\tilde\psi(x_0,\dots,x_m\,;z)}{=}{\tilde\varphi(x_0\,;z)\vee\dots\vee\tilde\varphi(x_m\,;z)}
-
-  finitely separates ${\EuScript D}\,\tilde{\EuScript D}$ from below.
+  is also  $\varepsilon$-stable.
 \end{lemma}
 
 \begin{proof}
-  Let $m$ be such that no sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i) and (ii$'$).
-  Let $B\subseteq{\EuScript D}$ be finite.
-  We prove that there are some $a_0,\dots,a_m$ such that $B\subseteq\varphi(a_i\,;{\EuScript U})$ for all $i\le m$ and $\tilde{\EuScript D}\cap\tilde\psi(a_0,\dots,a_m\,;{\EuScript U})=\varnothing$.
-  It is easy to see that this proves (iii) and (v).
-
-  As in the proof above, we define $a_n$ and $b_n$ by recursion.
-  Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\in\tilde{\EuScript D}$ have been defined.
-  We first define $a_n$, then $b_n$. 
-  Choose $a_n\in{\EuScript U}^{|x|}$ such that $B\subseteq\varphi(a_n\,;{\EuScript U})$ and $\{b_0,\dots,b_{n-1}\}\subseteq\tilde\varphi(a_n\,;{\EuScript U})$.
-  This $a_n$ exists by p-approximability.
-  Now, if possible, let $b_n$ such that
-  
-  \ceq{\hfill b_n}{\in}{\tilde{\EuScript D}\ \cap\ \bigcap^n_{i=0}\varphi(a_i,{\EuScript U})}
-  
-  If this is not possible, then setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
-  We claim that at some $n$ the procedure above halts at some $n\le m$.
-  In fact, otherwise we would obtain a sequence $\langle a_i\,;b_i : i\le m+1\rangle$ such that (i) and (ii$'$), contradicting our choice of $m$.
-\end{proof}
-
-\begin{theorem}
-  Let $\varphi(x\,;z)\in{\EuScript L}^{\rm p}$ and $\tilde\varphi\perp\varphi$ be stably sepatated.
-  Let ${\EuScript D}$ be p-approx\-imable by $\varphi,\tilde\varphi$.
-  Then there are $a_{i,j}\in{\EuScript U}^{|x|}$ and $c_{i,j}\in{\EuScript U}^{|x|}$ such that
-
-  \ceq{1.\hfill\neg{\EuScript D}}{=}{\bigcup^n_{i=0}\ \bigcap^m_{j=0}\tilde\varphi(a_{i,j},{\EuScript U})}
-
-  \ceq{2.\hfill{\EuScript D}}{=}{\bigcup^n_{i=0}\ \bigcap^m_{j=0}\varphi(c_{i,j},{\EuScript U})}
-\end{theorem}
-
-\begin{proof}
-  We prove (1). 
-  The same argument applied to the pair of formulas $\tilde\varphi,\varphi$ proves (2).
-  Apply Lemma~\ref{lem_apx_frombelow} to obtain $\psi(x_0,\dots,x_m\,;z)$ and  $\tilde\psi(x_0,\dots,x_m\,;z)$ that approximate ${\EuScript D}$ from below.
-  Then (1) follows from Lemma~\ref{lem_def_frombelow}.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%
