@@ -2248,13 +2248,14 @@ The set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{$\varepsilon$-appro
 
 \ceq{{\rm iii.}\hfill B\ \cap\ \neg{\EuScript D}_\varepsilon}{\subseteq}{B\ \cap\ \neg\varphi_\varepsilon(a\,;{\EuScript U}).}
 
-Finally, we say $\varepsilon$-approximated \emph{from below\/} if we also have
+Finally, we say $\varepsilon$-approximated \emph{from above\/} if we also have
 
-\ceq{\hfill\varphi(a\,;{\EuScript U})}{\subseteq}{{\EuScript D}_\varepsilon.}
+\ceq{{\rm iv.}\hfill{\EuScript D}}{\subseteq}{\varphi_\varepsilon(a\,;{\EuScript U}).}
+
 
 \begin{lemma}
   Let $\varphi(x\,;z)$ be $\varepsilon$-stable.
-  If ${\EuScript D}$ is $\varepsilon$-approximable by $\varphi(x\,;z)$ then ${\EuScript D}$ is $\varepsilon$-approx\-imable from below by $\varphi(x_0\,;z)\wedge\dots\wedge\varphi(x_m\,;z)$, for some $m$.
+  If ${\EuScript D}$ is $\varepsilon$-approximable by $\varphi(x\,;z)$ then ${\EuScript D}$ is $\varepsilon$-approx\-imable from above by $\varphi(x_0\,;z)\vee\dots\vee\varphi(x_m\,;z)$, for some $m$.
 \end{lemma}
 
 \begin{proof}
@@ -2266,53 +2267,54 @@ Finally, we say $\varepsilon$-approximated \emph{from below\/} if we also have
   
   \ceq{\hfill B\cap\neg{\EuScript D}_\varepsilon}{\subseteq}{\neg\varphi_\varepsilon(a_i\,;{\EuScript U})}\hfill for every $0\le i\le m$;
 
-  \ceq{\hfill\bigcap_{i=0}^m\varphi(a_i,\,;{\EuScript U})}{\subseteq}{{\EuScript D}_\varepsilon.}
+  \ceq{\hfill{\EuScript D}}{\subseteq}{\bigcup_{i=0}^m\varphi_\varepsilon(a_i,\,;{\EuScript U}).}
 
   We define $a_n$ and $b_n$ by recursion.
-  Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\notin{\EuScript D}_\varepsilon$ have been defined.
+  Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\in{\EuScript D}$ have been defined.
   We first define $a_n$, then $b_n$. 
   Choose $a_n\in{\EuScript U}^{|x|}$ such that 
   
-  \ceq{\hfill B\cap{\EuScript D}}{\subseteq}{\varphi(a_n,\,;{\EuScript U})};
+  \ceq{\hfill\{b_0,\dots,b_{n-1}\}\cup \big(B\cap{\EuScript D}\big)}{\subseteq}{\varphi(a_n,\,;{\EuScript U})};
   
 
-  \ceq{\hfill \{b_0,\dots,b_{n-1}\}\cup\big(B\cap\neg{\EuScript D}_\varepsilon\big)}{\subseteq}{\neg\varphi_\varepsilon(a_n\,;{\EuScript U}).}
+  \ceq{\hfill B\cap\neg{\EuScript D}_\varepsilon}{\subseteq}{\neg\varphi_\varepsilon(a_n\,;{\EuScript U}).}
 
   This is possible by (ii) and (iii).
   Now, if possible, choose $b_n$ such that
 
-  \ceq{\hfill b_n}{\in}{\neg{\EuScript D}_\varepsilon\cap\bigcap_{i=0}^n\varphi(a_i,\,;{\EuScript U})}.
+  \ceq{\hfill b_n}{\in}{{\EuScript D}\smallsetminus\bigcup_{i=0}^n\varphi_\varepsilon(a_i,\,;{\EuScript U})}.
 
   If this is not possible, then setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
   We claim that at some $n\le m$ the procedure above halts.
-  In fact, otherwise we would obtain a sequence $\langle a_i\,;b_i : i\le m\rangle$ such that (i$'$), contradicting our choice of $m$.
+  In fact, otherwise we would contradict the choice of $m$ as the sequence $\langle a_i\,;b_i : i\le m\rangle$, with the reversed order, satisfies (i$'$).
 \end{proof}
-
 
 \begin{lemma}\label{lem_def_frombelow}
   Let $\varphi(x\,;z)$ be $\varepsilon$-stable.
-  Let ${\EuScript D}$ be $\varepsilon$-approximable from below by $\varphi$.
-  Then ${\EuScript D}\subseteq\varphi_\varepsilon(a\,;{\EuScript U})$ for some $a\in{\EuScript U}^{|x|}$. 
+  Let ${\EuScript D}$ be $\varepsilon$-approximable by $\varphi(x\,;z)$ from above.
+  Then for some $m$ and some $a_i\in{\EuScript U}^{|x|}$
+
+  \ceq{\hfill\bigcap^n_{i=0}\varphi(a_i\,;{\EuScript U})}{\subseteq}{{\EuScript D}_\varepsilon}.
 \end{lemma}
 
 \begin{proof}
   The elements $a_n$ are defined recursively together with some auxiliary elements $b_n$.
-  Suppose $b_0,\dots,b_{n-1}\in{\EuScript D}$ have been defined.
+  Suppose $b_0,\dots,b_{n-1}\notin{\EuScript D}_\epsilon$ have been defined.
   We first define $a_n$, then $b_n$.
-  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\varphi(a_n\,;{\EuScript U})$.
-  This is possible by (ii).
+  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\neg\varphi_\varepsilon(a_n\,;{\EuScript U})$ and ${\EuScript D}\subseteq\varphi_\varepsilon(a_n\,;{\EuScript U})$.
+  This is possible by (iii) and (iv).
   Now, if possible, choose $b_n$ such that
 
-  \ceq{\hfill b_n}{\in}{{\EuScript D}\ \smallsetminus\ \bigcup^n_{i=0}\varphi_\epsilon(a_i\,;{\EuScript U})}.
+  \ceq{\hfill b_n}{\in}{\bigcap^n_{i=0}\varphi(a_i\,;{\EuScript U})\ \smallsetminus\ {\EuScript D}_\epsilon}.
 
   If this is not possible, then $a_0,\dots,a_n$ are those required by the lemma.
   We claim that at some $n$ the procedure halts.
-  In fact, otherwise we would obtain $\langle a_i\,;b_i : i\le \omega\rangle$ such that 
+  In fact, otherwise we would contradict the choice of $m$ as we we would obtain a sequence $\langle a_i\,;b_i : i\le m\rangle$ such that (i$'$).
 \end{proof}
 
 \begin{lemma}\label{lem_apx_frombelow}
   Let $\varphi(x\,;z)\in{\EuScript L}$ be $\varepsilon$-stable.
-  Let ${\EuScript D}$ be approximable by $\varphi(x\,;z)$.
+  Let ${\EuScript D}$ be $\varepsilon$-approximable by $\varphi(x\,;z)$.
   Then the formula 
 
   \ceq{\hfill\psi(x_0,x_1\,;z)}{=}{\varphi(x_0\,;z)\vee\varphi(x_1\,;z)}
@@ -2321,7 +2323,22 @@ Finally, we say $\varepsilon$-approximated \emph{from below\/} if we also have
 \end{lemma}
 
 \begin{proof}
+  By the usual finite Ramsey's argument.
 \end{proof}
+
+\begin{theorem}
+  Let $\varphi(x\,;z)\in{\EuScript L}$ be $\varepsilon$-stable.
+  Let ${\EuScript D}$ be $\varepsilon$-approximable by $\varphi(x\,;z)$.
+  Then for some $m,n$ and some $a_{i,j}\in{\EuScript U}^{|x|}$
+
+  \ceq{\hfill\bigcap^n_{i=0}\ \bigcup^m_{j=0}\varphi(a_{i,j}\,;{\EuScript U})}{\subseteq}{{\EuScript D}_\epsilon}.
+
+
+  \ceq{\hfill{\EuScript D}}{\subseteq}{\bigcap^n_{i=0}\ \bigcup^m_{j=0}\varphi_\epsilon(a_{i,j}\,;{\EuScript U})}.
+
+
+  
+\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
