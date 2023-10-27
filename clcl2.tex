@@ -142,8 +142,7 @@
   When $I$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
   This has been shown by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to arbitrary structures in~\cite{clcl}.
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
-  The main tool is the notion of approximation of a positive formula and of its negation.
-  These have been introduced by Henson and Iovino.\\[1ex]
+  The main tool is the notion of approximation of a positive formula and of its negation that have been introduced by Henson and Iovino.\\[1ex]
   \noindent
   We review and elaborate on the properties of positive formulas and their approximations.
   In parallel, we introduce \textit{continuous\/} formulas which provide a better counterpart to Henson and Iovino theory of normed spaces and the real-valued model theory of metric spaces of~\cite{BBHU}.
@@ -169,9 +168,8 @@
 % We refer to the introduction of~\cite{clcl} for motivations.
 % Aside from that, this paper is reasonably self-contained.
 In order to make the paper reasonably self contained, in the first few sections we revisit some results of~\cite{clcl}.
-Some theorems are rephrased and we add a few remarks and examples\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead. 
-% We will also omit a few proofs from Sections~\ref{morphisms}, \ref{compactness}, and~\ref{Ielimination}.
-}.
+Some theorems are rephrased and we add a few remarks and examples.
+%\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead.}
 Where necessary our notation and terminology slightly diverges.
 
 Let \emph{$I$\/} be some fixed first-order structure which is endowed with a Hausdorff compact topology (in particular, a normal topology).
@@ -252,7 +250,7 @@ However, even when $L^1(\mu)$ is our focus of interest, it is often easier to ar
 For a similar reason ${\EuScript L}^{\rm p}$ and ${\EuScript L}^{\rm c}$ are better studied in parallel.
 
 The extra expressive power offered by quantifiers of sort ${\sf I}$ is convenient.
-For instance, the example below (from~\cite{clcl}) should convince the reader that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic.% (cf.\@ the example below taken from~\cite{clcl}).%
+For instance, the example below (from~\cite{clcl}) should convince the reader that ${\EuScript L}^{\rm c}$ has at least the same expressive power as real valued logic~\cite{BBHU} and~\cite{K}.% (cf.\@ the example below taken from~\cite{clcl}).%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
 %A painstaking technical comparison with real valued logic is not in the scope of this indroductory exploratory paper.}.
 
@@ -490,11 +488,12 @@ Note that this is the same as requiring that (1) holds for all formulas without 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section[The standard part]{The standard part\boldmath$^1$}\label{standard_part}\footnotetext{We will omit this section from the final version of this paper and refer to~\cite{clcl} instead.}
+% \section[The standard part]{The standard part\boldmath$^1$}\label{standard_part}\footnotetext{We will omit this section from the final version of this paper and refer to~\cite{clcl} instead.}
+\section{The standard part of a structure}\label{standard_part}
 
-Our goal is to prove a compactness theorem for positive theories that only requires standard structures.
-To bypass lengthy routine applications of ultrafilters, ultrapowers, and ultralimits, % -- as it would be like reinventing the wiel.
-we assume the classical Compactness Theorem and build on that.
+In this section we introduce the notion of standard structure.
+This allows to derive the compactness theorem for positive theories from its classical counterpart.
+We will be rather sketchy and refer the reader to~\cite{clcl} for profs and details. 
 
 In this section we recall the notion of standard part of an element of the elementary extension of a compact Hausdorff topological space.
 Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
@@ -515,17 +514,17 @@ The following fact is well-known.
   For every $\alpha\in{}^*\!\!I$ there is a unique $\beta\in I$ such that ${}^*\!\!I\models{\rm m}_\beta(\alpha)$.
 \end{fact}
 
-\begin{proof}
-  Negate the existence of $\beta$.
-  For every $\gamma\in I$ pick some compact neighborhood $D_\gamma$ of $\gamma$, such that ${}^*\!\!I\ \models\ \alpha\notin D_\gamma$.
-  By compactness there is some finite $\Gamma\subseteq I$ such that $D_\gamma$, with $\gamma\in\Gamma$, cover $I$.
-  By elementarity, the interpretation in ${}^*\!\!I$ of these $D_{\gamma}$ cover ${}^*\!\!I$.
-  A contradiction.
-  The uniqueness of $\beta$ follows from normality.
-\end{proof}
+% \begin{proof}
+%   Negate the existence of $\beta$.
+%   For every $\gamma\in I$ pick some compact neighborhood $D_\gamma$ of $\gamma$, such that ${}^*\!\!I\ \models\ \alpha\notin D_\gamma$.
+%   By compactness there is some finite $\Gamma\subseteq I$ such that $D_\gamma$, with $\gamma\in\Gamma$, cover $I$.
+%   By elementarity, the interpretation in ${}^*\!\!I$ of these $D_{\gamma}$ cover ${}^*\!\!I$.
+%   A contradiction.
+%   The uniqueness of $\beta$ follows from normality.
+% \end{proof}
 
 We denote by \emph{${\rm st}(\alpha)$\/} the unique $\beta\in I$ such that ${}^*\!\!I\models{\rm m}_\beta(\alpha)$.
-% We write \emph{$\alpha\approx\alpha'$\/} if ${\rm st}(\alpha)={\rm st}(\alpha')$.
+The following fact is clear.
 
 \begin{fact}\label{fact_st1}
   For every $\alpha\in{}^*\! I$ and every compact $C\subseteq I$
@@ -533,11 +532,13 @@ We denote by \emph{${\rm st}(\alpha)$\/} the unique $\beta\in I$ such that ${}^*
 \ceq{\hfill{}^*\!\!I}{\models}{\alpha\in C\ \rightarrow\ {\rm st}(\alpha)\in C.}
 \end{fact}
 
-\begin{proof}
-  Assume ${\rm st}(\alpha)\notin C$.
-  By normality there is a compact set $D$ disjoint from $C$ that is a neighborhood of ${\rm st}(\alpha)$.
-  Then  ${}^*\!\!I\models\alpha\in D\subseteq\neg C$.
-\end{proof}
+% \begin{proof}
+%   Assume ${\rm st}(\alpha)\notin C$.
+%   By normality there is a compact set $D$ disjoint from $C$ that is a neighborhood of ${\rm st}(\alpha)$.
+%   Then  ${}^*\!\!I\models\alpha\in D\subseteq\neg C$.
+% \end{proof}
+
+We need also the following.
 
 \begin{fact}\label{fact_terms_st}
   For every $\alpha\in({}^*\!\!I)^{|\alpha|}$ and every function symbol $f$ of sort ${\sf I}^{|\alpha|}\to{\sf I}$
@@ -2226,36 +2227,43 @@ The following classical results holds unmodified.
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
-\section{Stable formulas (tentative)}
+\section{Stable formulas}
 
 \def\ceq#1#2#3{\parbox[t]{26ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
-The following definition is classical.
-A partitioned formula $\varphi(x\,;z)\in{\EuScript L}$ is stable if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that 
+The results in this section are completely classical.
+The formulas $\varphi(x\,;z)$ and $\tilde\varphi(x\,;z)$ in Theorem~\ref{thm_stability} not required to be positive, in fact, saturation anywhere in this section. 
+We prove an enhanced version of the well-kown fact that externally definable sets are internally definable when the the formula is stable.
+The result is relevat to the subject of this paper when we take $\tilde\varphi\perp\varphi$.
 
-\ceq{{\rm i.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)\ \wedge\ \neg\varphi(a_j\,;b_i)}\hfill  for every $i,j<n$.
+The following definition is from~\cite{Hr}.
+We say that the formulas $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}$ are \emph{stably separated\/} if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that 
 
-We say that $\varphi(x\,;z)$ is \emph{$\varepsilon$-stable\/} if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that 
+\ceq{{\rm i.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)\ \wedge\ \tilde\varphi(a_j\,;b_i)}\hfill  for every $i,j<n$.
 
-\ceq{{\rm i'.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)\ \wedge\ \neg\varphi_\varepsilon(a_j\,;b_i)}\hfill  for every $i,j<n$.
-
-where $\varphi_\varepsilon(a_j\,;b_i)$ stands for $\exists x,z\sim_\varepsilon a_j,b_i\ \varphi(x\,;z)$.
-We say that $\varphi(x\,;z)$ is \emph{$\sim$-stable\/} if it is $\varepsilon$-stable for every $\varepsilon$.
-
-The set ${\EuScript D}\subseteq{\EuScript U}^{|z|}$ is \emph{$\varepsilon$-approximated\/} by $\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}^{|z|}$ there is an $a\in{\EuScript U}^{|x|}$ such that for every $b\in B$
+The sets ${\EuScript D},\tilde{\EuScript D}\subseteq{\EuScript U}^{|z|}$ are \emph{finitely separated\/} by $\varphi(x\,;z),\tilde\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}^{|z|}$ there is an $a\in{\EuScript U}^{|x|}$ such that 
 
 \ceq{{\rm ii.}\hfill B\ \cap\ {\EuScript D}}{\subseteq}{B\ \cap\ \varphi(a\,;{\EuScript U});}
 
-\ceq{{\rm iii.}\hfill B\ \cap\ \neg{\EuScript D}_\varepsilon}{\subseteq}{B\ \cap\ \neg\varphi_\varepsilon(a\,;{\EuScript U}).}
+\ceq{{\rm iii.}\hfill B\ \cap\ \tilde{\EuScript D}}{\subseteq}{B\ \cap\ \tilde\varphi(a\,;{\EuScript U}).}
 
-Finally, we say $\varepsilon$-approximated \emph{from above\/} if we also have
+Finally, we say that they are also \emph{honestly\/} separated if we can also guarantee that 
 
-\ceq{{\rm iv.}\hfill{\EuScript D}}{\subseteq}{\varphi_\varepsilon(a\,;{\EuScript U}).}
+\ceq{{\rm iv.}\hfill{\EuScript D}\ \cap\ \tilde\varphi(a\,;{\EuScript U})}{=}{\varnothing;}
+
+\ceq{{\rm v.}\hfill\tilde{\EuScript D}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{\varnothing.}
+
+If only (iv) obtains, we say \emph{half-honestly\/} separated. 
 
 
-\begin{lemma}
-  Let $\varphi(x\,;z)$ be $\varepsilon$-stable.
-  If ${\EuScript D}$ is $\varepsilon$-approximable by $\varphi(x\,;z)$ then ${\EuScript D}$ is $\varepsilon$-approx\-imable from above by $\varphi(x_0\,;z)\vee\dots\vee\varphi(x_m\,;z)$, for some $m$.
+\begin{lemma}\label{lem_sability1}
+  Let $\varphi(x\,;z),\tilde\varphi(x\,;z)$ be stably separated.
+  If ${\EuScript D},\tilde{\EuScript D}$ is finitely separated by $\varphi,\tilde\varphi$ then for some $m$ they are finitely and half-honestly separated by $\psi,\tilde\psi$ where 
+  
+  \ceq{\hfill\psi(x_0,\dots,x_m\,z)}{=}{\varphi(x_0\,;z)\vee\dots\vee\varphi(x_m\,;z)}
+  
+  \ceq{\hfill\tilde\psi(x_0,\dots,x_m\,z)}{=}{\tilde\varphi(x_0\,;z)\wedge\dots\wedge\tilde\varphi(x_m\,;z)}
+  
 \end{lemma}
 
 \begin{proof}
@@ -2265,9 +2273,9 @@ Finally, we say $\varepsilon$-approximated \emph{from above\/} if we also have
   
   \ceq{\hfill B\cap{\EuScript D}}{\subseteq}{\varphi(a_i,\,;{\EuScript U})}\hfill for every $0\le i\le m$;
   
-  \ceq{\hfill B\cap\neg{\EuScript D}_\varepsilon}{\subseteq}{\neg\varphi_\varepsilon(a_i\,;{\EuScript U})}\hfill for every $0\le i\le m$;
+  \ceq{\hfill B\cap\tilde{\EuScript D}}{\subseteq}{\tilde\varphi(a_i\,;{\EuScript U})}\hfill for every $0\le i\le m$;
 
-  \ceq{\hfill{\EuScript D}}{\subseteq}{\bigcup_{i=0}^m\varphi_\varepsilon(a_i,\,;{\EuScript U}).}
+  \ceq{\hfill\varnothing}{=}{{\EuScript D}\ \cap\ \bigcap_{i=0}^m\tilde\varphi(a_i,\,;{\EuScript U}).}
 
   We define $a_n$ and $b_n$ by recursion.
   Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\in{\EuScript D}$ have been defined.
@@ -2277,68 +2285,76 @@ Finally, we say $\varepsilon$-approximated \emph{from above\/} if we also have
   \ceq{\hfill\{b_0,\dots,b_{n-1}\}\cup \big(B\cap{\EuScript D}\big)}{\subseteq}{\varphi(a_n,\,;{\EuScript U})};
   
 
-  \ceq{\hfill B\cap\neg{\EuScript D}_\varepsilon}{\subseteq}{\neg\varphi_\varepsilon(a_n\,;{\EuScript U}).}
+  \ceq{\hfill B\cap\tilde{\EuScript D}}{\subseteq}{\tilde\varphi(a_n\,;{\EuScript U}).}
 
   This is possible by (ii) and (iii).
   Now, if possible, choose $b_n$ such that
 
-  \ceq{\hfill b_n}{\in}{{\EuScript D}\smallsetminus\bigcup_{i=0}^n\varphi_\varepsilon(a_i,\,;{\EuScript U})}.
+  \ceq{\hfill b_n}{\in}{{\EuScript D}\cap\bigcap_{i=0}^n\tilde\varphi(a_i,\,;{\EuScript U})}.
 
   If this is not possible, then setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
   We claim that at some $n\le m$ the procedure above halts.
-  In fact, otherwise we would contradict the choice of $m$ as the sequence $\langle a_i\,;b_i : i\le m\rangle$, with the reversed order, satisfies (i$'$).
+  In fact, otherwise we would contradict the choice of $m$ as the sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i) up to reversing the order.
 \end{proof}
 
-\begin{lemma}\label{lem_def_frombelow}
-  Let $\varphi(x\,;z)$ be $\varepsilon$-stable.
-  Let ${\EuScript D}$ be $\varepsilon$-approximable by $\varphi(x\,;z)$ from above.
-  Then for some $m$ and some $a_i\in{\EuScript U}^{|x|}$
 
-  \ceq{\hfill\bigcap^n_{i=0}\varphi(a_i\,;{\EuScript U})}{\subseteq}{{\EuScript D}_\varepsilon}.
+\begin{lemma}\label{lem_sability2}
+  Let $\varphi(x\,;z),\tilde\varphi(x\,;z)$ be stably separated.
+  If ${\EuScript D},\tilde{\EuScript D}$ is finitely and half-honestly separated by $\varphi,\tilde\varphi$ then for some $m$ they are finitely and honestly separated by $\psi,\tilde\psi$ where 
+  
+  \ceq{\hfill\psi(x_0,\dots,x_m\,z)}{=}{\varphi(x_0\,;z)\wedge\dots\wedge\varphi(x_m\,;z)}
+  
+  \ceq{\hfill\tilde\psi(x_0,\dots,x_m\,z)}{=}{\tilde\varphi(x_0\,;z)\vee\dots\vee\tilde\varphi(x_m\,;z)}
 \end{lemma}
 
 \begin{proof}
-  The elements $a_n$ are defined recursively together with some auxiliary elements $b_n$.
-  Suppose $b_0,\dots,b_{n-1}\notin{\EuScript D}_\epsilon$ have been defined.
-  We first define $a_n$, then $b_n$.
-  Choose $a_n\in{\EuScript U}^{|x|}$ such that $\{b_0,\dots,b_{n-1}\}\subseteq\neg\varphi_\varepsilon(a_n\,;{\EuScript U})$ and ${\EuScript D}\subseteq\varphi_\varepsilon(a_n\,;{\EuScript U})$.
-  This is possible by (iii) and (iv).
+  Let $m$ be such that no sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i$'$).
+  Let $B\subseteq{\EuScript U}^{|z|}$ be finite.
+  It suffices to prove that there are some $a_0,\dots,a_m$ such that 
+  
+  \ceq{\hfill B\cap{\EuScript D}}{\subseteq}{\varphi(a_i,\,;{\EuScript U})}\hfill for every $0\le i\le m$;
+  
+  \ceq{\hfill B\cap\tilde{\EuScript D}}{\subseteq}{\tilde\varphi(a_i\,;{\EuScript U})}\hfill for every $0\le i\le m$;
+
+  \ceq{\hfill\varnothing}{=}{{\EuScript D}\ \cap\ \tilde\varphi(a_i,\,;{\EuScript U})}\hfill for every $0\le i\le m$;
+
+  \ceq{\hfill\varnothing}{=}{\tilde{\EuScript D}\ \cap\ \bigcap_{i=0}^m\varphi(a_i,\,;{\EuScript U}).}
+
+  We define $a_n$ and $b_n$ by recursion.
+  Suppose that $a_0,\dots,a_{n-1}$ and $b_0,\dots,b_{n-1}\in{\EuScript D}$ have been defined.
+  We first define $a_n$, then $b_n$. 
+  Choose $a_n\in{\EuScript U}^{|x|}$ such that 
+  
+  \ceq{\hfill B\cap{\EuScript D}\big)}{\subseteq}{\varphi(a_n,\,;{\EuScript U})};
+  
+  \ceq{\hfill\{b_0,\dots,b_{n-1}\}\cup \big( B\cap\tilde{\EuScript D}\big)}{\subseteq}{\tilde\varphi(a_n\,;{\EuScript U}).}
+
+  \ceq{\hfill\varnothing}{=}{{\EuScript D}\ \cap\ \tilde\varphi(a_i,\,;{\EuScript U}).}
+
+  This is possible by (ii), (iii) and (iv).
   Now, if possible, choose $b_n$ such that
 
-  \ceq{\hfill b_n}{\in}{\bigcap^n_{i=0}\varphi(a_i\,;{\EuScript U})\ \smallsetminus\ {\EuScript D}_\epsilon}.
+  \ceq{\hfill b_n}{\in}{\tilde{\EuScript D}\cap\bigcap_{i=0}^n\varphi(a_i,\,;{\EuScript U})}.
 
-  If this is not possible, then $a_0,\dots,a_n$ are those required by the lemma.
-  We claim that at some $n$ the procedure halts.
-  In fact, otherwise we would contradict the choice of $m$ as we we would obtain a sequence $\langle a_i\,;b_i : i\le m\rangle$ such that (i$'$).
+  If this is not possible, then setting $a_i=a_m$ for $n<i\le m$, we obtain the required $a_0,\dots,a_m$.
+  We claim that at some $n\le m$ the procedure above halts.
+  In fact, otherwise we would contradict the choice of $m$ as the sequence $\langle a_i\,;b_i : i\le m\rangle$ satisfies (i).
 \end{proof}
 
-\begin{lemma}\label{lem_apx_frombelow}
-  Let $\varphi(x\,;z)\in{\EuScript L}$ be $\varepsilon$-stable.
-  Let ${\EuScript D}$ be $\varepsilon$-approximable by $\varphi(x\,;z)$.
-  Then the formula 
-
-  \ceq{\hfill\psi(x_0,x_1\,;z)}{=}{\varphi(x_0\,;z)\vee\varphi(x_1\,;z)}
-
-  is also  $\varepsilon$-stable.
-\end{lemma}
+\begin{theorem}\label{thm_stability}
+  Let $\varphi(x\,;z),\tilde\varphi(x\,;z)$ be stably separated.
+  If ${\EuScript D},\tilde{\EuScript D}$ is finitely separated by $\varphi,\tilde\varphi$ then for some $m,n$ they are finitely and honestly separated by $\psi,\tilde\psi$ where 
+  
+  \ceq{\hfill\psi(\langle x_{i,j}\rangle_{i,j\le m,n}\,;z)}{=}{\bigwedge_{i=0}^m\bigvee_{j=0}^n\varphi(x_{i,j}\,;z)}
+  
+  \ceq{\hfill\tilde\psi(\langle x_{i,j}\rangle_{i,j\le m,n}\,;z)}{=}{\bigvee_{i=0}^m\bigwedge_{j=0}^n\tilde\varphi(x_{i,j}\,;z)}
+\end{theorem}
 
 \begin{proof}
-  By the usual finite Ramsey's argument.
+  Apply Lemma~\ref{lem_sability1} and~\ref{lem_sability1} in succession.
+  Note that the usual Ramsey's argument proves that the formulas $\psi,\tilde\psi$ in Lemma~\ref{lem_sability1} are stably separated.
+  Therefore they meet the assumption of Lemma~\ref{lem_sability2}.
 \end{proof}
-
-\begin{theorem}
-  Let $\varphi(x\,;z)\in{\EuScript L}$ be $\varepsilon$-stable.
-  Let ${\EuScript D}$ be $\varepsilon$-approximable by $\varphi(x\,;z)$.
-  Then for some $m,n$ and some $a_{i,j}\in{\EuScript U}^{|x|}$
-
-  \ceq{\hfill\bigcap^n_{i=0}\ \bigcup^m_{j=0}\varphi(a_{i,j}\,;{\EuScript U})}{\subseteq}{{\EuScript D}_\epsilon}.
-
-
-  \ceq{\hfill{\EuScript D}}{\subseteq}{\bigcap^n_{i=0}\ \bigcup^m_{j=0}\varphi_\epsilon(a_{i,j}\,;{\EuScript U})}.
-
-
-  
-\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
@@ -2359,6 +2375,13 @@ Finally, we say $\varepsilon$-approximated \emph{from above\/} if we also have
 \begin{bibdiv}
 \begin{biblist}[]\normalsize
 
+  \bib{clcl}{article}{
+    label={CLCL},
+    author = {Polymath, C.L.C.L.},
+    title = {Continuous Logic for the Classical Logician},
+    note={T.a.},
+    date = {202?},
+  }
 
 \bib{BBHU}{article}{
   label={BBHU},
@@ -2452,27 +2475,30 @@ Finally, we say $\varepsilon$-approximated \emph{from above\/} if we also have
   %  review={\MR{1967834}},
 }
 
-\bib{clcl}{article}{
-  label={CLCL},
-  author = {Polymath, C.L.C.L.},
-  title = {Continuous Logic for the Classical Logician},
-  note={T.a.},
-  date = {202?},
+\bib{K}{arXiv}{
+  label={K},
+  author = {Keisler, H. Jerome},
+  title = {Model Theory for Real-valued Structures},
+  eprint={2005.11851},
+  doi = {10.48550/ARXIV.2005.11851},
+  url = {https://arxiv.org/abs/2005.11851},
+  publisher = {arXiv},
+  date = {2020},
 }
 
-\bib{Z}{article}{
-  label={Z},
-   author={Zambella, Domenico},
-   title={Elementary classes of finite VC-dimension},
-   journal={Arch. Math. Logic},
-   volume={54},
-   date={2015},
-   number={5-6},
-   pages={511--520},
-  %  issn={0933-5846},
-  %  review={\MR{3372605}},
-  %  doi={10.1007/s00153-015-0424-0},
-}
+% \bib{Z}{article}{
+%   label={Z},
+%    author={Zambella, Domenico},
+%    title={Elementary classes of finite VC-dimension},
+%    journal={Arch. Math. Logic},
+%    volume={54},
+%    date={2015},
+%    number={5-6},
+%    pages={511--520},
+%   %  issn={0933-5846},
+%   %  review={\MR{3372605}},
+%   %  doi={10.1007/s00153-015-0424-0},
+% }
 
 
 
