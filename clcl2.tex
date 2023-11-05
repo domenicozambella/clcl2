@@ -138,9 +138,11 @@
 \begin{abstract}
   Let ${\EuScript L}$ be a first-order two-sorted language.
   Let $X$ be some fixed structure.
-  A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,X\rangle$.
+  A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,X\rangle$, where $M$ is arbitrary.
   When $X$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
-  This has been shown by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to arbitrary structures in~\cite{clcl}.
+  This has been shown by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to a larger class of structures in~\cite{clcl}.
+  We prove that their approach applies to an even larger class (which includes e.g.\@ G-flows).\\[1ex]
+  \noindent
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
   A second important step is to prove that (in a sufficiently saturated structure) the negation of a positive formula is equivalent to to an infinite (but small) disjunction of positive formulas.
   The main tool is the notion of approximation of a positive formula and of its negation that have been introduced by Henson and Iovino.\\[1ex]
@@ -168,7 +170,7 @@
 
 % We refer to the introduction of~\cite{clcl} for motivations.
 % Aside from that, this paper is reasonably self-contained.
-In order to make the paper reasonably self contained, in the first few sections we revisit some results of~\cite{clcl}.
+In order to make the paper reasonably self contained, in the first few sections we revisit and extend some results of~\cite{clcl}.
 Some theorems are rephrased and we add a few remarks and examples.
 %\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead.}
 Where necessary our notation and terminology slightly diverges.
@@ -179,6 +181,11 @@ In particular, there is a constant for each element of $X$.
 According to the context, $C$ and $f$ denote either the symbols of ${\EuScript L}_{\sf X}$ or their interpretation in the stucture $X$.
 Such a language ${\EuScript L}_{\sf X}$ is much larger than necessary but it is convenient because it uniquely associates a structure to a topological space.
 The notion of a \textit{dense set of formulas\/} (Definition~\ref{def_dense}) helps to reduce the size of the language when required.
+
+We need the following definition.
+Let $A$ be a pure set.
+We say that $f:A\times X^m\to X$ is continuous \emph{uniformly} in $A$ if for every $\varepsilon$ there is a $\delta$ such that $\big(f(a,\alpha),f(a,\alpha')\big)\in\varepsilon$ for every $a\in A$ and every $(\alpha,\alpha')\in\delta$, where $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
+In words we say that, as $a$ ranges over $A$, the functions $f(a,\mbox{-})$ have the same modulus of uniform continuity.
 
 The most straightforward examples of structures $X$ are the unit interval $[0,1]$ with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
 
@@ -194,8 +201,8 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$. 
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
-  Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\to {\sf X}$.
-
+  Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ that are continuous uniformly in $M^n$.
+  
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
 
@@ -239,6 +246,7 @@ Note that ${\EuScript L}$ has two types of atomic formulas
 \end{notation}
 
 The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript F}^{\rm c}$ that do not have quantifiers of sort ${\sf X}$.
+They are also not interested in functions symbols of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ with $n$ and $m$ both positive.
 
 Allowing quantifiers of sort ${\sf X}$ comes almost for free.
 In Section~\ref{cIelimination} will see that the formulas in ${\EuScript F}^{\rm c}$ are approximated by formulas in ${\EuScript F}^{\rm c}$ without quantifiers of sort ${\sf X}$.
@@ -269,25 +277,6 @@ For instance, the example below (from~\cite{clcl}) should convince the reader th
   \ceq{\hfill\forall x\ \big[\tau(x)\le\alpha\big]}{\wedge}{\forall \varepsilon>0\ \exists x\ \big[\alpha\le \tau(x)+ \varepsilon\big].}
 \end{example}
 
-The following two examples are of a somewhat different nature.
-
-%is inspired by~\cite{HPP}.
-
-\begin{example}\label{ex_HPP}
-  Let ${\EuScript U}$ be a saturated structure of signature ${\EuScript L}_{\sf H}$.
-  The relevant part of ${\EuScript L}$ contains symbols for the functions $f:{\EuScript U}^n\to X$ that are continuous in the following sense: the inverse image of every compact $C\subseteq X$ is type-definable in ${\EuScript L}_{\sf H}(M)$ for every $M\preceq{\EuScript U}$.
-  %It is easy to verify that $\langle{\EuScript U}, X\rangle$ is positively saturated as defined in Section~\ref{compactness}.
-\end{example}
-
-%The following example is of a somewhat different nature~\cite{LP}.
-
-\begin{example}\label{ex_LP}
-  Whil the notation of Example~\ref{ex_HPP}, let $E$ be the finest type definable (over $\varnothing$) equivalence relation on ${\EuScript U}^{|x|}$ with $<|{\EuScript U}|$ classes. 
-  Let $X={\EuScript U}^{|x|}/E$.
-  Let $\pi:{\EuScript U}^{|x|}\to{\EuScript U}^{|x|}/E$ be the canonical projection map.
-  Then $X$ is a compact Hausdorff topological space with the topology whose closed are those $C$ such that $\pi^{-1}[C]$ is type definable possibly with parameters, see e.g.~[Lemma~3.7]\cite{LH}.
-\end{example}
-
 The theory of normed spaces is one of the motivating examples for standard structures.
 The requirement for $X$ to be compact seems a limitation, but it is not a real one.
 Essentially, functional analysis and model theory are only concerned with the unit ball of normed spaces.
@@ -309,11 +298,6 @@ Normed space are standard structures with the natural interpretation of the lang
 It is easy to verify that the unit ball of a standard structure is the unit ball of a normed space.
 Note that the same remains true if we add to the language any continuous (equivalently, bounded) operator or functional.
 \end{example}
-
-We conclude this introduction with a question.
-Is it possible to extend the positive Compactness Theorem (Theorem~\ref{thm_compattezza}) to a larger class of languages?
-E.g.\@ can we allow in ${\EuScript L}$ (and in ${\EuScript F}^{\rm p/c}$) function symbols of sort ${\sf H}^n\times {\sf X}^m\to {\sf X}$ with both $n$ and $m$ positive?
-These would have natural interpretations, e.g.\@ a group acting on a compact set $X$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -538,44 +522,40 @@ The following fact is clear.
 We need also the following.
 
 \begin{fact}\label{fact_terms_st}
-  For every $\alpha\in({}^*\!\!X)^{|\alpha|}$ and every function symbol $f$ of sort ${\sf X}^{|\alpha|}\to{\sf X}$
+  For every $a\in N^n$, $\alpha\in({}^*\!\!X)^m$ and every term $t$ of the right sort
 
-  \ceq{\hfill{}^*\!\!X}{\models}{{\rm st}\big(f(\alpha)\big)=f\big({\rm st}(\alpha)\big).}
+  \ceq{\hfill{}^*\!\!X}{\models}{{\rm st}\big(\tau(a,\alpha)\big)={\rm st}\big(\tau\big(a,{\rm st}(\alpha)\big)\big).}
 \end{fact}
 
 \begin{proof}
-  By the definition of st(-) it suffices to prove that ${}^*\!\!X\models f(\alpha)\in D$ for every compact neighborhood $D$ of $f\big({\rm st}(\alpha)\big)$.
-  
-  Fix one such $D$.
-  Then ${\rm st}(\alpha)\in f^{-1}[D]$ .
-  By continuity $f^{-1}[D]$ is a compact neighborhood of ${\rm st}(\alpha)$.
-  Therefore ${}^*\!\!X\models \alpha\in f^{-1}[D]$ and, as $X\preceq{}^*\!\!X$ we obtain ${}^*\!\!X\models f(\alpha)\in D$.
+  We prove the fact for function symbols; the general case follows by easy induction.
+  Let $\varepsilon$ and $\delta$ range over the compact neighborhoods of the diagonal of $X^m\times X^m$.
+  We know that for every $\varepsilon$ there is a $\delta$ such that $X\models\forall x,\,(\eta,\eta')\in\delta\ \big(f(x,\eta),f(x,\eta')\big)\in\varepsilon$.
+  The same formula holds in ${}^*\!\!X$.
+  As ${}^*\!\!X\models\big(\alpha,{\rm st}\big(\alpha)\big)\in\delta$ for every $\delta$, we conclude that $\big(f(a,\alpha),f(a,{\rm st}\big(\alpha))\big)\in\varepsilon$ for every $\varepsilon$.
+  Therefore $f(a,\alpha)$ and $f(a,{\rm st}\big(\alpha))$ have the same standard part.
 \end{proof}
 
-The \emph{standard part of $\langle N,{}^*\!\!X\rangle$\/} is the standard structure $\langle N,X\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\to {\sf X}$ as the functions
+The \emph{standard part of $\langle N,{}^*\!\!X\rangle$\/} is the standard structure $\langle N,X\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ as the functions
 
-\ceq{\hfill f^N(a)}{=}{{\rm st}\big({}^*\!\!f(a)\big)}\hfill for all $a\in N^n$,
+\ceq{\hfill f^N(a,\alpha)}{=}{{\rm st}\big({}^*\!\!f(a,\alpha)\big)}\hfill for all $a\in N^n$, $\alpha\in X^{|\alpha|}$.
 
-where ${}^*\!\!f$ is the interpretation of $f$ in  $\langle N,{}^*\!\!X\rangle$.
+where ${}^*\!\!f$ is the interpretation of $f$ in $\langle N,{}^*\!\!X\rangle$.
+By the fact above, when $n=0$ the definition agrees with the canonical interpretation of the functions in ${\EuScript L}_{\sf X}$.
 Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
+
+Easy induction proves the following.
 
 \begin{fact}\label{fact_st2} 
   With the notation as above.
-  Let $\tau(x\,;\eta)$ be a term of sort ${\sf H}^{|x|}\times{\sf X}^{|\eta|}\to {\sf X}$.
-  Then for every $a\in M^{|x|}$ and $\alpha\in({}^*\!\!X)^{|\eta|}$
+  For every $a\in N^n$ and $\alpha\in ({}^*\!\!X)^m$
 
   \ceq{\hfill \tau^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*\!\tau(a\,;\alpha)\big)}
+
+  where $\tau^N$ and ${}^*\!\tau$ are interpretations of $\tau$ in $N$, respectively $\langle N,{}^*\!\!X\rangle$.
 \end{fact}
-\begin{proof}
-  When a $t$ is a function symbol of sort  ${\sf H}^{|x|}\to {\sf X}$, the claim holds by definition.
-  When $t$ is a function symbol of sort ${\sf X}^{|\eta|}\to {\sf X}$, the claim follows from Fact~\ref{fact_terms_st}.
-  Now, assume inductively that 
 
-  \ceq{\hfill t_i^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*t_i(a\,;\alpha)\big)}
-
-  holds for the terms $t_1(x\,;\eta),\dots,t_n(x\,;\eta)$ and let $t=f(t_1,\dots,t_n)$ for some function $f$ of sort ${\sf X}^n\to {\sf X}$.
-  Then the claim follows immediately from the induction hypothesis and Fact~\ref{fact_terms_st}.
-\end{proof}
+Now we move to positive formulas.
 
 % Symbols in ${\EuScript L}_{\sf X}$ have the interpretation they have in models.
 
@@ -612,7 +592,7 @@ Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
 
  \begin{proof}
   Let $\langle ^*\!M,^*\!\!X\rangle$ be an ${\EuScript L}$-elementary saturated superstructure of $\langle M,X\rangle$.
-  Pick some $\alpha\in ^*\!\!X$ such that $\langle ^*\!M,^*\!\!X\rangle\models p(\alpha)$.
+  Pick some $\alpha\in{}^*\!\!X$ such that $\langle ^*\!M,^*\!\!X\rangle\models p(\alpha)$.
   By Lemma~\ref{lem_st}, $^*\!M\models p({\rm st}(\alpha))$.
   Now observe that the truth of formulas without the quantifier $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}}$ are preserved by substructures.
  \end{proof}
