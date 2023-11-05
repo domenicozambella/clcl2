@@ -269,12 +269,23 @@ For instance, the example below (from~\cite{clcl}) should convince the reader th
   \ceq{\hfill\forall x\ \big[\tau(x)\le\alpha\big]}{\wedge}{\forall \varepsilon>0\ \exists x\ \big[\alpha\le \tau(x)+ \varepsilon\big].}
 \end{example}
 
-The following example is inspired by~\cite{HPP}.
+The following two examples are of a somewhat different nature.
+
+%is inspired by~\cite{HPP}.
 
 \begin{example}\label{ex_HPP}
   Let ${\EuScript U}$ be a saturated structure of signature ${\EuScript L}_{\sf H}$.
   The relevant part of ${\EuScript L}$ contains symbols for the functions $f:{\EuScript U}^n\to X$ that are continuous in the following sense: the inverse image of every compact $C\subseteq X$ is type-definable in ${\EuScript L}_{\sf H}(M)$ for every $M\preceq{\EuScript U}$.
   %It is easy to verify that $\langle{\EuScript U}, X\rangle$ is positively saturated as defined in Section~\ref{compactness}.
+\end{example}
+
+%The following example is of a somewhat different nature~\cite{LP}.
+
+\begin{example}\label{ex_LP}
+  Whil the notation of Example~\ref{ex_HPP}, let $E$ be the finest type definable (over $\varnothing$) equivalence relation on ${\EuScript U}^{|x|}$ with $<|{\EuScript U}|$ classes. 
+  Let $X={\EuScript U}^{|x|}/E$.
+  Let $\pi:{\EuScript U}^{|x|}\to{\EuScript U}^{|x|}/E$ be the canonical projection map.
+  Then $X$ is a compact Hausdorff topological space with the topology whose closed are those $C$ such that $\pi^{-1}[C]$ is type definable possibly with parameters, see e.g.~[Lemma~3.7]\cite{LH}.
 \end{example}
 
 The theory of normed spaces is one of the motivating examples for standard structures.
@@ -300,7 +311,7 @@ Note that the same remains true if we add to the language any continuous (equiva
 \end{example}
 
 We conclude this introduction with a question.
-Is it possible to extend the Positive Compactness Theorem (Theorem~\ref{thm_compattezza}) to a larger class of languages?
+Is it possible to extend the positive Compactness Theorem (Theorem~\ref{thm_compattezza}) to a larger class of languages?
 E.g.\@ can we allow in ${\EuScript L}$ (and in ${\EuScript F}^{\rm p/c}$) function symbols of sort ${\sf H}^n\times {\sf X}^m\to {\sf X}$ with both $n$ and $m$ positive?
 These would have natural interpretations, e.g.\@ a group acting on a compact set $X$.
 
@@ -570,7 +581,7 @@ Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
 
 \begin{lemma}\label{lem_st}
   With the notation as above.
-  For every $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}$, \  $a\in N^{|x|}$, $\alpha\in({}^*\!\!X)^{|\eta|}$ 
+  For every $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}$, \  $a\in N^{|x|}$, and $\alpha\in({}^*\!\!X)^{|\eta|}$ 
   
   \ceq{\hfill\langle N,{}^*\!\!X\rangle\models\varphi(a\,;\alpha)}
   {\Rightarrow}
@@ -2156,26 +2167,26 @@ The following analogue of Ryll-Nardzewski's Theorem follows by the classical arg
 
 \def\ceq#1#2#3{\parbox[t]{15ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
-Let $J,<$ be an infinite linear order.
-A sequence $a=\langle a_i:i\in J\rangle$ is p/c-indiscernible if 
+Let $I,<$ be an infinite linear order.
+A sequence $a=\langle a_i:i\in I\rangle$ is p/c-indiscernible if 
 
-\ceq{\hfill\mbox{p/c-tp}(a_{\restriction J_0})}{=}{\mbox{p/c-tp}(a_{\restriction J_1})}
+\ceq{\hfill\mbox{p/c-tp}(a_{\restriction I_0})}{=}{\mbox{p/c-tp}(a_{\restriction I_1})}
 
-for every $J_0,J_1\subseteq J$ such that $|J_0|=|J_1|<\omega$.
+for every $I_0,I_1\subseteq I$ such that $|I_0|=|I_1|<\omega$.
 Note that as maximal positive types are complete, positive indisceribles are classical indiscernibles.
 
 Let $x=\langle x_i:i<\omega\rangle$.
-Let $b=\langle b_i:i\in L\rangle$. 
+Let $b=\langle b_i:i\in J\rangle$. 
 The Ehrenfeucht-Mostowski p/c-type of $a$ is the type
 
-\ceq{\hfill\mbox{EM-p/c-tp}(b)}{=}{\bigcup_{n<\omega}\Big\{\varphi(x_{\restriction n})\in{\EuScript F}^{\rm p/c}\ \ :\ \ \varphi(b_{\restriction L_0})\textrm{ for every } L_0\subseteq L, |L_0|=n\Big\}.}
+\ceq{\hfill\mbox{EM-p/c-tp}(b)}{=}{\bigcup_{n<\omega}\Big\{\varphi(x_{\restriction n})\in{\EuScript F}^{\rm p/c}\ \ :\ \ \varphi(b_{\restriction J_0})\textrm{ for every } J_0\subseteq J, |J_0|=n\Big\}.}
 
 The following classical results holds unmodified.
 
 \begin{theorem}\label{thm_EM}
-  Let $J,<$ and $L,<$ be infinite linear orders.
-  Let $b=\langle b_i:i\in L\rangle$.
-  Then there is a sequence of p/c-indiscernibles $a=\langle a_i:i\in J\rangle$ that realizes the Ehrenfeucht-Mostowski p/c-type as $b$.
+  Let $I,<$ and $J,<$ be infinite linear orders.
+  Let $b=\langle b_i:i\in J\rangle$.
+  Then there is a sequence of p/c-indiscernibles $a=\langle a_i:i\in I\rangle$ that realizes the Ehrenfeucht-Mostowski p/c-type as $b$.
 \end{theorem}
 
 \begin{proof}
@@ -2184,25 +2195,25 @@ The following classical results holds unmodified.
   If $\psi(z)$ is a formula and $w$ is tuple of variables of the same length of $z$, we write $\psi(/w)$ for the formula obtained replacing $z$ by $w$ in $\psi(z)$.
 
   Let $e(x)=\mbox{EM-p/c-tp}(b)$.
-  Let $z=\langle z_i:i\in J\rangle$.
+  Let $z=\langle z_i:i\in I\rangle$.
   Define
 
-  \ceq{\hfill q(z)}{=}{\bigcup_{n<\omega}\Big\{\varphi(/z_{\restriction J_0})\ \ :\ \ \varphi(x_{\restriction n})\in e,\  J_0\subseteq J, |J_0|=n\Big\}\quad\cup}
+  \ceq{\hfill q(z)}{=}{\bigcup_{n<\omega}\Big\{\varphi(/z_{\restriction I_0})\ \ :\ \ \varphi(x_{\restriction n})\in e,\  I_0\subseteq I, |I_0|=n\Big\}\quad\cup}
 
-  \ceq{\hfill }{ }{\bigcup_{n<\omega}\Big\{\varphi(/z_{\restriction J_0})\leftrightarrow\varphi(/z_{\restriction J_1})\ \ :\ \ \varphi(x_{\restriction n})\in{\EuScript F}^{\rm p/c},\  J_i\subseteq J,\  |J_i|=n\Big\}.}
+  \ceq{\hfill }{ }{\bigcup_{n<\omega}\Big\{\varphi(/z_{\restriction I_0})\leftrightarrow\varphi(/z_{\restriction I_1})\ \ :\ \ \varphi(x_{\restriction n})\in{\EuScript F}^{\rm p/c},\  I_i\subseteq I,\  |I_i|=n\Big\}.}
 
   By Ramsey's theorem $q$ is finitely consistent (but note that positive saturation is not enough to infer the existence of a realization in ${\EuScript U}$).
   Let $p(z)\subseteq{\EuScript F}^{\rm p/c}$ be maximal among the types that are finitely consistent with $q$.
 
   We claim that any $a\models p(z)$ is as required by the theorem.
   Clearly $a$ realized the EM-p/c type of $b$, hence we only have to prove that $a$ is a sequence of indiscernibles.
-  Let $a_{\restriction J_0}\models\varphi(x_{\restriction n})$ for some $\varphi(x_{\restriction n})\in{\EuScript F}^{\rm p/c}$ and some $J_0\subseteq J$ of cardinality $n$.
-  We show that $a_{\restriction J_1}\models\varphi(x_{\restriction n})$ 
-  for every $J_1\subseteq J$ of cardinality $n$.
-  This is clear if $\varphi(/z_{\restriction J_0})$ is in $p$, so assume it is not.
-  Then $\{\varphi(/z_{\restriction J_0})\}'\subseteq p$.
-  Then also $\{\varphi(/z_{\restriction J_1})\}'\subseteq p$.
-  Therefore  $a_{\restriction J_1}\models\{\varphi(x_{\restriction n})\}$ which suffices by saturation.
+  Let $a_{\restriction I_0}\models\varphi(x_{\restriction n})$ for some $\varphi(x_{\restriction n})\in{\EuScript F}^{\rm p/c}$ and some $I_0\subseteq I$ of cardinality $n$.
+  We show that $a_{\restriction I_1}\models\varphi(x_{\restriction n})$ 
+  for every $I_1\subseteq I$ of cardinality $n$.
+  This is clear if $\varphi(/z_{\restriction I_0})$ is in $p$, so assume it is not.
+  Then $\{\varphi(/z_{\restriction I_0})\}'\subseteq p$.
+  Then also $\{\varphi(/z_{\restriction I_1})\}'\subseteq p$.
+  Therefore  $a_{\restriction I_1}\models\{\varphi(x_{\restriction n})\}$ which suffices by saturation.
 \end{proof}
 
 
@@ -2215,36 +2226,48 @@ The following classical results holds unmodified.
 %%%%%%%%%%%%%%%%%%%%%
 \section{Stable formulas}
 
-\def\ceq#1#2#3{\parbox[t]{26ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
+\def\ceq#1#2#3{\parbox[t]{24ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
 The results in this section are completely classical.
-The formulas $\varphi(x\,;z)$ and $\tilde\varphi(x\,;z)$ in Theorem~\ref{thm_stability} not required to be positive, in fact, saturation anywhere in this section. 
-We prove an enhanced version of the well-kown fact that externally definable sets are internally definable when the the formula is stable.
-The result is relevat to the subject of this paper when we take $\tilde\varphi\perp\varphi$.
+The formulas $\varphi(x\,;z)$ and $\tilde\varphi(x\,;z)$ in Theorem~\ref{thm_stability} are not required to be positive, in fact, saturation is not required in this section. 
+We prove an enhanced version of a fundamental property of stable formulas.
+Namely, externally definable sets are internally definable when the defining formula is stable.
+The result is relevat to the subject of this paper when we take $\varphi$ positive and $\tilde\varphi\perp\varphi$.
 
 The following definition is from~\cite{Hr}.
 We say that the formulas $\varphi(x\,;z),\tilde\varphi(x\,;z)\in{\EuScript L}$ are \emph{stably separated\/} if for some $n<\omega$ there is no sequence $\langle a_i\,;b_i\,:\,i<n\rangle$ such that 
 
 \ceq{{\rm i.}\hfill i<j}{\Rightarrow}{\varphi(a_i\,;b_j)\ \wedge\ \tilde\varphi(a_j\,;b_i)}\hfill  for every $i,j<n$.
 
-The sets ${\EuScript D},\tilde{\EuScript D}\subseteq{\EuScript U}^{|z|}$ are \emph{finitely separated\/} by $\varphi(x\,;z),\tilde\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}^{|z|}$ there is an $a\in{\EuScript U}^{|x|}$ such that 
+Clearly, two stably separated formulas are mutually inconsistent.
+Note that $\varphi,\neg\varphi$ are stably separated exactly when $\varphi$ is stable (in ${\EuScript U}$).
+
+We say that the sets ${\EuScript D},\tilde{\EuScript D}\subseteq{\EuScript U}^{|z|}$ are \emph{finitely separated\/} by $\varphi(x\,;z),\tilde\varphi(x\,;z)$ if for every finite set $B\subseteq{\EuScript U}^{|z|}$ there is an $a\in{\EuScript U}^{|x|}$ such that 
 
 \ceq{{\rm ii.}\hfill B\ \cap\ {\EuScript D}}{\subseteq}{B\ \cap\ \varphi(a\,;{\EuScript U});}
 
 \ceq{{\rm iii.}\hfill B\ \cap\ \tilde{\EuScript D}}{\subseteq}{B\ \cap\ \tilde\varphi(a\,;{\EuScript U}).}
 
-Finally, we say that they are also \emph{honestly\/} separated if we can also guarantee that 
+Note that this equivalent to requiring that the type below is finitely consistent
+
+\ceq{\hfill p(x)}{=}{\big\{\varphi(x\,;b)\ :\ b\in{\EuScript D}\big\}\ \cup\ \big\{\tilde\varphi(x\,;b)\ :\ b\in\tilde{\EuScript D}\big\}}
+
+Therefore, when $\varphi,\tilde\varphi$ are positive, it follows that ${\EuScript D},\tilde{\EuScript D}$ are \emph{externally separated.}
+That is, there is a p-elementary extension ${}^*\!{\EuScript U}$ of ${\EuScript U}$ and an ${}^*\!\!a\in {}^*\!{\EuScript U}^{|x|}$ such that ${\EuScript D}\subseteq\varphi({}^*\!\!a\,;
+^*\!{\EuScript U})$ and $\tilde{\EuScript D}\subseteq\tilde\varphi({}^*\!\!a\,;{}^*\!{\EuScript U})$.
+
+Finally, we say that they are \emph{honestly\/} finitely separated if we can also guarantee that 
 
 \ceq{{\rm iv.}\hfill{\EuScript D}\ \cap\ \tilde\varphi(a\,;{\EuScript U})}{=}{\varnothing;}
 
 \ceq{{\rm v.}\hfill\tilde{\EuScript D}\ \cap\ \varphi(a\,;{\EuScript U})}{=}{\varnothing.}
 
-If only (iv) obtains, we say \emph{half-honestly\/} separated. 
+If only (iv) obtains, we say \emph{half-honestly\/} finitely separated. 
 
 
 \begin{lemma}\label{lem_sability1}
   Let $\varphi(x\,;z),\tilde\varphi(x\,;z)$ be stably separated.
-  If ${\EuScript D},\tilde{\EuScript D}$ is finitely separated by $\varphi,\tilde\varphi$ then for some $m$ they are finitely and half-honestly separated by $\psi,\tilde\psi$ where 
+  If ${\EuScript D},\tilde{\EuScript D}$ are finitely separated by $\varphi,\tilde\varphi$ then ${\EuScript D},\tilde{\EuScript D}$ are half-honestly finitely separated by $\psi,\tilde\psi$ where 
   
   \ceq{\hfill\psi(x_0,\dots,x_m\,z)}{=}{\varphi(x_0\,;z)\vee\dots\vee\varphi(x_m\,;z)}
   
@@ -2286,7 +2309,7 @@ If only (iv) obtains, we say \emph{half-honestly\/} separated.
 
 \begin{lemma}\label{lem_sability2}
   Let $\varphi(x\,;z),\tilde\varphi(x\,;z)$ be stably separated.
-  If ${\EuScript D},\tilde{\EuScript D}$ is finitely and half-honestly separated by $\varphi,\tilde\varphi$ then for some $m$ they are finitely and honestly separated by $\psi,\tilde\psi$ where 
+  If ${\EuScript D},\tilde{\EuScript D}$ is half-honestly finitely separated by $\varphi,\tilde\varphi$ then for some $m$ they are honestly finitely separated by $\psi,\tilde\psi$ where 
   
   \ceq{\hfill\psi(x_0,\dots,x_m\,z)}{=}{\varphi(x_0\,;z)\wedge\dots\wedge\varphi(x_m\,;z)}
   
@@ -2329,7 +2352,7 @@ If only (iv) obtains, we say \emph{half-honestly\/} separated.
 
 \begin{theorem}\label{thm_stability}
   Let $\varphi(x\,;z),\tilde\varphi(x\,;z)$ be stably separated.
-  If ${\EuScript D},\tilde{\EuScript D}$ is finitely separated by $\varphi,\tilde\varphi$ then for some $m,n$ they are finitely and honestly separated by $\psi,\tilde\psi$ where 
+  If ${\EuScript D},\tilde{\EuScript D}$ is finitely separated by $\varphi,\tilde\varphi$ then for some $m,n$ they are honestly finitely separated by $\psi,\tilde\psi$ where 
   
   \ceq{\hfill\psi(\langle x_{i,j}\rangle_{i,j\le m,n}\,;z)}{=}{\bigwedge_{i=0}^m\bigvee_{j=0}^n\varphi(x_{i,j}\,;z)}
   
