@@ -141,7 +141,7 @@
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,X\rangle$, where $M$ is arbitrary.
   When $X$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
   This has been shown by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to a larger class of structures in~\cite{clcl}.
-  We prove that their approach applies to an even larger class (which includes e.g.\@ G-flows).\\[1ex]
+  We prove that their approach applies to an even larger class (which includes e.g.\@ distal G-flows).\\[1ex]
   \noindent
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
   A second important step is to prove that (in a sufficiently saturated structure) the negation of a positive formula is equivalent to to an infinite (but small) disjunction of positive formulas.
@@ -184,8 +184,14 @@ The notion of a \textit{dense set of formulas\/} (Definition~\ref{def_dense}) he
 
 We need the following definition.
 Let $A$ be a pure set.
-We say that $f:A\times X^m\to X$ is continuous \emph{uniformly} in $A$ if for every $\varepsilon$ there is a $\delta$ such that $\big(f(a,\alpha),f(a,\alpha')\big)\in\varepsilon$ for every $a\in A$ and every $(\alpha,\alpha')\in\delta$, where $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
+We say that $f:A\times X^m\to X$ is \emph{equicontinuous\/} if for every $\varepsilon$ there is a $\delta$ such that $\big(f(a,\alpha),f(a,\alpha')\big)\in\varepsilon$ for every $a\in A$ and every $(\alpha,\alpha')\in\delta$, where $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
 In words we say that, as $a$ ranges over $A$, the functions $f(a,\mbox{-})$ have the same modulus of uniform continuity.
+
+We introduce the the notion of distality.
+The reader may skip this at a first reading and assume equicontinuity instead. 
+We say that $\beta,\beta'\in X$ are $f$-proximal if for every $\delta$ there are $a\in A$, $\alpha,\alpha'\in X^m$ such that $(\alpha,\alpha'), (\beta,f(a,\alpha)), (\beta',f(a,\alpha'))\in\delta$.
+We say that $f$ is \emph{distal\/} if any two $f$-proximal points are equal.
+It is easy to see that every equicontinuous function is distal.
 
 The most straightforward examples of structures $X$ are the unit interval $[0,1]$ with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
 
@@ -201,7 +207,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$. 
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
-  Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ that are continuous uniformly in $M^n$.
+  Finally and most relevantly, ${\EuScript L}$ contains symbols for distal functions that have sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$.
   
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
@@ -487,9 +493,11 @@ Note that this is the same as requiring that (1) holds for all formulas without 
 % \section[The standard part]{The standard part\boldmath$^1$}\label{standard_part}\footnotetext{We will omit this section from the final version of this paper and refer to~\cite{clcl} instead.}
 \section{The standard part of a structure}\label{standard_part}
 
+\def\ceq#1#2#3{\parbox[t]{18ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
+
 In this section we introduce the notion of standard structure.
 This allows to derive the compactness theorem for positive theories from its classical counterpart.
-We will be sketchy and refer the reader to~\cite{clcl} for proofs and details. 
+We will be sketchy and refer the reader to~\cite{clcl} for details (though we work with a larger ${\EuScript L}$, the structure of the argument is similar).
 
 In this section we recall the notion of standard part of an element of the elementary extension of a compact Hausdorff topological space.
 Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
@@ -501,7 +509,7 @@ For each $\beta\in X$, we define the type
 
 \ceq{\hfill{\rm m}_\beta(\eta)}{=}{\{\eta\in D\ :\  D \textrm{ compact neighborhood of }\beta\}.}
 
-% The set of the realizations of ${\rm m}_\beta(\eta)$ in ${}^*\!\!X$ is known to nonstandard analysts as the monad of $\beta$. 
+In nonstandard analysis, the set of the realizations of ${\rm m}_\beta(\eta)$ in ${}^*\!\!X$ is called the monad of $\beta$. 
 
 The compactness of $X$ ensures that for every $\alpha\in{}^*\!\!X$ there is a unique $\beta\in X$ such that ${}^*\!\!X\models{\rm m}_\beta(\alpha)$.
 We denote by \emph{${\rm st}(\alpha)$\/} the unique $\beta\in X$ such that ${}^*\!\!X\models{\rm m}_\beta(\alpha)$.
@@ -521,19 +529,34 @@ The following fact is clear.
 
 We need also the following.
 
-\begin{fact}\label{fact_terms_st}
+\begin{lemma}\label{fact_terms_st}
   For every $a\in N^n$, $\alpha\in({}^*\!\!X)^m$ and every term $t$ of the right sort
 
-  \ceq{\hfill{}^*\!\!X}{\models}{{\rm st}\big(\tau(a,\alpha)\big)={\rm st}\big(\tau\big(a,{\rm st}(\alpha)\big)\big).}
-\end{fact}
+  \ceq{\hfill\langle N,{}^*\!\!X\rangle}{\models}{{\rm st}\big(\tau(a,\alpha)\big)={\rm st}\big(\tau\big(a,{\rm st}(\alpha)\big)\big).}
+\end{lemma}
 
 \begin{proof}
   We prove the fact for function symbols; the general case follows by easy induction.
+  We give two proofs the first assumes equicontinuity, the second, more general, assumes only distality.
   Let $\varepsilon$ and $\delta$ range over the compact neighborhoods of the diagonal of $X^m\times X^m$.
-  We know that for every $\varepsilon$ there is a $\delta$ such that $X\models\forall x,\,(\eta,\eta')\in\delta\ \big(f(x,\eta),f(x,\eta')\big)\in\varepsilon$.
-  The same formula holds in ${}^*\!\!X$.
+  We know that for every $\varepsilon$ there is a $\delta$ such that 
+  
+  \ceq{\hfill M}{\models}{\forall x,\eta,\eta'\big[\,(\eta,\eta')\in\delta\rightarrow \big(f(x,\eta),f(x,\eta')\big)\in\varepsilon\big].}
+  
+  The same formula holds in $\langle N,{}^*\!\!X\rangle$.
   As ${}^*\!\!X\models\big(\alpha,{\rm st}\big(\alpha)\big)\in\delta$ for every $\delta$, we conclude that $\big(f(a,\alpha),f(a,{\rm st}\big(\alpha))\big)\in\varepsilon$ for every $\varepsilon$.
   Therefore $f(a,\alpha)$ and $f(a,{\rm st}\big(\alpha))$ have the same standard part.
+
+  \hfil***
+  
+  Let $\beta={\rm st}(f(a,\alpha)\big)$ and $\beta'={\rm st}\big(f(a,\alpha')\big)$, where $\alpha'={\rm st}(\alpha)$.
+  The following 
+
+  \ceq{\hfill\langle N,{}^*\!\!X\rangle}{\models}{\exists x\,\exists\eta\ \Big[ (\eta,\alpha')\in\delta\ \wedge\ \big(\beta,f(x,\eta)\big)\in\delta\ \wedge\ \big(\beta',f(x,\alpha')\big)\in\delta\Big].}
+
+  By elementarity there are $a\in M^n$ and $\alpha\in X^m$ the witness the exitentials above.
+  Then $a,\alpha,\alpha'$ witness the proximality of $\beta$ and $\beta'$.
+  By distality $\beta=\beta'$.
 \end{proof}
 
 The \emph{standard part of $\langle N,{}^*\!\!X\rangle$\/} is the standard structure $\langle N,X\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ as the functions
