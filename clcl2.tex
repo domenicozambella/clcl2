@@ -140,8 +140,8 @@
   Let $X$ be some fixed structure.
   A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,X\rangle$, where $M$ is arbitrary.
   When $X$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
-  This has been shown by Henson and Iovino for Banach spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to a larger class of structures in~\cite{clcl}.
-  We prove that their approach applies to an even larger class (which includes e.g.\@ distal G-flows).\\[1ex]
+  This has been shown by Henson and Iovino for normed spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to a larger class of structures in~\cite{clcl}.
+  We further generalize their approach to a significantly larger class.\\[1ex]
   \noindent
   The starting point is to prove that every standard structure has a \textit{positive\/} elementary extension that is standard and realizes all positive types that are finitely consistent.
   A second important step is to prove that (in a sufficiently saturated structure) the negation of a positive formula is equivalent to to an infinite (but small) disjunction of positive formulas.
@@ -182,17 +182,6 @@ According to the context, $C$ and $f$ denote either the symbols of ${\EuScript L
 Such a language ${\EuScript L}_{\sf X}$ is much larger than necessary but it is convenient because it uniquely associates a structure to a topological space.
 The notion of a \textit{dense set of formulas\/} (Definition~\ref{def_dense}) helps to reduce the size of the language when required.
 
-We need the following definition.
-Let $A$ be a pure set.
-We say that $f:A\times X^m\to X$ is \emph{equicontinuous\/} if for every $\varepsilon$ there is a $\delta$ such that $\big(f(a,\alpha),f(a,\alpha')\big)\in\varepsilon$ for every $a\in A$ and every $(\alpha,\alpha')\in\delta$, where $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
-In words we say that, as $a$ ranges over $A$, the functions $f(a,\mbox{-})$ have the same modulus of uniform continuity.
-
-We introduce the the notion of distality.
-The reader may skip this at a first reading and assume equicontinuity instead. 
-We say that $\beta,\beta'\in X$ are $f$-proximal if for every $\delta$ there are $a\in A$, $\alpha,\alpha'\in X^m$ such that $(\alpha,\alpha'), (\beta,f(a,\alpha)), (\beta',f(a,\alpha'))\in\delta$.
-We say that $f$ is \emph{distal\/} if any two $f$-proximal points are equal.
-It is easy to see that every equicontinuous function is distal.
-
 The most straightforward examples of structures $X$ are the unit interval $[0,1]$ with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
 
 We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we call the language of the \emph{home sort.}
@@ -207,7 +196,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$. 
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
-  Finally and most relevantly, ${\EuScript L}$ contains symbols for distal functions that have sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$.
+  Finally and most relevantly, ${\EuScript L}$ contains symbols for \textit{pseudo-distal\/} functions (definition below) of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$.
   
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
@@ -216,6 +205,18 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
 % In this case the language ${\EuScript L}_{\sf H}$ is replaced with $L_{{\sf H}_1\dots,{\sf H}_k}$, the language that governs the structure $\langle M_1\dots,M_k\rangle$.
 % Models have the form $\langle M _1\dots,M_k, X\rangle$.
 % The new symbols in the language ${\EuScript L}$ are of sort ${\sf H}_1^{n_1}\dots,{\sf H}_k^{n_k}\to {\sf X}$.
+
+% We are in debt for a definition.
+Let $f:A\times X^m\to X$, where $A$ is a pure set.
+Let $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
+We say that $\beta,\beta'\in X$ are \emph{pseudo-proximal\/} for $f$ if for every $\delta$ there are $a\in A$ and $\alpha,\alpha'\in X^m$ such that $(\alpha,\alpha')$, $(\beta,f(a,\alpha))$, and $(\beta',f(a,\alpha'))$ are all in $\delta$.
+We say that $f$ is \emph{pseudo-distal\/} if any two pseudo-proximal points are equal.
+
+We also define equicontinuity which is stronger condition, but it is easier to take in.
+Let $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
+We say that $f$ is \emph{equicontinuous\/} if for every $\varepsilon$ there is a $\delta$ such that $\big(f(a,\alpha),f(a,\alpha')\big)\in\varepsilon$ for every $a\in A$ and every $(\alpha,\alpha')\in\delta$.
+We can also say that, as $a$ ranges over $A$, the functions $f(a,\mbox{-})$ have the same modulus of uniform continuity.
+It is easy to see that every equicontinuous function is pseudo-distal.
 
 Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of trivial cases (when $X$ is finite), these are not standard.
 As a remedy, below we carve out a set of formulas ${\EuScript F}^{\rm p}$, the set of positive formulas, such that every model has an positive elementary saturated extension that is also standard.
@@ -235,7 +236,7 @@ Note that ${\EuScript L}$ has two types of atomic formulas
   A formula in ${\EuScript L}$ is \emph{positive\/} if it uses only the Boolean connectives $\wedge$, $\vee$; the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$ of sort ${\sf H}$; and the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf X}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf X}{.8ex}\kern-.2ex}$ of sort ${\sf X}$.
   The set of positive formulas is denoted by \emph{${\EuScript F}^{\rm p}$.}
 
-  A \emph{continuous\/} formula is a positive formula where only atomic formulas as in (2) occur.
+  A \emph{continuous\/} formula is a positive formula where only atomic formulas as in (2) above occur.
   The set of continuous formulas is denoted by \emph{${\EuScript F}^{\rm c}$.}
 
   %In propositions that holds for both ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm c}$ we write \emph{${\EuScript F}^{\rm p/c}$.}
@@ -251,12 +252,17 @@ Note that ${\EuScript L}$ has two types of atomic formulas
   For the sake of conciseness, we write \emph{p/c} as a placeholder that can be replaced for either one of \emph{p} or \emph{c.}
 \end{notation}
 
-The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript F}^{\rm c}$ that do not have quantifiers of sort ${\sf X}$.
-They are also not interested in functions symbols of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ with $n$ and $m$ both positive.
+The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript F}^{\rm c}$ that do not have quantifiers of sort ${\sf X}$, nor functions symbols of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ with $n$ and $m$ both positive.
+
+A precise comparison with real-valued logic is less straightforward and outside the scope of this paper.
+In real-valued logic $X=[0,1]$ is interpreted as a set of truth values.
+Functions of sort ${\sf H}^n\to {\sf X}$ are called atomic formulas; functions of sort ${\sf X}^m\to {\sf X}$ are called propositional connectives.
+It seems difficult to interprete functions sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ in that context.
 
 Allowing quantifiers of sort ${\sf X}$ comes almost for free.
-In Section~\ref{cIelimination} will see that the formulas in ${\EuScript F}^{\rm c}$ are approximated by formulas in ${\EuScript F}^{\rm c}$ without quantifiers of sort ${\sf X}$.
-Instead, working within ${\EuScript F}^{\rm p}$ comes at a price but it is convenient as it simplifies the comparision with classical model theory.
+In Section~\ref{cIelimination} will see that the formulas in ${\EuScript F}^{\rm p/c}$ are approximated by formulas in ${\EuScript F}^{\rm p/c}$ without quantifiers of sort ${\sf X}$.
+Instead, choosing ${\EuScript F}^{\rm p}$ over ${\EuScript F}^{\rm c}$ comes at a price.
+However ${\EuScript F}^{\rm p}$ simplifies the the comparision with classical model theory.
 
 An important fact to note about ${\EuScript F}^{\rm c}$ is that it is a language without equality of sort ${\sf H}$.
 The difference beween ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm c}$ is similar to the difference between the space of absolutely integrable functions (w.r.t.\@ some measure $\mu$) and the Lebesgue space $L^1(\mu)$.
@@ -296,8 +302,7 @@ However these infinities are harmless if one restrics to balls of fine radius.
 In fact, inside any ball of finite radius these improper normed spaces are completely standard.
 
 \begin{example}\label{ex_normed_spaces}
-Let $X=\mathds{R}\cup\{\pm\infty\}
-$.
+Let $X=\mathds{R}\cup\{\pm\infty\}$.
 Let ${\EuScript L}_{\sf H}$ be the language of real (or complex) vector spaces.
 The language ${\EuScript L}$ contains a function symbol $\|\mbox{-}\|$ of sort ${\sf H}\to {\sf X}$.
 Normed space are standard structures with the natural interpretation of the language.
@@ -305,6 +310,21 @@ It is easy to verify that the unit ball of a standard structure is the unit ball
 Note that the same remains true if we add to the language any continuous (equivalently, bounded) operator or functional.
 \end{example}
 
+\begin{example}
+  Let $G,X$ be an equicontinuous $G$-flow as defined in~\cite{A}.
+  Let ${\EuScript L}_{\sf H}$ be the language of groups with possibly some additional symbols.
+  The only relevant function in ${\EuScript L}$ is the group action.
+  Then $\langle G,X\rangle$ is a standard structure.
+\end{example}
+
+% We justify the claim in the example above.
+% Recall that a $G$-flow is a group $G$ that act by homeomorphisms on $X$, a compact set.
+% We say that $\beta,\beta'\in X$ are proximal in the sense of~\cite{A} if for every neighborhood $\delta$ of the diagonal of $X\times X$ there is some $g\in G$ such that $\langle g\beta,g\beta'\rangle\in\delta$.
+% If all proximal pairs are trivial, we say that the $G$-flow is  distal in the sense of~\cite{A}.
+% It is easy to verify that the group action is distal.
+% In fact if $\beta,\beta'\in X$ are 
+
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -550,12 +570,12 @@ We need also the following.
   \hfil***
   
   Let $\beta={\rm st}(f(a,\alpha)\big)$ and $\beta'={\rm st}\big(f(a,\alpha')\big)$, where $\alpha'={\rm st}(\alpha)$.
-  The following 
+  Then $a,\alpha$ are witness of
 
   \ceq{\hfill\langle N,{}^*\!\!X\rangle}{\models}{\exists x\,\exists\eta\ \Big[ (\eta,\alpha')\in\delta\ \wedge\ \big(\beta,f(x,\eta)\big)\in\delta\ \wedge\ \big(\beta',f(x,\alpha')\big)\in\delta\Big].}
 
-  By elementarity there are $a\in M^n$ and $\alpha\in X^m$ the witness the exitentials above.
-  Then $a,\alpha,\alpha'$ witness the proximality of $\beta$ and $\beta'$.
+  By elementarity there are $a'\in M^n$ and $\alpha''\in X^m$ the witness the exitentials above.
+  Then $a',\alpha',\alpha''$ witness the proximality of $\beta$ and $\beta'$.
   By distality $\beta=\beta'$.
 \end{proof}
 
@@ -584,11 +604,7 @@ Now we move to positive formulas.
 
 \begin{lemma}\label{lem_st}
   With the notation as above.
-  For every $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}$, \  $a\in N^{|x|}$, and $\alpha\in({}^*\!\!X)^{|\eta|}$ 
-  
-  \ceq{\hfill\langle N,{}^*\!\!X\rangle\models\varphi(a\,;\alpha)}
-  {\Rightarrow}
-  {N\models\varphi\big(a\,;{\rm st}(\alpha)\big)}
+  Let $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}$, \  $a\in N^{|x|}$, and $\alpha\in({}^*\!\!X)^{|\eta|}$ be arbitrary then $N,{}^*\!\!X\rangle\models\varphi(a\,;\alpha)$ implies that $N\models\varphi\big(a\,;{\rm st}(\alpha)\big)$
 \end{lemma}
 
 \begin{proof}
@@ -2398,16 +2414,39 @@ The following remark links the discussion of stability to the double limits inte
   % +{,}{ \url}
 }
 
+\BibSpec{webpage}{%
+  +{}{\PrintAuthors} {author}
+  +{,}{ \textit} {title}
+  +{,}{ } {portal}
+  +{}{ \parenthesize} {date}
+  +{,}{ } {doi}
+  +{,}{ } {note}
+  +{.}{ } {transition}
+}
 \begin{bibdiv}
 \begin{biblist}[]\normalsize
 
-  \bib{clcl}{article}{
-    label={CLCL},
-    author = {Polymath, C.L.C.L.},
-    title = {Continuous Logic for the Classical Logician},
-    note={T.a.},
-    date = {202?},
+\bib{clcl}{article}{
+    label={AAVV},
+    author = {Agostini, Claudio},
+    author = {Baratella, Stefano},
+    author = {Barbina, Silvia},
+    author = {Motto Ros, Luca},
+    author = {Zambella, Domenico},
+    title = {Continuous logic in a classical setting},
+    note={Submitted},
+    date = {2023},
   }
+
+  \bib{A}{webpage}{
+    label={A},
+    author={Auslander, Josef},
+    title={Topological Dynamics},
+    portal={Scholarpedia},
+    doi={doi:10.4249/ scholarpedia.3449},
+    date={2008},
+}
+
   \bib{BY}{article}{
     label={BY},
     author={Ben Yaacov, Ita\"{\i}},
