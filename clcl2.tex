@@ -196,7 +196,8 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$. 
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
-  Finally and most relevantly, ${\EuScript L}$ contains symbols for \textit{pseudo-distal\/} functions (definition below) of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$.
+  Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$.
+  We require that their interpretation is equicontinuous (definition below).
   
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
@@ -208,15 +209,9 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
 
 % We are in debt for a definition.
 Let $f:A\times X^m\to X$, where $A$ is a pure set.
-Let $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
-We say that $\beta,\beta'\in X$ are \emph{pseudo-proximal\/} for $f$ if for every $\delta$ there are $a\in A$ and $\alpha,\alpha'\in X^m$ such that $(\alpha,\alpha')$, $(\beta,f(a,\alpha))$, and $(\beta',f(a,\alpha'))$ are all in $\delta$.
-We say that $f$ is \emph{pseudo-distal\/} if any two pseudo-proximal points are equal.
-
-We also define equicontinuity which is stronger condition, but it is easier to take in.
 Let $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
 We say that $f$ is \emph{equicontinuous\/} if for every $\varepsilon$ there is a $\delta$ such that $\big(f(a,\alpha),f(a,\alpha')\big)\in\varepsilon$ for every $a\in A$ and every $(\alpha,\alpha')\in\delta$.
 We can also say that, as $a$ ranges over $A$, the functions $f(a,\mbox{-})$ have the same modulus of uniform continuity.
-It is easy to see that every equicontinuous function is pseudo-distal.
 
 Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of trivial cases (when $X$ is finite), these are not standard.
 As a remedy, below we carve out a set of formulas ${\EuScript F}^{\rm p}$, the set of positive formulas, such that every model has an positive elementary saturated extension that is also standard.
@@ -271,7 +266,7 @@ However, even when $L^1(\mu)$ is our focus of interest, it is often easier to ar
 For a similar reason ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm c}$ are better studied in parallel.
 
 The extra expressive power offered by quantifiers of sort ${\sf X}$ is convenient.
-For instance, the example below (from~\cite{clcl}) should convince the reader that ${\EuScript F}^{\rm c}$ has at least the same expressive power as real valued logic, see~\cite{BBHU} and~\cite{K}.% (cf.\@ the example below taken from~\cite{clcl}).%
+For instance, the example below should convince the reader that ${\EuScript F}^{\rm c}$ has at least the same expressive power as real valued logic, see~\cite{BBHU} and~\cite{K}.% (cf.\@ the example below taken from~\cite{clcl}).%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
 %A painstaking technical comparison with real valued logic is not in the scope of this indroductory exploratory paper.}.
 
@@ -317,14 +312,6 @@ Note that the same remains true if we add to the language any continuous (equiva
   Then $\langle G,X\rangle$ is a standard structure.
 \end{example}
 
-% We justify the claim in the example above.
-% Recall that a $G$-flow is a group $G$ that act by homeomorphisms on $X$, a compact set.
-% We say that $\beta,\beta'\in X$ are proximal in the sense of~\cite{A} if for every neighborhood $\delta$ of the diagonal of $X\times X$ there is some $g\in G$ such that $\langle g\beta,g\beta'\rangle\in\delta$.
-% If all proximal pairs are trivial, we say that the $G$-flow is  distal in the sense of~\cite{A}.
-% It is easy to verify that the group action is distal.
-% In fact if $\beta,\beta'\in X$ are 
-
- 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -557,7 +544,6 @@ We need also the following.
 
 \begin{proof}
   We prove the fact for function symbols; the general case follows by easy induction.
-  We give two proofs the first assumes equicontinuity, the second, more general, assumes only distality.
   Let $\varepsilon$ and $\delta$ range over the compact neighborhoods of the diagonal of $X^m\times X^m$.
   We know that for every $\varepsilon$ there is a $\delta$ such that 
   
@@ -566,17 +552,6 @@ We need also the following.
   The same formula holds in $\langle N,{}^*\!\!X\rangle$.
   As ${}^*\!\!X\models\big(\alpha,{\rm st}\big(\alpha)\big)\in\delta$ for every $\delta$, we conclude that $\big(f(a,\alpha),f(a,{\rm st}\big(\alpha))\big)\in\varepsilon$ for every $\varepsilon$.
   Therefore $f(a,\alpha)$ and $f(a,{\rm st}\big(\alpha))$ have the same standard part.
-
-  \hfil***
-  
-  Let $\beta={\rm st}(f(a,\alpha)\big)$ and $\beta'={\rm st}\big(f(a,\alpha')\big)$, where $\alpha'={\rm st}(\alpha)$.
-  Then $a,\alpha$ are witness of
-
-  \ceq{\hfill\langle N,{}^*\!\!X\rangle}{\models}{\exists x\,\exists\eta\ \Big[ (\eta,\alpha')\in\delta\ \wedge\ \big(\beta,f(x,\eta)\big)\in\delta\ \wedge\ \big(\beta',f(x,\alpha')\big)\in\delta\Big].}
-
-  By elementarity there are $a'\in M^n$ and $\alpha''\in X^m$ the witness the exitentials above.
-  Then $a',\alpha',\alpha''$ witness the proximality of $\beta$ and $\beta'$.
-  By distality $\beta=\beta'$.
 \end{proof}
 
 The \emph{standard part of $\langle N,{}^*\!\!X\rangle$\/} is the standard structure $\langle N,X\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ as the functions
@@ -604,7 +579,7 @@ Now we move to positive formulas.
 
 \begin{lemma}\label{lem_st}
   With the notation as above.
-  Let $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}$, \  $a\in N^{|x|}$, and $\alpha\in({}^*\!\!X)^{|\eta|}$ be arbitrary then $N,{}^*\!\!X\rangle\models\varphi(a\,;\alpha)$ implies that $N\models\varphi\big(a\,;{\rm st}(\alpha)\big)$
+  Let $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}$, \  $a\in N^{|x|}$, and $\alpha\in({}^*\!\!X)^{|\eta|}$ be arbitrary then $\langle N,{}^*\!\!X\rangle\models\varphi(a\,;\alpha)$ implies that $N\models\varphi\big(a\,;{\rm st}(\alpha)\big)$
 \end{lemma}
 
 \begin{proof}
@@ -702,13 +677,17 @@ We say that $M$ is a \emph{p-elementary\/} substructure of $N$ if $M\subseteq N$
 for every $\varphi(x)\in{\EuScript F}^{\rm p}$ and every $a\in M^{|x|}$.
 
 \begin{theorem}
-  Every standard structure has a p-elementary extension to a p-satu\-rated standard structure (possibly of inaccessible cardinality).
+  Every standard structure has a p-elementary extension to a p-satu\-rated standard structure.
 \end{theorem}
 
 \begin{proof}
-  Let $\langle {}^*\!\!M,{}^*\!\!X\rangle$ be an ${\EuScript L}$-saturated ${\EuScript L}$-elementary extension of the standard structure $\langle M,X\rangle$.
-  Let $\langle {}^*\!\!M,X\rangle$ be its standard part as defined in Section~\ref{standard_part}.
-  By Lemma~\ref{lem_st}, $\langle {}^*\!\!M,X\rangle$ realizes all finitely consistent positive types with $<|{}^*\!\!M|$ parameters.
+  Up to a small tweak, this is just the classical construction.
+  Construct a p-elementary chain of standard structures $M_i$ and a sequence o f types $p_i(x)\subseteq{\EuScript L}(M_i)$ such that $p_i(x)$ is finitely consistent in some p-elementary superstructure of $M_i$ and is realized in $M_{i+1}$.
+  Thepositive compactness theorem ensure the existence of $M_{i+1}$.
+  Let $N$ be the union of the chain.
+  If $\lambda$ is such that $|M_0|<\lambda=\lambda^{<\lambda}$, we can find an enumeration of the types $p_i(x)$ such that every type over $N$ of cardinality $<\lambda$ is over $M_i$ for some $i$ and occurs in this enumeration.
+  Therefore, if it is finitely satsfied in $N$, it is realized in some $M_j$.
+  By p-elemenrity it is realized in $N$.
 \end{proof}
 
 
@@ -2518,21 +2497,21 @@ The following remark links the discussion of stability to the double limits inte
    %doi={10.1090/S0894-0347-2011-00708-X},
 }
 
-\bib{HPP}{article}{
-   label={HPP},
-   author={Hrushovski, Ehud},
-   author={Peterzil, Ya'acov},
-   author={Pillay, Anand},
-   title={Groups, measures, and the NIP},
-   journal={J. Amer. Math. Soc.},
-   volume={21},
-   date={2008},
-   number={2},
-   pages={563--596},
-  %  issn={0894-0347},
-  %  review={\MR{2373360}},
-  %  doi={10.1090/S0894-0347-07-00558-9},
-}
+% \bib{HPP}{article}{
+%    label={HPP},
+%    author={Hrushovski, Ehud},
+%    author={Peterzil, Ya'acov},
+%    author={Pillay, Anand},
+%    title={Groups, measures, and the NIP},
+%    journal={J. Amer. Math. Soc.},
+%    volume={21},
+%    date={2008},
+%    number={2},
+%    pages={563--596},
+%   %  issn={0894-0347},
+%   %  review={\MR{2373360}},
+%   %  doi={10.1090/S0894-0347-07-00558-9},
+% }
 
 \bib{HI}{article}{
   label={HI},
