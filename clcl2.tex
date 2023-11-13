@@ -668,26 +668,26 @@ Therefore we have the following.
 % \end{definition}
 An ${\EuScript L}$-structure $N$ is \emph{positively $\lambda$-saturated\/} if it realizes all types $p(x\,;\eta)\subseteq{\EuScript F}^{\rm p}(N)$ with fewer than $\lambda$ parameters that are finitely consistent in $N$.
 When $\lambda=|N|$ we simply say \emph{p-saturated.}
-The existence of p-saturated standard structures is obtained from the classical case just as for Theorem~\ref{thm_compattezza}.
 
-We say that $M$ is a \emph{p-elementary\/} substructure of $N$ if $M\subseteq N$ and
+We say that $M$ is a \emph{p/c-elementary\/} substructure of $N$ if $M\subseteq N$ and
 
 \ceq{\hfill M\models\varphi(a)}{\Rightarrow}{N\models\varphi(a)}
 
 for every $\varphi(x)\in{\EuScript F}^{\rm p}$ and every $a\in M^{|x|}$.
 
+We say that $M$ is \emph{p/c-maximal\/} if it models all sentences in ${\EuScript F}^{\rm p/c}(M)$ that holds in some p-elementary extension of $M$.
+
 \begin{theorem}
-  Every standard structure has a p-elementary extension to a p-satu\-rated standard structure.
+  Every standard structure has a p-elementary extension to a p-satu\-rated p-maximal standard structure.
 \end{theorem}
 
 \begin{proof}
   Up to a small tweak, this is just the classical construction.
-  Construct a p-elementary chain of standard structures $M_i$ and a sequence o f types $p_i(x)\subseteq{\EuScript L}(M_i)$ such that $p_i(x)$ is finitely consistent in some p-elementary superstructure of $M_i$ and is realized in $M_{i+1}$.
-  Thepositive compactness theorem ensure the existence of $M_{i+1}$.
+  Construct a p-elementary chain of standard structures $M_i$ and a sequence of types $p_i(x)\subseteq{\EuScript L}(M_i)$ such that $p_i(x)$ is finitely consistent in some p-elementary superstructure of $M_i$ and is realized in $M_{i+1}$.
+  The positive compactness theorem ensure the existence of $M_{i+1}$.
   Let $N$ be the union of the chain.
-  If $\lambda$ is such that $|M_0|<\lambda=\lambda^{<\lambda}$, we can find an enumeration of the types $p_i(x)$ such that every type over $N$ of cardinality $<\lambda$ is over $M_i$ for some $i$ and occurs in this enumeration.
-  Therefore, if it is finitely satsfied in $N$, it is realized in some $M_j$.
-  By p-elemenrity it is realized in $N$.
+  If the length of the chain, $\lambda$, is such that $|M_0|\le\lambda=\lambda^{<\lambda}$, we can find an enumeration of the types $p_i(x)$ such that every type over $N$ of cardinality $<\lambda$ finitely consistent in some p-elementary extension of $N$ occurs in this enumeration.
+  Therefore, all these types are realized in some $M_j$ and, by p-elemenrity, $N$.
 \end{proof}
 
 
@@ -790,6 +790,10 @@ For existential quantifiers of sort ${\sf X}$ we argue similarly.% by applying C
 % \begin{remark}
 %   If we restrict to formulas without quantifiers of sort ${\sf H}$, the proposition above holds in every model (this is clear from the proof).
 % \end{remark}
+
+\begin{corollary}
+  In every p/c-maximal model $\{\varphi(x\,;\eta)\big\}'\leftrightarrow\varphi(x\,;\eta)$ holds for every $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}(N)$.
+\end{corollary}
 
 \def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
