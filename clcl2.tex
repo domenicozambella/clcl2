@@ -137,9 +137,9 @@
 
 \begin{abstract}
   Let ${\EuScript L}$ be a first-order two-sorted language.
-  Let $X$ be some fixed structure.
-  A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,X\rangle$, where $M$ is arbitrary.
-  When $X$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
+  Let $S$ be some fixed structure.
+  A \textit{standard\/} structure is an ${\EuScript L}$-structure of the form $\langle M,S\rangle$, where $M$ is arbitrary.
+  When $S$ is a compact topological space (and ${\EuScript L}$ meets a few additional requirements) it is possible to adapt a significant part of model theory to the restricted class of standard strutures.
   This has been shown by Henson and Iovino for normed spaces (see, e.g.~\cite{HI} and references cited therein) and has been generalized to a larger class of structures in~\cite{clcl}.
   We further generalize their approach to a significantly larger class.\\[1ex]
   \noindent
@@ -175,68 +175,73 @@ Some theorems are rephrased and we add a few remarks and examples.
 %\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead.}
 Where necessary our notation and terminology slightly diverges.
 
-Let \emph{$X$\/} be some fixed first-order structure which is endowed with a Hausdorff compact topology (in particular, a normal topology).
-The language \emph{${\EuScript L}_{\sf X}$\/} contains a relation symbol for each compact subsets $C\subseteq X^n$ and a function symbol for each continuous functions $f:X^n\to X$.
-In particular, there is a constant for each element of $X$.
-According to the context, $C$ and $f$ denote either the symbols of ${\EuScript L}_{\sf X}$ or their interpretation in the stucture $X$.
-Such a language ${\EuScript L}_{\sf X}$ is much larger than necessary but it is convenient because it uniquely associates a structure to a topological space.
+Let \emph{$S$\/} be some fixed first-order structure which is endowed with a Hausdorff compact topology (in particular, a normal topology).
+The language \emph{${\EuScript L}_{\sf S}$\/} contains a relation symbol for each compact subsets $C\subseteq S^n$ and a function symbol for each continuous functions $f:S^n\to S$.
+In particular, there is a constant for each element of $S$.
+According to the context, $C$ and $f$ denote either the symbols of ${\EuScript L}_{\sf S}$ or their interpretation in the stucture $S$.
+Such a language ${\EuScript L}_{\sf S}$ is much larger than necessary but it is convenient because it uniquely associates a structure to a topological space.
 The notion of a \textit{dense set of formulas\/} (Definition~\ref{def_dense}) helps to reduce the size of the language when required.
 
-The most straightforward examples of structures $X$ are the unit interval $[0,1]$ with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
+The most straightforward examples of structures $S$ are the unit interval $[0,1]$ with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
+Interesting examples are obtained when $S=S_1(M)$, the space of complete 1-types over a model $M$ with the logic topology.
+These will be discussed in detail in subsequent work.
 
 We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we call the language of the \emph{home sort.}
 
 \begin{definition}\label{def_0}
-  Let ${\EuScript L}$ be a two sorted language that expands both ${\EuScript L}_{\sf H}$ and ${\EuScript L}_{\sf X}$.
+  Let ${\EuScript L}$ be a two sorted language that expands both ${\EuScript L}_{\sf H}$ and ${\EuScript L}_{\sf S}$.
 
-  A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,X\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure.
-  We write \emph{${\sf H}$} and \emph{${\sf X}$\/} to denote the two sorts of ${\EuScript L}$.
+  A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,S\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure.
+  We write \emph{${\sf H}$} and \emph{${\sf S}$\/} to denote the two sorts of ${\EuScript L}$.
   
   The language ${\EuScript L}$ has a relation symbol $r_{\varphi}(x)$ for every $\varphi(x)\in {\EuScript L}_{\sf H}$.
-  All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$. 
+  All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$.
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
   
-  Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$.
+  Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$.
   We require that their interpretation is equicontinuous (definition below).
+  It may also contain relation symbols of sort ${\sf H}^n\times{\sf S}^m$.
+  If $r$ is such a symbol, we require that its interpretation $r^M$ is such that $\{\alpha\in S: (a,\alpha)\in r^M\}$ is compact for every $a\in M^{|x|}$.
   
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
 
 % In some examples we need to replace the sort ${\sf H}$ with many sorts ${\sf H}_1\dots,{\sf H}_k$.
 % In this case the language ${\EuScript L}_{\sf H}$ is replaced with $L_{{\sf H}_1\dots,{\sf H}_k}$, the language that governs the structure $\langle M_1\dots,M_k\rangle$.
-% Models have the form $\langle M _1\dots,M_k, X\rangle$.
-% The new symbols in the language ${\EuScript L}$ are of sort ${\sf H}_1^{n_1}\dots,{\sf H}_k^{n_k}\to {\sf X}$.
+% Models have the form $\langle M _1\dots,M_k, S\rangle$.
+% The new symbols in the language ${\EuScript L}$ are of sort ${\sf H}_1^{n_1}\dots,{\sf H}_k^{n_k}\to {\sf S}$.
 
 % We are in debt for a definition.
-Let $f:A\times X^m\to X$, where $A$ is a pure set.
-Let $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $X^m\times X^m$.
-We say that $f$ is \emph{equicontinuous\/} if for every $\varepsilon$ there is a $\delta$ such that $\big(f(a,\alpha),f(a,\alpha')\big)\in\varepsilon$ for every $a\in A$ and every $(\alpha,\alpha')\in\delta$.
+Let $f:A\times S^m\to S$, where $A$ is a pure set.
+Let $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $S^m\times S^m$.
+We say that $f$ is \emph{equicontinuous\/} if for every $\varepsilon$ there is a $\delta$ such that $\big\langle f(a,\alpha),f(a,\alpha')\big\rangle\in\varepsilon$ for every $a\in A$ and every $\langle\alpha,\alpha'\rangle\in\delta$.
 We can also say that, as $a$ ranges over $A$, the functions $f(a,\mbox{-})$ have the same modulus of uniform continuity.
 
-Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of trivial cases (when $X$ is finite), these are not standard.
+Clearly, saturated ${\EuScript L}$-structures exist but, with the exception of trivial cases (when $S$ is finite), these are not standard.
 As a remedy, below we carve out a set of formulas ${\EuScript F}^{\rm p}$, the set of positive formulas, such that every model has an positive elementary saturated extension that is also standard.
 
-As usual, ${\EuScript L}_{\sf X}$, ${\EuScript L}_{\sf H}$, and ${\EuScript L}$ denote both first-order languages and the corresponding set of formulas.
+As usual, ${\EuScript L}_{\sf S}$, ${\EuScript L}_{\sf H}$, and ${\EuScript L}$ denote both first-order languages and the corresponding set of formulas.
 We write ${\EuScript L}_x$ when when we restrict variables to $x$.
 % If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in {\EuScript L}_{\sf H}$ (this is only correct up to equivalence).
-% The symbols ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ defined below denote only sets of ${\EuScript L}$-formulas.
+% The symbols ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ defined below denote only sets of ${\EuScript L}$-formulas.
 Note that ${\EuScript L}$ has two types of atomic formulas
 
 \begin{itemize}
-  \item[1.] $r_\varphi(x)$ for some $\varphi(x)\in{\EuScript L}_{\sf H}$  (maybe more, but these suffices up to equivalence);
-  \item[2.] $\tau(x\,;\eta)\in C$, where $C\subseteq X^n$ is a compact set and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf X}^{|\eta|}\to {\sf X}$ (up to equivalence, equality has also this form).
+  \item[1.] $r_\varphi(x)$ for some $\varphi(x)\in{\EuScript L}_{\sf H}$  (these suffices up to equivalence);
+  \item[2.] $r(x\,;\eta)$ where $r$ is a relation symbol of sort ${\sf H}^{|x|}\times {\sf S}^{|\eta|}$;
+  \item[3.] $\tau(x\,;\eta)\in C$, where $C\subseteq S^n$ is a compact set and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf S}^{|\eta|}\to {\sf S}$ (up to equivalence, equality has also this form).
 \end{itemize}
 
 \begin{definition}\label{def_LL}
-  A formula in ${\EuScript L}$ is \emph{positive\/} if it uses only the Boolean connectives $\wedge$, $\vee$; the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$ of sort ${\sf H}$; and the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf X}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf X}{.8ex}\kern-.2ex}$ of sort ${\sf X}$.
+  A formula in ${\EuScript L}$ is \emph{positive\/} if it uses only the Boolean connectives $\wedge$, $\vee$; the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$ of sort ${\sf H}$; and the quantifiers $\forall\raisebox{1.1ex}{\scaleto{\sf S}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf S}{.8ex}\kern-.2ex}$ of sort ${\sf S}$.
   The set of positive formulas is denoted by \emph{${\EuScript F}^{\rm p}$.}
 
-  A \emph{continuous\/} formula is a positive formula where only atomic formulas as in (2) above occur.
+  A \emph{continuous\/} formula is a positive formula where only atomic formulas as in (3) above occur.
   The set of continuous formulas is denoted by \emph{${\EuScript F}^{\rm c}$.}
 
   %In propositions that holds for both ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm c}$ we write \emph{${\EuScript F}^{\rm p/c}$.}
 
-  We will use Latin letters $x,y,z$ for variables of sort ${\sf H}$ and Greek letters $\eta,\varepsilon$ for variables of sort ${\sf X}$.
+  We will use Latin letters $x,y,z$ for variables of sort ${\sf H}$ and Greek letters $\eta,\varepsilon$ for variables of sort ${\sf S}$.
   Therefore we can safely drop the superscript from quantifiers if they are followed by variables.
 \end{definition}
 
@@ -247,15 +252,15 @@ Note that ${\EuScript L}$ has two types of atomic formulas
   For the sake of conciseness, we write \emph{p/c} as a placeholder that can be replaced for either one of \emph{p} or \emph{c.}
 \end{notation}
 
-The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript F}^{\rm c}$ that do not have quantifiers of sort ${\sf X}$, nor functions symbols of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ with $n$ and $m$ both positive.
+The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript F}^{\rm c}$ that do not have quantifiers of sort ${\sf S}$, nor functions symbols of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ with $n$ and $m$ both positive.
 
 A precise comparison with real-valued logic is less straightforward and outside the scope of this paper.
-In real-valued logic $X=[0,1]$ is interpreted as a set of truth values.
-Functions of sort ${\sf H}^n\to {\sf X}$ are called atomic formulas; functions of sort ${\sf X}^m\to {\sf X}$ are called propositional connectives.
-It seems difficult to interprete functions sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ in that context.
+In real-valued logic $S=[0,1]$ is interpreted as a set of truth values.
+Functions of sort ${\sf H}^n\to {\sf S}$ are called atomic formulas; functions of sort ${\sf S}^m\to {\sf S}$ are called propositional connectives.
+It seems difficult to interprete functions sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ in that context.
 
-Allowing quantifiers of sort ${\sf X}$ comes almost for free.
-In Section~\ref{cIelimination} will see that the formulas in ${\EuScript F}^{\rm p/c}$ are approximated by formulas in ${\EuScript F}^{\rm p/c}$ without quantifiers of sort ${\sf X}$.
+Allowing quantifiers of sort ${\sf S}$ comes almost for free.
+In Section~\ref{cIelimination} will see that the formulas in ${\EuScript F}^{\rm p/c}$ are approximated by formulas in ${\EuScript F}^{\rm p/c}$ without quantifiers of sort ${\sf S}$.
 Instead, choosing ${\EuScript F}^{\rm p}$ over ${\EuScript F}^{\rm c}$ comes at a price.
 However ${\EuScript F}^{\rm p}$ simplifies the the comparision with classical model theory.
 
@@ -265,14 +270,14 @@ For the latter only equality almost everywhere is relevant.
 However, even when $L^1(\mu)$ is our focus of interest, it is often easier to argue about real valued functions.
 For a similar reason ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm c}$ are better studied in parallel.
 
-The extra expressive power offered by quantifiers of sort ${\sf X}$ is convenient.
+The extra expressive power offered by quantifiers of sort ${\sf S}$ is convenient.
 For instance, the example below should convince the reader that ${\EuScript F}^{\rm c}$ has at least the same expressive power as real valued logic, see~\cite{BBHU} and~\cite{K}.% (cf.\@ the example below taken from~\cite{clcl}).%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
 %A painstaking technical comparison with real valued logic is not in the scope of this indroductory exploratory paper.}.
 
 \begin{example}\label{ex_Rvlogic}
-  Let $X=[0,1]$, the unit interval.
-  Let $\tau(x)$ be a term of sort ${\sf H}^{|x|}\to {\sf X}$.
+  Let $S=[0,1]$, the unit interval.
+  Let $\tau(x)$ be a term of sort ${\sf H}^{|x|}\to {\sf S}$.
   Then there is a positive formula that says $\sup_x \tau(x)=\alpha$.
   Indeed, consider the continuous formula
 
@@ -285,10 +290,10 @@ For instance, the example below should convince the reader that ${\EuScript F}^{
 \end{example}
 
 The theory of normed spaces is one of the motivating examples for standard structures.
-The requirement for $X$ to be compact seems a limitation, but it is not a real one.
+The requirement for $S$ to be compact seems a limitation, but it is not a real one.
 Essentially, functional analysis and model theory are only concerned with the unit ball of normed spaces.
 
-To formalize the unit ball of a normed space as a standard structure (where $X$ is the unit interval) is straightforward in theory but cumbersome in practice.
+To formalize the unit ball of a normed space as a standard structure (where $S$ is the unit interval) is straightforward in theory but cumbersome in practice.
 Alternatively, one could view a normed space as a many-sorted structure: a sort for each ball of radius $n\in\mathds{Z}^+$.
 Unfortunately, this also results in a bloated formalism.
 
@@ -297,103 +302,23 @@ However these infinities are harmless if one restrics to balls of fine radius.
 In fact, inside any ball of finite radius these improper normed spaces are completely standard.
 
 \begin{example}\label{ex_normed_spaces}
-Let $X=\mathds{R}\cup\{\pm\infty\}$.
+Let $S=\mathds{R}\cup\{\pm\infty\}$.
 Let ${\EuScript L}_{\sf H}$ be the language of real (or complex) vector spaces.
-The language ${\EuScript L}$ contains a function symbol $\|\mbox{-}\|$ of sort ${\sf H}\to {\sf X}$.
+The language ${\EuScript L}$ contains a function symbol $\|\mbox{-}\|$ of sort ${\sf H}\to {\sf S}$.
 Normed space are standard structures with the natural interpretation of the language.
 It is easy to verify that the unit ball of a standard structure is the unit ball of a normed space.
 Note that the same remains true if we add to the language any continuous (equivalently, bounded) operator or functional.
 \end{example}
 
+The following example is particulary interesting and will be discussed in detail in subsequent work~\cite{Z}.
+
 \begin{example}
-  Let $G,X$ be an equicontinuous $G$-flow as defined in~\cite{A}.
+  Let $G,S$ be an equicontinuous $G$-flow as defined in~\cite{A}.
   Let ${\EuScript L}_{\sf H}$ be the language of groups with possibly some additional symbols.
   The only relevant function in ${\EuScript L}$ is the group action.
-  Then $\langle G,X\rangle$ is a standard structure.
+  Then $\langle G,S\rangle$ is a standard structure.
 \end{example}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Henson-Iovino approximations}\label{ultrapws} 
-The notion of approximation is a central tool in the work of Henson and Iovino on the model theory of normed spaces, see e.g.~\cite{HI}.
-In~\cite{clcl} the natural generalization to standard structures is presented.
-We recall the definitions and the main properties.
-
-For $C,C'$ compact substes of $X^n$, we write $C'>C$ if $C'$ is a neighborhood of $C$.
-For $\varphi,\varphi'$ (free variables are hidden) positive formulas possibly with parameters we write \emph{$\varphi'>\varphi$\/} if $\varphi'$ is obtained by replacing in $\varphi$ each atomic formula of the form $t\in C$ with $t\in C'$, for some $C'>C$.
-If no such atomic formulas occurs in $\varphi$, then $\varphi>\varphi$.
-We call $\varphi'$ a \emph{weakening\/} of $\varphi$.
-Note that $>$ is a dense transitive relation and that  $\varphi\to\varphi'$ in every ${\EuScript L}$-structure.
-For every type $p(x)$, we write 
-
-\ceq{\hfill \emph{$p'(x)$}}{=}{\big\{\varphi'(x)\ :\ \varphi'>\varphi\textrm{ for some }\varphi(x)\in p\big\}}
-
-in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
-
-We write \emph{$\tilde\varphi\perp\varphi$\/} when $\tilde\varphi$ is obtained by replacing each atomic formula $t\in C$ occurring in $\varphi$ with $t\in\tilde{C}$ where $\tilde{C}$ is some compact set disjoint from $C$.
-The atomic formulas in ${\EuScript L}_{\sf H}$ are replaced with their negation.
-Finally each connective is replaced by its dual i.e., $\vee, \wedge, \exists,\forall$ are replaced by $\wedge,\vee,\forall,\exists$, respectively.
-We say that  $\tilde\varphi$ is a \emph{strong negation} of $\varphi$.
-It is clear that $\tilde\varphi\rightarrow\neg\varphi$ in every ${\EuScript L}$-structure.
-
-Notice that the weakening and the strong negation of a formula in ${\EuScript F}^{\rm c}$ is also in ${\EuScript F}^{\rm c}$.
-
-\begin{lemma}\label{lem_interpolation}
-  For all positive formulas $\varphi$
-  \begin{itemize}
-    \item[1.]for every $\varphi'>\varphi$ there is a formula $\tilde\varphi\perp\varphi$ such that $\varphi\rightarrow\neg \tilde\varphi\rightarrow\varphi'$;
-    \item[2.] for every\, $\tilde\varphi\perp\varphi$ there is a formula $\varphi'>\varphi$ such that  $\varphi\rightarrow\varphi'\rightarrow\neg \tilde\varphi$.
-  \end{itemize}
-\end{lemma}
-
-\begin{proof}
-  If $\varphi\in {\EuScript L}_{\sf H}$ the claims are obvious.
-  Suppose $\varphi$ is of the form $t\in C$.
-  Let $\varphi'$ be $t\in C'$, for some $C'>C$.
-  Let $O$ be an open set such that $C\subseteq O\subseteq C'$.
-  Then $\tilde\varphi=(t\in X\smallsetminus O)$ is as required by the lemma.
-  Suppose instead that $\tilde\varphi$ is of the form $t\in\tilde{C}$ for some compact $\tilde{C}$ disjoint from $C$.
-  By the normality of $X$, there is  $C'>C$ disjoint from $\tilde{C}$.
-  Then  $\varphi'=\big(t\in C'\big)$ is as required.
-  The lemma follows easily by induction.
-\end{proof}
-
-\begin{definition}\label{def_dense}
-  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p/c-dense\/} modulo $T$, a theory, if for every positive/continuous $\varphi(x)$ and every $\varphi'>\varphi$, there is a formula $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
-  % If $T$ is empty, we say p/c-dense modulo ${\EuScript L}$.
-\end{definition}
-
-\begin{example}
-  By Lemma~\ref{lem_interpolation}, the set of negations of positive/continuous formulas is p/c-dense.
-\end{example}
-
-The following fact is easily proved by induction.
-
-\begin{fact}
-  Let ${\EuScript F}$ be a set of formulas closed under the connectives $\wedge$, $\vee$, $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\forall\raisebox{1.1ex}{\scaleto{\sf X}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf X}{.8ex}\kern-.2ex}$.
-  Then ${\EuScript F}$ is p/c-dense if the condition in Definition~\ref{def_dense} is satisfied when $\varphi(x)$ atomic.
-\end{fact}
-
-Using the fact, it is immediate to verify the following.
-
-\begin{example}\label{ex_prebase}
-  Let ${\EuScript C}$ be a prebase of closed subsets of $X$.
-  The set of formulas built inductively from atomic formulas of the form $\tau(x,\eta)\in C$ for $C\in{\EuScript C}$ is c-dense.
-\end{example}
-
-\begin{example}
-  Let $X=[0,1]$.
-  The set of formulas built inductively from atomic formulas of the form $\tau=0$ is c-dense.
-  In fact, first note that by Example~\ref{ex_prebase} we can restrict to formulas built inductively from atomic formulas of the form $\tau\in[\alpha,\beta]$.
-  Then note that $\tau\in[\alpha,\beta]$ is equivalent to $\tau\dotminus\beta\in\{0\}\ \wedge\ \alpha\dotminus\tau\in\{0\}$.
-\end{example}
-
-
-In Section~\ref{cIelimination} we prove that the set of continuous formulas without quantifiers of sort ${\sf X}$ is c-dense.
- 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -430,7 +355,7 @@ Hence the following notion of elementarity which is more roboust.
 % We have chosen to work with the classical notion of satisfaction at the cost of this asymmetric notion of elementarity.
 % This differs from the approach of Henson and Iovino.
 % They introduce the notion of \textit{approximate satisfaction.} 
-% The approximate ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$-morphisms we define below are the maps that preserve Henson-Iovino approximate satisfaction.
+% The approximate ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$-morphisms we define below are the maps that preserve Henson-Iovino approximate satisfaction.
 % These morphisms are invertible, cf.\@ Fact~\ref{fact_HImorphisms}.
 We say that the map $f:M\to N$ is an \emph{approximate\/} p-elementary if for every formula $\varphi(x)\in{\EuScript F}^{\rm p}$, and every $a\in({\rm dom }f)^{|x|}$
 
@@ -498,7 +423,7 @@ Note that this is the same as requiring that (1) holds for all formulas without 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section[The standard part]{The standard part\boldmath$^1$}\label{standard_part}\footnotetext{We will omit this section from the final version of this paper and refer to~\cite{clcl} instead.}
-\section{The standard part of a structure}\label{standard_part}
+\section{Compactness}\label{compactness}
 
 \def\ceq#1#2#3{\parbox[t]{18ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
@@ -510,76 +435,76 @@ In this section we recall the notion of standard part of an element of the eleme
 Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
 The reader willing to accept it without proof may skip this section.
 
-Let $\langle N, {}^*\!\!X\rangle$ be an ${\EuScript L}$-structure that extends ${\EuScript L}$-elementarily the standard structure $M$. %$\langle M, X\rangle$.
-Let $\eta$ be a free variable of sort ${\sf X}$.
-For each $\beta\in X$, we define the type
+Let $\langle N, {}^*\!\!S\rangle$ be an ${\EuScript L}$-structure that extends ${\EuScript L}$-elementarily the standard structure $M$. %$\langle M, S\rangle$.
+Let $\eta$ be a free variable of sort ${\sf S}$.
+For each $\beta\in S$, we define the type
 
 \ceq{\hfill{\rm m}_\beta(\eta)}{=}{\{\eta\in D\ :\  D \textrm{ compact neighborhood of }\beta\}.}
 
-In nonstandard analysis, the set of the realizations of ${\rm m}_\beta(\eta)$ in ${}^*\!\!X$ is called the monad of $\beta$. 
+In nonstandard analysis, the set of the realizations of ${\rm m}_\beta(\eta)$ in ${}^*\!\!S$ is called the monad of $\beta$. 
 
-The compactness of $X$ ensures that for every $\alpha\in{}^*\!\!X$ there is a unique $\beta\in X$ such that ${}^*\!\!X\models{\rm m}_\beta(\alpha)$.
-We denote by \emph{${\rm st}(\alpha)$\/} the unique $\beta\in X$ such that ${}^*\!\!X\models{\rm m}_\beta(\alpha)$.
+The compactness of $S$ ensures that for every $\alpha\in{}^*\!\!S$ there is a unique $\beta\in S$ such that ${}^*\!\!S\models{\rm m}_\beta(\alpha)$.
+We denote by \emph{${\rm st}(\alpha)$\/} the unique $\beta\in S$ such that ${}^*\!\!S\models{\rm m}_\beta(\alpha)$.
 The following fact is clear.
 
 \begin{fact}\label{fact_st1}
-  For every $\alpha\in{}^*\! X$ and every compact $C\subseteq X$
+  For every $\alpha\in{}^*\! S$ and every compact $C\subseteq S$
 
-\ceq{\hfill{}^*\!\!X}{\models}{\alpha\in C\ \rightarrow\ {\rm st}(\alpha)\in C.}
+\ceq{\hfill{}^*\!\!S}{\models}{\alpha\in C\ \rightarrow\ {\rm st}(\alpha)\in C.}
 \end{fact}
 
 % \begin{proof}
 %   Assume ${\rm st}(\alpha)\notin C$.
 %   By normality there is a compact set $D$ disjoint from $C$ that is a neighborhood of ${\rm st}(\alpha)$.
-%   Then  ${}^*\!\!X\models\alpha\in D\subseteq\neg C$.
+%   Then  ${}^*\!\!S\models\alpha\in D\subseteq\neg C$.
 % \end{proof}
 
-We need also the following.
+We also need the following.
 
 \begin{lemma}\label{fact_terms_st}
-  For every $a\in N^n$, $\alpha\in({}^*\!\!X)^m$ and every term $t$ of the right sort
+  For every $a\in N^n$, $\alpha\in({}^*\!\!S)^m$ and every term $t$ of the right sort
 
-  \ceq{\hfill\langle N,{}^*\!\!X\rangle}{\models}{{\rm st}\big(\tau(a,\alpha)\big)={\rm st}\big(\tau\big(a,{\rm st}(\alpha)\big)\big).}
+  \ceq{\hfill\langle N,{}^*\!\!S\rangle}{\models}{{\rm st}\big(\tau(a,\alpha)\big)={\rm st}\big(\tau\big(a,{\rm st}(\alpha)\big)\big).}
 \end{lemma}
 
 \begin{proof}
   We prove the fact for function symbols; the general case follows by easy induction.
-  Let $\varepsilon$ and $\delta$ range over the compact neighborhoods of the diagonal of $X^m\times X^m$.
+  Let $\varepsilon$ and $\delta$ range over the compact neighborhoods of the diagonal of $S^m\times S^m$.
   We know that for every $\varepsilon$ there is a $\delta$ such that 
   
-  \ceq{\hfill M}{\models}{\forall x,\eta,\eta'\big[\,(\eta,\eta')\in\delta\rightarrow \big(f(x,\eta),f(x,\eta')\big)\in\varepsilon\big].}
+  \ceq{\hfill M}{\models}{\forall x,\eta,\eta'\big[\langle\eta,\eta'\rangle\in\delta\rightarrow \big\langle f(x,\eta),f(x,\eta')\big\rangle\in\varepsilon\big].}
   
-  The same formula holds in $\langle N,{}^*\!\!X\rangle$.
-  As ${}^*\!\!X\models\big(\alpha,{\rm st}\big(\alpha)\big)\in\delta$ for every $\delta$, we conclude that $\big(f(a,\alpha),f(a,{\rm st}\big(\alpha))\big)\in\varepsilon$ for every $\varepsilon$.
-  Therefore $f(a,\alpha)$ and $f(a,{\rm st}\big(\alpha))$ have the same standard part.
+  The same formula holds in $\langle N,{}^*\!\!S\rangle$.
+  As ${}^*\!\!S\models\big\langle\alpha,{\rm st}(\alpha)\big\rangle\in\delta$ for every $\delta$, we conclude that $\big\langle f(a,\alpha),f\big(a,{\rm st}(\alpha)\big)\big\rangle\in\varepsilon$ for every $\varepsilon$.
+  Therefore $f(a,\alpha)$ and $f\big(a,{\rm st}(\alpha)\big)$ have the same standard part.
 \end{proof}
 
-The \emph{standard part of $\langle N,{}^*\!\!X\rangle$\/} is the standard structure $\langle N,X\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\times{\sf X}^m\to {\sf X}$ as the functions
+The \emph{standard part of $\langle N,{}^*\!\!S\rangle$\/} is the standard structure $\langle N,S\rangle$ that interprets the symbols $f$ of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ as the functions
 
-\ceq{\hfill f^N(a,\alpha)}{=}{{\rm st}\big({}^*\!\!f(a,\alpha)\big)}\hfill for all $a\in N^n$, $\alpha\in X^{|\alpha|}$.
+\ceq{\hfill f^N(a,\alpha)}{=}{{\rm st}\big({}^*\!\!f(a,\alpha)\big)}\hfill for all $a\in N^n$, $\alpha\in S^{|\alpha|}$.
 
-where ${}^*\!\!f$ is the interpretation of $f$ in $\langle N,{}^*\!\!X\rangle$.
-By the fact above, when $n=0$ the definition agrees with the canonical interpretation of the functions in ${\EuScript L}_{\sf X}$.
+where ${}^*\!\!f$ is the interpretation of $f$ in $\langle N,{}^*\!\!S\rangle$.
+By the fact above, when $n=0$ the definition agrees with the canonical interpretation of the functions in ${\EuScript L}_{\sf S}$.
 Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
 
 Easy induction proves the following.
 
 \begin{fact}\label{fact_st2} 
   With the notation as above.
-  For every $a\in N^n$ and $\alpha\in ({}^*\!\!X)^m$
+  For every $a\in N^n$ and $\alpha\in ({}^*\!\!S)^m$
 
   \ceq{\hfill \tau^N\big(a\,;{\rm st}(\alpha)\big)}{=}{{\rm st}\big({}^*\!\tau(a\,;\alpha)\big)}
 
-  where $\tau^N$ and ${}^*\!\tau$ are interpretations of $\tau$ in $N$, respectively $\langle N,{}^*\!\!X\rangle$.
+  where $\tau^N$ and ${}^*\!\tau$ are interpretations of $\tau$ in $N$, respectively $\langle N,{}^*\!\!S\rangle$.
 \end{fact}
 
 Now we move to positive formulas.
 
-% Symbols in ${\EuScript L}_{\sf X}$ have the interpretation they have in models.
+% Symbols in ${\EuScript L}_{\sf S}$ have the interpretation they have in models.
 
 \begin{lemma}\label{lem_st}
   With the notation as above.
-  Let $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}$, \  $a\in N^{|x|}$, and $\alpha\in({}^*\!\!X)^{|\eta|}$ be arbitrary then $\langle N,{}^*\!\!X\rangle\models\varphi(a\,;\alpha)$ implies that $N\models\varphi\big(a\,;{\rm st}(\alpha)\big)$
+  Let $\varphi(x\,;\eta)\in{\EuScript F}^{\rm p}$, \  $a\in N^{|x|}$, and $\alpha\in({}^*\!\!S)^{|\eta|}$ be arbitrary then $\langle N,{}^*\!\!S\rangle\models\varphi(a\,;\alpha)$ implies that $N\models\varphi\big(a\,;{\rm st}(\alpha)\big)$
 \end{lemma}
 
 \begin{proof}
@@ -588,7 +513,7 @@ Now we move to positive formulas.
   Otherwise $\varphi(x\,;\eta)$ has the form $\tau(x\,;\eta)\in C$.
   Assume that the tuple $\tau(x\,;\eta)$ consists of a single term.
   The general case follows easily from this special case. 
-  Assume that $\langle N,{}^*\!\!X\rangle\models \tau(a\,;\alpha)\in C$.
+  Assume that $\langle N,{}^*\!\!S\rangle\models \tau(a\,;\alpha)\in C$.
   Then ${\rm st}\big({}^*\tau(a\,;\alpha)\big)\in C$ by Fact~\ref{fact_st1}.
   Therefore $\tau^N\big(a\,;{\rm st}(\alpha)\big)\in C$ follows from Fact~\ref{fact_st2}.
   This proves the lemma for atomic formulas.
@@ -602,40 +527,35 @@ Now we move to positive formulas.
  \end{corollary}
  
  The corollary has also a direct proof.
- This goes through the observation that the formulas in $p(\eta)$ define compact subsets of $X$.
+ This goes through the observation that the formulas in $p(\eta)$ define compact subsets of $S$.
 
  \begin{proof}
-  Let $\langle ^*\!M,^*\!\!X\rangle$ be an ${\EuScript L}$-elementary saturated superstructure of $\langle M,X\rangle$.
-  Pick some $\alpha\in{}^*\!\!X$ such that $\langle ^*\!M,^*\!\!X\rangle\models p(\alpha)$.
+  Let $\langle ^*\!M,^*\!\!S\rangle$ be an ${\EuScript L}$-elementary saturated superstructure of $\langle M,S\rangle$.
+  Pick some $\alpha\in{}^*\!\!S$ such that $\langle ^*\!M,^*\!\!S\rangle\models p(\alpha)$.
   By Lemma~\ref{lem_st}, $^*\!M\models p({\rm st}(\alpha))$.
   Now observe that the truth of formulas without the quantifier $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}}$ are preserved by substructures.
  \end{proof}
  
  The exclusion of existential quantifiers of sort ${\sf H}$ is necessary.
- For a counterexample take $M=X=[0,1]$.
- Assume that ${\EuScript L}$ contains a function symbol for the identity map $\iota:M\to X$.
+ For a counterexample take $M=S=[0,1]$.
+ Assume that ${\EuScript L}$ contains a function symbol for the identity map $\iota:M\to S$.
  Let $p(\eta)$ contain the formulas $\exists x\,\big(x>0\,\wedge\;\iota x+\eta\in[0,1/n]\big)$ for all positive integers $n$.
 
 % \begin{corollary}\label{corol_Isaturation}
-%   Let $M$ be a model and let $p(\eta)\subseteq{\EuScript F}^{\rm p}(M)$ be a type that is finitely consistent in $M$, where $\eta$ is a tuple of variables of sort ${\sf X}$.
+%   Let $M$ be a model and let $p(\eta)\subseteq{\EuScript F}^{\rm p}(M)$ be a type that is finitely consistent in $M$, where $\eta$ is a tuple of variables of sort ${\sf S}$.
 %   Then $p(\eta)$ is realized in a model $N$ such that $M\preceq^{\rm p}N$.
 % \end{corollary}
 
 % \begin{proof}
-%   By the classical Compactess Theorem, the type $p(\eta)$ is realized in some ${\EuScript L}$-structure $\langle N,{}^*\!\!X\rangle$ by
-%   some $\alpha\in ({}^*\!\!X)^{|\eta|}$.
+%   By the classical Compactess Theorem, the type $p(\eta)$ is realized in some ${\EuScript L}$-structure $\langle N,{}^*\!\!S\rangle$ by
+%   some $\alpha\in ({}^*\!\!S)^{|\eta|}$.
 %   Therefore, by the lemma above $N\models p\big({\rm st}(\alpha)\big)$.
 % \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Compactness}\label{compactness}
 
+We are ready for the proof of the positive Compactness Theorem.
 It is convenient to distinguish between consistency with respect to standard structures and consistency with respect to ${\EuScript L}$-structures.
-We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!X\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!X\rangle$ (this is the classical notion of concistency).
+We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!S\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!S\rangle$ (this is the classical notion of consistency).
 We say that $T$ is \emph{standardly\/}  consistent if $M\models T$  is for some standard structure $M$.
 By Lemma~\ref{lem_st} these two notions coincide if $T$ is positive.
 Therefore we have the following.
@@ -646,14 +566,14 @@ Therefore we have the following.
 
 % \begin{proof}
 %   Suppose $T$ is finitely ${\EuScript L}$-consistent.
-%   By the Classical Compactness Theorem, there is an ${\EuScript L}$-structure $\langle M,{}^*\!\!X\rangle\models T$.
-%   Let $\langle M,X\rangle$ be its standard part as defined in Section~\ref{standard_part}.
+%   By the Classical Compactness Theorem, there is an ${\EuScript L}$-structure $\langle M,{}^*\!\!S\rangle\models T$.
+%   Let $\langle M,S\rangle$ be its standard part as defined in Section~\ref{standard_part}.
 %   Then $M\models T$ by Lemma~\ref{lem_st}.
 % \end{proof}
 
 % \begin{corollary}\label{prop_tipi_compattezza}
 %   Let $p(x\,;y)\subseteq{\EuScript F}^{\rm p}(M)$ be finitely consistent in $M$, a model.
-%   Then $N\models\exists x\,\exists^X y\,p(x\,;y)$ for some model $N$ such that $M\preceq^{\rm p}N$.
+%   Then $N\models\exists x\,\exists^S y\,p(x\,;y)$ for some model $N$ such that $M\preceq^{\rm p}N$.
 % \end{corollary}
 
 % \noindent\llap{\dangersign\kern2ex}%
@@ -666,6 +586,7 @@ Therefore we have the following.
 %     \item[2.] $p(x)$ is finitely satisfied in $M$.
 %   \end{itemize}
 % \end{definition}
+
 An ${\EuScript L}$-structure $N$ is \emph{positively $\lambda$-saturated\/} if it realizes all types $p(x\,;\eta)\subseteq{\EuScript F}^{\rm p}(N)$ with fewer than $\lambda$ parameters that are finitely consistent in $N$.
 When $\lambda=|N|$ we simply say \emph{p-saturated.}
 
@@ -698,6 +619,88 @@ We say that $M$ is \emph{p/c-maximal\/} if it models all sentences in ${\EuScrip
 %   Let $N$ be saturated and of cardinality larger than $|{\EuScript F}^{\rm p}|$.
 %   Then for every $ab\in M^\alpha$, where $\alpha<|N|$, such that $a\equiv b$, there is an ${\EuScript F}^{\rm p}$-automorphism of $N$ that maps $a$ to $b$.
 % \end{proposition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Henson-Iovino approximations}\label{ultrapws} 
+The notion of approximation is a central tool in the work of Henson and Iovino on the model theory of normed spaces, see e.g.~\cite{HI}.
+In~\cite{clcl} the natural generalization to standard structures is presented.
+We recall the definitions and the main properties.
+
+For $C,C'$ compact substes of $S^n$, we write $C'>C$ if $C'$ is a neighborhood of $C$.
+For $\varphi,\varphi'$ (free variables are hidden) positive formulas possibly with parameters we write \emph{$\varphi'>\varphi$\/} if $\varphi'$ is obtained by replacing in $\varphi$ each atomic formula of the form $t\in C$ with $t\in C'$, for some $C'>C$.
+If no such atomic formulas occurs in $\varphi$, then $\varphi>\varphi$.
+We call $\varphi'$ a \emph{weakening\/} of $\varphi$.
+Note that $>$ is a dense transitive relation and that  $\varphi\to\varphi'$ in every ${\EuScript L}$-structure.
+For every type $p(x)$, we write 
+
+\ceq{\hfill \emph{$p'(x)$}}{=}{\big\{\varphi'(x)\ :\ \varphi'>\varphi\textrm{ for some }\varphi(x)\in p\big\}}
+
+in particular \emph{$\{\varphi(x)\}'$} = $\big\{\varphi'(x)\ :\ \varphi'>\varphi\big\}$.
+
+We write \emph{$\tilde\varphi\perp\varphi$\/} when $\tilde\varphi$ is obtained by replacing each atomic formula $t\in C$ occurring in $\varphi$ with $t\in\tilde{C}$ where $\tilde{C}$ is some compact set disjoint from $C$.
+The atomic formulas in ${\EuScript L}_{\sf H}$ are replaced with their negation.
+Finally each connective is replaced by its dual i.e., $\vee, \wedge, \exists,\forall$ are replaced by $\wedge,\vee,\forall,\exists$, respectively.
+We say that  $\tilde\varphi$ is a \emph{strong negation} of $\varphi$.
+It is clear that $\tilde\varphi\rightarrow\neg\varphi$ in every ${\EuScript L}$-structure.
+
+Notice that the weakening and the strong negation of a formula in ${\EuScript F}^{\rm c}$ is also in ${\EuScript F}^{\rm c}$.
+
+\begin{lemma}\label{lem_interpolation}
+  For all positive formulas $\varphi$
+  \begin{itemize}
+    \item[1.]for every $\varphi'>\varphi$ there is a formula $\tilde\varphi\perp\varphi$ such that $\varphi\rightarrow\neg \tilde\varphi\rightarrow\varphi'$;
+    \item[2.] for every\, $\tilde\varphi\perp\varphi$ there is a formula $\varphi'>\varphi$ such that  $\varphi\rightarrow\varphi'\rightarrow\neg \tilde\varphi$.
+  \end{itemize}
+\end{lemma}
+
+\begin{proof}
+  If $\varphi\in {\EuScript L}_{\sf H}$ the claims are obvious.
+  Suppose $\varphi$ is of the form $t\in C$.
+  Let $\varphi'$ be $t\in C'$, for some $C'>C$.
+  Let $O$ be an open set such that $C\subseteq O\subseteq C'$.
+  Then $\tilde\varphi=(t\in S\smallsetminus O)$ is as required by the lemma.
+  Suppose instead that $\tilde\varphi$ is of the form $t\in\tilde{C}$ for some compact $\tilde{C}$ disjoint from $C$.
+  By the normality of $S$, there is  $C'>C$ disjoint from $\tilde{C}$.
+  Then  $\varphi'=\big(t\in C'\big)$ is as required.
+  The lemma follows easily by induction.
+\end{proof}
+
+\begin{definition}\label{def_dense}
+  A set of formulas ${\EuScript F}\subseteq{\EuScript L}$ is \emph{p/c-dense\/} modulo $T$, a theory, if for every positive/continuous $\varphi(x)$ and every $\varphi'>\varphi$, there is a formula $\psi(x)\in{\EuScript F}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$ holds in every standard structure that models $T$.
+  % If $T$ is empty, we say p/c-dense modulo ${\EuScript L}$.
+\end{definition}
+
+\begin{example}
+  By Lemma~\ref{lem_interpolation}, the set of negations of positive/continuous formulas is p/c-dense.
+\end{example}
+
+The following fact is easily proved by induction.
+
+\begin{fact}
+  Let ${\EuScript F}$ be a set of formulas closed under the connectives $\wedge$, $\vee$, $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\forall\raisebox{1.1ex}{\scaleto{\sf S}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf S}{.8ex}\kern-.2ex}$.
+  Then ${\EuScript F}$ is p/c-dense if the condition in Definition~\ref{def_dense} is satisfied when $\varphi(x)$ atomic.
+\end{fact}
+
+Using the fact, it is immediate to verify the following.
+
+\begin{example}\label{ex_prebase}
+  Let ${\EuScript C}$ be a prebase of closed subsets of $S$.
+  The set of formulas built inductively from atomic formulas of the form $\tau(x,\eta)\in C$ for $C\in{\EuScript C}$ is c-dense.
+\end{example}
+
+\begin{example}
+  Let $S=[0,1]$.
+  The set of formulas built inductively from atomic formulas of the form $\tau=0$ is c-dense.
+  In fact, first note that by Example~\ref{ex_prebase} we can restrict to formulas built inductively from atomic formulas of the form $\tau\in[\alpha,\beta]$.
+  Then note that $\tau\in[\alpha,\beta]$ is equivalent to $\tau\dotminus\beta\in\{0\}\ \wedge\ \alpha\dotminus\tau\in\{0\}$.
+\end{example}
+
+
+In Section~\ref{cIelimination} we prove that the set of continuous formulas without quantifiers of sort ${\sf S}$ is c-dense.
 
 The following proposition shows that a slight amount of saturation tames the positive formulas.
 
@@ -769,10 +772,10 @@ This is clear if we show that the antecedent is closed under conjunction.
 Indeed it is easy to verify that if $\varphi_1,\varphi_2>\varphi$ then $\varphi_1\wedge\varphi_2>\varphi'$ for some $\varphi'>\varphi$.
 In words, the set of approximations of $\varphi$ is a directed set.
 
-For existential quantifiers of sort ${\sf X}$ we argue similarly.% by applying Corollary~\ref{corol_Isaturation}.
+For existential quantifiers of sort ${\sf S}$ we argue similarly.% by applying Corollary~\ref{corol_Isaturation}.
 %
 % \noindent\llap{\textcolor{red}{\Large\danger}\kern1ex}\ignorespaces
-% Consider the existential quantifiers of sort $X$
+% Consider the existential quantifiers of sort $S$
 % Assume inductively
 %
 % \ceq{\hfill\bigwedge_{\varphi'>\varphi}\varphi'(x;y)}
@@ -800,7 +803,7 @@ For existential quantifiers of sort ${\sf X}$ we argue similarly.% by applying C
 \begin{remark}\label{remk_approx_EH_free}
   By Corollary~\ref{corol_st}, when $\varphi(x\,;\eta)$ does not contains existential quantifiers of sort ${\sf H}$, Proposition~\ref{prop_approx} does not require any assumption of saturation.
   In general, some saturation is necessary: consider the model presented after Corollary~\ref{corol_st} and the formula $\exists x\,\big(x>0\ \wedge\ \iota(x)\in\{0\}\big)$.
-  See~[Paragraph after Corollary~5.16]\cite{HI} for a counterexample in ${\EuScript F}^{\rm c}$.
+  For a counterexample in ${\EuScript F}^{\rm c}$, see Section 5 in~\cite{HI}.
 \end{remark}
 
 % \begin{remark}\label{rem_model_approx}
@@ -888,8 +891,8 @@ Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 
 % \begin{example}
 %   The equivalence in the proposition above does not extend to all formulas in ${\EuScript F}^{\rm p}$.
-%   For a counter example, let both $M$ and $X$ are the real interval $[0,1]$.
-%   The language has a function symbol ${\rm d}$ of sort $M^2\to X$.
+%   For a counter example, let both $M$ and $S$ are the real interval $[0,1]$.
+%   The language has a function symbol ${\rm d}$ of sort $M^2\to S$.
 %   Its interpretation is ${\rm d}^{\EuScript M}(x,y)=|x-y|$.
 %   The formula 
   
@@ -946,11 +949,11 @@ Let $A\subseteq{\EuScript U}$ be a small set throughout this section.
 % The following are immediate consequences of the proposition above and Lemma~\ref{lem_interpolation}.
 
 % \begin{corollary}\label{corol_Hcomplete1}
-%   For every $a\in {\EuScript U}^{|x|}$ and $\varphi(x)\in{\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}(U)$, if $\neg\varphi(a)$ then $\tilde\varphi(a)$ for some $\tilde\varphi\perp\varphi$.\hfill\qedsymbol
+%   For every $a\in {\EuScript U}^{|x|}$ and $\varphi(x)\in{\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}(U)$, if $\neg\varphi(a)$ then $\tilde\varphi(a)$ for some $\tilde\varphi\perp\varphi$.\hfill\qedsymbol
 % \end{corollary}
 
 We write \emph{$\mbox{p/c-tp}(a/A)$\/} for the positive/continuous type of $a$ over $A$, that is, the set of formulas $\big\{\varphi(x)\in{\EuScript F}^{\rm p/c}(A)\ :\ \varphi(a)\big\}$.
-In general, if ${\EuScript F}$ is any set of formulas, we write \emph{${\EuScript F}\mbox{-tp}(a/A)$\/} for the type $\big\{\varphi(x)\in{\EuScript F}(A)\ :\ \varphi(a)\big\}$. 
+In general, if ${\EuScript H}$ is any set of formulas, we write \emph{${\EuScript H}\mbox{-tp}(a/A)$\/} for the type $\big\{\varphi(x)\in{\EuScript H}(A)\ :\ \varphi(a)\big\}$. 
 The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-type.
 
 \begin{fact}\label{fact_max_cons_L}
@@ -968,12 +971,6 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
   By maximality $p(x)=\mbox{p/c-tp}(a/A)$.
 
   (2$\Rightarrow$1) \ 
-  By Proposition~\ref{prop_approx} and Lemma~\ref{lem_interpolation}
-
-  \ceq{\hfill\varphi(x)}
-  {\leftrightarrow}
-  {\bigwedge_{\tilde\varphi\perp\varphi}\neg\tilde\varphi(x).}
-
   Suppose $\varphi(x)\in{\EuScript F}^{\rm p/c}(A)\smallsetminus  p$.
   Then $\neg\varphi(a)$.
   Hence $\tilde\varphi(a)$ holds for some $\tilde\varphi\perp\varphi$.
@@ -1042,22 +1039,22 @@ The Fact~\ref{fact_max_cons_L} extends as follows.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{comment}
-\section{Elimination of quantifiers of sort \textsf{X} for positive formulas}\label{Ielimination}
+\section{Elimination of quantifiers of sort \textsf{S} for positive formulas}\label{Ielimination}
 
-We write \emph{${\EuScript F}^{\rm p/c}_{{\sf X}{\rm qf}}$} for the set of positive/continuous formulas without quantifiers of sort ${\sf X}$.
+We write \emph{${\EuScript F}^{\rm p/c}_{{\sf S}{\rm qf}}$} for the set of positive/continuous formulas without quantifiers of sort ${\sf S}$.
 
-In this section we show that ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ is p-dense modulo $T$ (the theory of ${\EuScript U}$).
-In plain words, this amounts to the elimination of the quantifiers of sort ${\sf X}$ up to some approximation.
-In Section~\ref{cIelimination} we prove the analogous result for ${\EuScript F}^{\rm c}_{{\sf X}{\rm qf}}$.
+In this section we show that ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ is p-dense modulo $T$ (the theory of ${\EuScript U}$).
+In plain words, this amounts to the elimination of the quantifiers of sort ${\sf S}$ up to some approximation.
+In Section~\ref{cIelimination} we prove the analogous result for ${\EuScript F}^{\rm c}_{{\sf S}{\rm qf}}$.
 
-A partial map is \emph{${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$-elementary\/} if it preserves the truth of formulas in ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$.
+A partial map is \emph{${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$-elementary\/} if it preserves the truth of formulas in ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$.
 
 \begin{proposition}
-  Every ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ of small cardinality extends to an automorphism of ${\EuScript U}$.
+  Every ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$-elementary map $f:{\EuScript U}\to{\EuScript U}$ of small cardinality extends to an automorphism of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
-  By Fact~\ref{fact_max_cons_L}, the inverse of an ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$-elementary map is also ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$-elementary.
+  By Fact~\ref{fact_max_cons_L}, the inverse of an ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$-elementary map is also ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$-elementary.
   Then we can extend the map by back-and-forth as usual.
 \end{proof}
 
@@ -1066,43 +1063,43 @@ We apply the proposition above to obtain a strengthening of Fact~\ref{fact_max_c
 For $a,b\in {\EuScript U}^{|x|}$ we write \emph{$a\equiv_Ab$\/} if $a$ and $b$ satisfy the same ${\EuScript L}$-formulas over $A$.
 
 \begin{corollary}\label{corol_Lcomplete}
-  Let $p(x)={\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}\mbox{-tp}(a/A)$ and $q(x)=\mbox{tp}(a/A)$. Then $p(x)\leftrightarrow q(x)$.
+  Let $p(x)={\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}\mbox{-tp}(a/A)$ and $q(x)=\mbox{tp}(a/A)$. Then $p(x)\leftrightarrow q(x)$.
 \end{corollary}
 
 \begin{proof}
   Only $\rightarrow$ requires a proof.
-  If $b\models p(x)$ then there is an ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
+  If $b\models p(x)$ then there is an ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$-elementary map $f\supseteq{\rm id}_A$ such that $fa=b$.
   Then $f$ extends to an automorphism.
   As every automorphism is ${\EuScript L}$-elementary, $a\equiv_Ab$, and the corollary follows.
 \end{proof}
 
-The corollary says that ${\EuScript U}$ does not distinguish between ${\EuScript L}$, ${\EuScript F}^{\rm p}$, and ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ types.
+The corollary says that ${\EuScript U}$ does not distinguish between ${\EuScript L}$, ${\EuScript F}^{\rm p}$, and ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ types.
 In the classical setting, from an equivalence between types one derives an equivalence between formulas.
 Without negation, this is not true.
 Still, we can infer an approximate form of equivalence.
 
 \begin{proposition}\label{prop_LHapprox1}
-  The set ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ is p-dense modulo $T$.
+  The set ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ is p-dense modulo $T$.
 \end{proposition}
 
 \begin{proof}
   Let $\varphi(x)$ be a positive formula.
-  We need to prove that for every $\varphi'>\varphi$ there is some formula $\psi(x)\in{\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
+  We need to prove that for every $\varphi'>\varphi$ there is some formula $\psi(x)\in{\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
   By Corollary~\ref{corol_Lcomplete} and Proposition~\ref{prop_approx}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{p'(x)\rightarrow\neg\varphi(x)}p'(x)}
 
-  where $p(x)$ ranges over the maximally consistent ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$-types.
+  where $p(x)$ ranges over the maximally consistent ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$-types.
   By Fact~\ref{fact_compactness_imp} and Lemma~\ref{lem_interpolation}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{\neg\tilde{\psi}(x)\rightarrow\neg\varphi(x)}\neg\tilde{\psi}(x),}
 
-  where $\tilde{\psi}(x)\in{\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$.
+  where $\tilde{\psi}(x)\in{\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$.
   Equivalently,
 
   \ceq{\hfill\varphi(x)}{\leftarrow}{\bigwedge_{\tilde{\psi}(x)\leftarrow\varphi(x)}\tilde{\psi}(x).}
 
-  By compactness, see Fact~\ref{fact_compactness_imp}, for every $\varphi'>\varphi$ there are some finitely many $\tilde{\psi}_i(x)\in{\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ such that
+  By compactness, see Fact~\ref{fact_compactness_imp}, for every $\varphi'>\varphi$ there are some finitely many $\tilde{\psi}_i(x)\in{\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ such that
 
   \ceq{\hfill\varphi'(x)}{\leftarrow}{\bigwedge_{i=1,\dots,n}\tilde{\psi}_i(x)\ \ \leftarrow\ \ \varphi(x)}
 
@@ -1110,7 +1107,7 @@ Still, we can infer an approximate form of equivalence.
 \end{proof}
 
 % \begin{proposition}\label{prop_LHapprox2}
-%   Let $\varphi(x)\in{\EuScript F}^{\rm p}(A)$. For every given $\tilde\varphi\perp\varphi$ there is some $\psi(x)\in{\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde\varphi(x)$.
+%   Let $\varphi(x)\in{\EuScript F}^{\rm p}(A)$. For every given $\tilde\varphi\perp\varphi$ there is some $\psi(x)\in{\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}(A)$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\neg\tilde\varphi(x)$.
 % \end{proposition}
 
   
@@ -1123,11 +1120,11 @@ Still, we can infer an approximate form of equivalence.
 %%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cauchy completions}\label{Cauchy}
 
-We recall a few definitions from~\cite{clcl}. For $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ a tuple of terms of sort ${\sf H}^{|x|+|z|}\to {\sf X}$ we define the formula
+We recall a few definitions from~\cite{clcl}. For $\tau(x,z)=\tau_1(x,z),\dots,\tau_n(x,z)$ a tuple of terms of sort ${\sf H}^{|x|+|z|}\to {\sf S}$ we define the formula
 
 \ceq{\hfill\emph{$x\sim_\tau y$}}{=}{\bigwedge_{i=1}^n\forall z\ \ \tau_i(x,z)=\tau_i(y,z),}
 
-where the expression $\alpha=\beta$ is shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $X^2$.
+where the expression $\alpha=\beta$ is shorthand for $\langle\alpha,\beta\rangle\in\Delta$, where $\Delta$ is the diagonal of $S^2$.
 We also define the type 
 
 \ceq{\hfill\emph{$x\sim y$}}{=}{\Big\{x\sim_\tau y\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
@@ -1137,7 +1134,7 @@ The following fact will be used below without mention.
 
 % \ceq{\hfill\emph{$a\sim b$}}{=}{\forall y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
 
-% When two tuples of the same length $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ are such that $a_i\sim b_i$ for every $i<\lambda$ we write \emph{$\bar a\sim_{\sf X}\bar b$.}
+% When two tuples of the same length $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ are such that $a_i\sim b_i$ for every $i<\lambda$ we write \emph{$\bar a\sim_{\sf S}\bar b$.}
 
 \begin{fact}\label{fact_productUniformity}
   For any $a=\langle a_i:i<\lambda\rangle$ and $b=\langle b_i:i<\lambda\rangle$ 
@@ -1181,8 +1178,8 @@ Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 for some compact neighborhood $D$ of $\Delta$.
 We write \emph{${\EuScript E}$} for the set containing the pairs $\tau,D$ as above.
 The formulas $x\sim_\varepsilon y$, as $\varepsilon$ ranges over ${\EuScript E}$, form a base for a system of entougages on ${\EuScript U}^{|x|}$.
-We refer to this uniformity and the topology associated as the topology \emph{induced by $X$.}
-Though not needed in the sequel, it is worth mentioning that the topology induced by $X$ on ${\EuScript U}^{|x|}$ coincides with the product of the topology induced by $X$ on ${\EuScript U}$.
+We refer to this uniformity and the topology associated as the topology \emph{induced by $S$.}
+Though not needed in the sequel, it is worth mentioning that the topology induced by $S$ on ${\EuScript U}^{|x|}$ coincides with the product of the topology induced by $S$ on ${\EuScript U}$.
 This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}. See~\cite{clcl} for details.
 
 \begin{fact}\label{fact_continuous}
@@ -1235,7 +1232,7 @@ We say what a type $q(x)$ is \emph{finitely satisfiable\/} in $A$ if every conju
 This definition coincides with the classical one, but in our context, the notion is less roboust.
 For instance, if $M$ is a p-model and $q(x)=\mbox{p-tp}(a/M)$ then $q'(x)$ is always finitely satisfiable while $q(x)$ need not.
 
-% It is immediate that ${\EuScript F}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf X}$-invariant.
+% It is immediate that ${\EuScript F}^{\rm p}$-formulas constructed without using (ii) of Definition~\ref{def_LL} are ${\sf S}$-invariant.
 A set $A\subseteq{\EuScript U}$ is \emph{Cauchy complete\/} if it contains all those $a\in{\EuScript U}$ such that $a\sim'x$ is finitely satisfied in $A$.
 Note that Cauchy complete sets are in particular closed under the equivalence $(\sim)$.
 The \emph{Cauchy completion\/} of $A$ is the set 
@@ -1484,21 +1481,21 @@ Note that, though $f:{\rm Ccl}(M)\rightarrow{\rm Ccl}(N)$ above is neither total
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Elimination of quantifiers of sort \textsf{X}}\label{cIelimination}
+\section{Elimination of quantifiers of sort \textsf{S}}\label{cIelimination}
 
-We write \emph{${\EuScript F}^{\rm p/c}_{{\sf X}{\rm qf}}$} for the set of positive/continuous formulas without quantifiers of sort ${\sf X}$.
-In~\cite{clcl} it is proved that ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ is a p-dense set.
+We write \emph{${\EuScript F}^{\rm p/c}_{{\sf S}{\rm qf}}$} for the set of positive/continuous formulas without quantifiers of sort ${\sf S}$.
+In~\cite{clcl} it is proved that ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ is a p-dense set.
 Here we adapt the argument so that it it applies also to the continuous case.
 
 \begin{proposition}\label{prop_Iqf_elim}
-  Every relation of small cardinality $R$ that preserves the truth of formulas in ${\EuScript F}^{\rm p/c}_{{\sf X}{\rm qf}}$ extends to p/c-automorphisms of ${\EuScript U}$.
+  Every relation of small cardinality $R$ that preserves the truth of formulas in ${\EuScript F}^{\rm p/c}_{{\sf S}{\rm qf}}$ extends to p/c-automorphisms of ${\EuScript U}$.
 \end{proposition}
 
 \begin{proof}
   We prove the proposition in the continuous case.
   A simplified version of the same argument applies to the positive case.
 
-  We construct by back-and-forth a sequence $f_i:{\EuScript U}\rightarrow{\EuScript U}$ of reduced relations (i.e.\@ injective maps) that preserve the truth formulas in ${\EuScript F}^{\rm c}_{{\sf X}{\rm qf}}$.
+  We construct by back-and-forth a sequence $f_i:{\EuScript U}\rightarrow{\EuScript U}$ of reduced relations (i.e.\@ injective maps) that preserve the truth formulas in ${\EuScript F}^{\rm c}_{{\sf S}{\rm qf}}$.
   Finally we set 
   
   \ceq{\hfill R}{=}{\bigcup_{i\in|{\EuScript U}|}(\sim)\circ f_i\circ(\sim).}
@@ -1522,8 +1519,8 @@ Here we adapt the argument so that it it applies also to the continuous case.
   Let $p(x)$ and $q(x)$ be as in (i) or (ii) below.
   Then $p(x)\leftrightarrow q(x)$.
   \begin{itemize}
-    \item[i.] $p(x)={\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{tp}(a)$.
-    \item[ii.] $p(x)={\EuScript F}^{\rm c}_{{\sf X}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{c-tp}(a)$.
+    \item[i.] $p(x)={\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{tp}(a)$.
+    \item[ii.] $p(x)={\EuScript F}^{\rm c}_{{\sf S}{\rm qf}}\mbox{-tp}(a)$ and $q(x)=\mbox{c-tp}(a)$.
   \end{itemize}
 \end{corollary}
 
@@ -1539,33 +1536,33 @@ Here we adapt the argument so that it it applies also to the continuous case.
  
   Let $b\models p(x)$ and let $b'$ obtained with the same procedure as $a'$.
   
-  Then the function that maps $a'\mapsto b'$ preserves the truth of ${\EuScript F}^{\rm c}_{{\sf X}{\rm qf}}$-formulas.
+  Then the function that maps $a'\mapsto b'$ preserves the truth of ${\EuScript F}^{\rm c}_{{\sf S}{\rm qf}}$-formulas.
   Then $f$ extends to an c-automorphism.
   As every c-automorphism is c-elementary and the corollary follows.
 \end{proof}
 
 \begin{proposition}\label{prop_cLHapprox1}
-  The set ${\EuScript F}^{\rm p/c}_{{\sf X}{\rm qf}}$ is p/c-dense modulo $T$.
+  The set ${\EuScript F}^{\rm p/c}_{{\sf S}{\rm qf}}$ is p/c-dense modulo $T$.
 \end{proposition}
 
 \begin{proof}
   Let $\varphi(x)$ be a positive formula.
-  We need to prove that for every $\varphi'>\varphi$ there is some formula $\psi(x)\in{\EuScript F}^{\rm p/c}_{{\sf X}{\rm qf}}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
+  We need to prove that for every $\varphi'>\varphi$ there is some formula $\psi(x)\in{\EuScript F}^{\rm p/c}_{{\sf S}{\rm qf}}$ such that $\varphi(x)\rightarrow\psi(x)\rightarrow\varphi'(x)$.
   By Corollary~\ref{corol_cLcomplete} and Proposition~\ref{prop_approx}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{p'(x)\rightarrow\neg\varphi(x)}p'(x)}
 
-  where $p(x)$ ranges over the maximally consistent ${\EuScript F}^{\rm p/c}_{{\sf X}{\rm qf}}$-types.
+  where $p(x)$ ranges over the maximally consistent ${\EuScript F}^{\rm p/c}_{{\sf S}{\rm qf}}$-types.
   By Fact~\ref{fact_compactness_imp} and Lemma~\ref{lem_interpolation}
 
   \ceq{\hfill\neg\varphi(x)}{\rightarrow}{\bigvee_{\neg\tilde{\psi}(x)\rightarrow\neg\varphi(x)}\neg\tilde{\psi}(x),}
 
-  where $\tilde{\psi}(x)\in{\EuScript F}^{\rm p/c}_{{\sf X}{\rm qf}}$.
+  where $\tilde{\psi}(x)\in{\EuScript F}^{\rm p/c}_{{\sf S}{\rm qf}}$.
   Equivalently,
 
   \ceq{\hfill\varphi(x)}{\leftarrow}{\bigwedge_{\tilde{\psi}(x)\leftarrow\varphi(x)}\tilde{\psi}(x).}
 
-  By compactness, see Fact~\ref{fact_compactness_imp}, for every $\varphi'>\varphi$ there are some finitely many $\tilde{\psi}_i(x)\in{\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ such that
+  By compactness, see Fact~\ref{fact_compactness_imp}, for every $\varphi'>\varphi$ there are some finitely many $\tilde{\psi}_i(x)\in{\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ such that
 
   \ceq{\hfill\varphi'(x)}{\leftarrow}{\bigwedge_{i=1,\dots,n}\tilde{\psi}_i(x)\ \ \leftarrow\ \ \varphi(x)}
 
@@ -1665,7 +1662,7 @@ The following proposition is our version of the Tarski-Vaught test.
 
   As $\varphi'>\varphi$ is arbitrary, $\exists y\,\varphi(a,y)$ follows from Proposition~\ref{prop_approx}.
 
-  Induction for the connectives $\vee$, $\wedge$, $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf X}{.8ex}\kern-.2ex}$, and $\forall\raisebox{1.1ex}{\scaleto{\sf X}{.8ex}\kern-.2ex}$ is straightforward.
+  Induction for the connectives $\vee$, $\wedge$, $\forall\raisebox{1.1ex}{\scaleto{\sf H}{.8ex}\kern-.2ex}$, $\exists\raisebox{1.1ex}{\scaleto{\sf S}{.8ex}\kern-.2ex}$, and $\forall\raisebox{1.1ex}{\scaleto{\sf S}{.8ex}\kern-.2ex}$ is straightforward.
 
 \hfil***
 
@@ -1743,7 +1740,7 @@ The following proposition is our version of the Tarski-Vaught test.
 Classically, the first application of the Tarski-Vaught test is in the proof of the downward L\"owen\-heim-Skolem Theorem.
 Note that by the classical downward L\"owenheim-Skolem Theorem every $A\subseteq{\EuScript U}$ is contained in a standard structure of cardinality $|{\EuScript L}(A)|$.
 In this form the L\"owenheim-Skolem Theorem is not very informative.
-In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in ${\EuScript L}_{\sf X}$.
+In fact, the cardinality of ${\EuScript L}$ is eccessively large because of the aboundance of symbols in ${\EuScript L}_{\sf S}$.
 
 We say that ${\EuScript F}^{\rm p/c}$ is \emph{separable\/} if there is a countable p/c-dense set ${\EuScript F}$ of positive/continuous formulas.
 
@@ -1761,19 +1758,19 @@ We say that ${\EuScript F}^{\rm p/c}$ is \emph{separable\/} if there is a counta
 \end{proof}
 
 \begin{proposition}
-  If ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf X}$ and $X$ is a second countable (the topology has a countable base), then ${\EuScript F}^{\rm c}$ is separable.
+  If ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\to {\sf S}$ and $S$ is a second countable (the topology has a countable base), then ${\EuScript F}^{\rm c}$ is separable.
   Moreover if ${\EuScript L}_{\sf H}$ is countable then also ${\EuScript F}^{\rm p}$ is separable.
 \end{proposition}
 
 \begin{proof}
-  Fix a countable filter of compact neighborhoods of the diagonal of ${\sf X}^2$.....  
+  Fix a countable filter of compact neighborhoods of the diagonal of ${\sf S}^2$.....  
 \end{proof}
 
 
 
-% The \emph{weight\/} of ${\EuScript L}$, which we denote by \emph{${\rm wgt}\big({\EuScript L}\big)$\/} is the minimal cardinality of a set of formulas ${\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}'$ such that for every $\varphi''>\varphi\in{\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}$ there is a $\varphi'\in{\EuScript F}^{\rm p}_{{\sf X}{\rm qf}}'$ such that $\varphi''>\varphi'>\varphi$.
+% The \emph{weight\/} of ${\EuScript L}$, which we denote by \emph{${\rm wgt}\big({\EuScript L}\big)$\/} is the minimal cardinality of a set of formulas ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}'$ such that for every $\varphi''>\varphi\in{\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ there is a $\varphi'\in{\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}'$ such that $\varphi''>\varphi'>\varphi$.
 % If this minimal cardinality is $\omega$, we say that ${\EuScript L}$ is sparable. 
-% It is not difficult to see that when $X$ is the real unit interval and ${\EuScript L}$ contains at most countably many symbols of sort ${\sf H}^n\to{\sf X}$ then ${\EuScript L}$ is separable.
+% It is not difficult to see that when $S$ is the real unit interval and ${\EuScript L}$ contains at most countably many symbols of sort ${\sf H}^n\to{\sf S}$ then ${\EuScript L}$ is separable.
 
 % \begin{proposition}
 %   Let $A\subseteq U$.
@@ -1995,7 +1992,7 @@ We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
   Then any solution of $p(x)\cup\big\{a_n\sim_nx\ :\ n\in\omega\big\}$ belongs to ${\rm Ccl}(M)$.
 \end{proof}
 
-In words, the proof above shows that if $p(x)$ is approximately c-isolated, then in every c-model contains a sequence of elements that converges, in the topology induced by $X$, to a realization of $p(x)$.
+In words, the proof above shows that if $p(x)$ is approximately c-isolated, then in every c-model contains a sequence of elements that converges, in the topology induced by $S$, to a realization of $p(x)$.
 
 \begin{fact}\label{fact_wcisolatio_realization}
   Let ${\EuScript F}^{\rm c}$ be separable.
@@ -2367,7 +2364,7 @@ If only (iv) obtains, we say \emph{half-honestly\/} finitely separated.
   Therefore they meet the assumption of Lemma~\ref{lem_sability2}.
 \end{proof}
 
-Let $\xi$ be a variable of sort ${\sf X}$.
+Let $\xi$ be a variable of sort ${\sf S}$.
 Let $\varphi(x\,;z\,;\xi)$ be a formula such that $\forall x,z\ \exists^{=1}\xi\ \varphi(x\,;z\,;\xi)$.
 Write $f(x\,;z)=\xi$ for $\varphi(x\,;z\,;\xi)$.
 The following remark links the discussion of stability to the double limits interpretation in~\cite{BY}.
@@ -2394,6 +2391,7 @@ The following remark links the discussion of stability to the double limits inte
   +{,}{ \textit}{title}
   +{}{ \parenthesize}{date}
   +{,}{ arXiv:}{eprint}
+  +{,}{ } {note}
   % +{,}{ \url}
 }
 
@@ -2498,7 +2496,7 @@ The following remark links the discussion of stability to the double limits inte
    number={1},
    pages={189--243},
    %issn={0894-0347},
-   %doi={10.1090/S0894-0347-2011-00708-X},
+   %doi={10.1090/S0894-0347-2011-00708-S},
 }
 
 % \bib{HPP}{article}{
@@ -2546,6 +2544,12 @@ The following remark links the discussion of stability to the double limits inte
   url = {https://arxiv.org/abs/2005.11851},
   publisher = {arXiv},
   date = {2020},
+}
+
+\bib{Z}{arXiv}{
+  label = {Z},
+  author = {Zambella, Domenco},
+  note = {In preparation},
 }
 
 % \bib{Z}{article}{
