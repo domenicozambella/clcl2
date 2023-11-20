@@ -252,12 +252,7 @@ Up to equivalence we may assume that ${\EuScript L}$ has three types of atomic f
   For the sake of conciseness, we write \emph{p/c} as a placeholder that can be replaced for either one of \emph{p} or \emph{c.}
 \end{notation}
 
-The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript F}^{\rm c}$ that do not have quantifiers of sort ${\sf S}$, nor functions symbols of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ with $n$ and $m$ both positive.
-
-A precise comparison with real-valued logic (see~\cite{BBHU} and~\cite{K}) is less straightforward and outside the scope of this paper.
-In real-valued logic $S=[0,1]$ is interpreted as a set of truth values.
-Functions of sort ${\sf H}^n\to {\sf S}$ are called atomic formulas; functions of sort ${\sf S}^m\to {\sf S}$ are called propositional connectives.
-It seems difficult to interprete functions sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ in that context.
+The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript F}^{\rm c}$ that do not have quantifiers of sort ${\sf S}$, nor functions symbols of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ with $nm>0$.
 
 Allowing quantifiers of sort ${\sf S}$ comes almost for free.
 In Section~\ref{cIelimination} will see that the formulas in ${\EuScript F}^{\rm p/c}$ are approximated by formulas in ${\EuScript F}^{\rm p/c}$ without quantifiers of sort ${\sf S}$.
@@ -271,7 +266,7 @@ However, even when $L^1(\mu)$ is our focus of interest, it is often easier to ar
 For a similar reason ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm c}$ are better studied in parallel.
 
 The extra expressive power offered by quantifiers of sort ${\sf S}$ is convenient.
-For instance, the example below should convince the reader that ${\EuScript F}^{\rm c}$ has at least the same expressive power as real valued logic.% (cf.\@ the example below taken from~\cite{clcl}).%
+For instance, the example below should convince the reader that ${\EuScript F}^{\rm c}$ has at least the same expressive power as real valued logic, see~\cite{BBHU} or~\cite{K}.% (cf.\@ the example below taken from~\cite{clcl}).%
 %\footnote{This unsubstantited claim should be interpreted as concjecture.
 %A painstaking technical comparison with real valued logic is not in the scope of this indroductory exploratory paper.}.
 
@@ -279,15 +274,22 @@ For instance, the example below should convince the reader that ${\EuScript F}^{
   Let $S=[0,1]$, the unit interval.
   Let $\tau(x)$ be a term of sort ${\sf H}^{|x|}\to {\sf S}$.
   Then there is a positive formula that says $\sup_x \tau(x)=\alpha$.
-  Indeed, consider the continuous formula
+  Indeed, the expression
+  
+  \ceq{\hfill\forall x\ \big[\tau(x)\le\alpha\big]}{\wedge}{\forall \varepsilon>0\ \exists x\ \big[\alpha\le \tau(x)+ \varepsilon\big].}
+  
+  is formalized by the ${\EuScript F}^{\rm c}$-formula  
 
   \ceq{\hfill\forall x\ \big[\tau(x)\dotminus\alpha\in\{0\}\big]}
-  {\wedge}{\forall \varepsilon \Big[\varepsilon\in\{0\}\ \vee\ \exists x\ \big[\alpha\dotminus (\tau(x)+\varepsilon)\in\{0\}\big]\Big]}
-
-  which, in a more legible form, becomes
-
-  \ceq{\hfill\forall x\ \big[\tau(x)\le\alpha\big]}{\wedge}{\forall \varepsilon>0\ \exists x\ \big[\alpha\le \tau(x)+ \varepsilon\big].}
+  {\wedge}{\forall \varepsilon \Big[\varepsilon\in\{0\}\ \vee\ \exists x\ \big[\alpha\dotminus (\tau(x)+\varepsilon)\in\{0\}\big]\Big].}
 \end{example}
+
+A precise comparison with real-valued logic is less straightforward and outside the scope of this paper.
+In real-valued logic $S=[0,1]$ is interpreted as a set of truth values.
+Functions of sort ${\sf H}^n\to {\sf S}$ are called atomic formulas; functions of sort ${\sf S}^m\to {\sf S}$ are called propositional connectives.
+Functions sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ with $nm>0$ are not allowed as they would be difficult to interprete in this context.
+
+\hfil***
 
 The theory of normed spaces is one of the motivating examples for standard structures.
 The requirement for $S$ to be compact seems a limitation, but it is not a real one.
@@ -1139,6 +1141,7 @@ We also define the type
 \ceq{\hfill\emph{$x\sim y$}}{=}{\Big\{x\sim_\tau y\ :\ \tau(x,z)\textrm{ as above}\Big\}.}
 
 The following fact will be used below without mention.
+It is proved by induction on $\lambda$.
 % We define the following equivalence relation on $U$
 
 % \ceq{\hfill\emph{$a\sim b$}}{=}{\forall y\ \big[\tau(a,y)=\tau(b,y)\big]}\hfill 
@@ -1151,34 +1154,34 @@ The following fact will be used below without mention.
   \ceq{\hfill a\sim b}{\Leftrightarrow}{a_i\sim b_i}\quad for every $i<\lambda$.
 \end{fact}
 
-\begin{proof} 
-  \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
-  %
-  By induction.
-  Only implication $\Leftarrow$ requires a proof.
-  For limit ordinals induction is trivial.
-  Assume $a_i\sim b_i$ for every $i\le\lambda$.
-  Let $|a|=|b|=\lambda$ and assume inductively that (note that it suffices to consider tuples $\tau$ of arity $1$) 
+% \begin{proof} 
+%   \def\ceq#1#2#3{\parbox[t]{30ex}{$\displaystyle #1$}\parbox[t]{6ex}{\hfil $#2$}{$\displaystyle #3$}}
+%   %
+%   By induction.
+%   Only implication $\Leftarrow$ requires a proof.
+%   For limit ordinals induction is trivial.
+%   Assume $a_i\sim b_i$ for every $i\le\lambda$.
+%   Let $|a|=|b|=\lambda$ and assume inductively that (note that it suffices to consider tuples $\tau$ of arity $1$) 
   
-  \ceq{\hfill\forall y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
+%   \ceq{\hfill\forall y,z\ \ \ \tau(a,y,z)}{=}{\tau(b,y,z)}
 
-  holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ and $|y|=1$ (universal quantification over the free variables is understood throughout the proof).
-  In particular for any $a_\lambda$
+%   holds for every term $\tau(x,y,z)$, with $|x|=\lambda$ and $|y|=1$ (universal quantification over the free variables is understood throughout the proof).
+%   In particular for any $a_\lambda$
 
-  \ceq{1.\hfill\forall z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
+%   \ceq{1.\hfill\forall z\ \ \  \tau(a,a_\lambda,z)}{=}{\tau(b,a_\lambda,z).}
 
-  As $a_\lambda\sim b_\lambda$ then
+%   As $a_\lambda\sim b_\lambda$ then
 
-  \ceq{\hfill\forall x,z\ \ \   \tau(x,a_\lambda,z)}{=}{\tau(x,b_\lambda,z)}
+%   \ceq{\hfill\forall x,z\ \ \   \tau(x,a_\lambda,z)}{=}{\tau(x,b_\lambda,z)}
 
-  and in particular 
+%   and in particular 
 
-  \ceq{2.\hfill\forall z\ \ \ \tau(b,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
+%   \ceq{2.\hfill\forall z\ \ \ \tau(b,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
 
-  From (1) and (2) we obtain
+%   From (1) and (2) we obtain
 
-  \ceq{\hfill\forall z\ \ \ \tau(a,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
-\end{proof}
+%   \ceq{\hfill\forall z\ \ \ \tau(a,a_\lambda,z)}{=}{\tau(b,b_\lambda,z).}
+% \end{proof}
 
 Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 
@@ -1187,18 +1190,21 @@ Note that the approximations of the formula $x\sim_\tau\!y$ have the form
 for some compact neighborhood $D$ of $\Delta$.
 We write \emph{${\EuScript E}$} for the set containing the pairs $\tau,D$ as above.
 The formulas $x\sim_\varepsilon y$, as $\varepsilon$ ranges over ${\EuScript E}$, form a base for a system of entougages on ${\EuScript U}^{|x|}$.
-We refer to this uniformity and the topology associated as the topology \emph{induced by $S$.}
+We refer to this uniformity and the topology associated to it as the uniformity, respectively topology, \emph{induced by $S$.}
 Though not needed in the sequel, it is worth mentioning that the topology induced by $S$ on ${\EuScript U}^{|x|}$ coincides with the product of the topology induced by $S$ on ${\EuScript U}$.
-This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}. See~\cite{clcl} for details.
+% This can be verified by an argument similar to the proof of Fact~\ref{fact_productUniformity}. 
+See~\cite{clcl} for details.
+
+The following is easily proved by induction on the syntax.
 
 \begin{fact}\label{fact_continuous}
   For every $\varphi(x)\in{\EuScript F}^{\rm c}$ 
 
-  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x)\leftrightarrow\varphi(y)}
+  \ceq{\hfill x\sim y}{\rightarrow}{\varphi(x)\leftrightarrow\varphi(y).}
 \end{fact}
 
 \begin{proof}
-  By induction.% on $\varphi(x,\eta)$.
+  % on $\varphi(x,\eta)$.
   % Suppose $\varphi(x,\eta)$ as the form $\tau(x,\eta)\in C$.
   % Then clearly
   %
@@ -1330,7 +1336,7 @@ This is delicate due to the lack of equality of sort ${\sf H}$.
 A possible approach is to work in the quotient ${\EuScript U}/{\sim}$.
 A second possibility is to replace functions with relations.
 The two options differs only in the notation.
-Here we go for the second.
+Here we go for the second one that, arguably, simplifies the bookkiping.
 
 For semplicity, we only discuss morphisms between saturated structures.
 We fix, besides ${\EuScript U}$, a second saturated structure ${\EuScript V}$.
@@ -1345,7 +1351,8 @@ We say that $R$ preserves the truth of ${\EuScript H}$-formulas if
 We will consider two extreem cases for ${\EuScript H}$: the set of all positive/continuous formulas and the set of atomic positive/continuous formulas.
 We denote the latter by \emph{${\EuScript F}^{\rm p/c}_{\rm at}$.}
 Relations that preserve the truth of ${\EuScript F}^{\rm p/c}$-formulas are called \emph{p/c-elementary.}
-Note that p-elementary relations are (graphs of) injective functions and some of the facts below become trivial. 
+Note that p-elementary relations are (graphs of) injective functions and most facts below become trivial.
+Therefore we only discuss the continuous case.
 
 % Below, for simplicity we only consider c-elementary relations between ${\EuScript U}$ and itself.
 % Then, by Fact~\ref{fact_HImorphisms} and Proposition~\ref{prop_approx}, the condition above is aquivalent to
@@ -1353,17 +1360,17 @@ Note that p-elementary relations are (graphs of) injective functions and some of
 By the following fact, if $R$ preserves the truth of ${\EuScript H}$-formulas so does $R^{-1}$.
 
 \begin{fact}\label{fact_Rinverse}
-  Let ${\EuScript H}$ be either ${\EuScript F}^{\rm p/c}$ or ${\EuScript F}^{\rm p/c}_{\rm at}$.
+  Let ${\EuScript H}$ be either ${\EuScript F}^{\rm c}$ or ${\EuScript F}^{\rm c}_{\rm at}$.
   Let $R$ be a relation that preserves the truth of ${\EuScript H}$-formulas.
   Then the converse implication in (\#) holds.
 \end{fact}
 
 \begin{proof}
-  ${\EuScript H}={\EuScript F}^{\rm p/c}$. \ 
+  ${\EuScript H}={\EuScript F}^{\rm c}$. \ 
   Assume ${\EuScript U}\models\neg\varphi(a)$ and apply Proposition~\ref{prop_Fapprox} to infer that ${\EuScript U}\models\psi(a)$ for some $\psi(x)\in{\EuScript F}^{\rm c}$ that implies $\neg\varphi(x)$.
   Then ${\EuScript V}\models\neg\varphi(b)$ follows.
 
-  ${\EuScript H}={\EuScript F}^{\rm p/c}_{\rm at}$. \ 
+  ${\EuScript H}={\EuScript F}^{\rm c}_{\rm at}$. \ 
   Assume ${\EuScript U}\models\tau(a)\notin C$ then ${\EuScript U}\models\tau(a)\in\tilde{C}$ for some compact $\tilde{C}$ disjoint of $C$.
   Then ${\EuScript V}\models\tau(b)\notin C$ follows.
 \end{proof}
@@ -1427,7 +1434,7 @@ We say that the relation $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R$
   \ceq{\hfill\neg\varphi(b,b',z)}{=}{\neg\bigwedge_{i=1}^n\langle\tau_i(b,z),\tau_i(b',z)\rangle\in D}.
   
   is consistent.
-  By the Tarski-Vaught test (Theorem~\ref{thm_Tarski_Vaught}) $\neg\varphi(b,b',z)$ has a solution, say $c$, in ${\rm range}(R)^{|z|}$.
+  Then it has a solution, say $c$, in ${\rm range}(R)^{|z|}$.
   Then $\neg\varphi(a,a,d)$ for some $d\mathrel{R} c$ which is a contradiction.
 \end{proof}
 
@@ -1466,7 +1473,7 @@ Then $f$ is a function defined in exacly one representative $a$ of each $(\sim)$
 \end{definition}
 
  It is clear that p-isomorphisms coincide with ${\EuScript L}$-isomorphisms. 
- Indeed, in this case $R$ is a bijective function that preserve the truth of atomic and, by Fact~\ref{fact_Rinverse}, negated atomic formulas.
+ Indeed, in this case $R$ is a bijective function that preserve the truth of atomic and negated atomic formulas (by the same argument as in Fact~\ref{fact_Rinverse}).
  On the other hand, in the continuous case the term isomorphism may sound inappropriate.
  It is justified by the following fact.
 
@@ -1507,7 +1514,7 @@ Here we adapt the argument so that it it applies also to the continuous case.
   We construct by back-and-forth a sequence $f_i:{\EuScript U}\rightarrow{\EuScript U}$ of reduced relations (i.e.\@ injective maps) that preserve the truth formulas in ${\EuScript F}^{\rm c}_{{\sf S}{\rm qf}}$.
   Finally we set 
   
-  \ceq{\hfill R}{=}{\bigcup_{i\in|{\EuScript U}|}(\sim)\circ f_i\circ(\sim).}
+  \ceq{\hfill R}{=}{\bigcup_{i<|{\EuScript U}|}(\sim)\circ f_i\circ(\sim).}
 
   We will ensure that ${\EuScript U}={\rm dom}(R)={\rm range}(R)$, hence that $R$ is a c-automorphism of ${\EuScript U}$.
 
@@ -1547,7 +1554,7 @@ Here we adapt the argument so that it it applies also to the continuous case.
   
   Then the function that maps $a'\mapsto b'$ preserves the truth of ${\EuScript F}^{\rm c}_{{\sf S}{\rm qf}}$-formulas.
   Then $f$ extends to an c-automorphism.
-  As every c-automorphism is c-elementary and the corollary follows.
+  As every c-automorphism is c-elementary the corollary follows.
 \end{proof}
 
 \begin{proposition}\label{prop_cLHapprox1}
@@ -1916,7 +1923,7 @@ From the lemma we easily obtain an omitting types theorem for positive types tha
 
 In this section we present a version of the omitting types theorem.
 We are interested in obtaining Cauchy complete models omitting a given type.
-We only consider the continuous case.
+We only consider the continuous case; the positive case is only mentioned incidentally.
 
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript F}^{\rm p/c}(A)$ we say that it is \emph{p/c-isolated\/} by $A$.
