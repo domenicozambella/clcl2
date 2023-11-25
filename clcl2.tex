@@ -432,9 +432,9 @@ Note that this is the same as requiring that (1) holds for all formulas without 
 In this section we prove the compactness theorem for positive theories. 
 But first we introduce the notion of standard structure.
 This allows to derive the positive case from its classical counterpart.
-We will be sketchy and refer the reader to~\cite{clcl} for details (though we work with a larger ${\EuScript L}$, the structure of the argument is similar).
+We will be sketchy and refer the reader to~\cite{clcl} for details (though we work with a larger ${\EuScript L}$, the argument is similar).
 
-In this section we recall the notion of standard part of an element of the elementary extension of a compact Hausdorff topological space.
+We recall the notion of standard part of an element of the elementary extension of a compact Hausdorff topological space.
 Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
 The reader willing to accept the latter without proof may skip this section.
 
@@ -471,7 +471,7 @@ We also need the following.
 \end{lemma}
 
 \begin{proof}
-  We prove the fact for function symbols; the general case follows by easy induction.
+  We prove the lemma for function symbols; the general case follows by easy induction.
   Let $\varepsilon$ and $\delta$ range over the compact neighborhoods of the diagonal of $S^m\times S^m$.
   We know that for every $\varepsilon$ there is a $\delta$ such that 
   
@@ -1928,6 +1928,8 @@ We only consider the continuous case; the positive case is only mentioned incide
 A type $p(x)$ is isolated by $\varphi(x)$, a consistent formula, if $\varphi(x)\rightarrow p(x)$.
 If $p(x)$ is isolated by $\neg\varphi(x)$ for some $\varphi(x)\in{\EuScript F}^{\rm p/c}(A)$ we say that it is \emph{p/c-isolated\/} by $A$.
 We omit the reference to $A$ when this is clear from the context (e.g., when $p(x)$ is presented as a type over $A$).
+
+For ease of language in this and the next section we say that $p(x)$ is realized in $M$ if $p(a)$ holds (in ${\EuScript U}$) for some $a\in M^{|x|}$.
 By Theorem~\ref{thm_Tarski_Vaught}, $p(x)$ is p/c-isolated by $A$, then $p(x)$ is realized in every p/c-model containing $A$.
 % We also have that if $p(x)$ is is realized in $M$, a p-model, then $p(x)$ is p-isolated by $M$.
 % In fact, if $b\models p(x)$ then $\neg(b\neq x)$ isolates $p(x)$ where $b\neq x$ is positive by Morleyzation.
@@ -1987,6 +1989,7 @@ We abbreviate $x\sim_{\varepsilon_n}y$ by \emph{$x\sim_ny$.}
 \end{fact}
 
 \begin{proof}
+  Let $\neg\varphi_n(x)$ isolate $\exists x'\sim_n x\ p(x')$.
   Let $\psi_n(x)=\varphi_0(x)\vee\dots\vee\varphi_n(x)$.
   Clearly $\neg\psi_n(x)\ \rightarrow\ x\sim_n\! y$, then we only need verify that $\neg\psi_n(x)$ is consistent with $p(x)$.
   But this is the case because by maximality $p(x)\rightarrow\neg\varphi_n(x)$.
@@ -2041,7 +2044,7 @@ In words, the proof above shows that if $p(x)$ is approximately c-isolated, then
   We construct a sequence of ${\EuScript F}^{\rm c}(A)$-formulas $\langle\gamma_i(z):i<\omega\rangle$ such that any realization $a$ of the type $\big\{\gamma_i(z):i<\omega\big\}$ is the required solution of $\neg\psi(z)$, witnessed by the same $\varepsilon$.
   
   Let $\langle\xi_i(x,z):i<\omega\rangle$ enumerate a countable c-dense subset of ${\EuScript F}^{\rm c}_{x,z}(A)$.
-  Let $\gamma_0(z)$ be a consistent continuous formulas such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$.
+  Let $\gamma_0(z)$ be a consistent continuous formula such that $\gamma'_0(z)\rightarrow\neg\psi(z)$ for some $\gamma'_0>\gamma_0$.
   This exists by Proposition~\ref{prop_Fapprox}.
   Now we define $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$.
   Let $\gamma_i(z)$ and $\gamma'_i>\gamma_i$ be given.
@@ -2049,11 +2052,11 @@ In words, the proof above shows that if $p(x)$ is approximately c-isolated, then
   
   \begin{itemize}
   \item[1.] If $\neg\xi_i(x,z)\wedge\gamma_i(z)$ is inconsistent with $p(x)$, let $\gamma_{i+1}(z)=\gamma_i(z)$ and  $\gamma'_{i+1}(z)=\gamma'_i(z)$.
-  \item[2.] Otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent
+  \item[2.] Otherwise, pick $\varphi(x)\in p$ such that (\#) below is consistent (the existence of such formula is proved below)
   
   (\#)\hfil $\neg\tilde{\gamma}(z)\ \wedge\ \exists x\,\big[\neg\xi_i(x,z)\wedge\neg\exists x'\sim_\varepsilon x\ \varphi(x')\big].$\kern15ex
   
-  Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ consistent continuous formulas such that $\gamma'_{i+1}(z)$ implies (\#).
+  Finally, let $\gamma_{i+1}(z)$ and $\gamma'_{i+1}>\gamma_{i+1}$ be consistent continuous formulas such that $\gamma'_{i+1}(z)$ implies (\#).
   Such formulas exist by Proposition~\ref{prop_Fapprox}.
   \end{itemize}
   
@@ -2120,10 +2123,9 @@ We say that $M$ is \emph{atomic\/} if for every finite tuple $a$ of elements of 
   
   and $\psi_n(x,y)\rightarrow\psi_{n+1}(x,y)$.
   As $\neg\psi_n(x,y)$ is consistent with $p(x,y)$ then $a,c\models\neg\psi_n(x,y)$.
-  Then by c-elementarity, $\neg\varphi(ka,y)$ is consistent.
+  Then by c-elementarity, $\neg\psi_n(ka,y)$ is consistent.
   Let $d_n\in{\rm Ccl}(M)$ be such that $ka,d_n\models\neg\psi_n(x,y)$.
-  Let $b,d$ be a realization of the type $\{ka,d_n\sim_nx,y:n\in\omega\}\cup p(x,y)$.
-  As $ka\sim b$, also $ka,d$ realizes $p(x,y)$.
+  Let $d$ be a realization of the type $\{d_n\sim_n,y:n\in\omega\}\cup p(ka,y)$.
   As $d\in{\rm Ccl}(N)$, the proof is complete.
 \end{proof}
 
@@ -2225,11 +2227,7 @@ The following classical results holds unmodified.
   Let $a_{\restriction I_0}\models\varphi(x_{\restriction n})$ for some $\varphi(x_{\restriction n})\in{\EuScript F}^{\rm p/c}$ and some $I_0\subseteq I$ of cardinality $n$.
   We show that $a_{\restriction I_1}\models\varphi(x_{\restriction n})$ 
   for every $I_1\subseteq I$ of cardinality $n$.
-  This is clear if $\varphi(/z_{\restriction I_0})$ is in $p$, so assume it is not.
-  Then $\{\varphi(/z_{\restriction I_0})\}'\subseteq p$.
-  Then also $\{\varphi(/z_{\restriction I_1})\}'\subseteq p$.
-  Therefore  $a_{\restriction I_1}\models\{\varphi(x_{\restriction n})\}$ which suffices by saturation.
-\end{proof}
+  This is clear if $\varphi(/z_{\restriction I_0})$ is in $p$, so assume it is not.....
 
 
 %%%%%%%%%%%%%%%%%%%%%
