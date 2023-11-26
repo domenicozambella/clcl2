@@ -77,9 +77,9 @@
   roundcorner = 1ex,    
   backgroundcolor=gray!10, 
   innerleftmargin=1ex,
-  leftmargin=-1ex,
+  leftmargin=0ex,
   innerrightmargin=1ex,
-  rightmargin=-1ex,
+  rightmargin=0ex,
   innertopmargin=1.5ex, 
   innerbottommargin=1ex, 
   skipabove=3ex,
@@ -128,7 +128,8 @@
 \makeatother
 
 \linespread{1.2}
-\author{S. A. Polymath}
+% \author{S. A. Polymath}
+\author{Domenico}
 \begin{document}
 \title{Standard analysis}
 \hfill\texttt{Branch:\ \branch\ \DTMnow}\bigskip
@@ -173,7 +174,6 @@
 In order to make the paper reasonably self contained, in the first few sections we revisit and extend some results of~\cite{clcl}.
 Some theorems are rephrased and we add a few remarks and examples.
 %\footnote{We will omit Section~\ref{standard_part} from the final version of this paper and refer to~\cite{clcl} instead.}
-Where necessary our notation and terminology slightly diverges.
 
 Let \emph{$S$\/} be some fixed first-order structure which is endowed with a Hausdorff compact topology (in particular, a normal topology).
 The language \emph{${\EuScript L}_{\sf S}$\/} contains a relation symbol for each compact subsets $C\subseteq S^n$ and a function symbol for each continuous functions $f:S^n\to S$.
@@ -183,8 +183,8 @@ Such a language ${\EuScript L}_{\sf S}$ is much larger than necessary but it is 
 The notion of a \textit{dense set of formulas\/} (Definition~\ref{def_dense}) helps to reduce the size of the language when required.
 
 The most straightforward examples of structures $S$ are the unit interval $[0,1]$ with the usual topology, and its homeomophic copies $\mathds{R}^+\cup\{0,\infty\}$ and $\mathds{R}\cup\{\pm\infty\}$.
-Interesting examples are obtained when $S=S_1(M)$, the space of complete 1-types over a model $M$ with the logic topology.
-These will be discussed in detail in subsequent work.
+Interesting examples are obtained when $S=S_n(M)$, the space of complete $n$-types over a model $M$ with the logic topology.
+These will be discussed in subsequent work.
 
 We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we call the language of the \emph{home sort.}
 
@@ -287,12 +287,12 @@ For instance, the example below should convince the reader that ${\EuScript F}^{
 A precise comparison with real-valued logic is less straightforward and outside the scope of this paper.
 In real-valued logic $S=[0,1]$ is interpreted as a set of truth values.
 Functions of sort ${\sf H}^n\to {\sf S}$ are called atomic formulas; functions of sort ${\sf S}^m\to {\sf S}$ are called propositional connectives.
-Functions sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ with $nm>0$ are not allowed as they would be difficult to interprete in this context.
+Real-valued logic does not provide any counterpart for functions sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ when $nm>0$.
 
 \hfil***
 
 The theory of normed spaces is one of the motivating examples for standard structures.
-The requirement for $S$ to be compact seems a limitation, but it is not a real one.
+The requirement for $S$ to be compact seems a limitation, but it is not a serious one.
 Essentially, functional analysis and model theory are only concerned with the unit ball of normed spaces.
 
 To formalize the unit ball of a normed space as a standard structure (where $S$ is the unit interval) is straightforward in theory but cumbersome in practice.
@@ -709,6 +709,8 @@ Using the fact, it is immediate to verify the following.
 
 In Section~\ref{cIelimination} we prove that the set of positive/continuous formulas without quantifiers of sort ${\sf S}$ is p/c-dense.
 
+\hfil***
+
 The following proposition shows that a slight amount of saturation tames the positive formulas.
 
 \begin{proposition}\label{prop_approx}
@@ -840,7 +842,7 @@ Then $M\models\varphi'$.
 
 \def\ceq#1#2#3{\parbox[t]{18ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
-We denote by \emph{${\EuScript U}$\/} some large p-saturated p-maximal standard structure which we call the positive monster model.
+We denote by \emph{${\EuScript U}$\/} some large p-saturated standard structure which we call the positive monster model.
 % For convenience we assume that the cardinality of ${\EuScript U}$ is an inaccessible cardinal.
 Truth is evaluated in ${\EuScript U}$ unless otherwise is specified.
 We denote by $T$ the positive theory of {${\EuScript U}$.
@@ -859,7 +861,9 @@ However, all p/c-models agree on the approximated truth.
 \end{fact}
 
 \begin{proof}
-  (1$\Rightarrow$2) By the same argument as in the proof of Corollary~\ref{corol_pmax}. (2$\Rightarrow$1) Clear.
+  (1$\Rightarrow$2) By the same argument as in the proof of Corollary~\ref{corol_pmax}. 
+  
+  (2$\Rightarrow$1) Clear.
 \end{proof}
 
 The following fact demostrates how positive compactness applies.
@@ -988,7 +992,7 @@ The undecorated symbol \emph{$\mbox{tp}(a/A)$\/} denotes the ${\EuScript L}$-typ
   Therefore $p(x)\rightarrow\neg\varphi(x)$ follows.
 \end{proof}
 
-The Fact~\ref{fact_max_cons_L} extends as follows.
+Fact~\ref{fact_max_cons_L} extends as follows.
 
 \begin{fact}\label{fact_max_cons_F}
   Let $p(x)\subseteq{\EuScript H}(A)$, where ${\EuScript H}$ is a p/c-dense set of positive/continuous formulas.
@@ -1776,9 +1780,8 @@ We say that ${\EuScript F}^{\rm p/c}$ is \emph{separable\/} if there is a counta
 The following proposition is proved in~\cite{clcl} for a smaller language ${\EuScript L}$ but the proof can be easily adapted.
 
 \begin{proposition}
-  Assume $S$ is a second countable (the topology has a countable base).
-  If ${\EuScript L}$ has at most countably many symbols of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ and of sort ${\sf H}^n\times{\sf S}^m$, then ${\EuScript F}^{\rm c}$ is separable.
-  Moreover, if ${\EuScript L}_{\sf H}$ is countable then also ${\EuScript F}^{\rm p}$ is separable.
+  Assume $S$ is a second countable (i.e.\@ the topology has a countable base).
+  If ${\EuScript L}\smallsetminus{\EuScript L}_{\sf S}$ has at most countably many symbols then ${\EuScript F}^{\rm p}$ is separable.
 \end{proposition}
 
 
@@ -2099,7 +2102,7 @@ In words, the proof above shows that if $p(x)$ is approximately c-isolated, then
 \def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
 
 Let ${\EuScript F}^{\rm c}$ be separable.
-We say that $T$ is \emph{c-$\omega$-categorical\/} if any two countable c-models are c-isomorphic, see Definition~\ref{def_ciso}.
+We say that $T$ is \emph{c-$\omega$-categorical\/} if any two countable c-models are c-isomorphic as defined in Definition~\ref{def_ciso}.
 It is easy to see that c-$\omega$-categorical theories are complete.
 This allows us to work inside a monster model and simplify the notation.
 
@@ -2180,6 +2183,7 @@ The following analogue of Ryll-Nardzewski's Theorem follows by the classical arg
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
 \section{Indiscernibles}
 
 \def\ceq#1#2#3{\parbox[t]{15ex}{$\displaystyle #1$}\parbox[t]{6ex}{$\displaystyle\hfil #2$}{$\displaystyle #3$}}
@@ -2228,6 +2232,8 @@ The following classical results holds unmodified.
   We show that $a_{\restriction I_1}\models\varphi(x_{\restriction n})$ 
   for every $I_1\subseteq I$ of cardinality $n$.
   This is clear if $\varphi(/z_{\restriction I_0})$ is in $p$, so assume it is not.....
+\end{proof}
+\end{comment}
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -2243,7 +2249,7 @@ The following classical results holds unmodified.
 
 The results in this section are completely classical.
 The formulas $\varphi(x\,;z)$ and $\tilde\varphi(x\,;z)$ in Theorem~\ref{thm_stability} are not required to be positive, in fact, saturation is not required in this section. 
-We prove an enhanced version of a fundamental property of stable formulas.
+We prove a version of a fundamental property of stable formulas.
 Namely, externally definable sets are internally definable when the defining formula is stable.
 The result is relevat to the subject of this paper when we take $\varphi$ positive and $\tilde\varphi\perp\varphi$.
 
@@ -2374,14 +2380,14 @@ If only (iv) obtains, we say \emph{half-honestly\/} finitely separated.
 
 \begin{proof}
   Apply Lemma~\ref{lem_sability1} and~\ref{lem_sability1} in succession.
-  Note that the usual Ramsey's argument proves that the formulas $\psi,\tilde\psi$ in Lemma~\ref{lem_sability1} are stably separated.
+  Note that well-known Ramsey's argument proves that the formulas $\psi,\tilde\psi$ in Lemma~\ref{lem_sability1} are stably separated.
   Therefore they meet the assumption of Lemma~\ref{lem_sability2}.
 \end{proof}
 
 Let $\xi$ be a variable of sort ${\sf S}$.
 Let $\varphi(x\,;z\,;\xi)$ be a formula such that $\forall x,z\ \exists^{=1}\xi\ \varphi(x\,;z\,;\xi)$.
 Write $f(x\,;z)=\xi$ for $\varphi(x\,;z\,;\xi)$.
-The following remark links the discussion of stability to the double limits interpretation in~\cite{BY}.
+The following remark links our discussion of stability to the double limits interpretation in~\cite{BY}.
 
 \begin{remark}
   The following are equivalent 
