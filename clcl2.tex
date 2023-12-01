@@ -108,25 +108,25 @@
    \smash{\tikz[baseline]\node[rectangle, fill=teal!25, rounded corners, inner xsep=0.5ex, inner ysep=0.2ex, anchor=base, minimum height = 2.7ex]{\strut #1};}}
 
 %%%%%%% GETCOMMIT
-% \newcommand\dotGitHEAD{}
-% \newcommand\branch{}
+\newcommand\dotGitHEAD{}
+\newcommand\branch{}
 
 
-% \makeatletter\let\myfilehandle\@inputcheck\makeatother
+\makeatletter\let\myfilehandle\@inputcheck\makeatother
 
-% \openin\myfilehandle=.git/HEAD\relax
+\openin\myfilehandle=.git/HEAD\relax
 
-% \begingroup\endlinechar-1
-%   \global\read\myfilehandle to \dotGitHEAD
-% \endgroup
-% \closein\myfilehandle
+\begingroup\endlinechar-1
+  \global\read\myfilehandle to \dotGitHEAD
+\endgroup
+\closein\myfilehandle
 
-% \newcommand\GetBranch{}
-% \def\GetBranch ref: refs/heads/#1\relax{\renewcommand{\branch}{#1}}
+\newcommand\GetBranch{}
+\def\GetBranch ref: refs/heads/#1\relax{\renewcommand{\branch}{#1}}
 
-% \expandafter\GetBranch\dotGitHEAD\relax
+\expandafter\GetBranch\dotGitHEAD\relax
 
-% \makeatother
+\makeatother
 
 \linespread{1.1}
 % \author{S. A. Polymath}
@@ -134,8 +134,7 @@
 \thanks{Dipartimento di Matematica, Universit\`a di Torino, via Carlo Alberto 10, 10123 Torino.}
 \begin{document}
 \title{Standard analysis}
-% \hfill\texttt{Branch:\ \branch\ \DTMnow}\bigskip
-\noindent\kern2ex
+\hfill\texttt{Branch:\ \branch\ \DTMnow}
 \maketitle
 \raggedbottom
 
@@ -196,6 +195,7 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
 
   A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,S\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure.
   We write \emph{${\sf H}$} and \emph{${\sf S}$\/} to denote the two sorts of ${\EuScript L}$.
+  We further require that ${\EuScript L}$-structures satisfy the following requirements.
   
   The language ${\EuScript L}$ has a relation symbol $r_{\varphi}(x)$ for every $\varphi(x)\in {\EuScript L}_{\sf H}$.
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$.
@@ -203,7 +203,8 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   
   Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$.
   We require that their interpretation is equicontinuous (definition below).
-  It may also contain relation symbols of sort ${\sf H}^n\times{\sf S}^m$.
+
+  The language ${\EuScript L}$ may also contain relation symbols of sort ${\sf H}^n\times{\sf S}^m$.
   If $r$ is such a symbol, we require that its interpretation $r^M$ is such that $\{\alpha\in S: (a,\alpha)\in r^M\}$ is compact for every $a\in M^{|x|}$.
   
   Standard structures are denoted by the domain of their home sort.
@@ -216,9 +217,10 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
 
 % We are in debt for a definition.
 Let $f:A\times S^m\to S$, where $A$ is a pure set.
-Let $\varepsilon$ and $\delta$ range over the neighborhoods of the diagonal of $S^m\times S^m$.
+Let $\varepsilon$ and $\delta$ range over the closed neighborhoods of the diagonal of $S\times S$, respectively over the open neighborhoods of the diagonal of $S^m\times S^m$.
 We say that $f$ is \emph{equicontinuous\/} if for every $\varepsilon$ there is a $\delta$ such that $\big\langle f(a,\alpha),f(a,\alpha')\big\rangle\in\varepsilon$ for every $a\in A$ and every $\langle\alpha,\alpha'\rangle\in\delta$.
-We can also say that, as $a$ ranges over $A$, the functions $f(a,\mbox{-})$ have the same modulus of uniform continuity.
+
+A \emph{modulus of equicontinuity\/} of an ${\EuScript L}$-structure is a function that maps $\varepsilon$ to some $\delta$ that satisfies the condition above.
 
 Clearly, saturated ${\EuScript L}$-structures exist but, except for trivial cases (when $S$ is finite), these are not standard.
 As a remedy, below we carve out a set of formulas ${\EuScript F}^{\rm p}$, the set of positive formulas, such that every model has a positive elementary saturated extension that is also standard.
@@ -441,7 +443,7 @@ We recall the notion of standard part of an element of the elementary extension 
 Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
 The reader willing to accept the latter without proof may skip this section.
 
-Let $\langle N, {}^*\!\!S\rangle$ be an ${\EuScript L}$-structure that extends ${\EuScript L}$-elementarily the standard structure $M$. %$\langle M, S\rangle$.
+Let $\langle N, {}^*\!\!S\rangle$ be an ${\EuScript L}$-structure. %$\langle M, S\rangle$.
 Let $\eta$ be a free variable of sort ${\sf S}$.
 For each $\beta\in S$, we define the type
 
@@ -475,13 +477,12 @@ We also need the following.
 
 \begin{proof}
   We prove the lemma for function symbols -- the general case follows easily by induction on the syntax of $\tau$.
-  Let $\varepsilon$ and $\delta$ range over the compact neighborhoods of the diagonal of $S^m\times S^m$.
-  We know that for every $\varepsilon$ there is a $\delta$ such that 
+  Let $\varepsilon$ and $\delta$ below be those given by some modulus of uniform continuity of $\langle N,{}^*\!\!S\rangle$.
+  We know that  
   
-  \ceq{\hfill M}{\models}{\forall x,\eta,\eta'\big[\langle\eta,\eta'\rangle\in\delta\rightarrow \big\langle f(x,\eta),f(x,\eta')\big\rangle\in\varepsilon\big].}
+  \ceq{\hfill \langle N,{}^*\!\!S\rangle}{\models}{\forall x,\eta,\eta'\big[\langle\eta,\eta'\rangle\in\delta\rightarrow \big\langle f(x,\eta),f(x,\eta')\big\rangle\in\varepsilon\big].}
   
-  The same formula holds in $\langle N,{}^*\!\!S\rangle$.
-  As ${}^*\!\!S\models\big\langle\alpha,{\rm st}(\alpha)\big\rangle\in\delta$ for every $\delta$, we conclude that $\big\langle f(a,\alpha),f\big(a,{\rm st}(\alpha)\big)\big\rangle\in\varepsilon$ for every $\varepsilon$.
+  As $\langle N,{}^*\!\!S\rangle\models\big\langle\alpha,{\rm st}(\alpha)\big\rangle\in\delta$ for every $\delta$, we conclude that $\big\langle f(a,\alpha),f\big(a,{\rm st}(\alpha)\big)\big\rangle\in\varepsilon$ for every $\varepsilon$.
   Therefore $f(a,\alpha)$ and $f\big(a,{\rm st}(\alpha)\big)$ have the same standard part.
 \end{proof}
 
@@ -564,12 +565,14 @@ Now we move to positive formulas.
 We are ready for the proof of the positive Compactness Theorem.
 It is convenient to distinguish between consistency with respect to standard structures and consistency with respect to ${\EuScript L}$-structures.
 We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!S\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!S\rangle$ (this is the classical notion of consistency).
-We say that $T$ is \emph{standardly\/}  consistent if $M\models T$  is for some standard structure $M$.
+We say that $T$ is \emph{uniformly finitely\/} ${\EuScript L}$-consistent if every finite $T_0\subseteq T$ is ${\EuScript L}$-consistent and the ${\EuScript L}$-structures witnessing this have a common modulus of equicontinuity.
+
+Finally, we say that $T$ is \emph{standardly\/} consistent if $M\models T$ for some standard structure $M$.
 By Lemma~\ref{lem_st} these two notions coincide if $T$ is positive.
 Therefore we have the following.
 
 \begin{theorem}[Positive Compactness Theorem]\label{thm_compattezza}
-  Let $T$ be a positive theory. Then, if $T$ is finitely ${\EuScript L}$-consistent, it is also standardly consistent.
+  Let $T$ be a positive theory. Then, if $T$ is uniformly finitely ${\EuScript L}$-consistent, it is also standardly consistent.
 \end{theorem}
 
 % \begin{proof}
@@ -612,14 +615,15 @@ We say that $M$ is \emph{p/c-maximal\/} if it models all sentences in ${\EuScrip
 
 \begin{proof}
   Up to a small tweak, this is just the classical construction.
-  We construct a p-elementary chain of standard structures $M_i$ of cardinality $\le\lambda$ and a sequence of types $p_i(x)\subseteq{\EuScript L}(M_i)$ with the following properties.
-  The type $p_i(x)$ has $<\lambda$ parameters, is finitely consistent in some p-elementary superstructure of $M_i$, and is realized in $M_{i+1}$.
-  The positive compactness theorem ensures the existence of $M_{i+1}$.
-  We also require that all types finitely consistent in some p-elementary superstructure of some $M_i$ occurs eventually in the enumeration.
-  If $\lambda=\lambda^{<\lambda}$, the required enumeration exists.
+  First note that any modulus of equicontinuity of a standard structure $M$ is also a modulus of equicontinuity of any p-elementary extension of $M$.
+  Now, suppose that every finite subset of $p(x,\eta)\subseteq{\EuScript F}^{\rm p}(M)$ is realized in some p-elementary extension of $M$.
+  Then, by the positive Compactness Theorem, $p(x,\eta)$ is realized in some p-elementary extension of $M$.
+
+  With this in mind we construct a p-elementary chain of length $\lambda$ of standard structures $M_i$ of cardinality $\le\lambda$ and a sequence of types $p_i(x)\subseteq{\EuScript F}^{\rm p}(M_i)$ with $<\lambda$ parameters that are realized in $M_{i+1}$.
+  If $\lambda=\lambda^{<\lambda}$ we can ensure that all types finitely consistent in some p-elementary superstructure of $M_i$ occur in the enumeration.
   Let $N$ be the union of the chain.
-  If $p(x)\subseteq L(N)$ is finitely consistent in $N$ and has $<\lambda$ parameters then it occurs at some stage $i<\lambda$. 
-  Then it is realized in $M_{i+1}$ and by p-elementarity, in $N$.
+  If $p(x)\subseteq{\EuScript F}^{\rm p}(N)$ is finitely consistent in $N$ and has $<\lambda$ parameters then, by regularity, it occurs at some stage $i<\lambda$. 
+  Then $p(x)$ is realized in $M_{i+1}$ and by p-elementarity, in $N$.
   The claim of p-maximality is immediate.
 \end{proof}
 
