@@ -204,9 +204,6 @@ We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we cal
   Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$.
   We require that their interpretation is equicontinuous (definition below).
 
-  The language ${\EuScript L}$ may also contain relation symbols of sort ${\sf H}^n\times{\sf S}^m$.
-  If $r$ is such a symbol, we require that its interpretation $r^M$ is such that $\{\alpha\in S: (a,\alpha)\in r^M\}$ is compact for every $a\in M^{|x|}$.
-  
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
 
@@ -234,7 +231,6 @@ Up to equivalence we may assume that ${\EuScript L}$ has three types of atomic f
 \begin{itemize}
   \item[1.] $r_\varphi(x)$ for some $\varphi(x)\in{\EuScript L}_{\sf H}$;
   \item[2.] $\tau(x\,;\eta)\in C$, where $C\subseteq S^n$ is a compact set and $\tau(x\,;\eta)$ is a tuple of terms of sort ${\sf H}^{|x|}\times {\sf S}^{|\eta|}\to {\sf S}$ (up to equivalence, equality has also this form);
-  \item[3.] $r\big(x\,;\tau(x\,;\eta)\big)$ where $r$ is a relation symbol of sort ${\sf H}^{|x|}\times {\sf S}^n$ and $\tau(x\,;\eta)$ is as above.
 \end{itemize}
 
 \begin{definition}\label{def_LL}
@@ -312,7 +308,7 @@ In fact, inside any ball of finite radius these improper normed spaces are compl
 Let $S=\mathds{R}\cup\{\pm\infty\}$.
 Let ${\EuScript L}_{\sf H}$ be the language of real (or complex) vector spaces.
 The language ${\EuScript L}$ contains a function symbol $\|\mbox{-}\|$ of sort ${\sf H}\to {\sf S}$.
-Normed space are standard structures with the natural interpretation of the language.
+Normed spaces are standard structures with the natural interpretation of the language.
 It is easy to verify that the unit ball of a standard structure is the unit ball of a normed space.
 Note that the same remains true if we add to the language any continuous (equivalently, bounded) operator or functional.
 \end{example}
@@ -440,7 +436,7 @@ This allows to derive the positive case from its classical counterpart.
 We will be sketchy and refer the reader to~\cite{clcl} for details (though we work with a larger ${\EuScript L}$, the argument is similar).
 
 We recall the notion of standard part of an element of the elementary extension of a compact Hausdorff topological space.
-Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the positive Compactness Theorem (Theorem~\ref{thm_compattezza}).
+Our goal is to prove Lemma~\ref{lem_st} which in turn is required for the proof of the positive compactness theorem (Theorem~\ref{thm_compattezza}).
 The reader willing to accept the latter without proof may skip this section.
 
 Let $\langle N, {}^*\!\!S\rangle$ be an ${\EuScript L}$-structure. %$\langle M, S\rangle$.
@@ -493,6 +489,8 @@ The \emph{standard part of $\langle N,{}^*\!\!S\rangle$\/} is the standard struc
 where ${}^*\!\!f$ is the interpretation of $f$ in $\langle N,{}^*\!\!S\rangle$.
 By the fact above, when $n=0$ the definition agrees with the canonical interpretation of the functions in ${\EuScript L}_{\sf S}$.
 Symbols in ${\EuScript L}_{\sf H}$ maintain the same interpretation.
+Note that the formulas asserting that the functions ${}^*\!\!f(a,\mbox{-})$ are equicontinuous are in ${\EuScript F}^{\rm p}$.
+Therefore the functions ${}^N\!f(a,\mbox{-})$ are also equicontinuous by Lemma~\ref{lem_st} below.
 
 Easy induction proves the following.
 
@@ -523,7 +521,6 @@ Now we move to positive formulas.
   Assume that $\langle N,{}^*\!\!S\rangle\models \tau(a\,;\alpha)\in C$.
   Then ${\rm st}\big({}^*\tau(a\,;\alpha)\big)\in C$ by Fact~\ref{fact_st1}.
   Therefore $\tau^N\big(a\,;{\rm st}(\alpha)\big)\in C$ follows from Fact~\ref{fact_st2}.
-  Finally, note that the same argument applies when $\varphi(x\,;\eta)$ is an atomic formula of the form $r\big(x,\tau(x\,;\eta)\big)$, where $r$ is a relation symbol of sort ${\sf H}^n\times{\sf S}^m$, because $r(a,S)$ is compact.
   This proves the lemma for atomic formulas.
   Induction is immediate. 
 \end{proof}
@@ -562,22 +559,28 @@ Now we move to positive formulas.
 
 \hfil***
 
-We are ready for the proof of the positive Compactness Theorem.
+We are ready for the proof of the positive compactness theorem.
 It is convenient to distinguish between consistency with respect to standard structures and consistency with respect to ${\EuScript L}$-structures.
 We say that a theory $T$ is \emph{${\EuScript L}$-consistent\/} if $\langle M,{}^*\!\!S\rangle\models T$ for some ${\EuScript L}$-structure $\langle M,{}^*\!\!S\rangle$ (this is the classical notion of consistency).
 We say that $T$ is \emph{uniformly finitely\/} ${\EuScript L}$-consistent if every finite $T_0\subseteq T$ is ${\EuScript L}$-consistent and the ${\EuScript L}$-structures witnessing this have a common modulus of equicontinuity.
 
 Finally, we say that $T$ is \emph{standardly\/} consistent if $M\models T$ for some standard structure $M$.
-By Lemma~\ref{lem_st} these two notions coincide if $T$ is positive.
+By Lemma~\ref{lem_st} these two notions of consistency coincide when $T$ is positive.
 Therefore we have the following.
 
-\begin{theorem}[Positive Compactness Theorem]\label{thm_compattezza}
+\begin{theorem}[positive compactness theorem]\label{thm_compattezza}
   Let $T$ be a positive theory. Then, if $T$ is uniformly finitely ${\EuScript L}$-consistent, it is also standardly consistent.
 \end{theorem}
 
+\begin{proof}
+  By uniform finite consistency, we can assume without loss of generality that $T$ contains some positive sentences asserting that the interpretations of the function of sort ${\sf H}^n\times{\sf S}^m\to{\sf S}$ are equicontinuous.
+  Therefore, by the classical compactness theorem, $T$ is ${\EuScript L}$-consistent.
+  Then the theorem follows from Lemma~\ref{lem_st}
+\end{proof}
+
 % \begin{proof}
 %   Suppose $T$ is finitely ${\EuScript L}$-consistent.
-%   By the Classical Compactness Theorem, there is an ${\EuScript L}$-structure $\langle M,{}^*\!\!S\rangle\models T$.
+%   By the Classical compactness theorem, there is an ${\EuScript L}$-structure $\langle M,{}^*\!\!S\rangle\models T$.
 %   Let $\langle M,S\rangle$ be its standard part as defined in Section~\ref{standard_part}.
 %   Then $M\models T$ by Lemma~\ref{lem_st}.
 % \end{proof}
@@ -615,9 +618,9 @@ We say that $M$ is \emph{p/c-maximal\/} if it models all sentences in ${\EuScrip
 
 \begin{proof}
   Up to a small tweak, this is just the classical construction.
-  First note that any modulus of equicontinuity of a standard structure $M$ is also a modulus of equicontinuity of any p-elementary extension of $M$.
+  First note that the moduli of equicontinuity for a standard structure $M$ are also moduli of equicontinuity for any of its p-elementary extensions.
   Now, suppose that every finite subset of $p(x,\eta)\subseteq{\EuScript F}^{\rm p}(M)$ is realized in some p-elementary extension of $M$.
-  Then, by the positive Compactness Theorem, $p(x,\eta)$ is realized in some p-elementary extension of $M$.
+  Then, by the positive compactness theorem, $p(x,\eta)$ is realized in some p-elementary extension of $M$.
 
   With this in mind we construct a p-elementary chain of length $\lambda$ of standard structures $M_i$ of cardinality $\le\lambda$ and a sequence of types $p_i(x)\subseteq{\EuScript F}^{\rm p}(M_i)$ with $<\lambda$ parameters that are realized in $M_{i+1}$.
   If $\lambda=\lambda^{<\lambda}$ we can ensure that all types finitely consistent in some p-elementary superstructure of $M_i$ occur in the enumeration.
