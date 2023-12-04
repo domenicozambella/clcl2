@@ -12,6 +12,7 @@
 *.cb2
 *.xopp
 *.synctex.gz
+*.txt
 aux/*
 !aux/*.pdf
 materiale/

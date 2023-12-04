@@ -134,6 +134,7 @@
 \thanks{Dipartimento di Matematica, Universit\`a di Torino, via Carlo Alberto 10, 10123 Torino.}
 \begin{document}
 \title{Standard analysis}
+% \hfill\texttt{~}
 \hfill\texttt{Branch:\ \branch\ \DTMnow}
 \maketitle
 \raggedbottom
@@ -191,18 +192,17 @@ These will be discussed in subsequent work.
 We also fix a first-order language \emph{${\EuScript L}_{\sf H}$\/} which we call the language of the \emph{home sort.}
 
 \begin{definition}\label{def_0}
-  Let ${\EuScript L}$ be a two sorted language that expands both ${\EuScript L}_{\sf H}$ and ${\EuScript L}_{\sf S}$.
+  Let \emph{${\EuScript L}$\/} be a two sorted language. 
+  The two sorts are denoted by \emph{${\sf H}$} and \emph{${\sf S}$.} 
+  The language ${\EuScript L}$ expands both ${\EuScript L}_{\sf H}$ and ${\EuScript L}_{\sf S}$.
+  It also has some symbols sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$.
+  An \emph{${\EuScript L}$-structure\/} is a structure of signature ${\EuScript L}$ that interprets these symbols in equicontinuous functions (definition below).
 
-  A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,S\rangle$, where $M$ is any ${\EuScript L}_{\sf H}$-structure.
-  We write \emph{${\sf H}$} and \emph{${\sf S}$\/} to denote the two sorts of ${\EuScript L}$.
-  We further require that ${\EuScript L}$-structures satisfy the following requirements.
+  A \emph{standard structure\/} is a two-sorted ${\EuScript L}$-structure of the form $\langle M,S\rangle$, where $M$ is any structure of signature ${\EuScript L}_{\sf H}$ and $S$ is fixed.
   
-  The language ${\EuScript L}$ has a relation symbol $r_{\varphi}(x)$ for every $\varphi(x)\in {\EuScript L}_{\sf H}$.
+  For convenience we require that ${\EuScript L}$ also has a  relation symbol $r_{\varphi}(x)$ for every $\varphi(x)\in {\EuScript L}_{\sf H}$.
   All ${\EuScript L}$-structures are assumed to model $r_{\varphi}(x)\leftrightarrow\varphi(x)$.
   In other words, the Morleyzation of ${\EuScript L}_{\sf H}$ is assumed in the definition of ${\EuScript L}$-structure.
-  
-  Finally and most relevantly, ${\EuScript L}$ contains symbols for functions of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$.
-  We require that their interpretation is equicontinuous (definition below).
 
   Standard structures are denoted by the domain of their home sort.
 \end{definition}
@@ -217,7 +217,7 @@ Let $f:A\times S^m\to S$, where $A$ is a pure set.
 Let $\varepsilon$ and $\delta$ range over the closed neighborhoods of the diagonal of $S\times S$, respectively over the open neighborhoods of the diagonal of $S^m\times S^m$.
 We say that $f$ is \emph{equicontinuous\/} if for every $\varepsilon$ there is a $\delta$ such that $\big\langle f(a,\alpha),f(a,\alpha')\big\rangle\in\varepsilon$ for every $a\in A$ and every $\langle\alpha,\alpha'\rangle\in\delta$.
 
-A \emph{modulus of equicontinuity\/} of an ${\EuScript L}$-structure is a function that maps $\varepsilon$ to some $\delta$ that satisfies the condition above.
+A \emph{modulus of equicontinuity\/} for $f$ is a function that maps $\varepsilon$ to some $\delta$ that satisfies the condition above.
 
 Clearly, saturated ${\EuScript L}$-structures exist but, except for trivial cases (when $S$ is finite), these are not standard.
 As a remedy, below we carve out a set of formulas ${\EuScript F}^{\rm p}$, the set of positive formulas, such that every model has a positive elementary saturated extension that is also standard.
@@ -226,7 +226,7 @@ As usual, ${\EuScript L}_{\sf S}$, ${\EuScript L}_{\sf H}$, and ${\EuScript L}$ 
 We write ${\EuScript L}_x$ when we restrict variables to $x$.
 % If $\varphi(x)\in{\EuScript L}$ contains only terms of sort ${\sf H}^n\to{\sf H}$ and relations of sort ${\sf H}^n$ we will improperly say that $\varphi(x)\in {\EuScript L}_{\sf H}$ (this is only correct up to equivalence).
 % The symbols ${\EuScript F}^{\rm p}$ and ${\EuScript F}^{\rm p}_{{\sf S}{\rm qf}}$ defined below denote only sets of ${\EuScript L}$-formulas.
-Up to equivalence we may assume that ${\EuScript L}$ has three types of atomic formulas
+Up to equivalence we may assume that ${\EuScript L}$ has two types of atomic formulas
 
 \begin{itemize}
   \item[1.] $r_\varphi(x)$ for some $\varphi(x)\in{\EuScript L}_{\sf H}$;
@@ -256,7 +256,8 @@ Up to equivalence we may assume that ${\EuScript L}$ has three types of atomic f
 The positive formulas of Henson and Iovino correspond to those formulas in ${\EuScript F}^{\rm c}$ that do not have quantifiers of sort ${\sf S}$, nor functions symbols of sort ${\sf H}^n\times{\sf S}^m\to {\sf S}$ with $nm>0$.
 
 Allowing quantifiers of sort ${\sf S}$ comes almost for free.
-In Section~\ref{cIelimination} will see that the formulas in ${\EuScript F}^{\rm p/c}$ are approximated by formulas in ${\EuScript F}^{\rm p/c}$ without quantifiers of sort ${\sf S}$.
+In Section~\ref{cIelimination} we will see that the formulas in ${\EuScript F}^{\rm p/c}$ are approximated by formulas in ${\EuScript F}^{\rm p/c}$ without quantifiers of sort ${\sf S}$.
+
 Instead, choosing ${\EuScript F}^{\rm p}$ over ${\EuScript F}^{\rm c}$ comes at a price.
 However ${\EuScript F}^{\rm p}$ simplifies the comparision with classical model theory.
 
